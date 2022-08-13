@@ -51,7 +51,7 @@
                     class="nav navbar-nav d-none d-sm-flex flex justify-content-start ml-8pt"
             >
                 <li class="nav-item active">
-                    <a href="fixed-index.html" class="nav-link">Home</a>
+                    <a href="/" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a
@@ -154,17 +154,18 @@
             <ul class="nav navbar-nav ml-auto mr-0">
                 <li class="nav-item active">
                     <a
-                            href="fixed-login.html"
+                            href="${pageContext.request.contextPath}/login"
                             class="nav-link"
                             data-toggle="tooltip"
                             data-title="Login"
                             data-placement="bottom"
                             data-boundary="window"
-                    ><i class="material-icons mr-4pt">lock_open</i>Sign In</a
                     >
+                        <i class="material-icons mr-4pt">input</i>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="fixed-signup.html" class="btn btn-outline-white"
+                    <a href="${pageContext.request.contextPath}/register" class="btn btn-outline-white"
                     >SIGN UP</a
                     >
                 </li>

@@ -62,7 +62,7 @@
 </div>
 
 <div class="layout-login-image__form bg-white" data-perfect-scrollbar>
-    <div class="position-fixed top-0 right-0 float-right mt-5 mr-5 navbar-light">
+    <div class="position-fixed top-0 right-0 mt-5 mr-5 navbar-light">
         <a href="fixed-index.html" class="navbar-brand flex-column mb-2 align-items-center mr-0" style="min-width: 0; color: white">
 
                 <span class="avatar avatar-sm navbar-brand-icon mr-0">
