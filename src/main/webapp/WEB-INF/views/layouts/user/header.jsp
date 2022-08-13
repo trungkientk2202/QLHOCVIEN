@@ -154,7 +154,7 @@
             <ul class="nav navbar-nav ml-auto mr-0">
                 <li class="nav-item active">
                     <a
-                            href="${pageContext.request.contextPath}/login"
+                            href="/login"
                             class="nav-link"
                             data-toggle="tooltip"
                             data-title="Login"
@@ -165,7 +165,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="${pageContext.request.contextPath}/register" class="btn btn-outline-white"
+                    <a href="/register" class="btn btn-outline-white"
                     >SIGN UP</a
                     >
                 </li>
