@@ -4,55 +4,53 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springmvc.entity.DongHocPhi;
+import org.springmvc.entity.HocVien;
 import org.springmvc.entity.TaiKhoan;
 import org.springmvc.webconfig.HibernateConfig;
 
 import java.util.List;
 
-public class TaiKhoanDao {
+public class DongHocPhiDao {
     private static final SessionFactory factory= HibernateConfig.getSessionFactory();
 
-    public List<?> getListTK() {
+    public List<?> getListDHP() {
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM TaiKhoan ").list();
+            return session.createQuery("FROM DongHocPhi").list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;
         }
     }
-    public TaiKhoan login(String name, String password){
-        try (Session session = factory.openSession()) {
-            List<TaiKhoan> list=session.createQuery("FROM TaiKhoan where tenTK='"+name+"' and matKhau='"+password+"'").list();
-            if(list.size()==0){
-                return null;
-            }
-            TaiKhoan taiKhoan = new TaiKhoan();
-            taiKhoan =list.get(0);
-            return taiKhoan;
-        }catch (HibernateException e){
-            e.printStackTrace();
-            return null;
-        }
-    }
 
-    public TaiKhoan getTK(String tenTK) {
+    public List<?> getListDHPByHV(HocVien hocVien) {
         try{
             Session session = factory.openSession();
-            String hql = "FROM TaiKhoan tk where tk.tenTK = '"+tenTK+"'";
-            List<TaiKhoan> listTK= session.createQuery(hql).list();
-            TaiKhoan taiKhoan=listTK.get(0);
-            return taiKhoan;
+            String hql = "FROM DongHocPhi hp where hp.hocVien="+hocVien;
+            List<DongHocPhi> listDHP= session.createQuery(hql).list();
+            return listDHP;
         }catch (HibernateException e){
             e.printStackTrace();
             return null;
         }
     }
-    public Integer insertTK(TaiKhoan taiKhoan) {
+    public long getTongDHPByHV(HocVien hocVien){
+        try{
+            Session session = factory.openSession();
+            String hql = "SELECT sum(hp.soTienDong) FROM DongHocPhi hp where hp.hocVien="+hocVien;
+            Long sum= (Long) session.createQuery(hql).uniqueResult();
+            return sum;
+        }catch (HibernateException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    public Integer insertHP(DongHocPhi dongHocPhi) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.save(taiKhoan);
+            session.save(dongHocPhi);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -62,12 +60,12 @@ public class TaiKhoanDao {
         }
         return 1;
     }
-    public Integer updateTK(TaiKhoan taiKhoan) {
+    public Integer updateHP(DongHocPhi dongHocPhi) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(taiKhoan);
+            session.update(dongHocPhi);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -77,12 +75,12 @@ public class TaiKhoanDao {
         }
         return 1;
     }
-    public Integer deleteTK(TaiKhoan taiKhoan) {
+    public Integer deleteHP(DongHocPhi dongHocPhi) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(taiKhoan);
+            session.delete(dongHocPhi);
             t.commit();
         } catch (Exception e) {
             t.rollback();

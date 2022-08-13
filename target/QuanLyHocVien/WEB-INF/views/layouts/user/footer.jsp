@@ -23,7 +23,7 @@
             <a href="" class="text-70 text-underline small">Privacy policy</a>
         </p>
         <p class="text-50 small mt-n1 mb-0">
-            Copyright 2019 &copy; All rights reserved.
+            Copyright 2022 &copy; All rights reserved.
         </p>
     </div>
 </div>

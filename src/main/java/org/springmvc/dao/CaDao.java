@@ -4,55 +4,30 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springmvc.entity.TaiKhoan;
+import org.springmvc.entity.Ca;
+import org.springmvc.entity.LoaiTaiKhoan;
 import org.springmvc.webconfig.HibernateConfig;
 
 import java.util.List;
 
-public class TaiKhoanDao {
+public class CaDao {
     private static final SessionFactory factory= HibernateConfig.getSessionFactory();
 
-    public List<?> getListTK() {
+    public List<?> getListCa() {
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM TaiKhoan ").list();
+            return session.createQuery("FROM Ca ").list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;
         }
     }
-    public TaiKhoan login(String name, String password){
-        try (Session session = factory.openSession()) {
-            List<TaiKhoan> list=session.createQuery("FROM TaiKhoan where tenTK='"+name+"' and matKhau='"+password+"'").list();
-            if(list.size()==0){
-                return null;
-            }
-            TaiKhoan taiKhoan = new TaiKhoan();
-            taiKhoan =list.get(0);
-            return taiKhoan;
-        }catch (HibernateException e){
-            e.printStackTrace();
-            return null;
-        }
-    }
 
-    public TaiKhoan getTK(String tenTK) {
-        try{
-            Session session = factory.openSession();
-            String hql = "FROM TaiKhoan tk where tk.tenTK = '"+tenTK+"'";
-            List<TaiKhoan> listTK= session.createQuery(hql).list();
-            TaiKhoan taiKhoan=listTK.get(0);
-            return taiKhoan;
-        }catch (HibernateException e){
-            e.printStackTrace();
-            return null;
-        }
-    }
-    public Integer insertTK(TaiKhoan taiKhoan) {
+    public Integer insertCa(Ca ca) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.save(taiKhoan);
+            session.save(ca);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -62,12 +37,12 @@ public class TaiKhoanDao {
         }
         return 1;
     }
-    public Integer updateTK(TaiKhoan taiKhoan) {
+    public Integer updateCa(Ca ca) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(taiKhoan);
+            session.update(ca);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -77,12 +52,12 @@ public class TaiKhoanDao {
         }
         return 1;
     }
-    public Integer deleteTK(TaiKhoan taiKhoan) {
+    public Integer deleteCa(Ca ca) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(taiKhoan);
+            session.delete(ca);
             t.commit();
         } catch (Exception e) {
             t.rollback();

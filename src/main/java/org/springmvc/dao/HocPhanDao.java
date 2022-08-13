@@ -4,8 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springmvc.entity.HocPhan;
-import org.springmvc.entity.LoaiTaiKhoan;
+import org.springmvc.entity.*;
 import org.springmvc.webconfig.HibernateConfig;
 
 import java.util.List;
@@ -21,25 +20,42 @@ public class HocPhanDao {
             return null;
         }
     }
+    public List<?> getListHPByGV(GiangVien giangVien) {
+        try (Session session = factory.openSession()) {
+            return session.createQuery("FROM HocPhan hp where hp.giangVien= "+giangVien).list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
-    public HocPhan getHP(int maHP) {
+    public List<?> getListHPByMH(MonHoc monHoc) {
+        try (Session session = factory.openSession()) {
+            return session.createQuery("FROM HocPhan hp where hp.monHoc= "+monHoc).list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public DangKyHP getDKHP(int maDKHP) {
         try{
             Session session = factory.openSession();
-            String hql = "FROM HocPhan hp where hp.maHP = "+maHP;
-            List<HocPhan> listHP= session.createQuery(hql).list();
-            HocPhan hocPhan=listHP.get(0);
-            return hocPhan;
+            String hql = "FROM DangKyHP dk where dk.id = "+maDKHP;
+            List<DangKyHP> listDKHP= session.createQuery(hql).list();
+            DangKyHP dangKyHP=listDKHP.get(0);
+            return dangKyHP;
         }catch (HibernateException e){
             e.printStackTrace();
             return null;
         }
     }
-    public Integer insertLoaiTK(HocPhan hocPhan) {
+    public Integer insertDKHP(DangKyHP dangKyHP) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.save(hocPhan);
+            session.save(dangKyHP);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -49,12 +65,12 @@ public class HocPhanDao {
         }
         return 1;
     }
-    public Integer updateLoaiTK(HocPhan hocPhan) {
+    public Integer updateDKHP(DangKyHP dangKyHP) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(hocPhan);
+            session.update(dangKyHP);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -64,12 +80,12 @@ public class HocPhanDao {
         }
         return 1;
     }
-    public Integer deleteLoaiTK(HocPhan hocPhan) {
+    public Integer deleteDKHP(DangKyHP dangKyHP) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(hocPhan);
+            session.delete(dangKyHP);
             t.commit();
         } catch (Exception e) {
             t.rollback();
