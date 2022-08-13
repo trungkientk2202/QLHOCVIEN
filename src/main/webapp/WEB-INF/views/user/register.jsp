@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html lang="en" dir="ltr">
@@ -66,9 +66,9 @@
     <div class="fullbleed bg-white" style="opacity: .2"></div>
 </div>
 
-<form class="d-flex h-100">
+<form action="/register" method="post" class="d-flex h-100">
     <div class="position-fixed top-0 right-0 mt-5 mr-5 navbar-light">
-        <a href="${pageContext.request.contextPath}/" class="navbar-brand flex-column mb-2 align-items-center mr-0"
+        <a href="/" class="navbar-brand flex-column mb-2 align-items-center mr-0"
            style="min-width: 0;">
 
                 <span class="avatar avatar-sm navbar-brand-icon mr-0">
@@ -91,9 +91,9 @@
 
             <div>
                 <div class="form-group">
-                    <label class="text-label" for="email_2">Email Address:</label>
+                    <label class="text-label" for="user_2">UserName:</label>
                     <div class="input-group input-group-merge">
-                        <input id="email_2" type="email" required="" class="form-control form-control-prepended"
+                        <input id="user_2" type="text" name="userName" required="" class="form-control form-control-prepended"
                                placeholder="john@doe.com">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -105,7 +105,7 @@
                 <div class="form-group">
                     <label class="text-label" for="password_2">Password:</label>
                     <div class="input-group input-group-merge">
-                        <input id="password_2" type="password" required="" class="form-control form-control-prepended"
+                        <input id="password_2" type="password" name="password" required="" class="form-control form-control-prepended"
                                placeholder="Enter your password">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -117,6 +117,7 @@
 
                 <div class="form-group text-center">
                     <button class="btn btn-primary mb-2" id="btn-continue">Continue</button>
+                    <div><span style="color: red;font-size: 16px">${message}</span></div>
                     <br>
                     <a class="text-body text-underline" href="/login">Have an account? Login</a>
                 </div>
@@ -132,7 +133,7 @@
                 <div class="form-group">
                     <label class="text-label" for="name_3">Name:</label>
                     <div class="input-group input-group-merge">
-                        <input id="name_3" type="text" required="" class="form-control form-control-prepended"
+                        <input id="name_3" type="text" name="name" required="" class="form-control form-control-prepended"
                                placeholder="John Doe">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -146,10 +147,10 @@
                     <div role="group" aria-labelledby="label-type">
                         <div role="group" class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-outline-secondary">
-                                <input type="radio" id="male" name="sex" value="male" aria-checked="true"/>Male
+                                <input type="radio" id="male" name="sex" value="true" aria-checked="true"/>Male
                             </label>
                             <label class="btn btn-outline-secondary">
-                                <input type="radio" id="female" name="sex" value="female" aria-checked="true"/>Female
+                                <input type="radio" id="female" name="sex" value="false" aria-checked="true"/>Female
                             </label>
                         </div>
                     </div>
@@ -157,7 +158,7 @@
                 <div class="form-group">
                     <label class="text-label" for="date1">Date:</label>
                     <div class="input-group input-group-merge">
-                        <input id="date1" type="text" required="" class="form-control" placeholder="Date example"
+                        <input id="date1" type="text" required="" name="date" class="form-control" placeholder="Date example"
                                data-toggle="daterangepicker" data-daterangepicker-drops="down"
                                data-daterangepicker-start-date="2018/11/06"
                                data-daterangepicker-single-date-picker="true">
@@ -171,7 +172,7 @@
                 <div class="form-group">
                     <label class="text-label" for="maskSample02">Phone:</label>
                     <div class="input-group input-group-merge">
-                        <input id="maskSample02" type="text" class="form-control" placeholder="(000) 000-0000)"
+                        <input id="maskSample02" type="text" name="phone" class="form-control" placeholder="(000) 000-0000)"
                                data-mask="(000) 000-0000">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -183,7 +184,7 @@
                 <div class="form-group">
                     <label class="text-label" for="maskSample03">Address:</label>
                     <div class="input-group input-group-merge">
-                        <input id="maskSample03" type="text" class="form-control" placeholder="Your address...">
+                        <input id="maskSample03" type="text" name="address" class="form-control" placeholder="Your address...">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <span class="far fa-address-book"></span>
@@ -236,7 +237,8 @@
     var form1 = document.getElementById("form-1")
     var form2 = document.getElementById("form-2")
 
-    document.getElementById("btn-continue").addEventListener("click", () => {
+    document.getElementById("btn-continue").addEventListener("click", (e) => {
+        e.preventDefault();
         form1.style.transform = "translateX(100%)";
         form2.style.width = "auto";
     })

@@ -7,31 +7,31 @@ import java.io.Serializable;
 @Embeddable
 public class DangKyHPID implements Serializable {
     @Column(name = "MAHV")
-    private String maHV;
+    private int maHV;
     @Column(name = "MAHP")
-    private String maHP;
+    private int maHP;
 
     public DangKyHPID() {
     }
 
-    public DangKyHPID(String maHV, String maHP) {
+    public DangKyHPID(int maHV, int maHP) {
         this.maHV = maHV;
         this.maHP = maHP;
     }
 
-    public String getMaHV() {
+    public int getMaHV() {
         return maHV;
     }
 
-    public void setMaHV(String maHV) {
+    public void setMaHV(int maHV) {
         this.maHV = maHV;
     }
 
-    public String getMaHP() {
+    public int getMaHP() {
         return maHP;
     }
 
-    public void setMaHP(String maHP) {
+    public void setMaHP(int maHP) {
         this.maHP = maHP;
     }
 }

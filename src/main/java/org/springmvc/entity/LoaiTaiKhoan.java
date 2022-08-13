@@ -1,32 +1,30 @@
 package org.springmvc.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "LOAITAIKHOAN")
 public class LoaiTaiKhoan {
     @Id
+    @GeneratedValue
     @Column(name="MALOAITK")
-    private String maLoaiTK;
+    private int maLoaiTK;
     @Column(name = "TENLOAITK")
     private String tenLoaiTk;
 
     public LoaiTaiKhoan() {
     }
 
-    public LoaiTaiKhoan(String maLoaiTK, String tenLoaiTk) {
+    public LoaiTaiKhoan(int maLoaiTK, String tenLoaiTk) {
         this.maLoaiTK = maLoaiTK;
         this.tenLoaiTk = tenLoaiTk;
     }
 
-    public String getMaLoaiTK() {
+    public int getMaLoaiTK() {
         return maLoaiTK;
     }
 
-    public void setMaLoaiTK(String maLoaiTK) {
+    public void setMaLoaiTK(int maLoaiTK) {
         this.maLoaiTK = maLoaiTK;
     }
 

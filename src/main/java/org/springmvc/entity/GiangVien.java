@@ -10,8 +10,9 @@ import java.util.Date;
 @Table(name = "GIANGVIEN")
 public class GiangVien {
     @Id
+    @GeneratedValue
     @Column(name = "MAGV")
-    private String maGV;
+    private int maGV;
     @Column(name = "HOTEN")
     private String hoTen;
     @Column(name = "SDT")
@@ -35,7 +36,7 @@ public class GiangVien {
     public GiangVien() {
     }
 
-    public GiangVien(String maGV, String hoTen, String sdt, String hocVi, String chuyenMon, TaiKhoan taiKhoan, Date ngaySinh, String moTa, Collection<HocPhan> hocPhans) {
+    public GiangVien(int maGV, String hoTen, String sdt, String hocVi, String chuyenMon, TaiKhoan taiKhoan, Date ngaySinh, String moTa, Collection<HocPhan> hocPhans) {
         this.maGV = maGV;
         this.hoTen = hoTen;
         this.sdt = sdt;
@@ -47,11 +48,11 @@ public class GiangVien {
         this.hocPhans = hocPhans;
     }
 
-    public String getMaGV() {
+    public int getMaGV() {
         return maGV;
     }
 
-    public void setMaGV(String maGV) {
+    public void setMaGV(int maGV) {
         this.maGV = maGV;
     }
 

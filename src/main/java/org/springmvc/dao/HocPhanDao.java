@@ -37,25 +37,24 @@ public class HocPhanDao {
             return null;
         }
     }
-
-    public DangKyHP getDKHP(int maDKHP) {
+    public HocPhan getHP(int maHP) {
         try{
             Session session = factory.openSession();
-            String hql = "FROM DangKyHP dk where dk.id = "+maDKHP;
-            List<DangKyHP> listDKHP= session.createQuery(hql).list();
-            DangKyHP dangKyHP=listDKHP.get(0);
-            return dangKyHP;
+            String hql = "FROM HocPhan hp where hp.maHP = "+maHP;
+            List<HocPhan> listHP= session.createQuery(hql).list();
+            HocPhan hocPhan=listHP.get(0);
+            return hocPhan;
         }catch (HibernateException e){
             e.printStackTrace();
             return null;
         }
     }
-    public Integer insertDKHP(DangKyHP dangKyHP) {
+    public Integer insertHP(HocPhan hocPhan) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.save(dangKyHP);
+            session.save(hocPhan);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -65,12 +64,12 @@ public class HocPhanDao {
         }
         return 1;
     }
-    public Integer updateDKHP(DangKyHP dangKyHP) {
+    public Integer updateHP(HocPhan hocPhan) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(dangKyHP);
+            session.update(hocPhan);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -80,12 +79,12 @@ public class HocPhanDao {
         }
         return 1;
     }
-    public Integer deleteDKHP(DangKyHP dangKyHP) {
+    public Integer deleteHP(HocPhan hocPhan) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(dangKyHP);
+            session.delete(hocPhan);
             t.commit();
         } catch (Exception e) {
             t.rollback();

@@ -7,8 +7,9 @@ import java.util.Collection;
 @Table(name = "CA")
 public class Ca {
    @Id
+   @GeneratedValue
    @Column(name = "MACA")
-   private String maCa;
+   private int maCa;
    @Column(name = "GIOBD")
    private String gioBD;
    @Column(name = "GIOKT")
@@ -18,18 +19,18 @@ public class Ca {
    public Ca() {
    }
 
-   public Ca(String maCa, String gioBD, String gioKT, Collection<HocPhan> hocPhans) {
+   public Ca(int maCa, String gioBD, String gioKT, Collection<HocPhan> hocPhans) {
       this.maCa = maCa;
       this.gioBD = gioBD;
       this.gioKT = gioKT;
       this.hocPhans = hocPhans;
    }
 
-   public String getMaCa() {
+   public int getMaCa() {
       return maCa;
    }
 
-   public void setMaCa(String maCa) {
+   public void setMaCa(int maCa) {
       this.maCa = maCa;
    }
 

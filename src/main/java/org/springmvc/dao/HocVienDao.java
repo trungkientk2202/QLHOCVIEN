@@ -25,7 +25,7 @@ public class HocVienDao {
     public HocVien getHV(int id) {
         try{
             Session session = factory.openSession();
-            String hql = "FROM HocVien hv where hv.id = "+id;
+            String hql = "FROM HocVien hv where hv.maHV = "+id;
             List<HocVien> listHV= session.createQuery(hql).list();
             HocVien hocVien=listHV.get(0);
             return hocVien;

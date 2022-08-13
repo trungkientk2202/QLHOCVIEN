@@ -26,7 +26,7 @@ public class GiangVienDao {
     public GiangVien getHV(int id) {
         try{
             Session session = factory.openSession();
-            String hql = "FROM GiangVien gv where gv.id = "+id;
+            String hql = "FROM GiangVien gv where gv.maGV = "+id;
             List<GiangVien> listHV= session.createQuery(hql).list();
             GiangVien giangVien=listHV.get(0);
             return giangVien;

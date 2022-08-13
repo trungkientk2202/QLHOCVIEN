@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springmvc.dao.HocVienDao;
 import org.springmvc.dao.LoaiTaiKhoanDao;
 import org.springmvc.dao.TaiKhoanDao;
+import org.springmvc.entity.HocVien;
 import org.springmvc.entity.LoaiTaiKhoan;
 import org.springmvc.entity.TaiKhoan;
+
+import java.util.Date;
 
 @Controller
 public class UserController {
@@ -40,12 +43,26 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@RequestParam("userName") String name,@RequestParam("account") String acc,@RequestParam("password") String pass,ModelMap modelMap) {
-        TaiKhoan taiKhoan = new TaiKhoan(acc, pass, loaiTaiKhoanDao.getLoaiTk(1));
+    public String register(@RequestParam("userName") String username,@RequestParam("name") String name,@RequestParam("password") String pass,ModelMap modelMap,
+                @RequestParam("sex") Boolean sex,@RequestParam("date") Date date,
+               @RequestParam("phone") String phone,@RequestParam("address") String address) {
+        TaiKhoan taiKhoan = new TaiKhoan(username, pass, loaiTaiKhoanDao.getLoaiTk(1));
         if(taiKhoanDao.insertTK(taiKhoan)==1){
-            return "user/login";
+            HocVien hocVien=new HocVien();
+            hocVien.setHoTen(name);
+            hocVien.setSdt(phone);
+            hocVien.setDiaChi(address);
+            hocVien.setPhai(sex);
+            hocVien.setTaiKhoan(taiKhoan);
+            hocVien.setNgaySinh(date);
+            if(hocVienDao.insertHV(hocVien)==1){
+                return "user/login";
+            }else{
+                modelMap.addAttribute("message","Đăng ký học viên thất bại!");
+                return "user/register";
+            }
         }else{
-            modelMap.addAttribute("message","Đăng ký thất bại!");
+            modelMap.addAttribute("message","Đăng ký tài khoản thất bại!");
             return "user/register";
         }
 

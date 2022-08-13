@@ -10,8 +10,9 @@ import java.util.Date;
 @Table(name = "HOCVIEN")
 public class HocVien {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MAHV")
-    private String maHV;
+    private int maHV;
     @Column(name = "HOTEN")
     private String hoTen;
     @Column(name = "SDT")
@@ -39,7 +40,7 @@ public class HocVien {
     public HocVien() {
     }
 
-    public HocVien(String maHV, String hoTen, String sdt, String diaChi, Boolean phai, TaiKhoan taiKhoan, Date ngaySinh, String moTa, Collection<DongHocPhi> dongHocPhis, Collection<DangKyHP> dangKyHPS) {
+    public HocVien(int maHV, String hoTen, String sdt, String diaChi, Boolean phai, TaiKhoan taiKhoan, Date ngaySinh, String moTa, Collection<DongHocPhi> dongHocPhis, Collection<DangKyHP> dangKyHPS) {
         this.maHV = maHV;
         this.hoTen = hoTen;
         this.sdt = sdt;
@@ -52,11 +53,11 @@ public class HocVien {
         this.dangKyHPS = dangKyHPS;
     }
 
-    public String getMaHV() {
+    public int getMaHV() {
         return maHV;
     }
 
-    public void setMaHV(String maHV) {
+    public void setMaHV(int maHV) {
         this.maHV = maHV;
     }
 

@@ -7,8 +7,9 @@ import java.util.Collection;
 @Table(name = "MONHOC")
 public class MonHoc {
     @Id
+    @GeneratedValue
     @Column(name = "MAMH")
-    private String maMH;
+    private int maMH;
     @Column(name = "TENMH")
     private String tenMH;
     @Column(name = "SOTIET")
@@ -21,7 +22,7 @@ public class MonHoc {
     public MonHoc() {
     }
 
-    public MonHoc(String maMH, String tenMH, int soTiet, long hocPhi, Collection<HocPhan> hocPhans) {
+    public MonHoc(int maMH, String tenMH, int soTiet, long hocPhi, Collection<HocPhan> hocPhans) {
         this.maMH = maMH;
         this.tenMH = tenMH;
         this.soTiet = soTiet;
@@ -29,11 +30,11 @@ public class MonHoc {
         this.hocPhans = hocPhans;
     }
 
-    public String getMaMH() {
+    public int getMaMH() {
         return maMH;
     }
 
-    public void setMaMH(String maMH) {
+    public void setMaMH(int maMH) {
         this.maMH = maMH;
     }
 
