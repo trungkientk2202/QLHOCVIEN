@@ -4,7 +4,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springmvc.entity.LoaiTaiKhoan;
 import org.springmvc.entity.TaiKhoan;
 import org.springmvc.webconfig.HibernateConfig;
 
@@ -21,11 +20,25 @@ public class TaiKhoanDao {
             return null;
         }
     }
+    public TaiKhoan login(String name, String password){
+        try (Session session = factory.openSession()) {
+            List<TaiKhoan> list=session.createQuery("FROM TaiKhoan where tenTK='"+name+"' and matKhau='"+password+"'").list();
+            if(list.size()==0){
+                return null;
+            }
+            TaiKhoan taiKhoan = new TaiKhoan();
+            taiKhoan =list.get(0);
+            return taiKhoan;
+        }catch (HibernateException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public TaiKhoan getTK(String tenTK) {
         try{
             Session session = factory.openSession();
-            String hql = "FROM TaiKhoan tk where tk.tenTK = "+tenTK;
+            String hql = "FROM TaiKhoan tk where tk.tenTK = '"+tenTK+"'";
             List<TaiKhoan> listTK= session.createQuery(hql).list();
             TaiKhoan taiKhoan=listTK.get(0);
             return taiKhoan;
@@ -49,7 +62,7 @@ public class TaiKhoanDao {
         }
         return 1;
     }
-    public Integer updateLoaiTK(TaiKhoan taiKhoan) {
+    public Integer updateTK(TaiKhoan taiKhoan) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
@@ -64,7 +77,7 @@ public class TaiKhoanDao {
         }
         return 1;
     }
-    public Integer deleteLoaiTK(TaiKhoan taiKhoan) {
+    public Integer deleteTK(TaiKhoan taiKhoan) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 

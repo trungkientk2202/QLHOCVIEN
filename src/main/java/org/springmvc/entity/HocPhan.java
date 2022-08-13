@@ -1,5 +1,7 @@
 package org.springmvc.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
@@ -25,9 +27,11 @@ public class HocPhan {
     private MonHoc monHoc;
     @Column(name = "NGAYBD")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date ngayBD;
     @Column(name = "NGAYKT")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date ngayKT;
     @OneToMany(mappedBy = "hocPhan",fetch = FetchType.EAGER)
     public Collection<DangKyHP> dangKyHPS;

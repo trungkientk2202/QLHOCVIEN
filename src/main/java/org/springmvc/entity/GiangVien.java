@@ -1,5 +1,7 @@
 package org.springmvc.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
@@ -23,6 +25,7 @@ public class GiangVien {
     private TaiKhoan taiKhoan;
     @Column(name = "NGAYSINH")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date ngaySinh;
     @Column(name = "MOTA")
     private String moTa;

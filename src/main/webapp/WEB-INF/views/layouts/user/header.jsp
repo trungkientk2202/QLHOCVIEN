@@ -33,7 +33,7 @@
             </button>
 
             <!-- Navbar Brand -->
-            <a href="fixed-index.html" class="navbar-brand mr-16pt">
+            <a href="/" class="navbar-brand mr-16pt">
 
                     <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
                 <span class="avatar-title rounded bg-primary"
@@ -51,7 +51,7 @@
                     class="nav navbar-nav d-none d-sm-flex flex justify-content-start ml-8pt"
             >
                 <li class="nav-item active">
-                    <a href="fixed-index.html" class="nav-link">Home</a>
+                    <a href="/" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a
@@ -154,7 +154,7 @@
             <ul class="nav navbar-nav ml-auto mr-0">
                 <li class="nav-item active">
                     <a
-                            href="fixed-login.html"
+                            href="/login"
                             class="nav-link"
                             data-toggle="tooltip"
                             data-title="Login"
@@ -164,7 +164,7 @@
                     >
                 </li>
                 <li class="nav-item">
-                    <a href="fixed-signup.html" class="btn btn-outline-white"
+                    <a href="/register" class="btn btn-outline-white"
                     >SIGN UP</a
                     >
                 </li>

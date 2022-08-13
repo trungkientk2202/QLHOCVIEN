@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html lang="en" dir="ltr">
@@ -62,8 +62,8 @@
 </div>
 
 <div class="layout-login-image__form bg-white" data-perfect-scrollbar>
-    <div class="d-flex justify-content-center mt-2 mb-5 navbar-light">
-        <a href="fixed-index.html" class="navbar-brand flex-column mb-2 align-items-center mr-0" style="min-width: 0">
+    <div class="position-fixed top-0 right-0 float-right mt-5 mr-5 navbar-light">
+        <a href="/" class="navbar-brand flex-column mb-2 align-items-center mr-0" style="min-width: 0; color: white">
 
                 <span class="avatar avatar-sm navbar-brand-icon mr-0">
 
@@ -78,11 +78,11 @@
     <h4 class="m-0">Welcome back!</h4>
     <p class="mb-5">Login to access your Luma Account </p>
 
-    <form action="fixed-index.html" novalidate>
+    <form action="/login" method="post">
         <div class="form-group">
-            <label class="text-label" for="email_2">Email Address:</label>
+            <label class="text-label" for="email_2">Tài khoản:</label>
             <div class="input-group input-group-merge">
-                <input id="email_2" type="email" required="" class="form-control form-control-prepended" placeholder="john@doe.com">
+                <input id="email_2" name="userName" required="" class="form-control form-control-prepended" placeholder="Enter your account">
                 <div class="input-group-prepend">
                     <div class="input-group-text">
                         <span class="far fa-envelope"></span>
@@ -91,9 +91,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="text-label" for="password_2">Password:</label>
+            <label class="text-label" for="password_2">Mật khẩu:</label>
             <div class="input-group input-group-merge">
-                <input id="password_2" type="password" required="" class="form-control form-control-prepended" placeholder="Enter your password">
+                <input id="password_2" type="password" name="password" required="" class="form-control form-control-prepended" placeholder="Enter your password">
                 <div class="input-group-prepend">
                     <div class="input-group-text">
                         <span class="fa fa-key"></span>
@@ -109,6 +109,7 @@
         </div>
         <div class="form-group text-center">
             <button class="btn btn-primary mb-5" type="submit">Login</button><br>
+            <div><span style="color: red;font-size: 16px">${message}</span></div>
             <a href="">Forgot password?</a> <br>
             Don't have an account? <a class="text-body text-underline" href="/register">Sign up!</a>
         </div>
