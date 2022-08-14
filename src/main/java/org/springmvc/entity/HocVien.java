@@ -33,7 +33,7 @@ public class HocVien {
     @OneToMany(mappedBy = "hocVien",fetch = FetchType.LAZY)
     private Collection<DongHocPhi> dongHocPhis;
 
-    @OneToMany(mappedBy = "hocVien",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "hocVien",fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     private Collection<DangKyHP> dangKyHPS;
 
 

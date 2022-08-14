@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html lang="en" dir="ltr">
@@ -117,6 +117,7 @@
 
                 <div class="form-group text-center">
                     <button class="btn btn-primary mb-2" id="btn-continue">Continue</button>
+                    <div><span style="color: red;font-size: 16px">${message}</span></div>
                     <br>
                     <a class="text-body text-underline" href="/login">Have an account? Login</a>
                 </div>
@@ -199,7 +200,6 @@
                     </div>
                 </div>
                 <div class="form-group text-center">
-                    <div><span style="color: red;font-size: 16px">${message}</span></div>
                     <button class="btn btn-primary mb-2" type="submit">Create Account</button>
                 </div>
             </div>

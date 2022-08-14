@@ -473,7 +473,7 @@
                     <div class="page-separator__text">Learning Paths</div>
                 </div>
 
-                <div class="row card-group-row mb-lg-8pt">
+                <div class="mb-lg-8pt">
                     <div class="col-sm-4 card-group-row__col">
                         <div
                                 class="card js-overlay card-sm overlay--primary-dodger-blue stack stack--1 card-group-row__card"

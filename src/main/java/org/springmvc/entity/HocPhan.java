@@ -33,7 +33,7 @@ public class HocPhan {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date ngayKT;
-    @OneToMany(mappedBy = "hocPhan",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "hocPhan",fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     public Collection<DangKyHP> dangKyHPS;
     public HocPhan() {
     }

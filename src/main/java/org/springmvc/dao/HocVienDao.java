@@ -34,6 +34,18 @@ public class HocVienDao {
             return null;
         }
     }
+    public HocVien getHVByUserName(TaiKhoan taiKhoan) {
+        try{
+            Session session = factory.openSession();
+            String hql = "FROM HocVien hv where hv.taiKhoan.tenTK = '"+taiKhoan.getTenTK()+"'";
+            List<HocVien> listHV= session.createQuery(hql).list();
+            HocVien hocVien=listHV.get(0);
+            return hocVien;
+        }catch (HibernateException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
     public Integer insertHV(HocVien hocVien) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();

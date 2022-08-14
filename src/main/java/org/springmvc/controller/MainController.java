@@ -19,8 +19,5 @@ public class MainController {
         return "user/dashboard";
     }
 
-    @RequestMapping(value = "/courses", method = RequestMethod.GET)
-    public String courses(ModelMap modelMap) {
-        return "user/courses";
-    }
+
 }

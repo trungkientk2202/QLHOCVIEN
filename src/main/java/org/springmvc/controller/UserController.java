@@ -5,14 +5,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springmvc.dao.HocVienDao;
-import org.springmvc.dao.LoaiTaiKhoanDao;
-import org.springmvc.dao.TaiKhoanDao;
-import org.springmvc.entity.HocVien;
-import org.springmvc.entity.LoaiTaiKhoan;
-import org.springmvc.entity.TaiKhoan;
+import org.springmvc.dao.*;
+import org.springmvc.entity.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -20,6 +18,9 @@ public class UserController {
     private final LoaiTaiKhoanDao loaiTaiKhoanDao = new LoaiTaiKhoanDao();
     private final HocVienDao hocVienDao = new HocVienDao();
 
+    private final HocPhanDao hocPhanDao = new HocPhanDao();
+    private final DangKyHPDao dangKyHPDao= new DangKyHPDao();
+    private static HocVien hocVien=new HocVien();
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(ModelMap modelMap) {
         return "user/login";
@@ -28,11 +29,11 @@ public class UserController {
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(@RequestParam("userName") String name,@RequestParam("password") String pass,ModelMap modelMap){
         TaiKhoan taiKhoan=taiKhoanDao.login(name,pass);
-
         if(taiKhoan==null){
             modelMap.addAttribute("message","Sai thông tin đăng nhập!");
             return "user/login";
         }else{
+            hocVien=hocVienDao.getHVByUserName(taiKhoan);
             return "user/dashboard";
         }
     }
@@ -48,7 +49,7 @@ public class UserController {
                @RequestParam("phone") String phone,@RequestParam("address") String address) {
         TaiKhoan taiKhoan = new TaiKhoan(username, pass, loaiTaiKhoanDao.getLoaiTk(1));
         if(taiKhoanDao.insertTK(taiKhoan)==1){
-            HocVien hocVien=new HocVien();
+            hocVien =new HocVien();
             hocVien.setHoTen(name);
             hocVien.setSdt(phone);
             hocVien.setDiaChi(address);
@@ -65,6 +66,18 @@ public class UserController {
             modelMap.addAttribute("message","Đăng ký tài khoản thất bại!");
             return "user/register";
         }
+
+    }
+    @RequestMapping(value = "/courses", method = RequestMethod.GET)
+    public String courses(ModelMap modelMap) {
+        List<HocPhan> list= (List<HocPhan>) hocPhanDao.getListHP();
+        modelMap.addAttribute("list",list);
+        List<DangKyHP> listDK=new ArrayList<>();
+        if(hocVien!=null){
+            listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien);
+        }
+        modelMap.addAttribute("listDK",listDK);
+        return "user/courses";
 
     }
 }

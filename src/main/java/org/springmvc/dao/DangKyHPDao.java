@@ -22,7 +22,7 @@ public class DangKyHPDao {
     }
     public List<?> getListDKHPByHV(HocVien hocVien) {
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM DangKyHP dk where dk.hocVien= "+hocVien).list();
+            return session.createQuery("FROM DangKyHP dk where dk.hocVien.maHV= :maHV").setParameter("maHV",hocVien.getMaHV()).list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;

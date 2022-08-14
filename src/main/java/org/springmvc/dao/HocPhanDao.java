@@ -4,9 +4,12 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springmvc.entity.*;
 import org.springmvc.webconfig.HibernateConfig;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class HocPhanDao {
@@ -32,6 +35,14 @@ public class HocPhanDao {
     public List<?> getListHPByMH(MonHoc monHoc) {
         try (Session session = factory.openSession()) {
             return session.createQuery("FROM HocPhan hp where hp.monHoc= "+monHoc).list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public List<?> getListHPByDate(Date date) {
+        try (Session session = factory.openSession()) {
+            return session.createQuery("FROM HocPhan hp where hp.ngayBD <= "+date).list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;
