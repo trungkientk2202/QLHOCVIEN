@@ -80,4 +80,16 @@ public class UserController {
         return "user/courses";
 
     }
+    @RequestMapping(value = "/course-details", method = RequestMethod.GET)
+    public String courseDetails(ModelMap modelMap){
+        return "user/course-details";
+    }
+    @RequestMapping(value = "/course-register", method = RequestMethod.GET)
+    public String courseRegister(ModelMap modelMap){
+        return "user/course-register";
+    }
+    @RequestMapping(value = "/payment", method = RequestMethod.GET)
+    public String payment(ModelMap modelMap){
+        return "user/payment";
+    }
 }
