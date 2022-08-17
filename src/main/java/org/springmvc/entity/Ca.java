@@ -14,16 +14,13 @@ public class Ca {
    private String gioBD;
    @Column(name = "GIOKT")
    private String gioKT;
-   @OneToMany(mappedBy = "ca",fetch = FetchType.EAGER)
-   private Collection<HocPhan> hocPhans;
    public Ca() {
    }
 
-   public Ca(int maCa, String gioBD, String gioKT, Collection<HocPhan> hocPhans) {
+   public Ca(int maCa, String gioBD, String gioKT) {
       this.maCa = maCa;
       this.gioBD = gioBD;
       this.gioKT = gioKT;
-      this.hocPhans = hocPhans;
    }
 
    public int getMaCa() {
@@ -50,11 +47,4 @@ public class Ca {
       this.gioKT = gioKT;
    }
 
-   public Collection<HocPhan> getHocPhans() {
-      return hocPhans;
-   }
-
-   public void setHocPhans(Collection<HocPhan> hocPhans) {
-      this.hocPhans = hocPhans;
-   }
 }

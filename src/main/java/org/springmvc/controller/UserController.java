@@ -2,6 +2,8 @@ package org.springmvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +13,7 @@ import org.springmvc.entity.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -20,6 +23,9 @@ public class UserController {
 
     private final HocPhanDao hocPhanDao = new HocPhanDao();
     private final DangKyHPDao dangKyHPDao= new DangKyHPDao();
+    private final MonHocDao monHocDao= new MonHocDao();
+
+    private final CaDao caDao= new CaDao();
     private static HocVien hocVien=new HocVien();
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(ModelMap modelMap) {
@@ -49,15 +55,15 @@ public class UserController {
                @RequestParam("phone") String phone,@RequestParam("address") String address) {
         TaiKhoan taiKhoan = new TaiKhoan(username, pass, loaiTaiKhoanDao.getLoaiTk(1));
         if(taiKhoanDao.insertTK(taiKhoan)==1){
-            hocVien =new HocVien();
-            hocVien.setHoTen(name);
-            hocVien.setSdt(phone);
-            hocVien.setDiaChi(address);
-            hocVien.setPhai(sex);
-            hocVien.setTaiKhoan(taiKhoan);
-            hocVien.setNgaySinh(date);
-            if(hocVienDao.insertHV(hocVien)==1){
-                return "user/student/login";
+            HocVien hv =new HocVien();
+            hv.setHoTen(name);
+            hv.setSdt(phone);
+            hv.setDiaChi(address);
+            hv.setPhai(sex);
+            hv.setTaiKhoan(taiKhoan);
+            hv.setNgaySinh(date);
+            if(hocVienDao.insertHV(hv)==1){
+                return "user/login";
             }else{
                 modelMap.addAttribute("message","Đăng ký học viên thất bại!");
                 return "user/student/register";
@@ -80,13 +86,19 @@ public class UserController {
         return "user/student/courses";
 
     }
-    @RequestMapping(value = "/course-details", method = RequestMethod.GET)
-    public String courseDetails(ModelMap modelMap){
-        return "user/student/course-details";
+    @RequestMapping(value = "/course/{id}", method = RequestMethod.GET)
+    public String courseDetails(ModelMap modelMap, @PathVariable("id") int id){
+        HocPhan hocPhan=hocPhanDao.getHP(id);
+        modelMap.addAttribute("hocPhan",hocPhan);
+        return "user/course-details";
     }
-    @RequestMapping(value = "/course-register", method = RequestMethod.GET)
-    public String courseRegister(ModelMap modelMap){
-        return "user/student/course-register";
+    @RequestMapping(value = "/course/register/{id}", method = RequestMethod.GET)
+    public String courseRegister(ModelMap modelMap, @PathVariable("id") int id){
+        List<HocPhan>list= (List<HocPhan>) hocPhanDao.getListHPByMH(monHocDao.getMH(id));
+        modelMap.addAttribute("list",list);
+        List<Ca> listCa= (List<Ca>) caDao.getListCa();
+        modelMap.addAttribute("listCa",listCa);
+        return "user/course-register";
     }
     @RequestMapping(value = "/payment", method = RequestMethod.GET)
     public String payment(ModelMap modelMap){

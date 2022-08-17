@@ -69,8 +69,8 @@
                     <div class="container page__container">
                         <div class="d-flex flex-column flex-sm-row">
                             <div class="order-1 order-sm-0">
-                                <h1 class="text-white">Learn Angular</h1>
-                                <p class="lead text-white-50 measure-hero-lead mb-24pt">It’s not every day that one of the most important front-end libraries in web development gets a complete overhaul. Keep your skills relevant and up-to-date with this comprehensive introduction to Google’s popular community project.</p>
+                                <h1 class="text-white">${hocPhan.monHoc.tenMH}</h1>
+                                <p class="lead text-white-50 measure-hero-lead mb-24pt">${hocPhan.monHoc.moTa}</p>
                                 <a href="student-path-assessment.html" class="btn btn-outline-white">Get started</a>
                             </div>
                             <div class="ml-sm-auto order-sm-1">
@@ -103,9 +103,9 @@
                 <div class="row ">
                     <div class="col-md-7">
                         <div class="page-separator">
-                            <div class="page-separator__text">Introduction</div>
+                            <div class="page-separator__text">${hocPhan.giangVien.hoTen}</div>
                         </div>
-                        <p class="text-70">Learn one way to build applications with Angu*lar and reuse your code and ab*ilities to build apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>
+                        <p class="text-70">${hocPhan.giangVien.moTa}</p>
                     </div>
                     <div class="col-md-5">
                         <div class="page-separator">

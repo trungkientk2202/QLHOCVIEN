@@ -17,14 +17,13 @@ public class HocPhan {
     @JoinColumn(name = "maGV")
     private GiangVien giangVien;
     @ManyToOne
-    @JoinColumn(name = "maCa")
-    private Ca ca;
-    @ManyToOne
     @JoinColumn(name = "maPhong")
     private Phong phong;
     @ManyToOne
     @JoinColumn(name = "maMH")
     private MonHoc monHoc;
+    @Column
+    private int caHoc;
     @Column(name = "NGAYBD")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -38,12 +37,12 @@ public class HocPhan {
     public HocPhan() {
     }
 
-    public HocPhan(int maHP, GiangVien giangVien, Ca ca, Phong phong, MonHoc monHoc, Date ngayBD, Date ngayKT, Collection<DangKyHP> dangKyHPS) {
+    public HocPhan(int maHP, GiangVien giangVien, Phong phong, MonHoc monHoc, int caHoc, Date ngayBD, Date ngayKT, Collection<DangKyHP> dangKyHPS) {
         this.maHP = maHP;
         this.giangVien = giangVien;
-        this.ca = ca;
         this.phong = phong;
         this.monHoc = monHoc;
+        this.caHoc = caHoc;
         this.ngayBD = ngayBD;
         this.ngayKT = ngayKT;
         this.dangKyHPS = dangKyHPS;
@@ -65,14 +64,6 @@ public class HocPhan {
         this.giangVien = giangVien;
     }
 
-    public Ca getCa() {
-        return ca;
-    }
-
-    public void setCa(Ca ca) {
-        this.ca = ca;
-    }
-
     public Phong getPhong() {
         return phong;
     }
@@ -87,6 +78,14 @@ public class HocPhan {
 
     public void setMonHoc(MonHoc monHoc) {
         this.monHoc = monHoc;
+    }
+
+    public int getCaHoc() {
+        return caHoc;
+    }
+
+    public void setCaHoc(int caHoc) {
+        this.caHoc = caHoc;
     }
 
     public Date getNgayBD() {

@@ -202,7 +202,7 @@
                                         </div>
                                     </div>
                                     <div class="col text-right">
-                                        <a href="/courses/${dk.hocPhan.maHP}" class="btn btn-primary"
+                                        <a href="/course/${dk.hocPhan.maHP}" class="btn btn-primary"
                                         >Course Detail</a
                                         >
                                     </div>
@@ -379,7 +379,7 @@
                                         </div>
                                     </div>
                                     <div class="col text-right">
-                                        <a href="/courses/${course.maHP}" class="btn btn-primary"
+                                        <a href="/course/register/${course.maHP}" class="btn btn-primary"
                                         >Register the course</a
                                         >
                                     </div>

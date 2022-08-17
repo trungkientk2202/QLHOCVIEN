@@ -9,13 +9,13 @@
             com.microsoft.sqlserver.jdbc.SQLServerDriver
         </property>
         <property name="hibernate.connection.url">
-            jdbc:sqlserver://localhost\SQLEXPRESS;database=QLHOCVIEN;
+            jdbc:sqlserver://localhost:1433;database=QLHOCVIEN;
         </property>
         <property name="hibernate.connection.username">
             sa
         </property>
         <property name="hibernate.connection.password">
-            tuan0512@@
+            123
         </property>
 
         <!-- JDBC connection pool (use the built-in) -->
