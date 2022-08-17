@@ -23,7 +23,7 @@ public class UserController {
     private static HocVien hocVien=new HocVien();
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(ModelMap modelMap) {
-        return "user/login";
+        return "user/student/login";
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
@@ -31,16 +31,16 @@ public class UserController {
         TaiKhoan taiKhoan=taiKhoanDao.login(name,pass);
         if(taiKhoan==null){
             modelMap.addAttribute("message","Sai thông tin đăng nhập!");
-            return "user/login";
+            return "user/student/login";
         }else{
             hocVien=hocVienDao.getHVByUserName(taiKhoan);
-            return "user/dashboard";
+            return "user/student/dashboard";
         }
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String register(ModelMap modelMap) {
-        return "user/register";
+        return "user/student/register";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -57,14 +57,14 @@ public class UserController {
             hocVien.setTaiKhoan(taiKhoan);
             hocVien.setNgaySinh(date);
             if(hocVienDao.insertHV(hocVien)==1){
-                return "user/login";
+                return "user/student/login";
             }else{
                 modelMap.addAttribute("message","Đăng ký học viên thất bại!");
-                return "user/register";
+                return "user/student/register";
             }
         }else{
             modelMap.addAttribute("message","Đăng ký tài khoản thất bại!");
-            return "user/register";
+            return "user/student/register";
         }
 
     }
@@ -77,19 +77,33 @@ public class UserController {
             listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien);
         }
         modelMap.addAttribute("listDK",listDK);
-        return "user/courses";
+        return "user/student/courses";
 
     }
     @RequestMapping(value = "/course-details", method = RequestMethod.GET)
     public String courseDetails(ModelMap modelMap){
-        return "user/course-details";
+        return "user/student/course-details";
     }
     @RequestMapping(value = "/course-register", method = RequestMethod.GET)
     public String courseRegister(ModelMap modelMap){
-        return "user/course-register";
+        return "user/student/course-register";
     }
     @RequestMapping(value = "/payment", method = RequestMethod.GET)
     public String payment(ModelMap modelMap){
-        return "user/payment";
+        return "user/student/payment";
+    }
+
+    // instructor
+    @RequestMapping(value = "/instructor/dashboard", method = RequestMethod.GET)
+    public String dashboardInstructor(ModelMap modelMap){
+        return "user/instructor/dashboard";
+    }
+    @RequestMapping(value = "/instructor/courses", method = RequestMethod.GET)
+    public String coursesInstructor(ModelMap modelMap){
+        return "user/instructor/courses";
+    }
+    @RequestMapping(value = "/instructor/request-course", method = RequestMethod.GET)
+    public String requestCourseInstructor(ModelMap modelMap){
+        return "user/instructor/request-course";
     }
 }

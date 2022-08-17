@@ -51,7 +51,7 @@
 </head>
 
 <body class="layout-sticky-subnav layout-default">
-<%@include file="/WEB-INF/views/layouts/user/preloader.jsp" %>
+<%@include file="/WEB-INF/views/layouts/preloader.jsp" %>
 
 <!-- Header Layout -->
 <div class="mdk-header-layout js-mdk-header-layout">
