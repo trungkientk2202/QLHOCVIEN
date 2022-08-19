@@ -34,7 +34,7 @@ public class UserController {
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(@RequestParam("userName") String name,@RequestParam("password") String pass,ModelMap modelMap){
-        TaiKhoan taiKhoan=taiKhoanDao.login(name,pass);
+        TaiKhoan taiKhoan = taiKhoanDao.login(name,pass);
         if(taiKhoan==null){
             modelMap.addAttribute("message","Sai thông tin đăng nhập!");
             return "user/student/login";
