@@ -23,7 +23,7 @@ public class HocPhan {
     @JoinColumn(name = "maMH")
     private MonHoc monHoc;
     @Column
-    private int caHoc;
+    private String caHoc;
     @Column(name = "NGAYBD")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -32,12 +32,14 @@ public class HocPhan {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date ngayKT;
+    @Column(name = "TRANGTHAI")
+    private boolean trangThai;
     @OneToMany(mappedBy = "hocPhan",fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     public Collection<DangKyHP> dangKyHPS;
     public HocPhan() {
     }
 
-    public HocPhan(int maHP, GiangVien giangVien, Phong phong, MonHoc monHoc, int caHoc, Date ngayBD, Date ngayKT, Collection<DangKyHP> dangKyHPS) {
+    public HocPhan(int maHP, GiangVien giangVien, Phong phong, MonHoc monHoc, String caHoc, Date ngayBD, Date ngayKT, boolean trangThai, Collection<DangKyHP> dangKyHPS) {
         this.maHP = maHP;
         this.giangVien = giangVien;
         this.phong = phong;
@@ -45,6 +47,7 @@ public class HocPhan {
         this.caHoc = caHoc;
         this.ngayBD = ngayBD;
         this.ngayKT = ngayKT;
+        this.trangThai = trangThai;
         this.dangKyHPS = dangKyHPS;
     }
 
@@ -80,11 +83,11 @@ public class HocPhan {
         this.monHoc = monHoc;
     }
 
-    public int getCaHoc() {
+    public String getCaHoc() {
         return caHoc;
     }
 
-    public void setCaHoc(int caHoc) {
+    public void setCaHoc(String caHoc) {
         this.caHoc = caHoc;
     }
 
@@ -102,6 +105,14 @@ public class HocPhan {
 
     public void setNgayKT(Date ngayKT) {
         this.ngayKT = ngayKT;
+    }
+
+    public boolean isTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(boolean trangThai) {
+        this.trangThai = trangThai;
     }
 
     public Collection<DangKyHP> getDangKyHPS() {
