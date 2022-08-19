@@ -41,16 +41,13 @@
 <!-- Header Layout -->
 <div class="mdk-header-layout js-mdk-header-layout">
     <!-- Header -->
-    <%@include file="/WEB-INF/views/layouts/user/ui-header.jsp" %>
+    <%@include file="/WEB-INF/views/layouts/admin/header.jsp" %>
     <!-- // END Header -->
 
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
 
         <!-- Drawer Layout Content -->
-        <div class="mdk-drawer-layout__content page-content">
-
-
-
+        <div class="mdk-drawer-layout__content page-content mt-5">
             <div class="pt-32pt">
                 <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
                     <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
@@ -81,25 +78,6 @@
 
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="container page__container">
                 <div class="page-section">
@@ -417,7 +395,7 @@
                                         <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
                                             <div class="avatar avatar-sm mr-8pt">
 
-                                                <img src="assets/images/people/110/guy-1.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>" alt="Avatar" class="avatar-img rounded-circle">
 
 
                                             </div>
@@ -500,7 +478,7 @@
                                         <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
                                             <div class="avatar avatar-sm mr-8pt">
 
-                                                <img src="assets/images/people/110/guy-2.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                <img src="<c:url value="/resources/assets/images/people/110/guy-2.jpg"/>" alt="Avatar" class="avatar-img rounded-circle">
 
 
                                             </div>
@@ -578,7 +556,7 @@
                                         <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
                                             <div class="avatar avatar-sm mr-8pt">
 
-                                                <img src="assets/images/people/110/guy-3.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                <img src="<c:url value="/resources/assets/images/people/110/guy-3.jpg"/>" alt="Avatar" class="avatar-img rounded-circle">
 
 
                                             </div>
@@ -946,7 +924,7 @@
                                         <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
                                             <div class="avatar avatar-sm mr-8pt">
 
-                                                <img src="assets/images/people/110/guy-1.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>" alt="Avatar" class="avatar-img rounded-circle">
 
 
                                             </div>
@@ -1035,7 +1013,7 @@
                                         <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
                                             <div class="avatar avatar-sm mr-8pt">
 
-                                                <img src="assets/images/people/110/guy-2.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                <img src="<c:url value="/resources/assets/images/people/110/guy-2.jpg"/>" alt="Avatar" class="avatar-img rounded-circle">
 
 
                                             </div>
@@ -1121,39 +1099,18 @@
                             </ul>
 
                         </div>
-                        <!-- <div class="card-body text-right">
-15 <span class="text-50">of 1,430</span> <a href="#" class="text-50"><i class="material-icons ml-1">arrow_forward</i></a>
-</div> -->
-
 
                     </div>
 
                 </div>
             </div>
 
-
-
-
-            <div class="bg-white border-top-2">
-                <div class="container page__container page-section d-flex flex-column">
-                    <p class="text-70 brand mb-24pt">
-                        <img class="brand-icon" src="assets/images/logo/black-70@2x.png" width="30" alt="Luma"> Luma
-                    </p>
-                    <p class="measure-lead-max text-50 small mr-8pt">Luma is a beautifully crafted user interface for modern Education Platforms, including Courses & Tutorials, Video Lessons, Student and Teacher Dashboard, Curriculum Management, Earnings and Reporting, ERP, HR, CMS, Tasks, Projects, eCommerce and more.</p>
-                    <p class="mb-8pt d-flex">
-                        <a href="" class="text-70 text-underline mr-8pt small">Terms</a>
-                        <a href="" class="text-70 text-underline small">Privacy policy</a>
-                    </p>
-                    <p class="text-50 small mt-n1 mb-0">Copyright 2019 &copy; All rights reserved.</p>
-                </div>
-            </div>
-
-
+            <%@include file="/WEB-INF/views/layouts/admin/footer.jsp" %>
         </div>
         <!-- // END drawer-layout__content -->
 
         <!-- drawer -->
-        <%@include file="/WEB-INF/views/layouts/user/drawer.jsp" %>
+        <%@include file="/WEB-INF/views/layouts/admin/drawer.jsp" %>
         <!-- // END drawer -->
     </div>
 </div>
@@ -1181,7 +1138,6 @@
 <!-- App JS -->
 <script src="<c:url value="/resources/assets/js/app.js"/>"></script>
 
-
 <!-- Global Settings -->
 <script src="<c:url value="/resources/assets/js/settings.js"/>"></script>
 
@@ -1198,7 +1154,7 @@
 <script src="<c:url value="/resources/assets/js/chartjs.js"/>"></script>
 
 <!-- Chart.js Samples -->
-<script src="<c:url value="/resources/assets/js/page.crm-dashboard.js"/>"></script>
+<script src="<c:url value="/resources/assets/js/page.employees.js"/>"></script>
 
 <!-- List.js -->
 <script src="<c:url value="/resources/assets/vendor/list.min.js"/>"></script>
@@ -1208,5 +1164,13 @@
 <script src="<c:url value="/resources/assets/js/toggle-check-all.js"/>"></script>
 <script src="<c:url value="/resources/assets/js/check-selected-row.js"/>"></script>
 
+<!-- App Settings (safe to remove) -->
+<%-- <script src="<c:url value="/resources/assets/js/app-settings.js"/>"></script> --%>
+
+<script>
+    var drawer = document.querySelector(".mdk-drawer-layout");
+
+    drawer.style.overflow = "auto";
+</script>
 </body>
 </html>

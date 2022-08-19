@@ -17,9 +17,6 @@
     <!-- Perfect Scrollbar -->
     <link type="text/css" href="<c:url value="/resources/assets/vendor/perfect-scrollbar.css"/>" rel="stylesheet">
 
-    <!-- Fix Footer CSS -->
-    <link type="text/css" href="<c:url value="/resources/assets/vendor/fix-footer.css"/>" rel="stylesheet">
-
     <!-- Material Design Icons -->
     <link type="text/css" href="<c:url value="/resources/assets/css/material-icons.css"/>" rel="stylesheet">
 
@@ -41,13 +38,13 @@
 <!-- Header Layout -->
 <div class="mdk-header-layout js-mdk-header-layout">
     <!-- Header -->
-    <%@include file="/WEB-INF/views/layouts/user/ui-header.jsp" %>
+    <%@include file="/WEB-INF/views/layouts/admin/header.jsp" %>
     <!-- // END Header -->
 
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
 
         <!-- Drawer Layout Content -->
-        <div class="mdk-drawer-layout__content page-content">
+        <div class="mdk-drawer-layout__content page-content mt-5">
 
 
             <div class="pt-32pt">
@@ -762,69 +759,17 @@
                             </table>
                         </div>
 
-                        <div class="card-footer p-8pt">
-
-                            <ul class="pagination justify-content-start pagination-xsm m-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true" class="material-icons">chevron_left</span>
-                                        <span>Prev</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Page 1">
-                                        <span>1</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Page 2">
-                                        <span>2</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span>Next</span>
-                                        <span aria-hidden="true" class="material-icons">chevron_right</span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <!-- <div class="card-body bordet-top text-right">
-    15 <span class="text-50">of 1,430</span> <a href="#" class="text-50"><i class="material-icons ml-1">arrow_forward</i></a>
-    </div> -->
-
-
                     </div>
 
                 </div>
             </div>
 
-
-            <div class="bg-white border-top-2">
-                <div class="container page__container page-section d-flex flex-column">
-                    <p class="text-70 brand mb-24pt">
-                        <img class="brand-icon" src="<c:url value="/resources/assets/images/logo/black-70@2x.png"/>"
-                             width="30" alt="Luma"> Luma
-                    </p>
-                    <p class="measure-lead-max text-50 small mr-8pt">Luma is a beautifully crafted user interface for
-                        modern Education Platforms, including Courses & Tutorials, Video Lessons, Student and Teacher
-                        Dashboard, Curriculum Management, Earnings and Reporting, ERP, HR, CMS, Tasks, Projects,
-                        eCommerce and more.</p>
-                    <p class="mb-8pt d-flex">
-                        <a href="" class="text-70 text-underline mr-8pt small">Terms</a>
-                        <a href="" class="text-70 text-underline small">Privacy policy</a>
-                    </p>
-                    <p class="text-50 small mt-n1 mb-0">Copyright 2019 &copy; All rights reserved.</p>
-                </div>
-            </div>
-
-
+            <%@include file="/WEB-INF/views/layouts/admin/footer.jsp" %>
         </div>
         <!-- // END drawer-layout__content -->
 
         <!-- drawer -->
-        <%@include file="/WEB-INF/views/layouts/user/drawer.jsp" %>
+        <%@include file="/WEB-INF/views/layouts/admin/drawer.jsp" %>
         <!-- // END drawer -->
     </div>
 </div>
@@ -845,9 +790,6 @@
 
 <!-- MDK -->
 <script src="<c:url value="/resources/assets/vendor/material-design-kit.js"/>"></script>
-
-<!-- Fix Footer -->
-<script src="<c:url value="/resources/assets/vendor/fix-footer.js"/>"></script>
 
 <!-- App JS -->
 <script src="<c:url value="/resources/assets/js/app.js"/>"></script>
@@ -879,5 +821,10 @@
 <script src="<c:url value="/resources/assets/js/toggle-check-all.js"/>"></script>
 <script src="<c:url value="/resources/assets/js/check-selected-row.js"/>"></script>
 
+<script>
+    var drawer = document.querySelector(".mdk-drawer-layout");
+
+    drawer.style.overflow = "auto";
+</script>
 </body>
 </html>

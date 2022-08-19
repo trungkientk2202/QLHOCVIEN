@@ -47,9 +47,7 @@
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
 
         <!-- Drawer Layout Content -->
-        <div class="mdk-drawer-layout__content page-content">
-            <%@include file="/WEB-INF/views/layouts/admin/footer.jsp" %>
-        </div>
+        <div class="mdk-drawer-layout__content page-content"></div>
         <!-- // END drawer-layout__content -->
 
         <!-- drawer -->

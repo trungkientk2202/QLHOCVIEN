@@ -41,17 +41,19 @@
 <!-- Header Layout -->
 <div class="mdk-header-layout js-mdk-header-layout">
     <!-- Header -->
-    <%@include file="/WEB-INF/views/layouts/user/ui-header.jsp" %>
+    <%@include file="/WEB-INF/views/layouts/admin/header.jsp" %>
     <!-- // END Header -->
 
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
 
         <!-- Drawer Layout Content -->
-
+        <div class="mdk-drawer-layout__content page-content">
+            <%@include file="/WEB-INF/views/layouts/admin/footer.jsp" %>
+        </div>
         <!-- // END drawer-layout__content -->
 
         <!-- drawer -->
-        <%@include file="/WEB-INF/views/layouts/user/drawer.jsp" %>
+        <%@include file="/WEB-INF/views/layouts/admin/drawer.jsp" %>
         <!-- // END drawer -->
     </div>
 </div>
@@ -106,5 +108,11 @@
 <script src="<c:url value="/resources/assets/js/toggle-check-all.js"/>"></script>
 <script src="<c:url value="/resources/assets/js/check-selected-row.js"/>"></script>
 
+
+<script>
+    var drawer = document.querySelector(".mdk-drawer-layout");
+
+    drawer.style.overflow = "auto";
+</script>
 </body>
 </html>

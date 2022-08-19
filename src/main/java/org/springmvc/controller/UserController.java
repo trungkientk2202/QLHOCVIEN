@@ -106,4 +106,26 @@ public class UserController {
     public String requestCourseInstructor(ModelMap modelMap){
         return "user/instructor/request-course";
     }
+
+    // admin
+    @RequestMapping(value = "/admin/dashboard", method = RequestMethod.GET)
+    public String dashboardAdmin(ModelMap modelMap){
+        return "admin/dashboard";
+    }
+    @RequestMapping(value = "/admin/courses", method = RequestMethod.GET)
+    public String coursesAdmin(ModelMap modelMap){
+        return "admin/courses";
+    }
+    @RequestMapping(value = "/admin/instructors", method = RequestMethod.GET)
+    public String instructorsAdmin(ModelMap modelMap){
+        return "admin/instructors";
+    }
+    @RequestMapping(value = "/admin/students", method = RequestMethod.GET)
+    public String studentsAdmin(ModelMap modelMap){
+        return "admin/students";
+    }
+    @RequestMapping(value = "/admin/schedule", method = RequestMethod.GET)
+    public String scheduleAdmin(ModelMap modelMap){
+        return "admin/schedule";
+    }
 }
