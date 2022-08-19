@@ -165,8 +165,8 @@
                                     </td>
                                     <td>
                                         <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                            <small><strong class="js-lists-values-name text-black-100">Day</strong></small>
-                                            <small class="text-black-50">07:30 - 20:00</small>
+                                            <small><strong class="js-lists-values-name text-black-100">${Integer.valueOf(course.ca.)==2?(course.ca%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                            <small class="text-black-50">${course.ca/10==1?(listCa[course.ca%10].gioBD+':'+listCa[course.ca%10].gioKT):''}</small>
                                         </a>
                                     </td>
                                     <td>
