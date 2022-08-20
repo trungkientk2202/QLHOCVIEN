@@ -4,9 +4,9 @@
 <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
     <div class="mdk-drawer__content">
         <c:choose>
-            <c:when test="${sessionScope.account == null}">
+            <c:when test="${sessionScope.account.loaiTaiKhoan.maLoaiTK == 1}">
                 <div class="sidebar sidebar-dark-dodger-blue sidebar-left" data-perfect-scrollbar>
-                    <a href="fixed-index.html" class="sidebar-brand">
+                    <a href="/" class="sidebar-brand">
                 <span class="avatar avatar-xl sidebar-brand-icon h-auto">
                   <span class="avatar-title rounded bg-primary">
                       <img src="<c:url value="/resources/assets/images/illustration/student/128/white.svg"/>"
@@ -21,44 +21,64 @@
 
                     <div class="sidebar-heading">STUDENT</div>
                     <ul class="sidebar-menu">
-                        <li class="sidebar-menu-item">
+                        <li class="sidebar-menu-item ${pagina.endsWith('/dashboard') ? 'active open' : ''}">
+                            <a
+                                    class="sidebar-menu-button js-sidebar-collapse"
+                                    href="/dashboard"
+                            >
+                                <span
+                                        class="material-icons sidebar-menu-icon sidebar-menu-icon--left"
+                                >school</span
+                                >
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item ${pagina.endsWith('/dashboard') ? 'active open' : ''}">
                             <a
                                     class="sidebar-menu-button js-sidebar-collapse"
                                     data-toggle="collapse"
-                                    href="#student_menu"
+                                    href="#courses_menu"
                             >
                     <span
                             class="material-icons sidebar-menu-icon sidebar-menu-icon--left"
-                    >school</span
+                    >dns</span
                     >
-                                Student
+                                Courses
                                 <span class="ml-auto sidebar-menu-toggle-icon"></span>
                             </a>
                             <ul class="sidebar-submenu collapse sm-indent" id="student_menu">
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="fixed-index.html">
-                                        <span class="sidebar-menu-text">Home</span>
+                                    <a class="sidebar-menu-button" href="/courses">
+                                        <span class="sidebar-menu-text">Subscribe Course</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-menu-item">
                                     <a
                                             class="sidebar-menu-button"
-                                            href="fixed-student-take-course.html"
-                            >
-                                        <span class="sidebar-menu-text">Take Course</span>
-                                        <span
-                                                class="sidebar-menu-badge badge badge-accent badge-notifications ml-auto"
-                                        >PRO</span
-                                        >
+                                            href="/schedule"
+                                    >
+                                        <span class="sidebar-menu-text">Schedule</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
+                        <li class="sidebar-menu-item">
+                            <a
+                                    class="sidebar-menu-button js-sidebar-collapse"
+                                    data-toggle="collapse"
+                                    href="/payment"
+                            >
+                                    <span
+                                            class="material-icons sidebar-menu-icon sidebar-menu-icon--left"
+                                    >money</span
+                                    >
+                                Tuition Fees
+                            </a>
                         </li>
                     </ul>
                 </div>
             </c:when>
-            <c:otherwise>
+            <c:when test="${sessionScope.account.loaiTaiKhoan.maLoaiTK == 2}">
                 <div class="sidebar sidebar-dark-dodger-blue sidebar-left" data-perfect-scrollbar>
                     <a href="fixed-index.html" class="sidebar-brand">
                 <span class="avatar avatar-xl sidebar-brand-icon h-auto">
@@ -98,7 +118,7 @@
                         </li>
                     </ul>
                 </div>
-            </c:otherwise>
+            </c:when>
         </c:choose>
     </div>
 </div>

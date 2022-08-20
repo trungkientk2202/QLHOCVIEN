@@ -82,12 +82,12 @@
         <div class="form-group">
             <div class=" d-flex custom-controls-stacked" style="gap: 20px;">
                 <div class="custom-control custom-radio">
-                    <input id="radioStacked1" name="radio-stacked" type="radio" class="custom-control-input" checked>
+                    <input id="radioStacked1" name="user-type" type="radio" value="1" class="custom-control-input" checked>
                     <label for="radioStacked1" class="custom-control-label">Student</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input id="radioStacked2" name="radio-stacked" type="radio" class="custom-control-input">
-                    <label for="radioStacked2" class="custom-control-label">Teacher</label>
+                    <input id="radioStacked2" name="user-type" type="radio" value="2" class="custom-control-input">
+                    <label for="radioStacked2" class="custom-control-label">Instructor</label>
                 </div>
             </div>
         </div>

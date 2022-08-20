@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springmvc.entity.GiangVien;
 import org.springmvc.entity.HocVien;
+import org.springmvc.entity.TaiKhoan;
 import org.springmvc.webconfig.HibernateConfig;
 
 import java.util.List;
@@ -22,7 +23,17 @@ public class GiangVienDao {
             return null;
         }
     }
-
+    public GiangVien getGVByUserName(TaiKhoan taiKhoan) {
+        try{
+            Session session = factory.openSession();
+            String hql = "FROM GiangVien gv where gv.taiKhoan.tenTK = '"+taiKhoan.getTenTK()+"'";
+            List<GiangVien> listGV= session.createQuery(hql).list();
+            return listGV.get(0);
+        }catch (HibernateException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
     public GiangVien getHV(int id) {
         try{
             Session session = factory.openSession();

@@ -20,9 +20,9 @@ public class TaiKhoanDao {
             return null;
         }
     }
-    public TaiKhoan login(String name, String password){
+    public TaiKhoan login(String name, String password, String type){
         try (Session session = factory.openSession()) {
-            List<TaiKhoan> list=session.createQuery("FROM TaiKhoan where tenTK='"+name+"' and matKhau='"+password+"'").list();
+            List<TaiKhoan> list=session.createQuery("FROM TaiKhoan where tenTK='"+name+"' and matKhau='"+password+"' and loaiTaiKhoan="+type+"").list();
             if(list.size()==0){
                 return null;
             }

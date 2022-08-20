@@ -29,34 +29,39 @@
         <span class="d-none d-lg-block">Luma</span>
     </a>
 
-    <!--student-->
-    <span class="d-none d-md-flex align-items-center mr-16pt">
-            <span class="avatar avatar-sm mr-12pt">
-              <span class="avatar-title rounded navbar-avatar"
-              ><i class="material-icons">opacity</i></span
-              >
-            </span>
+    <c:choose>
+        <c:when test="${sessionScope.account.loaiTaiKhoan.maLoaiTK == 1}">
+            <span class="d-none d-md-flex align-items-center mr-16pt">
+                <span class="avatar avatar-sm mr-12pt">
+                  <span class="avatar-title rounded navbar-avatar"
+                  ><i class="material-icons">opacity</i></span
+                  >
+                </span>
 
-            <small class="flex d-flex flex-column">
-              <strong class="navbar-text-100">Experience IQ</strong>
-              <span class="navbar-text-50">2,300 points</span>
-            </small>
-          </span>
-    <!--instructor-->
-    <%--    <span class="d-none d-md-flex align-items-center mr-16pt">--%>
+                <small class="flex d-flex flex-column">
+                  <strong class="navbar-text-100">Experience IQ</strong>
+                  <span class="navbar-text-50">2,300 points</span>
+                </small>
+              </span>
+        </c:when>
 
-    <%--                    <span class="avatar avatar-sm mr-12pt">--%>
+        <c:when test="${sessionScope.account.loaiTaiKhoan.maLoaiTK == 2}">
+            <span class="d-none d-md-flex align-items-center mr-16pt">
 
-    <%--                        <span class="avatar-title rounded navbar-avatar"><i class="material-icons">trending_up</i></span>--%>
+                            <span class="avatar avatar-sm mr-12pt">
 
-    <%--                    </span>--%>
+                                <span class="avatar-title rounded navbar-avatar"><i
+                                        class="material-icons">trending_up</i></span>
 
-    <%--                    <small class="flex d-flex flex-column">--%>
-    <%--                        <strong class="navbar-text-100">Earnings</strong>--%>
-    <%--                        <span class="navbar-text-50">&dollar;12.3k</span>--%>
-    <%--                    </small>--%>
-    <%--                </span>--%>
+                            </span>
 
+                            <small class="flex d-flex flex-column">
+                                <strong class="navbar-text-100">Earnings</strong>
+                                <span class="navbar-text-50">&dollar;12.3k</span>
+                            </small>
+                        </span>
+        </c:when>
+    </c:choose>
     <div class="flex"></div>
 
     <!-- Toggler -->
@@ -262,7 +267,7 @@
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-header"><strong>Account</strong></div>
+                <div class="dropdown-header"><strong>${user.hoTen}</strong></div>
                 <a class="dropdown-item" href="edit-account.html"
                 >Edit Account</a
                 >
@@ -270,7 +275,7 @@
                 <a class="dropdown-item" href="billing-history.html"
                 >Payments</a
                 >
-                <a class="dropdown-item" href="login.html">Logout</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
             </div>
         </div>
     </div>
