@@ -80,6 +80,18 @@
 
     <form action="/login" method="post">
         <div class="form-group">
+            <div class=" d-flex custom-controls-stacked" style="gap: 20px;">
+                <div class="custom-control custom-radio">
+                    <input id="radioStacked1" name="radio-stacked" type="radio" class="custom-control-input" checked>
+                    <label for="radioStacked1" class="custom-control-label">Student</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input id="radioStacked2" name="radio-stacked" type="radio" class="custom-control-input">
+                    <label for="radioStacked2" class="custom-control-label">Teacher</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="text-label" for="email_2">Username:</label>
             <div class="input-group input-group-merge">
                 <input id="email_2" name="userName" required="" class="form-control form-control-prepended" placeholder="Enter your account">

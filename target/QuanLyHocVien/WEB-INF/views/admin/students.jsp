@@ -47,7 +47,349 @@
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
 
         <!-- Drawer Layout Content -->
-        <div class="mdk-drawer-layout__content page-content">
+        <div class="mdk-drawer-layout__content page-content mt-5">
+            <div class="container page__container page-section pb-0">
+                <h1 class="h2 mb-0">Tables</h1>
+                <ol class="breadcrumb m-0 p-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Components</li>
+                    <li class="breadcrumb-item active">Tables</li>
+                </ol>
+            </div>
+
+            <div class="container page__container page-section">
+                <div class="page-separator">
+                    <div class="page-separator__text">Users</div>
+                </div>
+
+                <div class="card mb-lg-32pt">
+
+                    <div class="table-responsive" data-toggle="lists" data-lists-sort-by="js-lists-values-employee-name"
+                         data-lists-values='["js-lists-values-employee-name", "js-lists-values-employer-name", "js-lists-values-projects", "js-lists-values-activity", "js-lists-values-earnings"]'>
+
+                        <div class="card-header">
+                            <div class="search-form">
+                                <input type="text" class="form-control search" placeholder="Search ...">
+                                <button class="btn" type="button"><i class="material-icons">search</i></button>
+                            </div>
+                        </div>
+
+                        <table class="table mb-0 thead-border-top-0 table-nowrap">
+                            <thead>
+                            <tr>
+
+                                <th style="width: 18px;" class="pr-0">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input js-toggle-check-all"
+                                               data-target="#users" id="customCheckAllusers">
+                                        <label class="custom-control-label" for="customCheckAllusers"><span
+                                                class="text-hide">Toggle all</span></label>
+                                    </div>
+                                </th>
+
+                                <th>
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-employee-name">Employee</a>
+                                </th>
+
+                                <th style="width: 150px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-employer-name">Employer</a>
+                                </th>
+
+
+                                <th class="text-center" style="width: 48px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-projects">Projects</a>
+                                </th>
+
+
+                                <th style="width: 37px;">Status</th>
+
+                                <th style="width: 120px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-activity">Activity</a>
+                                </th>
+                                <th style="width: 51px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-earnings">Earnings</a>
+                                </th>
+                                <th style="width: 24px;" class="pl-0"></th>
+                            </tr>
+                            </thead>
+                            <tbody class="list" id="users">
+
+                            <tr class="selected">
+
+                                <td class="pr-0">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                               checked="" id="customCheck1_users1">
+                                        <label class="custom-control-label" for="customCheck1_users1"><span
+                                                class="text-hide">Check</span></label>
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+
+                                            <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>" alt="Avatar"
+                                                 class="avatar-img rounded-circle">
+
+
+                                        </div>
+                                        <div class="media-body">
+
+
+                                            <div class="d-flex flex-column">
+                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Michael
+                                                    Smith</strong></p>
+                                                <small class="js-lists-values-employee-email text-50"></small>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
+                                        <a href="" class="text-70"><span
+                                                class="js-lists-values-employer-name">Black Ops</span></a>
+                                    </div>
+                                </td>
+
+                                <td class="text-center js-lists-values-projects small">12</td>
+
+                                <td>
+
+
+                                    <a href="" class="chip chip-outline-secondary">Admin</a>
+
+
+                                </td>
+
+                                <td class="text-50 js-lists-values-activity small">3 days ago</td>
+                                <td class="js-lists-values-earnings small">$12,402</td>
+                                <td class="text-right pl-0">
+                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td class="pr-0">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                               id="customCheck1_users2">
+                                        <label class="custom-control-label" for="customCheck1_users2"><span
+                                                class="text-hide">Check</span></label>
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+
+
+                                            <span class="avatar-title rounded-circle">CS</span>
+
+                                        </div>
+                                        <div class="media-body">
+
+
+                                            <div class="d-flex flex-column">
+                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Connie
+                                                    Smith</strong></p>
+                                                <small class="js-lists-values-employee-email text-50"></small>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
+                                        <a href="" class="text-70"><span class="js-lists-values-employer-name">Backend Ltd</span></a>
+                                    </div>
+                                </td>
+
+                                <td class="text-center js-lists-values-projects small">42</td>
+
+                                <td>
+
+
+                                    <a href="" class="chip chip-outline-secondary">User</a>
+
+
+                                </td>
+
+                                <td class="text-50 js-lists-values-activity small">1 week ago</td>
+                                <td class="js-lists-values-earnings small">$1,943</td>
+                                <td class="text-right pl-0">
+                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td class="pr-0">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                               id="customCheck1_users3">
+                                        <label class="custom-control-label" for="customCheck1_users3"><span
+                                                class="text-hide">Check</span></label>
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+
+                                            <img src="<c:url value="/resources/assets/images/people/110/guy-2.jpg"/>" alt="Avatar"
+                                                 class="avatar-img rounded-circle">
+
+
+                                        </div>
+                                        <div class="media-body">
+
+
+                                            <div class="d-flex flex-column">
+                                                <p class="mb-0"><strong class="js-lists-values-employee-name">John
+                                                    Connor</strong></p>
+                                                <small class="js-lists-values-employee-email text-50"></small>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
+                                        <a href="" class="text-70"><span
+                                                class="js-lists-values-employer-name">Frontted</span></a>
+                                    </div>
+                                </td>
+
+                                <td class="text-center js-lists-values-projects small">31</td>
+
+                                <td>
+
+
+                                    <a href="" class="chip chip-outline-secondary">Manager</a>
+
+
+                                </td>
+
+                                <td class="text-50 js-lists-values-activity small">2 weeks ago</td>
+                                <td class="js-lists-values-earnings small">$1,401</td>
+                                <td class="text-right pl-0">
+                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                </td>
+                            </tr>
+
+                            <tr class="selected">
+
+                                <td class="pr-0">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                               checked="" id="customCheck1_users4">
+                                        <label class="custom-control-label" for="customCheck1_users4"><span
+                                                class="text-hide">Check</span></label>
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+
+
+                                            <span class="avatar-title rounded-circle">LB</span>
+
+                                        </div>
+                                        <div class="media-body">
+
+
+                                            <div class="d-flex flex-column">
+                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Laza
+                                                    Bogdan</strong></p>
+                                                <small class="js-lists-values-employee-email text-50"></small>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
+                                        <a href="" class="text-70"><span
+                                                class="js-lists-values-employer-name">Frontted</span></a>
+                                    </div>
+                                </td>
+
+                                <td class="text-center js-lists-values-projects small">44</td>
+
+                                <td>
+
+
+                                    <a href="" class="chip chip-outline-secondary">Admin</a>
+
+
+                                </td>
+
+                                <td class="text-50 js-lists-values-activity small">3 weeks ago</td>
+                                <td class="js-lists-values-earnings small">$22,402</td>
+                                <td class="text-right pl-0">
+                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer p-8pt">
+
+                        <ul class="pagination justify-content-start pagination-xsm m-0">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true" class="material-icons">chevron_left</span>
+                                    <span>Prev</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Page 1">
+                                    <span>1</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Page 2">
+                                    <span>2</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span>Next</span>
+                                    <span aria-hidden="true" class="material-icons">chevron_right</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
             <%@include file="/WEB-INF/views/layouts/admin/footer.jsp" %>
         </div>
         <!-- // END drawer-layout__content -->

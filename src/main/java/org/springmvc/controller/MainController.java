@@ -10,7 +10,7 @@ public class MainController {
 
     @RequestMapping("/")
     public String index(ModelMap modelMap) {
-        return "user/student/index";
+        return "user/index";
     }
 
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)

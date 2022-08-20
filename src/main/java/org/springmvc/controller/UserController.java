@@ -3,7 +3,6 @@ package org.springmvc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +12,6 @@ import org.springmvc.entity.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class UserController {
@@ -90,7 +88,7 @@ public class UserController {
     public String courseDetails(ModelMap modelMap, @PathVariable("id") int id){
         HocPhan hocPhan=hocPhanDao.getHP(id);
         modelMap.addAttribute("hocPhan",hocPhan);
-        return "user/course-details";
+        return "user/student/course-details";
     }
     @RequestMapping(value = "/course/register/{id}", method = RequestMethod.GET)
     public String courseRegister(ModelMap modelMap, @PathVariable("id") int id){
@@ -98,7 +96,7 @@ public class UserController {
         modelMap.addAttribute("list",list);
         List<Ca> listCa= (List<Ca>) caDao.getListCa();
         modelMap.addAttribute("listCa",listCa);
-        return "user/course-register";
+        return "user/student/course-register";
     }
     @RequestMapping(value = "/payment", method = RequestMethod.GET)
     public String payment(ModelMap modelMap){
@@ -111,33 +109,15 @@ public class UserController {
         return "user/instructor/dashboard";
     }
     @RequestMapping(value = "/instructor/courses", method = RequestMethod.GET)
+    public String courseDetailsInstructor(ModelMap modelMap){
+        return "user/instructor/course-details";
+    }
+    @RequestMapping(value = "/instructor/course-details", method = RequestMethod.GET)
     public String coursesInstructor(ModelMap modelMap){
         return "user/instructor/courses";
     }
     @RequestMapping(value = "/instructor/request-course", method = RequestMethod.GET)
     public String requestCourseInstructor(ModelMap modelMap){
-        return "user/instructor/request-course";
-    }
-
-    // admin
-    @RequestMapping(value = "/admin/dashboard", method = RequestMethod.GET)
-    public String dashboardAdmin(ModelMap modelMap){
-        return "admin/dashboard";
-    }
-    @RequestMapping(value = "/admin/courses", method = RequestMethod.GET)
-    public String coursesAdmin(ModelMap modelMap){
-        return "admin/courses";
-    }
-    @RequestMapping(value = "/admin/instructors", method = RequestMethod.GET)
-    public String instructorsAdmin(ModelMap modelMap){
-        return "admin/instructors";
-    }
-    @RequestMapping(value = "/admin/students", method = RequestMethod.GET)
-    public String studentsAdmin(ModelMap modelMap){
-        return "admin/students";
-    }
-    @RequestMapping(value = "/admin/schedule", method = RequestMethod.GET)
-    public String scheduleAdmin(ModelMap modelMap){
-        return "admin/schedule";
+        return "user/instructor/course-request";
     }
 }

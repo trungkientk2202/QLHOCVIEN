@@ -166,11 +166,14 @@
                     </div>
 
                     <div class="card mb-32pt">
-
                         <div class="table-responsive" data-toggle="lists" data-lists-sort-by="js-lists-values-date" data-lists-sort-desc="true" data-lists-values='["js-lists-values-name", "js-lists-values-department", "js-lists-values-status", "js-lists-values-type", "js-lists-values-phone", "js-lists-values-date"]'>
 
-
-
+                            <div class="card-header">
+                                <div class="search-form">
+                                    <input type="text" class="form-control search" placeholder="Search ...">
+                                    <button class="btn" type="button"><i class="material-icons">search</i></button>
+                                </div>
+                            </div>
 
                             <table class="table mb-0 thead-border-top-0 table-nowrap">
                                 <thead>
