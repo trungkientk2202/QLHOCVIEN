@@ -55,6 +55,10 @@
 
     <!-- App CSS -->
     <link type="text/css" href="<c:url value="/resources/assets/css/app.css"/>" rel="stylesheet"/>
+
+    <!-- Toastr -->
+    <link type="text/css" href="<c:url value="/resources/assets/vendor/toastr.min.css"/>" rel="stylesheet">
+    <link type="text/css" href="<c:url value="/resources/assets/css/toastr.css"/>" rel="stylesheet">
 </head>
 <body class="layout-default layout-login-image">
 <div class="layout-login-image__overlay" style="background-image: url(<c:url value="/resources/assets/images/1280_15ntkpxqt54y-sai-kiran-anagani.jpg"/>);">
@@ -120,14 +124,26 @@
             </div>
         </div>
         <div class="form-group text-center">
-            <button class="btn btn-primary mb-5" type="submit">Login</button><br>
-            <div><span style="color: red;font-size: 16px">${message}</span></div>
+            <button class="btn btn-primary mb-5" type="submit">Login</button>
+            <br>
             <a href="">Forgot password?</a> <br>
             Don't have an account? <a class="text-body text-underline" href="/register">Sign up!</a>
         </div>
     </form>
 </div>
 
+<!--Toastr-->
+<c:if test="${message != null}">
+    <button style="display: none" type="button" id="btn-toastr" class="btn btn-warning" data-toggle="toastr" data-toastr-type="warning"
+            data-toastr-title="Error!" data-toastr-message="${message}">
+        Error
+    </button>
+    <script type="text/javascript">
+        window.onload=function(){
+            document.getElementById("btn-toastr").click();
+        };
+    </script>
+</c:if>
 
 <!-- jQuery -->
 <script src="<c:url value="/resources/assets/vendor/jquery.min.js"/>"></script>
@@ -150,5 +166,9 @@
 
 <!-- App JS -->
 <script src="<c:url value="/resources/assets/js/app.js"/>"></script>
+
+<!-- Toastr -->
+<script src="<c:url value="/resources/assets/vendor/toastr.min.js"/>"></script>
+<script src="<c:url value="/resources/assets/js/toastr.js"/>"></script>
 </body>
 </html>

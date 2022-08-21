@@ -52,7 +52,7 @@ public class UserController {
 
         httpSession.removeAttribute("account");
 
-        return "user/index";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -69,12 +69,12 @@ public class UserController {
             if(taiKhoan.getLoaiTaiKhoan().getMaLoaiTK() == 1) {
                 hocVien = hocVienDao.getHVByUserName(taiKhoan);
                 modelMap.addAttribute("user",hocVien);
-                return "user/student/dashboard";
+                return "redirect:/dashboard";
             }
             if(taiKhoan.getLoaiTaiKhoan().getMaLoaiTK() == 2) {
                 giangVien = giangVienDao.getGVByUserName(taiKhoan);
                 modelMap.addAttribute("user",giangVien);
-                return "user/instructor/dashboard";
+                return "redirect:/instructor/dashboard";
             }
             return null;
         }
@@ -99,7 +99,7 @@ public class UserController {
             hv.setTaiKhoan(taiKhoan);
             hv.setNgaySinh(date);
             if(hocVienDao.insertHV(hv)==1){
-                return "user/login";
+                return "user/student/login";
             }else{
                 modelMap.addAttribute("message","Đăng ký học viên thất bại!");
                 return "user/student/register";

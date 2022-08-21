@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="pagina" value="${requestScope['javax.servlet.forward.request_uri']}" />
 
 <div class="mdk-drawer js-mdk-drawer" id="default-drawer">

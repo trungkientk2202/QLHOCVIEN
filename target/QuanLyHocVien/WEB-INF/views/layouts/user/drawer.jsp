@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="pagina" value="${requestScope['javax.servlet.forward.request_uri']}" />
 
 <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
     <div class="mdk-drawer__content">
         <c:choose>
             <c:when test="${sessionScope.account.loaiTaiKhoan.maLoaiTK == 1}">
-                <div class="sidebar sidebar-dark-dodger-blue sidebar-left" data-perfect-scrollbar>
+                <div class="sidebar sidebar-dark-dodger-blue si debar-left" data-perfect-scrollbar>
                     <a href="/" class="sidebar-brand">
                 <span class="avatar avatar-xl sidebar-brand-icon h-auto">
                   <span class="avatar-title rounded bg-primary">
@@ -33,11 +34,11 @@
                                 Dashboard
                             </a>
                         </li>
-                        <li class="sidebar-menu-item ${pagina.endsWith('/dashboard') ? 'active open' : ''}">
+                        <li class="sidebar-menu-item ${pagina.endsWith('/courses') || pagina.endsWith('/schedule') ? 'active open' : ''}">
                             <a
                                     class="sidebar-menu-button js-sidebar-collapse"
                                     data-toggle="collapse"
-                                    href="#courses_menu"
+                                    href="#student_menu"
                             >
                     <span
                             class="material-icons sidebar-menu-icon sidebar-menu-icon--left"
@@ -47,12 +48,12 @@
                                 <span class="ml-auto sidebar-menu-toggle-icon"></span>
                             </a>
                             <ul class="sidebar-submenu collapse sm-indent" id="student_menu">
-                                <li class="sidebar-menu-item">
+                                <li class="sidebar-menu-item ${pagina.endsWith('/courses') ? 'active open' : ''}">
                                     <a class="sidebar-menu-button" href="/courses">
                                         <span class="sidebar-menu-text">Subscribe Course</span>
                                     </a>
                                 </li>
-                                <li class="sidebar-menu-item">
+                                <li class="sidebar-menu-item ${pagina.endsWith('/schedule') ? 'active open' : ''}">
                                     <a
                                             class="sidebar-menu-button"
                                             href="/schedule"
@@ -62,10 +63,9 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-menu-item">
+                        <li class="sidebar-menu-item ${pagina.endsWith('/payment') ? 'active open' : ''}">
                             <a
                                     class="sidebar-menu-button js-sidebar-collapse"
-                                    data-toggle="collapse"
                                     href="/payment"
                             >
                                     <span

@@ -48,13 +48,36 @@
 
         <!-- Drawer Layout Content -->
         <div class="mdk-drawer-layout__content page-content mt-5">
-            <div class="container page__container page-section pb-0">
-                <h1 class="h2 mb-0">Tables</h1>
-                <ol class="breadcrumb m-0 p-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Components</li>
-                    <li class="breadcrumb-item active">Tables</li>
-                </ol>
+            <div class="pt-32pt">
+                <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
+                    <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
+
+                        <div class="mb-24pt mb-sm-0 mr-sm-24pt">
+                            <h2 class="mb-0">CRM Dashboard</h2>
+
+                            <ol class="breadcrumb p-0 m-0">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+
+                                <li class="breadcrumb-item active">
+
+                                    CRM Dashboard
+
+                                </li>
+
+                            </ol>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row" role="tablist">
+                        <div class="col-auto">
+                            <a href="" class="btn btn-outline-secondary"><span
+                                    class="icon--left material-icons icon-16pt">add</span> New Course</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
 
@@ -65,15 +88,10 @@
 
                 <div class="card mb-lg-32pt">
 
-                    <div class="table-responsive" data-toggle="lists" data-lists-sort-by="js-lists-values-employee-name"
-                         data-lists-values='["js-lists-values-employee-name", "js-lists-values-employer-name", "js-lists-values-projects", "js-lists-values-activity", "js-lists-values-earnings"]'>
+                    <div class="table-responsive" data-toggle="lists" data-lists-sort-by="js-lists-values-date"
+                         data-lists-sort-desc="true"
+                         data-lists-values='["js-lists-values-name", "js-lists-values-company", "js-lists-values-phone", "js-lists-values-date"]'>
 
-                        <div class="card-header">
-                            <div class="search-form">
-                                <input type="text" class="form-control search" placeholder="Search ...">
-                                <button class="btn" type="button"><i class="material-icons">search</i></button>
-                            </div>
-                        </div>
 
                         <table class="table mb-0 thead-border-top-0 table-nowrap">
                             <thead>
@@ -82,107 +100,44 @@
                                 <th style="width: 18px;" class="pr-0">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input js-toggle-check-all"
-                                               data-target="#users" id="customCheckAllusers">
-                                        <label class="custom-control-label" for="customCheckAllusers"><span
+                                               data-target="#clients" id="customCheckAll_clients">
+                                        <label class="custom-control-label" for="customCheckAll_clients"><span
                                                 class="text-hide">Toggle all</span></label>
                                     </div>
                                 </th>
 
                                 <th>
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-employee-name">Employee</a>
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-name">Name</a>
                                 </th>
 
                                 <th style="width: 150px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-employer-name">Employer</a>
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-company">Company</a>
                                 </th>
 
 
-                                <th class="text-center" style="width: 48px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-projects">Projects</a>
+                                <th style="width: 37px;">Tags</th>
+
+
+                                <th style="width: 48px;">
+                                    <a href="javascript:void(0)" class="sort"
+                                       data-sort="js-lists-values-phone">Phone</a>
                                 </th>
-
-
-                                <th style="width: 37px;">Status</th>
 
                                 <th style="width: 120px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-activity">Activity</a>
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-date">Added</a>
                                 </th>
-                                <th style="width: 51px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-earnings">Earnings</a>
-                                </th>
-                                <th style="width: 24px;" class="pl-0"></th>
+                                <th style="width: 24px;"></th>
                             </tr>
                             </thead>
-                            <tbody class="list" id="users">
-
-                            <tr class="selected">
-
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               checked="" id="customCheck1_users1">
-                                        <label class="custom-control-label" for="customCheck1_users1"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-                                            <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>" alt="Avatar"
-                                                 class="avatar-img rounded-circle">
-
-
-                                        </div>
-                                        <div class="media-body">
-
-
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Michael
-                                                    Smith</strong></p>
-                                                <small class="js-lists-values-employee-email text-50"></small>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </td>
-
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
-                                        <a href="" class="text-70"><span
-                                                class="js-lists-values-employer-name">Black Ops</span></a>
-                                    </div>
-                                </td>
-
-                                <td class="text-center js-lists-values-projects small">12</td>
-
-                                <td>
-
-
-                                    <a href="" class="chip chip-outline-secondary">Admin</a>
-
-
-                                </td>
-
-                                <td class="text-50 js-lists-values-activity small">3 days ago</td>
-                                <td class="js-lists-values-earnings small">$12,402</td>
-                                <td class="text-right pl-0">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
-                            </tr>
+                            <tbody class="list" id="clients">
 
                             <tr>
 
                                 <td class="pr-0">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               id="customCheck1_users2">
-                                        <label class="custom-control-label" for="customCheck1_users2"><span
+                                               id="customCheck1_clients_1">
+                                        <label class="custom-control-label" for="customCheck1_clients_1"><span
                                                 class="text-hide">Check</span></label>
                                     </div>
                                 </td>
@@ -193,16 +148,16 @@
                                         <div class="avatar avatar-sm mr-8pt">
 
 
-                                            <span class="avatar-title rounded-circle">CS</span>
+                                            <span class="avatar-title rounded-circle">BN</span>
 
                                         </div>
                                         <div class="media-body">
 
 
                                             <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Connie
-                                                    Smith</strong></p>
-                                                <small class="js-lists-values-employee-email text-50"></small>
+                                                <p class="mb-0"><strong class="js-lists-values-name">Billy
+                                                    Nunez</strong></p>
+                                                <small class="js-lists-values-email text-50">annabell.kris@yahoo.com</small>
                                             </div>
 
 
@@ -212,13 +167,22 @@
                                 </td>
 
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
-                                        <a href="" class="text-70"><span class="js-lists-values-employer-name">Backend Ltd</span></a>
+
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+                                            <span class="avatar-title rounded bg-warning">FM</span>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="d-flex flex-column">
+                                                <small class="js-lists-values-company"><strong>Frontend Matter
+                                                    Inc.</strong></small>
+                                                <small class="js-lists-values-location text-50">Leuschkefurt</small>
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </td>
 
-                                <td class="text-center js-lists-values-projects small">42</td>
 
                                 <td>
 
@@ -228,9 +192,15 @@
 
                                 </td>
 
-                                <td class="text-50 js-lists-values-activity small">1 week ago</td>
-                                <td class="js-lists-values-earnings small">$1,943</td>
-                                <td class="text-right pl-0">
+
+                                <td>
+                                    <small class="js-lists-values-phone text-50">239-721-3649</small>
+                                </td>
+
+                                <td>
+                                    <small class="js-lists-values-date text-50">19 February 2019</small>
+                                </td>
+                                <td class="text-right">
                                     <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
                                 </td>
                             </tr>
@@ -240,69 +210,8 @@
                                 <td class="pr-0">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               id="customCheck1_users3">
-                                        <label class="custom-control-label" for="customCheck1_users3"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-                                            <img src="<c:url value="/resources/assets/images/people/110/guy-2.jpg"/>" alt="Avatar"
-                                                 class="avatar-img rounded-circle">
-
-
-                                        </div>
-                                        <div class="media-body">
-
-
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-employee-name">John
-                                                    Connor</strong></p>
-                                                <small class="js-lists-values-employee-email text-50"></small>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </td>
-
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
-                                        <a href="" class="text-70"><span
-                                                class="js-lists-values-employer-name">Frontted</span></a>
-                                    </div>
-                                </td>
-
-                                <td class="text-center js-lists-values-projects small">31</td>
-
-                                <td>
-
-
-                                    <a href="" class="chip chip-outline-secondary">Manager</a>
-
-
-                                </td>
-
-                                <td class="text-50 js-lists-values-activity small">2 weeks ago</td>
-                                <td class="js-lists-values-earnings small">$1,401</td>
-                                <td class="text-right pl-0">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
-                            </tr>
-
-                            <tr class="selected">
-
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               checked="" id="customCheck1_users4">
-                                        <label class="custom-control-label" for="customCheck1_users4"><span
+                                               id="customCheck1_clients_2">
+                                        <label class="custom-control-label" for="customCheck1_clients_2"><span
                                                 class="text-hide">Check</span></label>
                                     </div>
                                 </td>
@@ -313,16 +222,16 @@
                                         <div class="avatar avatar-sm mr-8pt">
 
 
-                                            <span class="avatar-title rounded-circle">LB</span>
+                                            <span class="avatar-title rounded-circle">TP</span>
 
                                         </div>
                                         <div class="media-body">
 
 
                                             <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Laza
-                                                    Bogdan</strong></p>
-                                                <small class="js-lists-values-employee-email text-50"></small>
+                                                <p class="mb-0"><strong class="js-lists-values-name">Tony Parks</strong>
+                                                </p>
+                                                <small class="js-lists-values-email text-50">vida_glover@gmail.com</small>
                                             </div>
 
 
@@ -332,14 +241,22 @@
                                 </td>
 
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
-                                        <a href="" class="text-70"><span
-                                                class="js-lists-values-employer-name">Frontted</span></a>
+
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+                                            <span class="avatar-title rounded bg-accent">HH</span>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="d-flex flex-column">
+                                                <small class="js-lists-values-company"><strong>Huma Huma
+                                                    Inc.</strong></small>
+                                                <small class="js-lists-values-location text-50">Mayerberg</small>
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </td>
 
-                                <td class="text-center js-lists-values-projects small">44</td>
 
                                 <td>
 
@@ -349,9 +266,139 @@
 
                                 </td>
 
-                                <td class="text-50 js-lists-values-activity small">3 weeks ago</td>
-                                <td class="js-lists-values-earnings small">$22,402</td>
-                                <td class="text-right pl-0">
+
+                                <td>
+                                    <small class="js-lists-values-phone text-50">169-769-4821</small>
+                                </td>
+
+                                <td>
+                                    <small class="js-lists-values-date text-50">18 February 2019</small>
+                                </td>
+                                <td class="text-right">
+                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                </td>
+                            </tr>
+
+                            <tr class="selected">
+
+                                <td class="pr-0">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                               checked="" id="customCheck1_clients_3">
+                                        <label class="custom-control-label" for="customCheck1_clients_3"><span
+                                                class="text-hide">Check</span></label>
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+
+                                            <img src="assets/images/people/110/guy-1.jpg" alt="Avatar"
+                                                 class="avatar-img rounded-circle">
+
+
+                                        </div>
+                                        <div class="media-body">
+
+
+                                            <div class="d-flex flex-column">
+                                                <p class="mb-0"><strong class="js-lists-values-name">Gilbert
+                                                    Barrett</strong></p>
+                                                <small class="js-lists-values-email text-50">paolo.zieme@gmail.com</small>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <a href="" class="chip chip-outline-secondary">Admin</a>
+
+
+                                </td>
+
+
+                                <td>
+                                    <small class="js-lists-values-phone text-50">462-060-7408</small>
+                                </td>
+
+                                <td>
+                                    <small class="js-lists-values-date text-50">17 February 2019</small>
+                                </td>
+                                <td class="text-right">
+                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                </td>
+                            </tr>
+
+                            <tr class="selected">
+
+                                <td class="pr-0">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                               checked="" id="customCheck1_clients_4">
+                                        <label class="custom-control-label" for="customCheck1_clients_4"><span
+                                                class="text-hide">Check</span></label>
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+
+                                            <img src="assets/images/people/110/guy-2.jpg" alt="Avatar"
+                                                 class="avatar-img rounded-circle">
+
+
+                                        </div>
+                                        <div class="media-body">
+
+
+                                            <div class="d-flex flex-column">
+                                                <p class="mb-0"><strong class="js-lists-values-name">Ollie
+                                                    Wallace</strong></p>
+                                                <small class="js-lists-values-email text-50">lorna_kirlin@nora.biz</small>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                </td>
+
+
+                                <td>
+
+
+                                    <a href="" class="chip chip-outline-secondary">Manager</a>
+
+
+                                </td>
+
+
+                                <td>
+                                    <small class="js-lists-values-phone text-50">285-626-6050</small>
+                                </td>
+
+                                <td>
+                                    <small class="js-lists-values-date text-50">16 February 2019</small>
+                                </td>
+                                <td class="text-right">
                                     <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
                                 </td>
                             </tr>

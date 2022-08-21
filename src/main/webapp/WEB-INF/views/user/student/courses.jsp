@@ -185,13 +185,13 @@
                                         <div class="d-flex align-items-center mb-4pt">
                                             <span class="material-icons icon-16pt text-black-50 mr-4pt">access_time</span>
                                             <p class="flex text-black-50 lh-1 mb-0">
-                                                <small>Ngày bắt đầu:${dk.hocPhan.ngayBD}</small>
+                                                <small>Started date:${dk.hocPhan.ngayBD}</small>
                                             </p>
                                         </div>
                                         <div class="d-flex align-items-center mb-4pt">
                                             <span class="material-icons icon-16pt text-black-50 mr-4pt">play_circle_outline</span>
                                             <p class="flex text-black-50 lh-1 mb-0">
-                                                <small>Ngày kết thúc:${dk.hocPhan.ngayKT}</small>
+                                                <small>Ended date:${dk.hocPhan.ngayKT}</small>
                                             </p>
                                         </div>
                                         <div class="d-flex align-items-center">
@@ -203,7 +203,7 @@
                                     </div>
                                     <div class="col text-right">
                                         <a href="/course/${dk.hocPhan.maHP}" class="btn btn-primary"
-                                        >Course Detail</a
+                                        >Details</a
                                         >
                                     </div>
                                 </div>
@@ -380,7 +380,7 @@
                                     </div>
                                     <div class="col text-right">
                                         <a href="/course/register/${course.maHP}" class="btn btn-primary"
-                                        >Register the course</a
+                                        >Register</a
                                         >
                                     </div>
                                 </div>
