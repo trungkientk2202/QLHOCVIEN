@@ -4,11 +4,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springmvc.entity.*;
 import org.springmvc.webconfig.HibernateConfig;
 
-import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class HocPhanDao {
     }
     public List<?> getListHPByGV(GiangVien giangVien) {
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM HocPhan hp where hp.giangVien= "+giangVien).list();
+            return session.createQuery("FROM HocPhan hp where hp.giangVien= :giangVien").setParameter("giangVien",giangVien).list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;
@@ -34,7 +32,7 @@ public class HocPhanDao {
 
     public List<?> getListHPByMH(MonHoc monHoc) {
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM HocPhan hp where hp.monHoc= "+monHoc).list();
+            return session.createQuery("FROM HocPhan hp where hp.monHoc= :monHoc").setParameter("monHoc",monHoc).list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;
@@ -59,6 +57,10 @@ public class HocPhanDao {
             e.printStackTrace();
             return null;
         }
+    }
+    public Long getTongHocPhi(HocVien hocVien) {
+        Session session = factory.openSession();
+        return (Long) session.createQuery("SELECT sum(dkhp.hocPhan.monHoc.hocPhi) FROM DangKyHP dkhp where dkhp.hocVien= :hocVien").setParameter("hocVien",hocVien).uniqueResult();
     }
     public Integer insertHP(HocPhan hocPhan) {
         Session session = factory.openSession();

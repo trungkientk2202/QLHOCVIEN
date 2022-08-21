@@ -97,32 +97,16 @@
 
 
         <div class="container page__container page-section">
-            <div class="flex search-form form-control-rounded search-form--light mb-16pt" style="min-width: 200px;">
-                <input type="text" class="form-control" placeholder="Search courses..." id="searchSample02">
-                <button class="btn pr-3" type="button" role="button"><i class="material-icons">search</i></button>
+            <div class="page-separator">
+                <div class="page-separator__text">Billing</div>
             </div>
-            <div class="mb-32pt d-flex align-items-center">
-                <small class="text-black-70 text-headings text-uppercase mr-3">Displaying 10 out of 5,234
-                    articles</small>
-                <div class="dropdown ml-auto">
-                    <a href="" data-toggle="dropdown" class="dropdown-toggle text-black-70">All Topics</a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a href="" class="dropdown-item active">All Topics</a>
-                        <a href="" class="dropdown-item">General</a>
-                        <a href="" class="dropdown-item">Lessons</a>
-                        <a href="" class="dropdown-item">Customer Support</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-0">
+            <div class="card mb-5">
                 <div class="card-header d-flex align-items-center">
                     <div class="flatpickr-wrapper flex">
                         <div id="recent_orders_date" data-toggle="flatpickr" data-flatpickr-wrap="true"
                              data-flatpickr-static="true" data-flatpickr-mode="range" data-flatpickr-alt-format="d/m/Y"
                              data-flatpickr-date-format="d/m/Y">
                             <strong class="card-title d-block">All courses</strong>
-                            <a href="javascript:void(0)" class="link-date" data-toggle>13/03/2018 to 20/03/2018</a>
                             <input class="d-none" type="hidden" value="13/03/2018 to 20/03/2018" data-input>
                         </div>
                     </div>
@@ -133,20 +117,13 @@
                     <table class="table mb-0 table-nowrap thead-border-top-0">
                         <thead>
                         <tr>
-                            <th style="width: 18px;">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-toggle-check-all"
-                                           data-target="#orders" id="customCheckAll">
-                                    <label class="custom-control-label" for="customCheckAll"><span class="text-hide">Toggle all</span></label>
-                                </div>
-                            </th>
                             <th>
                                 <a href="javascript:void(0)" class="sort"
                                    data-sort="js-lists-values-orders-name">Name</a>
                             </th>
                             <th style="width: 150px;">
                                 <a href="javascript:void(0)" class="sort"
-                                   data-sort="js-lists-values-orders-date">Date</a>
+                                   data-sort="js-lists-values-orders-date">Status</a>
                             </th>
                             <th style="width: 100px;">
                                 <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-orders-amount">Amount</a>
@@ -155,126 +132,31 @@
                         </tr>
                         </thead>
                         <tbody class="list" id="orders">
-
-
+                        <c:forEach var="course" items="${list}">
                         <tr>
                             <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                           id="customCheck1_1">
-                                    <label class="custom-control-label" for="customCheck1_1"><span class="text-hide">Check</span></label>
-                                </div>
-                            </td>
-                            <td>
                                 <div class="d-flex align-items-center">
                                     <i class="material-icons text-20 mr-8pt">contacts</i>
-                                    <a class="js-lists-values-orders-name" href="">Jenell D. Matney</a>
+                                    <a class="js-lists-values-orders-name" href="">${course.hocPhan.monHoc.tenMH}</a>
                                 </div>
                             </td>
-                            <td class="js-lists-values-orders-date text-50">4 days ago</td>
+                            <td class="js-lists-values-orders-date text-50">${course.hocPhan.trangThai}</td>
                             <td>
-                                <a class="js-lists-values-orders-amount" href="">&dollar;246</a>
+                                <a class="js-lists-values-orders-amount" href="">${course.hocPhan.monHoc.hocPhi}đ</a>
                             </td>
                             <td class="text-right">
                                 <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
                             </td>
                         </tr>
+                        </c:forEach>
 
-                        <tr>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                           id="customCheck1_2">
-                                    <label class="custom-control-label" for="customCheck1_2"><span class="text-hide">Check</span></label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <i class="material-icons text-20 mr-8pt">contacts</i>
-                                    <a class="js-lists-values-orders-name" href="">Sherri J. Cardenas</a>
-                                </div>
-                            </td>
-                            <td class="js-lists-values-orders-date text-50">3 days ago</td>
-                            <td>
-                                <a class="js-lists-values-orders-amount" href="">&dollar;369</a>
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                            </td>
-                        </tr>
 
-                        <tr>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                           id="customCheck1_3">
-                                    <label class="custom-control-label" for="customCheck1_3"><span class="text-hide">Check</span></label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <i class="material-icons text-20 mr-8pt">contacts</i>
-                                    <a class="js-lists-values-orders-name" href="">Joseph S. Ferland</a>
-                                </div>
-                            </td>
-                            <td class="js-lists-values-orders-date text-50">2 days ago</td>
-                            <td>
-                                <a class="js-lists-values-orders-amount" href="">&dollar;492</a>
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                            </td>
-                        </tr>
 
-                        <tr class="selected">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-check-selected-row" checked=""
-                                           id="customCheck1_4">
-                                    <label class="custom-control-label" for="customCheck1_4"><span class="text-hide">Check</span></label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <i class="material-icons text-20 mr-8pt">contacts</i>
-                                    <a class="js-lists-values-orders-name" href="">Bryan K. Davis</a>
-                                </div>
-                            </td>
-                            <td class="js-lists-values-orders-date text-50">1 day ago</td>
-                            <td>
-                                <a class="js-lists-values-orders-amount" href="">&dollar;615</a>
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                            </td>
-                        </tr>
 
-                        <tr class="selected">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-check-selected-row" checked=""
-                                           id="customCheck1_5">
-                                    <label class="custom-control-label" for="customCheck1_5"><span class="text-hide">Check</span></label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <i class="material-icons text-20 mr-8pt">contacts</i>
-                                    <a class="js-lists-values-orders-name" href="">Elizabeth J. Ohara</a>
-                                </div>
-                            </td>
-                            <td class="js-lists-values-orders-date text-50">4 hours ago</td>
-                            <td>
-                                <a class="js-lists-values-orders-amount" href="">&dollar;738</a>
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                            </td>
-                        </tr>
 
                     </table>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer d-flex justify-content-between">
                     <ul class="pagination justify-content-start pagination-xsm m-0">
                         <li class="page-item disabled">
                             <a class="page-link" href="#" aria-label="Previous">
@@ -299,6 +181,81 @@
                             </a>
                         </li>
                     </ul>
+                    <div class="text-accent font-size-16pt pr-2">Total: 5.000.000vnd</div>
+                </div>
+            </div>
+
+            <div class="page-separator">
+                <div class="page-separator__text">Bill History</div>
+            </div>
+
+            <div class="card mb-0">
+                <div class="card-header d-flex align-items-center">
+                    <div class="flatpickr-wrapper flex">
+                        <div id="recent_orders_date1" data-toggle="flatpickr" data-flatpickr-wrap="true"
+                             data-flatpickr-static="true" data-flatpickr-mode="range" data-flatpickr-alt-format="d/m/Y"
+                             data-flatpickr-date-format="d/m/Y">
+                            <strong class="card-title d-block">All payment</strong>
+                            <input class="d-none" type="hidden" value="13/03/2018 to 20/03/2018" data-input>
+                        </div>
+                    </div>
+                    <i class="material-icons text-20">help_outline</i>
+                </div>
+                <div class="table-responsive" data-toggle="lists" data-lists-sort-by="js-lists-values-orders-name"
+                     data-lists-values='["js-lists-values-orders-name", "js-lists-values-orders-date", "js-lists-values-orders-amount"]'>
+                    <table class="table mb-0 table-nowrap thead-border-top-0">
+                        <thead>
+                        <tr>
+                            <th>-
+                                <a href="javascript:void(0)" class="sort"
+                                   data-sort="js-lists-values-orders-name">Date</a>
+                            </th>
+                            <th style="width: 100px;">
+                                <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-orders-amount">Amount</a>
+                            </th>
+                            <th style="width: 24px;"></th>
+                        </tr>
+                        </thead>
+                        <tbody class="list" id="orders1">
+                        <c:forEach var="dhp" items="${listDHP}">
+                        <tr>
+                            <td class="js-lists-values-orders-date text-50">${dhp.ngayDong}</td>
+                            <td class="text-right text-50">${dhp.soTienDong}</td>
+                        </tr>
+                        </c:forEach>
+
+
+
+
+
+                    </table>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <ul class="pagination justify-content-start pagination-xsm m-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true" class="material-icons">chevron_left</span>
+                                <span>Prev</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Page 1">
+                                <span>1</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Page 2">
+                                <span>2</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span>Next</span>
+                                <span aria-hidden="true" class="material-icons">chevron_right</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="text-primary font-size-16pt pr-2">Total: 5.000.000vnd</div>
                 </div>
             </div>
         </div>

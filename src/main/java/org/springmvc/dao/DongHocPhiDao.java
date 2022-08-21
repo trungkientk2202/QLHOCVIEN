@@ -26,9 +26,8 @@ public class DongHocPhiDao {
     public List<?> getListDHPByHV(HocVien hocVien) {
         try{
             Session session = factory.openSession();
-            String hql = "FROM DongHocPhi hp where hp.hocVien="+hocVien;
-            List<DongHocPhi> listDHP= session.createQuery(hql).list();
-            return listDHP;
+            String hql = "FROM DongHocPhi hp where hp.hocVien= :hocVien";
+            return session.createQuery(hql).setParameter("hocVien",hocVien).list();
         }catch (HibernateException e){
             e.printStackTrace();
             return null;
@@ -37,8 +36,8 @@ public class DongHocPhiDao {
     public long getTongDHPByHV(HocVien hocVien){
         try{
             Session session = factory.openSession();
-            String hql = "SELECT sum(hp.soTienDong) FROM DongHocPhi hp where hp.hocVien="+hocVien;
-            Long sum= (Long) session.createQuery(hql).uniqueResult();
+            String hql = "SELECT sum(hp.soTienDong) FROM DongHocPhi hp where hp.hocVien= :hocVien";
+            Long sum= (Long) session.createQuery(hql).setParameter("hocVien",hocVien).uniqueResult();
             return sum;
         }catch (HibernateException e){
             e.printStackTrace();

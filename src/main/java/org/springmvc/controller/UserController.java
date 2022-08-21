@@ -27,6 +27,8 @@ public class UserController {
     private final GiangVienDao giangVienDao = new GiangVienDao();
 
     private final HocPhanDao hocPhanDao = new HocPhanDao();
+
+    private final DongHocPhiDao dongHocPhiDao = new DongHocPhiDao();
     private final DangKyHPDao dangKyHPDao= new DangKyHPDao();
     private final MonHocDao monHocDao= new MonHocDao();
 
@@ -140,6 +142,12 @@ public class UserController {
 
     @RequestMapping(value = "/payment", method = RequestMethod.GET)
     public String payment(ModelMap modelMap){
+        HttpSession httpSession = getSession();
+        HocVien hocVien1=hocVienDao.getHVByUserName((TaiKhoan) httpSession.getAttribute("account"));
+        List<DangKyHP>list= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien1);
+        modelMap.addAttribute("list",list);
+        List<DongHocPhi>list2 = (List<DongHocPhi>) dongHocPhiDao.getListDHPByHV(hocVien1);
+        modelMap.addAttribute("listDHP",list2);
         return "user/student/payment";
     }
 

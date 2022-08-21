@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html lang="en" dir="ltr">
@@ -51,14 +51,19 @@
                 <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
 
                     <div class="mb-24pt mb-sm-0 mr-sm-24pt">
-                        <h2 class="mb-0">Tuition Payment</h2>
+                        <h2 class="mb-0">Register Course</h2>
 
                         <ol class="breadcrumb p-0 m-0">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
 
+                            <li class="breadcrumb-item">
+
+                                Course
+
+                            </li>
                             <li class="breadcrumb-item active">
 
-                                Payment
+                                Register
 
                             </li>
 
@@ -71,26 +76,8 @@
         </div>
 
         <div class="container page__container page-section">
-            <div class="flex search-form form-control-rounded search-form--light mb-16pt" style="min-width: 200px;">
-                <input type="text" class="form-control" placeholder="Search courses..." id="searchSample02">
-                <button class="btn pr-3" type="button" role="button"><i class="material-icons">search</i></button>
-            </div>
-            <div class="mb-32pt d-flex align-items-center">
-                <small class="text-black-70 text-headings text-uppercase mr-3">Displaying 10 out of 5,234
-                    articles</small>
-                <div class="dropdown ml-auto">
-                    <a href="" data-toggle="dropdown" class="dropdown-toggle text-black-70">All Topics</a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a href="" class="dropdown-item active">All Topics</a>
-                        <a href="" class="dropdown-item">General</a>
-                        <a href="" class="dropdown-item">Lessons</a>
-                        <a href="" class="dropdown-item">Customer Support</a>
-                    </div>
-                </div>
-            </div>
-
             <div class="page-separator">
-                <div class="page-separator__text">${list[0].monHoc.tenMH}</div>
+                <div class="page-separator__text">Course Name</div>
             </div>
 
             <div class="card mb-lg-32pt">
@@ -102,14 +89,7 @@
                         <thead>
                         <tr>
 
-                            <th style="width: 18px;" class="pr-0 border-right-0">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-toggle-check-all"
-                                           data-target="#contacts" id="customCheckAll_contacts">
-                                    <label class="custom-control-label" for="customCheckAll_contacts"><span
-                                            class="text-hide">Toggle all</span></label>
-                                </div>
-                            </th>
+                            <th style="width: 18px;" class="pr-0 border-right-0"></th>
 
                             <th class="border-left-0">
                                 <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-name">Name</a>
@@ -153,96 +133,103 @@
                         </tr>
                         </thead>
                         <tbody class="list" id="contacts">
-                            <c:forEach var="course" items="list">
-                                <tr class="selected">
+                        <c:forEach var="course" items="${list}">
+                            <tr class="selected">
 
-                                    <td class="pr-0 border-right-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row" checked=""
-                                                   id="customCheck1_contacts_3">
-                                            <label class="custom-control-label" for="customCheck1_contacts_3"><span
-                                                    class="text-hide">Check</span></label>
+                                <td class="pr-0 border-right-0">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="radio" class="custom-control-input js-check-selected-row"
+                                               checked="${false}"
+                                               id="maHP_${course.maHP}" name="HP">
+                                        <label class="custom-control-label" for="maHP_${course.maHP}"><span
+                                                class="text-hide">Check</span></label>
+                                    </div>
+                                </td>
+
+                                <td class="border-left-0">
+
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+
+                                            <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>"
+                                                 alt="Avatar"
+                                                 class="avatar-img rounded-circle">
+
+
                                         </div>
-                                    </td>
-
-                                    <td class="border-left-0">
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-                                                <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>" alt="Avatar"
-                                                     class="avatar-img rounded-circle">
+                                        <div class="media-body ml-4pt">
 
 
-                                            </div>
-                                            <div class="media-body ml-4pt">
+                                            <p class="mb-0"><strong
+                                                    class="js-lists-values-name">${course.giangVien.hoTen}</strong>
+                                            </p>
 
 
-                                                <p class="mb-0"><strong class="js-lists-values-name">${course.giangVien.hoTen}</strong>
-                                                </p>
-
-
-                                            </div>
                                         </div>
+                                    </div>
 
-                                    </td>
-                                    <td>
-                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                            <small><strong class="js-lists-values-name text-black-100">${Integer.valueOf(course.ca.)==2?(course.ca%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                            <small class="text-black-50">${course.ca/10==1?(listCa[course.ca%10].gioBD+':'+listCa[course.ca%10].gioKT):''}</small>
-                                        </a>
-                                    </td>
-                                    <td>
-
-
-                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                            <small><strong class="js-lists-values-name text-black-100">Day</strong></small>
-                                            <small class="text-black-50">07:30 - 20:00</small>
-                                        </a>
-
-
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                    <td>
-
-
-                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                            <small><strong class="js-lists-values-name text-black-100">Night</strong></small>
-                                            <small class="text-black-50">20:00 - 08:00</small>
-                                        </a>
-
-
-                                    </td>
-                                    <td>
-
-
-                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                            <small><strong class="js-lists-values-name text-black-100">Night</strong></small>
-                                            <small class="text-black-50">20:00 - 08:00</small>
-                                        </a>
-
-
-                                    </td>
-                                    <td>
-
-
-                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                            <small><strong class="js-lists-values-name text-black-100">Night</strong></small>
-                                            <small class="text-black-50">20:00 - 08:00</small>
-                                        </a>
-
-
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                                </td>
+                                    <%--                                    THU2--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=2&&course.caHoc/1000<3)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=2&&course.caHoc%100/10<3)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=2&&course.caHoc/1000<3)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=2&&course.caHoc%100/10<3)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    THU3--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=3&&course.caHoc/1000<4)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=3&&course.caHoc%100/10<4)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=3&&course.caHoc/1000<4)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=3&&course.caHoc%100/10<4)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    THU4--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=4&&course.caHoc/1000<5)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=4&&course.caHoc%100/10<5)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=4&&course.caHoc/1000<5)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=4&&course.caHoc%100/10<5)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    THU5--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=5&&course.caHoc/1000<6)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=5&&course.caHoc%100/10<6)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=5&&course.caHoc/1000<6)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=5&&course.caHoc%100/10<6)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    THU6--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=6&&course.caHoc/1000<7)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=6&&course.caHoc%100/10<7)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=6&&course.caHoc/1000<7)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=6&&course.caHoc%100/10<7)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    THU7--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=7)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=7)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=7)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=7)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    CN--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000<1)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10<1)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                        <small class="text-black-50">${(course.caHoc/1000<1)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10<1)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                    </a>
+                                </td>
+                                <td class="text-right">
+                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                </td>
+                            </tr>
+                        </c:forEach>
 
                         </tbody>
                     </table>
@@ -277,6 +264,20 @@
 
                 </div>
             </div>
+
+
+                <div class="container page__container d-flex flex-column flex-md-row justify-content-end text-center text-sm-left">
+                    <div class="row" role="tablist">
+                        <div class="col-auto">
+                            <a href="discussions-ask.html" class="btn btn-outline-primary">Cancel</a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="discussions-ask.html" class="btn btn-primary">Subscribe</a>
+                        </div>
+                    </div>
+
+                </div>
+
         </div>
 
         <!--    footer -->

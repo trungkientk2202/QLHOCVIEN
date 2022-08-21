@@ -13,7 +13,7 @@ public class DongHocPhi {
     @Column(name = "ID")
     private int id;
     @ManyToOne
-    @JoinColumn(name = "hocVien")
+    @JoinColumn(name = "MAHV")
     private HocVien hocVien;
     @Column(name = "SOTIENDONG")
     private long soTienDong;

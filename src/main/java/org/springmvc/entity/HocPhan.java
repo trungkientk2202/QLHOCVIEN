@@ -23,7 +23,7 @@ public class HocPhan {
     @JoinColumn(name = "maMH")
     private MonHoc monHoc;
     @Column
-    private String caHoc;
+    private int caHoc;
     @Column(name = "NGAYBD")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -39,7 +39,7 @@ public class HocPhan {
     public HocPhan() {
     }
 
-    public HocPhan(int maHP, GiangVien giangVien, Phong phong, MonHoc monHoc, String caHoc, Date ngayBD, Date ngayKT, boolean trangThai, Collection<DangKyHP> dangKyHPS) {
+    public HocPhan(int maHP, GiangVien giangVien, Phong phong, MonHoc monHoc, int caHoc, Date ngayBD, Date ngayKT, boolean trangThai, Collection<DangKyHP> dangKyHPS) {
         this.maHP = maHP;
         this.giangVien = giangVien;
         this.phong = phong;
@@ -83,11 +83,11 @@ public class HocPhan {
         this.monHoc = monHoc;
     }
 
-    public String getCaHoc() {
+    public int getCaHoc() {
         return caHoc;
     }
 
-    public void setCaHoc(String caHoc) {
+    public void setCaHoc(int caHoc) {
         this.caHoc = caHoc;
     }
 
