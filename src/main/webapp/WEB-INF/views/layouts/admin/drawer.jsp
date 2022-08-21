@@ -21,11 +21,25 @@
                         Schedule
                     </a>
                 </li>
-                <li class="sidebar-menu-item ${pagina.endsWith('/courses') ? 'active open' : ''}">
-                    <a class="sidebar-menu-button" href="/admin/courses">
+                <li class="sidebar-menu-item sidebar-menu-item ${pagina.endsWith('/courses') || pagina.endsWith('/course-register') ? 'active open' : ''}">
+                    <a class="sidebar-menu-button" data-toggle="collapse" href="#instructor_menu">
                         <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dns</span>
                         Courses
+                        <span class="sidebar-menu-badge badge badge-accent badge-notifications ml-auto">2</span>
+                        <span class="sidebar-menu-toggle-icon"></span>
                     </a>
+                    <ul class="sidebar-submenu collapse sm-indent" id="instructor_menu">
+                        <li class="sidebar-menu-item ${pagina.endsWith('/courses') ? 'active open' : ''}">
+                            <a class="sidebar-menu-button" href="/admin/courses">
+                                <span class="sidebar-menu-text">All Courses</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item ${pagina.endsWith('/course-register') ? 'active open' : ''}">
+                            <a class="sidebar-menu-button" href="/admin/course-register">
+                                <span class="sidebar-menu-text">Register</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="sidebar-menu-item ${pagina.endsWith('/students') ? 'active open' : ''}">
                     <a class="sidebar-menu-button" href="/admin/students">
@@ -39,27 +53,6 @@
                         Instructors
                     </a>
                 </li>
-                <li class="sidebar-menu-item">
-                    <a class="sidebar-menu-button" data-toggle="collapse" href="#messaging_menu">
-                            <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">message</span>
-                            Messaging
-                            <span class="sidebar-menu-badge badge badge-accent badge-notifications ml-auto">2</span>
-                            <span class="sidebar-menu-toggle-icon"></span>
-                        </a>
-                        <ul class="sidebar-submenu collapse sm-indent" id="messaging_menu">
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="sticky-messages.html">
-                                    <span class="sidebar-menu-text">Messages</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="sticky-email.html">
-                                    <span class="sidebar-menu-text">Email</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
                 </ul>
 
             </div>

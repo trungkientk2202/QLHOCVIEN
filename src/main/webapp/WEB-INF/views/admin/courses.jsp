@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>CRM Dashboard</title>
+    <title>Courses</title>
 
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
@@ -53,14 +53,14 @@
                     <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
 
                         <div class="mb-24pt mb-sm-0 mr-sm-24pt">
-                            <h2 class="mb-0">CRM Dashboard</h2>
+                            <h2 class="mb-0">Courses</h2>
 
                             <ol class="breadcrumb p-0 m-0">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
 
                                 <li class="breadcrumb-item active">
 
-                                    CRM Dashboard
+                                    Courses
 
                                 </li>
 
@@ -83,7 +83,7 @@
 
             <div class="container page__container page-section">
                 <div class="page-separator">
-                    <div class="page-separator__text">Users</div>
+                    <div class="page-separator__text">All Courses</div>
                 </div>
 
                 <div class="card mb-lg-32pt">
@@ -110,298 +110,88 @@
                                     <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-name">Name</a>
                                 </th>
 
-                                <th style="width: 150px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-company">Company</a>
-                                </th>
-
-
-                                <th style="width: 37px;">Tags</th>
-
-
                                 <th style="width: 48px;">
                                     <a href="javascript:void(0)" class="sort"
-                                       data-sort="js-lists-values-phone">Phone</a>
+                                       data-sort="js-lists-values-lesson">Lesson</a>
                                 </th>
 
                                 <th style="width: 120px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-date">Added</a>
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-fees">Fees</a>
                                 </th>
-                                <th style="width: 24px;"></th>
+
+                                <th style="width: 120px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-desc">Description</a>
+                                </th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody class="list" id="clients">
+                            <c:forEach var="hocPhan" items="${list}">
+                                <tr>
 
-                            <tr>
-
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               id="customCheck1_clients_1">
-                                        <label class="custom-control-label" for="customCheck1_clients_1"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-
-                                            <span class="avatar-title rounded-circle">BN</span>
-
+                                    <td class="pr-0">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                                   id="customCheck1_clients_1">
+                                            <label class="custom-control-label" for="customCheck1_clients_1"><span
+                                                    class="text-hide">Check</span></label>
                                         </div>
-                                        <div class="media-body">
+                                    </td>
+
+                                    <td>
+
+                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                            <div class="avatar avatar-sm mr-8pt">
 
 
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-name">Billy
-                                                    Nunez</strong></p>
-                                                <small class="js-lists-values-email text-50">annabell.kris@yahoo.com</small>
+                                                <span class="avatar-title rounded-sm">AJ</span>
+
                                             </div>
+                                            <div class="media-body">
 
 
-                                        </div>
-                                    </div>
+                                                <div class="d-flex flex-column">
+                                                    <p class="mb-0"><strong class="js-lists-values-name">${hocPhan.monHoc.tenMH}</strong></p>
+                                                    <small class="js-lists-values-email text-50">${hocPhan.giangVien.hoTen}</small>
+                                                </div>
 
-                                </td>
 
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-                                            <span class="avatar-title rounded bg-warning">FM</span>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex flex-column">
-                                                <small class="js-lists-values-company"><strong>Frontend Matter
-                                                    Inc.</strong></small>
-                                                <small class="js-lists-values-location text-50">Leuschkefurt</small>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </td>
+                                    </td>
 
+                                    <td>
+                                        <small class="js-lists-values-lesson text-50">${hocPhan.monHoc.soTiet}</small>
+                                    </td>
 
-                                <td>
-
-
-                                    <a href="" class="chip chip-outline-secondary">User</a>
-
-
-                                </td>
-
-
-                                <td>
-                                    <small class="js-lists-values-phone text-50">239-721-3649</small>
-                                </td>
-
-                                <td>
-                                    <small class="js-lists-values-date text-50">19 February 2019</small>
-                                </td>
-                                <td class="text-right">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
-                            </tr>
-
-                            <tr>
-
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               id="customCheck1_clients_2">
-                                        <label class="custom-control-label" for="customCheck1_clients_2"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-
-                                            <span class="avatar-title rounded-circle">TP</span>
-
+                                    <td>
+                                        <small class="js-lists-values-fees">${hocPhan.monHoc.hocPhi}đ</small>
+                                    </td>
+                                    <td>
+                                        <small class="js-lists-values-desc text-50"
+                                               style="display: block;width: 150px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                                               data-toggle="tooltip"
+                                               data-title="Lorem ipsum dolor sit amet, consectetur adipiscing
+                                            elit, sed do eiusmod tempor incididunt ut
+                                            labore et dolore magna aliqua."
+                                               data-placement="bottom"
+                                               data-boundary="window"
+                                        >
+                                            ${hocPhan.monHoc.moTa}
+                                        </small>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="d-inline-flex align-items-center">
+                                            <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary mr-16pt">Edit
+                                                <i class="icon--right material-icons">edit</i></a>
+                                            <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary">Delete
+                                                <i class="icon--right material-icons">delete</i></a>
                                         </div>
-                                        <div class="media-body">
+                                    </td>
+                                </tr>
+                            </c:forEach>
 
-
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-name">Tony Parks</strong>
-                                                </p>
-                                                <small class="js-lists-values-email text-50">vida_glover@gmail.com</small>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-                                            <span class="avatar-title rounded bg-accent">HH</span>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex flex-column">
-                                                <small class="js-lists-values-company"><strong>Huma Huma
-                                                    Inc.</strong></small>
-                                                <small class="js-lists-values-location text-50">Mayerberg</small>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </td>
-
-
-                                <td>
-
-
-                                    <a href="" class="chip chip-outline-secondary">Admin</a>
-
-
-                                </td>
-
-
-                                <td>
-                                    <small class="js-lists-values-phone text-50">169-769-4821</small>
-                                </td>
-
-                                <td>
-                                    <small class="js-lists-values-date text-50">18 February 2019</small>
-                                </td>
-                                <td class="text-right">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
-                            </tr>
-
-                            <tr class="selected">
-
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               checked="" id="customCheck1_clients_3">
-                                        <label class="custom-control-label" for="customCheck1_clients_3"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-                                            <img src="assets/images/people/110/guy-1.jpg" alt="Avatar"
-                                                 class="avatar-img rounded-circle">
-
-
-                                        </div>
-                                        <div class="media-body">
-
-
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-name">Gilbert
-                                                    Barrett</strong></p>
-                                                <small class="js-lists-values-email text-50">paolo.zieme@gmail.com</small>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                </td>
-
-
-                                <td>
-
-
-                                    <a href="" class="chip chip-outline-secondary">Admin</a>
-
-
-                                </td>
-
-
-                                <td>
-                                    <small class="js-lists-values-phone text-50">462-060-7408</small>
-                                </td>
-
-                                <td>
-                                    <small class="js-lists-values-date text-50">17 February 2019</small>
-                                </td>
-                                <td class="text-right">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
-                            </tr>
-
-                            <tr class="selected">
-
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               checked="" id="customCheck1_clients_4">
-                                        <label class="custom-control-label" for="customCheck1_clients_4"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-                                            <img src="assets/images/people/110/guy-2.jpg" alt="Avatar"
-                                                 class="avatar-img rounded-circle">
-
-
-                                        </div>
-                                        <div class="media-body">
-
-
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-name">Ollie
-                                                    Wallace</strong></p>
-                                                <small class="js-lists-values-email text-50">lorna_kirlin@nora.biz</small>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                </td>
-
-
-                                <td>
-
-
-                                    <a href="" class="chip chip-outline-secondary">Manager</a>
-
-
-                                </td>
-
-
-                                <td>
-                                    <small class="js-lists-values-phone text-50">285-626-6050</small>
-                                </td>
-
-                                <td>
-                                    <small class="js-lists-values-date text-50">16 February 2019</small>
-                                </td>
-                                <td class="text-right">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
-                            </tr>
 
                             </tbody>
                         </table>

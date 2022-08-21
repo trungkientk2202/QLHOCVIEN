@@ -91,269 +91,120 @@
                                     <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-employee-name">Employee</a>
                                 </th>
 
-                                <th style="width: 150px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-employer-name">Employer</a>
+                                <th style="width: 48px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-phone">Phone</a>
                                 </th>
 
-
-                                <th class="text-center" style="width: 48px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-projects">Projects</a>
+                                <th style="width: 48px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-address">Address</a>
                                 </th>
 
+                                <th style="width: 18px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-sex">Sex</a>
+                                </th>
 
-                                <th style="width: 37px;">Status</th>
+                                <th style="width: 48px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-date">Date
+                                        Of Birth</a>
+                                </th>
+
+                                <th style="width: 48px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-username">Username</a>
+                                </th>
 
                                 <th style="width: 120px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-activity">Activity</a>
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-desc">Description</a>
                                 </th>
-                                <th style="width: 51px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-earnings">Earnings</a>
-                                </th>
-                                <th style="width: 24px;" class="pl-0"></th>
+
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody class="list" id="users">
+                            <c:forEach var="student" items="${list}">
 
-                            <tr class="selected">
+                                <tr class="selected">
 
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               checked="" id="customCheck1_users1">
-                                        <label class="custom-control-label" for="customCheck1_users1"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-                                            <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>" alt="Avatar"
-                                                 class="avatar-img rounded-circle">
-
-
+                                    <td class="pr-0">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                                   checked="" id="customCheck1_users1">
+                                            <label class="custom-control-label" for="customCheck1_users1"><span
+                                                    class="text-hide">Check</span></label>
                                         </div>
-                                        <div class="media-body">
+                                    </td>
+
+                                    <td>
+
+                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                            <div class="avatar avatar-sm mr-8pt">
+
+                                                <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>" alt="Avatar"
+                                                     class="avatar-img rounded-circle">
 
 
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Michael
-                                                    Smith</strong></p>
-                                                <small class="js-lists-values-employee-email text-50"></small>
                                             </div>
+                                            <div class="media-body">
 
 
-                                        </div>
-                                    </div>
-
-                                </td>
-
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
-                                        <a href="" class="text-70"><span
-                                                class="js-lists-values-employer-name">Black Ops</span></a>
-                                    </div>
-                                </td>
-
-                                <td class="text-center js-lists-values-projects small">12</td>
-
-                                <td>
+                                                <div class="d-flex flex-column">
+                                                    <p class="mb-0"><strong class="js-lists-values-employee-name">${student.hoTen}</strong></p>
+                                                    <small class="js-lists-values-employee-email text-50"></small>
+                                                </div>
 
 
-                                    <a href="" class="chip chip-outline-secondary">Admin</a>
-
-
-                                </td>
-
-                                <td class="text-50 js-lists-values-activity small">3 days ago</td>
-                                <td class="js-lists-values-earnings small">$12,402</td>
-                                <td class="text-right pl-0">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
-                            </tr>
-
-                            <tr>
-
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               id="customCheck1_users2">
-                                        <label class="custom-control-label" for="customCheck1_users2"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-
-                                            <span class="avatar-title rounded-circle">CS</span>
-
-                                        </div>
-                                        <div class="media-body">
-
-
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Connie
-                                                    Smith</strong></p>
-                                                <small class="js-lists-values-employee-email text-50"></small>
                                             </div>
-
-
                                         </div>
-                                    </div>
 
-                                </td>
+                                    </td>
 
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
-                                        <a href="" class="text-70"><span class="js-lists-values-employer-name">Backend Ltd</span></a>
-                                    </div>
-                                </td>
+                                    <td>
+                                        <small class="js-lists-values-phone text-50">${student.sdt}</small>
+                                    </td>
 
-                                <td class="text-center js-lists-values-projects small">42</td>
+                                    <td>
+                                        <small class="js-lists-values-address text-50">${student.diaChi}</small>
+                                    </td>
 
-                                <td>
+                                    <td>
+                                        <small class="js-lists-values-sex text-50">${student.phai==true?'Male':'Female'}</small>
+                                    </td>
 
+                                    <td>
+                                        <small class="js-lists-values-date text-50">${student.ngaySinh}</small>
+                                    </td>
 
-                                    <a href="" class="chip chip-outline-secondary">User</a>
-
-
-                                </td>
-
-                                <td class="text-50 js-lists-values-activity small">1 week ago</td>
-                                <td class="js-lists-values-earnings small">$1,943</td>
-                                <td class="text-right pl-0">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
-                            </tr>
-
-                            <tr>
-
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               id="customCheck1_users3">
-                                        <label class="custom-control-label" for="customCheck1_users3"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-                                            <img src="<c:url value="/resources/assets/images/people/110/guy-2.jpg"/>" alt="Avatar"
-                                                 class="avatar-img rounded-circle">
-
-
+                                    <td>
+                                        <div class="d-flex flex-column">
+                                            <small class="js-lists-values-username mb-4pt">${student.taiKhoan.tenTK}</small>
+                                            <span class="indicator-line rounded bg-primary-red"></span>
                                         </div>
-                                        <div class="media-body">
+                                    </td>
 
+                                    <td>
+                                        <small class="js-lists-values-desc text-50"
+                                               style="display: block;width: 150px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                                               data-toggle="tooltip"
+                                               data-title="Lorem ipsum dolor sit amet, consectetur adipiscing
+                                            elit, sed do eiusmod tempor incididunt ut
+                                            labore et dolore magna aliqua."
+                                               data-placement="bottom"
+                                               data-boundary="window"
+                                        >
+                                            ${student.moTa}
+                                        </small>
+                                    </td>
 
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-employee-name">John
-                                                    Connor</strong></p>
-                                                <small class="js-lists-values-employee-email text-50"></small>
-                                            </div>
-
-
+                                    <td class="text-right">
+                                        <div class="d-inline-flex align-items-center">
+                                            <a href="billing-invoice.html"
+                                               class="btn btn-sm btn-outline-secondary mr-16pt">Edit
+                                                <i class="icon--right material-icons">edit</i></a>
+                                            <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary">Delete
+                                                <i class="icon--right material-icons">delete</i></a>
                                         </div>
-                                    </div>
-
-                                </td>
-
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
-                                        <a href="" class="text-70"><span
-                                                class="js-lists-values-employer-name">Frontted</span></a>
-                                    </div>
-                                </td>
-
-                                <td class="text-center js-lists-values-projects small">31</td>
-
-                                <td>
-
-
-                                    <a href="" class="chip chip-outline-secondary">Manager</a>
-
-
-                                </td>
-
-                                <td class="text-50 js-lists-values-activity small">2 weeks ago</td>
-                                <td class="js-lists-values-earnings small">$1,401</td>
-                                <td class="text-right pl-0">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
-                            </tr>
-
-                            <tr class="selected">
-
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               checked="" id="customCheck1_users4">
-                                        <label class="custom-control-label" for="customCheck1_users4"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-
-                                            <span class="avatar-title rounded-circle">LB</span>
-
-                                        </div>
-                                        <div class="media-body">
-
-
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Laza
-                                                    Bogdan</strong></p>
-                                                <small class="js-lists-values-employee-email text-50"></small>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </td>
-
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="text-warning"><i class="material-icons mr-8pt">star</i></a>
-                                        <a href="" class="text-70"><span
-                                                class="js-lists-values-employer-name">Frontted</span></a>
-                                    </div>
-                                </td>
-
-                                <td class="text-center js-lists-values-projects small">44</td>
-
-                                <td>
-
-
-                                    <a href="" class="chip chip-outline-secondary">Admin</a>
-
-
-                                </td>
-
-                                <td class="text-50 js-lists-values-activity small">3 weeks ago</td>
-                                <td class="js-lists-values-earnings small">$22,402</td>
-                                <td class="text-right pl-0">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            </c:forEach>
 
                             </tbody>
                         </table>

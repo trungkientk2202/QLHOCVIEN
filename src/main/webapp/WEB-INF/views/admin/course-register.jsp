@@ -56,11 +56,16 @@
                             <h2 class="mb-0">Courses</h2>
 
                             <ol class="breadcrumb p-0 m-0">
-                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
 
-                                <li class="breadcrumb-item active">
+                                <li class="breadcrumb-item">
 
                                     Courses
+
+                                </li>
+                                <li class="breadcrumb-item active">
+
+                                    Register
 
                                 </li>
 
@@ -72,8 +77,8 @@
 
                     <div class="row" role="tablist">
                         <div class="col-auto">
-                            <a href="" class="btn btn-outline-secondary"><span
-                                    class="icon--left material-icons icon-16pt">add</span> New Course</a>
+                            <a href="" class="btn btn-outline-secondary">Register a Course<span
+                                    class="icon--right material-icons icon-16pt">arrow_forward</span></a>
                         </div>
                     </div>
 
@@ -83,7 +88,26 @@
 
             <div class="container page__container page-section">
                 <div class="page-separator">
-                    <div class="page-separator__text">All Courses</div>
+                    <div class="page-separator__text">Registered Request</div>
+                </div>
+
+                <div class="alert alert-soft-accent mb-lg-32pt">
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="mr-8pt">
+                            <i class="material-icons">access_time</i>
+                        </div>
+                        <div class="flex" style="min-width: 180px">
+                            <small class="text-100">
+                                You have a request from
+                                <strong>Nguyen Trung Kien (Instructor)</strong> for Course <a href="billing-invoice.html" class="text-underline">10002331</a>
+                            </small>
+                        </div>
+                        <a href="billing-payment.html" class="btn btn-sm btn-link">Review Now</a>
+                    </div>
+                </div>
+
+                <div class="page-separator">
+                    <div class="page-separator__text">Registered Courses</div>
                 </div>
 
                 <div class="card mb-lg-32pt">
@@ -107,91 +131,112 @@
                                 </th>
 
                                 <th>
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-name">Name</a>
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-course">Course</a>
+                                </th>
+
+                                <th>
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-instructor">Instructor</a>
                                 </th>
 
                                 <th style="width: 48px;">
-                                    <a href="javascript:void(0)" class="sort"
-                                       data-sort="js-lists-values-lesson">Lesson</a>
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-room">Room</a>
+                                </th>
+                                <th style="width: 150px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-shift">Shift</a>
                                 </th>
 
-                                <th style="width: 120px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-fees">Fees</a>
+                                <th style="width: 48px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-from">From</a>
+                                </th>
+                                <th style="width: 48px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-to">To</a>
+                                </th>
+                                <th style="width: 48px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-status">Status</a>
                                 </th>
 
-                                <th style="width: 120px;">
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-desc">Description</a>
-                                </th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody class="list" id="clients">
-                            <c:forEach var="hocPhan" items="${list}">
-                                <tr>
 
-                                    <td class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                                   id="customCheck1_clients_1">
-                                            <label class="custom-control-label" for="customCheck1_clients_1"><span
-                                                    class="text-hide">Check</span></label>
+                            <tr>
+
+                                <td class="pr-0">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                               id="customCheck1_clients_1">
+                                        <label class="custom-control-label" for="customCheck1_clients_1"><span
+                                                class="text-hide">Check</span></label>
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+
+
+                                            <span class="avatar-title rounded-sm">AJ</span>
+
                                         </div>
-                                    </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-
-                                                <span class="avatar-title rounded-sm">AJ</span>
-
-                                            </div>
-                                            <div class="media-body">
-
-
-                                                <div class="d-flex flex-column">
-                                                    <p class="mb-0"><strong class="js-lists-values-name">${hocPhan.monHoc.tenMH}</strong></p>
-                                                    <small class="js-lists-values-email text-50">${hocPhan.giangVien.hoTen}</small>
-                                                </div>
-
-
+                                        <div class="media-body">
+                                            <div class="d-flex flex-column">
+                                                <p class="mb-0"><strong class="js-lists-values-name">AngularJs</strong></p>
                                             </div>
                                         </div>
+                                    </div>
 
-                                    </td>
+                                </td>
 
-                                    <td>
-                                        <small class="js-lists-values-lesson text-50">${hocPhan.monHoc.soTiet}</small>
-                                    </td>
+                                <td>
 
-                                    <td>
-                                        <small class="js-lists-values-fees">${hocPhan.monHoc.hocPhi}đ</small>
-                                    </td>
-                                    <td>
-                                        <small class="js-lists-values-desc text-50"
-                                               style="display: block;width: 150px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
-                                               data-toggle="tooltip"
-                                               data-title="Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit, sed do eiusmod tempor incididunt ut
-                                            labore et dolore magna aliqua."
-                                               data-placement="bottom"
-                                               data-boundary="window"
-                                        >
-                                            ${hocPhan.monHoc.moTa}
-                                        </small>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="d-inline-flex align-items-center">
-                                            <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary mr-16pt">Edit
-                                                <i class="icon--right material-icons">edit</i></a>
-                                            <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary">Delete
-                                                <i class="icon--right material-icons">delete</i></a>
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
+
+
+                                            <span class="avatar-title rounded-circle bg-warning">BN</span>
+
                                         </div>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                                        <div class="media-body">
+                                            <div class="d-flex flex-column">
+                                                <p class="mb-0"><strong class="js-lists-values-instructor">Billy Nunez</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                </td>
+
+                                <td>
+                                    <small class="js-lists-values-room text-50">A3-305</small>
+                                </td>
+                                <td>
+                                    <small class="js-lists-values-shift text-50">12-13</small>
+                                </td>
+
+                                <td>
+                                    <small class="js-lists-values-from text-50">18/02/2019</small>
+                                </td>
+                                <td>
+                                    <small class="js-lists-values-to text-50">18/02/2019</small>
+                                </td>
+
+                                <td>
+                                    <div class="d-flex flex-column">
+                                        <small class="js-lists-values-status text-50 mb-4pt">Opened</small>
+                                        <span class="indicator-line rounded bg-primary"></span>
+                                    </div>
+                                </td>
+
+                                <td class="text-right">
+                                    <div class="d-inline-flex align-items-center">
+                                        <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary mr-16pt">Edit
+                                            <i class="icon--right material-icons">edit</i></a>
+                                        <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary">Delete
+                                            <i class="icon--right material-icons">delete</i></a>
+                                    </div>
+                                </td>
+                            </tr>
 
                             </tbody>
                         </table>

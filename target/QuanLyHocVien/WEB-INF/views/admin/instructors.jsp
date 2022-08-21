@@ -53,14 +53,14 @@
                     <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
 
                         <div class="mb-24pt mb-sm-0 mr-sm-24pt">
-                            <h2 class="mb-0">Employees</h2>
+                            <h2 class="mb-0">Instructor</h2>
 
                             <ol class="breadcrumb p-0 m-0">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
 
                                 <li class="breadcrumb-item active">
 
-                                    Employees
+                                    Instructor
 
                                 </li>
 
@@ -72,7 +72,8 @@
 
                     <div class="row" role="tablist">
                         <div class="col-auto">
-                            <a href="" class="btn btn-outline-secondary">New Report</a>
+                            <a href="" class="btn btn-outline-secondary"><span
+                                    class="icon--left material-icons icon-16pt">add</span>New Instructor</a>
                         </div>
                     </div>
 
@@ -181,28 +182,20 @@
 
                                     <th style="width: 18px;" class="pr-0">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-toggle-check-all" data-target="#employees" id="customCheckAllemployees">
-                                            <label class="custom-control-label" for="customCheckAllemployees"><span class="text-hide">Toggle all</span></label>
+                                            <input type="checkbox" class="custom-control-input js-toggle-check-all"
+                                                   data-target="#employees" id="customCheckAllemployees">
+                                            <label class="custom-control-label" for="customCheckAllemployees"><span
+                                                    class="text-hide">Toggle all</span></label>
                                         </div>
                                     </th>
 
                                     <th>
-                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-name">Name</a>
+                                        <a href="javascript:void(0)" class="sort"
+                                           data-sort="js-lists-values-name">Name</a>
                                     </th>
-
-                                    <th style="width: 150px;">
-                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-department">Department</a>
-                                    </th>
-
-
 
                                     <th style="width: 48px;">
-                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-status">Status</a>
-                                    </th>
-
-
-                                    <th style="width: 48px;">
-                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-type">Type</a>
+                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-major">Major</a>
                                     </th>
 
 
@@ -211,9 +204,19 @@
                                     </th>
 
                                     <th style="width: 48px;">
-                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-date">Hire date</a>
+                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-date">Date
+                                            Of Birth</a>
                                     </th>
-                                    <th style="width: 24px;"></th>
+
+                                    <th style="width: 48px;">
+                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-username">Username</a>
+                                    </th>
+
+                                    <th style="width: 120px;">
+                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-desc">Description</a>
+                                    </th>
+
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody class="list" id="employees">
@@ -222,8 +225,10 @@
 
                                     <td class="pr-0">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_employees1">
-                                            <label class="custom-control-label" for="customCheck1_employees1"><span class="text-hide">Check</span></label>
+                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                                   id="customCheck1_employees1">
+                                            <label class="custom-control-label" for="customCheck1_employees1"><span
+                                                    class="text-hide">Check</span></label>
                                         </div>
                                     </td>
 
@@ -241,15 +246,11 @@
 
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex d-flex flex-column">
-                                                        <p class="mb-0"><strong class="js-lists-values-name">Billy Nunez</strong></p>
-                                                        <small class="js-lists-values-email text-50">annabell.kris@yahoo.com</small>
+                                                        <p class="mb-0"><strong class="js-lists-values-name">Billy
+                                                            Nunez</strong></p>
+                                                        <small class="js-lists-values-email text-50">Degree: Thạc
+                                                            Sĩ</small>
                                                     </div>
-
-                                                    <div class="d-flex align-items-center ml-24pt">
-                                                        <i class="material-icons text-20 icon-16pt">link</i>
-                                                        <small class="ml-4pt"><strong class="text-50">2</strong></small>
-                                                    </div>
-
                                                 </div>
 
 
@@ -259,33 +260,7 @@
                                     </td>
 
                                     <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-                                                <span class="avatar-title rounded bg-light text-black-100">Ds</span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="d-flex flex-column">
-                                                    <small class="js-lists-values-department"><strong>Design</strong></small>
-                                                    <small class="js-lists-values-location text-50">UX Designer</small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-
-
-                                    <td>
-                                        <div class="d-flex flex-column">
-                                            <small class="js-lists-values-status text-50 mb-4pt">Probation</small>
-                                            <span class="indicator-line rounded bg-warning"></span>
-                                        </div>
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-type text-50">Temporary</small>
+                                        <small class="js-lists-values-major text-50">Công Nghệ Thông Tin</small>
                                     </td>
 
 
@@ -296,330 +271,38 @@
                                     <td>
                                         <small class="js-lists-values-date text-50">19/02/2019</small>
                                     </td>
-                                    <td class="text-right">
-                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_employees2">
-                                            <label class="custom-control-label" for="customCheck1_employees2"><span class="text-hide">Check</span></label>
-                                        </div>
-                                    </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-
-                                                <span class="avatar-title rounded-circle">TP</span>
-
-                                            </div>
-                                            <div class="media-body">
-
-
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex d-flex flex-column">
-                                                        <p class="mb-0"><strong class="js-lists-values-name">Tony Parks</strong></p>
-                                                        <small class="js-lists-values-email text-50">vida_glover@gmail.com</small>
-                                                    </div>
-
-                                                    <div class="d-flex align-items-center ml-24pt">
-                                                        <i class="material-icons text-20 icon-16pt">comment</i>
-                                                        <small class="ml-4pt"><strong class="text-50">1</strong></small>
-                                                    </div>
-
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-                                                <span class="avatar-title rounded bg-light text-black-100">Dv</span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="d-flex flex-column">
-                                                    <small class="js-lists-values-department"><strong>Development</strong></small>
-                                                    <small class="js-lists-values-location text-50">Senior Frontend Developer</small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-
 
                                     <td>
                                         <div class="d-flex flex-column">
-                                            <small class="js-lists-values-status text-50 mb-4pt">Active</small>
-                                            <span class="indicator-line rounded bg-primary"></span>
+                                            <small class="js-lists-values-username text-50 mb-4pt">letuan0512</small>
+                                            <span class="indicator-line rounded bg-warning"></span>
                                         </div>
                                     </td>
 
-
                                     <td>
-                                        <small class="js-lists-values-type text-50">On Contract</small>
+                                        <small class="js-lists-values-desc text-50"
+                                               style="display: block;width: 150px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                                               data-toggle="tooltip"
+                                               data-title="Lorem ipsum dolor sit amet, consectetur adipiscing
+                                            elit, sed do eiusmod tempor incididunt ut
+                                            labore et dolore magna aliqua."
+                                               data-placement="bottom"
+                                               data-boundary="window"
+                                        >
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                                            elit, sed do eiusmod tempor incididunt ut
+                                            labore et dolore magna aliqua.
+                                        </small>
                                     </td>
 
-
-                                    <td>
-                                        <small class="js-lists-values-phone text-50">169-769-4821</small>
-                                    </td>
-
-                                    <td>
-                                        <small class="js-lists-values-date text-50">18/02/2019</small>
-                                    </td>
                                     <td class="text-right">
-                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_employees3">
-                                            <label class="custom-control-label" for="customCheck1_employees3"><span class="text-hide">Check</span></label>
+                                        <div class="d-inline-flex align-items-center">
+                                            <a href="billing-invoice.html"
+                                               class="btn btn-sm btn-outline-secondary mr-16pt">Edit
+                                                <i class="icon--right material-icons">edit</i></a>
+                                            <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary">Delete
+                                                <i class="icon--right material-icons">delete</i></a>
                                         </div>
-                                    </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-                                                <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>" alt="Avatar" class="avatar-img rounded-circle">
-
-
-                                            </div>
-                                            <div class="media-body">
-
-
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex d-flex flex-column">
-                                                        <p class="mb-0"><strong class="js-lists-values-name">Gilbert Barrett</strong></p>
-                                                        <small class="js-lists-values-email text-50">paolo.zieme@gmail.com</small>
-                                                    </div>
-
-                                                    <div class="d-flex align-items-center ml-24pt">
-                                                        <i class="material-icons text-20 icon-16pt">comment</i>
-                                                        <small class="ml-4pt"><strong class="text-50">1</strong></small>
-                                                    </div>
-
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-                                                <span class="avatar-title rounded bg-light text-black-100">CR</span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="d-flex flex-column">
-                                                    <small class="js-lists-values-department"><strong>Customer Relationship</strong></small>
-                                                    <small class="js-lists-values-location text-50">CRM Manager</small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-
-
-                                    <td>
-                                        <div class="d-flex flex-column">
-                                            <small class="js-lists-values-status text-50 mb-4pt">Active</small>
-                                            <span class="indicator-line rounded bg-primary"></span>
-                                        </div>
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-type text-50">On Contract</small>
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-phone text-50">462-060-7408</small>
-                                    </td>
-
-                                    <td>
-                                        <small class="js-lists-values-date text-50">17/02/2019</small>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_employees4">
-                                            <label class="custom-control-label" for="customCheck1_employees4"><span class="text-hide">Check</span></label>
-                                        </div>
-                                    </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-                                                <img src="<c:url value="/resources/assets/images/people/110/guy-2.jpg"/>" alt="Avatar" class="avatar-img rounded-circle">
-
-
-                                            </div>
-                                            <div class="media-body">
-
-
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex d-flex flex-column">
-                                                        <p class="mb-0"><strong class="js-lists-values-name">Ollie Wallace</strong></p>
-                                                        <small class="js-lists-values-email text-50">lorna_kirlin@nora.biz</small>
-                                                    </div>
-
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-                                                <span class="avatar-title rounded bg-light text-black-100">HR</span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="d-flex flex-column">
-                                                    <small class="js-lists-values-department"><strong>HR</strong></small>
-                                                    <small class="js-lists-values-location text-50">HR Manager</small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-
-
-                                    <td>
-                                        <div class="d-flex flex-column">
-                                            <small class="js-lists-values-status text-50 mb-4pt">Active</small>
-                                            <span class="indicator-line rounded bg-primary"></span>
-                                        </div>
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-type text-50">Full Time</small>
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-phone text-50">285-626-6050</small>
-                                    </td>
-
-                                    <td>
-                                        <small class="js-lists-values-date text-50">16/02/2019</small>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                    </td>
-                                </tr>
-
-                                <tr class="selected">
-
-                                    <td class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row" checked="" id="customCheck1_employees5">
-                                            <label class="custom-control-label" for="customCheck1_employees5"><span class="text-hide">Check</span></label>
-                                        </div>
-                                    </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-                                                <img src="<c:url value="/resources/assets/images/people/110/guy-3.jpg"/>" alt="Avatar" class="avatar-img rounded-circle">
-
-
-                                            </div>
-                                            <div class="media-body">
-
-
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex d-flex flex-column">
-                                                        <p class="mb-0"><strong class="js-lists-values-name">Ricardo Bell</strong></p>
-                                                        <small class="js-lists-values-email text-50">smith_winfield@douglas.io</small>
-                                                    </div>
-
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-                                                <span class="avatar-title rounded bg-light text-black-100">Ds</span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="d-flex flex-column">
-                                                    <small class="js-lists-values-department"><strong>Design</strong></small>
-                                                    <small class="js-lists-values-location text-50">UX Designer</small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-
-
-                                    <td>
-                                        <div class="d-flex flex-column">
-                                            <small class="js-lists-values-status text-50 mb-4pt">Terminated</small>
-                                            <span class="indicator-line rounded bg-danger"></span>
-                                        </div>
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-type text-50">Temporary</small>
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-phone text-50">285-626-6050</small>
-                                    </td>
-
-                                    <td>
-                                        <small class="js-lists-values-date text-50">01/12/2018</small>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
                                     </td>
                                 </tr>
 
