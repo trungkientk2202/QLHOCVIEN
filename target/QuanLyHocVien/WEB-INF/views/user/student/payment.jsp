@@ -181,7 +181,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="text-accent font-size-16pt pr-2">Total: 5.000.000vnd</div>
+                    <div class="text-accent font-size-16pt pr-2">Total: ${tongHP}vnd</div>
                 </div>
             </div>
 
@@ -255,7 +255,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="text-primary font-size-16pt pr-2">Total: 5.000.000vnd</div>
+                    <div class="text-primary font-size-16pt pr-2">Total: ${tongDHP}vnd</div>
                 </div>
             </div>
         </div>

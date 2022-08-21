@@ -148,6 +148,10 @@ public class UserController {
         modelMap.addAttribute("list",list);
         List<DongHocPhi>list2 = (List<DongHocPhi>) dongHocPhiDao.getListDHPByHV(hocVien1);
         modelMap.addAttribute("listDHP",list2);
+        long tongHocPhi=dangKyHPDao.getTongHocPhi(hocVien1);
+        modelMap.addAttribute("tongHP",tongHocPhi);
+        long tongDongHocPhi=dongHocPhiDao.getTongDHPByHV(hocVien1);
+        modelMap.addAttribute("tongDHP",tongDongHocPhi);
         return "user/student/payment";
     }
 

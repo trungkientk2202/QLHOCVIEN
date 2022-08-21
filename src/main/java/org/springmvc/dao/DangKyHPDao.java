@@ -28,6 +28,10 @@ public class DangKyHPDao {
             return null;
         }
     }
+    public Long getTongHocPhi(HocVien hocVien) {
+        Session session = factory.openSession();
+        return (Long) session.createQuery("SELECT sum(dkhp.hocPhan.monHoc.hocPhi) FROM DangKyHP dkhp where dkhp.hocVien= :hocVien").setParameter("hocVien",hocVien).uniqueResult();
+    }
 
     public DangKyHP getDKHP(int maDKHP) {
         try{
