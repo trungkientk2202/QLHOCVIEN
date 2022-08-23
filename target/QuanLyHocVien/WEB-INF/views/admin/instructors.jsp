@@ -274,7 +274,7 @@
 
                                     <td>
                                         <div class="d-flex flex-column">
-                                            <small class="js-lists-values-username text-50 mb-4pt">letuan0512</small>
+                                            <small class="js-lists-values-username mb-4pt">letuan0512</small>
                                             <span class="indicator-line rounded bg-warning"></span>
                                         </div>
                                     </td>

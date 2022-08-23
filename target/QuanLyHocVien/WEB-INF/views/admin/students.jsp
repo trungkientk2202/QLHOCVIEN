@@ -49,11 +49,10 @@
         <!-- Drawer Layout Content -->
         <div class="mdk-drawer-layout__content page-content mt-5">
             <div class="container page__container page-section pb-0">
-                <h1 class="h2 mb-0">Tables</h1>
+                <h1 class="h2 mb-0">Students</h1>
                 <ol class="breadcrumb m-0 p-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Components</li>
-                    <li class="breadcrumb-item active">Tables</li>
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Students</li>
                 </ol>
             </div>
 
@@ -121,9 +120,7 @@
                             </thead>
                             <tbody class="list" id="users">
                             <c:forEach var="student" items="${list}">
-
-                                <tr class="selected">
-
+                                <tr>
                                     <td class="pr-0">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input js-check-selected-row"
