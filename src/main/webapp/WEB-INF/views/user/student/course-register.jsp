@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html lang="en" dir="ltr">
@@ -151,7 +151,7 @@
                                     <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
                                         <div class="avatar avatar-sm mr-8pt">
 
-                                            <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>"
+                                            <img src="<c:url value="/resources/assets/images/courses/${course.monHoc.anh.trim()}.png"/>"
                                                  alt="Avatar"
                                                  class="avatar-img rounded-circle">
 
@@ -174,7 +174,7 @@
                                     <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
                                         <small><strong
                                                 class="js-lists-values-name text-black-100">${(course.caHoc/1000>=2&&course.caHoc/1000<3)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=2&&course.caHoc%100/10<3)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=2&&course.caHoc/1000<3)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=2&&course.caHoc%100/10<3)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=2&&course.caHoc/1000<3)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=2&&course.caHoc%100/10<3)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
                                     </a>
                                 </td>
                                     <%--                                    THU3--%>
@@ -182,7 +182,7 @@
                                     <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
                                         <small><strong
                                                 class="js-lists-values-name text-black-100">${(course.caHoc/1000>=3&&course.caHoc/1000<4)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=3&&course.caHoc%100/10<4)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=3&&course.caHoc/1000<4)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=3&&course.caHoc%100/10<4)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=3&&course.caHoc/1000<4)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=3&&course.caHoc%100/10<4)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
                                     </a>
                                 </td>
                                     <%--                                    THU4--%>
@@ -190,7 +190,7 @@
                                     <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
                                         <small><strong
                                                 class="js-lists-values-name text-black-100">${(course.caHoc/1000>=4&&course.caHoc/1000<5)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=4&&course.caHoc%100/10<5)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=4&&course.caHoc/1000<5)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=4&&course.caHoc%100/10<5)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=4&&course.caHoc/1000<5)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=4&&course.caHoc%100/10<5)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
                                     </a>
                                 </td>
                                     <%--                                    THU5--%>
@@ -198,7 +198,7 @@
                                     <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
                                         <small><strong
                                                 class="js-lists-values-name text-black-100">${(course.caHoc/1000>=5&&course.caHoc/1000<6)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=5&&course.caHoc%100/10<6)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=5&&course.caHoc/1000<6)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=5&&course.caHoc%100/10<6)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=5&&course.caHoc/1000<6)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=5&&course.caHoc%100/10<6)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
                                     </a>
                                 </td>
                                     <%--                                    THU6--%>
@@ -206,7 +206,7 @@
                                     <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
                                         <small><strong
                                                 class="js-lists-values-name text-black-100">${(course.caHoc/1000>=6&&course.caHoc/1000<7)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=6&&course.caHoc%100/10<7)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=6&&course.caHoc/1000<7)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=6&&course.caHoc%100/10<7)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=6&&course.caHoc/1000<7)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=6&&course.caHoc%100/10<7)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
                                     </a>
                                 </td>
                                     <%--                                    THU7--%>
@@ -214,7 +214,7 @@
                                     <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
                                         <small><strong
                                                 class="js-lists-values-name text-black-100">${(course.caHoc/1000>=7)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=7)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=7)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10>=7)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                        <small class="text-black-50">${(course.caHoc/1000>=7)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=7)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
                                     </a>
                                 </td>
                                     <%--                                    CN--%>
@@ -222,7 +222,7 @@
                                     <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
                                         <small><strong
                                                 class="js-lists-values-name text-black-100">${(course.caHoc/1000<1)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10<1)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000<1)?listCa.get(course.caHoc/100%10).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10).gioKT):''}${(course.caHoc%100/10<1)?listCa.get(course.caHoc%10).gioBD.concat("-").concat(listCa.get(course.caHoc%10).gioKT):''}</small>
+                                        <small class="text-black-50">${(course.caHoc/1000<1)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10<1)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
                                     </a>
                                 </td>
                                 <td class="text-right">
@@ -269,10 +269,10 @@
                 <div class="container page__container d-flex flex-column flex-md-row justify-content-end text-center text-sm-left">
                     <div class="row" role="tablist">
                         <div class="col-auto">
-                            <a href="discussions-ask.html" class="btn btn-outline-primary">Cancel</a>
+                            <a href="" class="btn btn-outline-primary">Cancel</a>
                         </div>
                         <div class="col-auto">
-                            <a href="discussions-ask.html" class="btn btn-primary">Subscribe</a>
+                            <a href="/course/register/" class="btn btn-primary">Subscribe</a>
                         </div>
                     </div>
 

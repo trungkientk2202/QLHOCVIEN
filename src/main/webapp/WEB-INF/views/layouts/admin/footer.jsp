@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" pageEncoding="UTF-8"%>
 <div class="bg-white border-top-2">
     <div class="container page__container page-section d-flex flex-column">
         <p class="text-70 brand mb-24pt">

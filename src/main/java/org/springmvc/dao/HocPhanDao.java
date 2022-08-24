@@ -38,6 +38,14 @@ public class HocPhanDao {
             return null;
         }
     }
+    public List<?> getListHocPhan(String name) {
+        try (Session session = factory.openSession()) {
+            return session.createQuery("FROM HocPhan hp where hp.monHoc.tenMH like '%"+name+"%'").list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     public List<?> getListHPByDate(Date date) {
         try (Session session = factory.openSession()) {
             return session.createQuery("FROM HocPhan hp where hp.ngayBD <= "+date).list();

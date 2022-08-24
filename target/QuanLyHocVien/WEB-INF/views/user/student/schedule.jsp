@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html lang="en" dir="ltr">
@@ -103,14 +103,6 @@
                     <table class="table table-bordered table-flush mb-0 thead-border-top-0 table-nowrap">
                         <thead>
                         <tr>
-
-                            <th style="width: 18px;" class="pr-0 border-right-0">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-toggle-check-all" data-target="#contacts" id="customCheckAll_contacts">
-                                    <label class="custom-control-label" for="customCheckAll_contacts"><span class="text-hide">Toggle all</span></label>
-                                </div>
-                            </th>
-
                             <th class="border-left-0">
                                 <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-name">Name</a>
                             </th>
@@ -153,320 +145,93 @@
                         </tr>
                         </thead>
                         <tbody class="list" id="contacts">
+                        <c:forEach var="dk" items="${list}">
+                            <tr>
 
-                        <tr>
+                                <td class="border-left-0">
 
-                            <td class="pr-0 border-right-0">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_contacts_1">
-                                    <label class="custom-control-label" for="customCheck1_contacts_1"><span class="text-hide">Check</span></label>
-                                </div>
-                            </td>
+                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                        <div class="avatar avatar-sm mr-8pt">
 
-                            <td class="border-left-0">
-
-                                <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                    <div class="avatar avatar-sm mr-8pt">
+                                            <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>"
+                                                 alt="Avatar"
+                                                 class="avatar-img rounded-circle">
 
 
-                                        <span class="avatar-title rounded-circle bg-white border text-100">BN</span>
+                                        </div>
+                                        <div class="media-body ml-4pt">
 
+
+                                            <p class="mb-0"><strong
+                                                    class="js-lists-values-name">${dk.hocPhan.giangVien.hoTen}</strong>
+                                            </p>
+
+
+                                        </div>
                                     </div>
-                                    <div class="media-body ml-4pt">
 
-
-                                        <p class="mb-0"><strong class="js-lists-values-name">Billy Nunez</strong></p>
-
-
-                                    </div>
-                                </div>
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Night</strong></small>
-                                    <small class="text-black-50">20:00 - 08:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Night</strong></small>
-                                    <small class="text-black-50">20:00 - 08:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Day</strong></small>
-                                    <small class="text-black-50">07:30 - 20:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Day</strong></small>
-                                    <small class="text-black-50">07:30 - 20:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Day</strong></small>
-                                    <small class="text-black-50">07:30 - 20:00</small>
-                                </a>
-
-
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                            </td>
-                        </tr>
-
-                        <tr>
-
-                            <td class="pr-0 border-right-0">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_contacts_2">
-                                    <label class="custom-control-label" for="customCheck1_contacts_2"><span class="text-hide">Check</span></label>
-                                </div>
-                            </td>
-
-                            <td class="border-left-0">
-
-                                <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                    <div class="avatar avatar-sm mr-8pt">
-
-
-                                        <span class="avatar-title rounded-circle bg-white border text-100">TP</span>
-
-                                    </div>
-                                    <div class="media-body ml-4pt">
-
-
-                                        <p class="mb-0"><strong class="js-lists-values-name">Tony Parks</strong></p>
-
-
-                                    </div>
-                                </div>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Night</strong></small>
-                                    <small class="text-black-50">20:00 - 08:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Night</strong></small>
-                                    <small class="text-black-50">20:00 - 08:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                            </td>
-                        </tr>
-
-                        <tr class="selected">
-
-                            <td class="pr-0 border-right-0">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-check-selected-row" checked="" id="customCheck1_contacts_3">
-                                    <label class="custom-control-label" for="customCheck1_contacts_3"><span class="text-hide">Check</span></label>
-                                </div>
-                            </td>
-
-                            <td class="border-left-0">
-
-                                <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                    <div class="avatar avatar-sm mr-8pt">
-
-                                        <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>" alt="Avatar" class="avatar-img rounded-circle">
-
-
-                                    </div>
-                                    <div class="media-body ml-4pt">
-
-
-                                        <p class="mb-0"><strong class="js-lists-values-name">Gilbert Barrett</strong></p>
-
-
-                                    </div>
-                                </div>
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Day</strong></small>
-                                    <small class="text-black-50">07:30 - 20:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Day</strong></small>
-                                    <small class="text-black-50">07:30 - 20:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Night</strong></small>
-                                    <small class="text-black-50">20:00 - 08:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Night</strong></small>
-                                    <small class="text-black-50">20:00 - 08:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Night</strong></small>
-                                    <small class="text-black-50">20:00 - 08:00</small>
-                                </a>
-
-
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                            </td>
-                        </tr>
-
-                        <tr>
-
-                            <td class="pr-0 border-right-0">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_contacts_4">
-                                    <label class="custom-control-label" for="customCheck1_contacts_4"><span class="text-hide">Check</span></label>
-                                </div>
-                            </td>
-
-                            <td class="border-left-0">
-
-                                <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                    <div class="avatar avatar-sm mr-8pt">
-
-                                        <img src="<c:url value="/resources/assets/images/people/110/guy-2.jpg"/>" alt="Avatar" class="avatar-img rounded-circle">
-
-
-                                    </div>
-                                    <div class="media-body ml-4pt">
-
-
-                                        <p class="mb-0"><strong class="js-lists-values-name">Ollie Wallace</strong></p>
-
-
-                                    </div>
-                                </div>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Day</strong></small>
-                                    <small class="text-black-50">07:30 - 20:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-
-                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                    <small><strong class="js-lists-values-name text-black-100">Day</strong></small>
-                                    <small class="text-black-50">07:30 - 20:00</small>
-                                </a>
-
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td class="text-right">
-                                <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                            </td>
-                        </tr>
+                                </td>
+                                    <%--                                    THU2--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(dk.hocPhan.caHoc/1000>=2&&dk.hocPhan.caHoc/1000<3)?(dk.hocPhan.caHoc%1000/100<4?'Morning':'Afternoon'):null}${(dk.hocPhan.caHoc%100/10>=2&&dk.hocPhan.caHoc%100/10<3)?(dk.hocPhan.caHoc%10<4?'Morning':'Afternoon'):null}</strong></small>
+                                        <small class="text-black-50">${(dk.hocPhan.caHoc/1000>=2&&dk.hocPhan.caHoc/1000<3)?listCa.get(dk.hocPhan.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc/100%10-1).gioKT):null}${(dk.hocPhan.caHoc%100/10>=2&&dk.hocPhan.caHoc%100/10<3)?listCa.get(dk.hocPhan.caHoc%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc%10-1).gioKT):null}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    THU3--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(dk.hocPhan.caHoc/1000>=3&&dk.hocPhan.caHoc/1000<4)?(dk.hocPhan.caHoc%1000/100<4?'Morning':'Afternoon'):null}${(dk.hocPhan.caHoc%100/10>=3&&dk.hocPhan.caHoc%100/10<4)?(dk.hocPhan.caHoc%10<4?'Morning':'Afternoon'):null}</strong></small>
+                                        <small class="text-black-50">${(dk.hocPhan.caHoc/1000>=3&&dk.hocPhan.caHoc/1000<4)?listCa.get(dk.hocPhan.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc/100%10-1).gioKT):null}${(dk.hocPhan.caHoc%100/10>=3&&dk.hocPhan.caHoc%100/10<4)?listCa.get(dk.hocPhan.caHoc%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc%10-1).gioKT):null}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    THU4--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(dk.hocPhan.caHoc/1000>=4&&dk.hocPhan.caHoc/1000<5)?(dk.hocPhan.caHoc%1000/100<4?'Morning':'Afternoon'):null}${(dk.hocPhan.caHoc%100/10>=4&&dk.hocPhan.caHoc%100/10<5)?(dk.hocPhan.caHoc%10<4?'Morning':'Afternoon'):null}</strong></small>
+                                        <small class="text-black-50">${(dk.hocPhan.caHoc/1000>=4&&dk.hocPhan.caHoc/1000<5)?listCa.get(dk.hocPhan.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc/100%10-1).gioKT):null}${(dk.hocPhan.caHoc%100/10>=4&&dk.hocPhan.caHoc%100/10<5)?listCa.get(dk.hocPhan.caHoc%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc%10-1).gioKT):null}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    THU5--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(dk.hocPhan.caHoc/1000>=5&&dk.hocPhan.caHoc/1000<6)?(dk.hocPhan.caHoc%1000/100<4?'Morning':'Afternoon'):null}${(dk.hocPhan.caHoc%100/10>=5&&dk.hocPhan.caHoc%100/10<6)?(dk.hocPhan.caHoc%10<4?'Morning':'Afternoon'):null}</strong></small>
+                                        <small class="text-black-50">${(dk.hocPhan.caHoc/1000>=5&&dk.hocPhan.caHoc/1000<6)?listCa.get(dk.hocPhan.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc/100%10-1).gioKT):null}${(dk.hocPhan.caHoc%100/10>=5&&dk.hocPhan.caHoc%100/10<6)?listCa.get(dk.hocPhan.caHoc%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc%10-1).gioKT):null}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    THU6--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(dk.hocPhan.caHoc/1000>=6&&dk.hocPhan.caHoc/1000<7)?(dk.hocPhan.caHoc%1000/100<4?'Morning':'Afternoon'):null}${(dk.hocPhan.caHoc%100/10>=6&&dk.hocPhan.caHoc%100/10<7)?(dk.hocPhan.caHoc%10<4?'Morning':'Afternoon'):null}</strong></small>
+                                        <small class="text-black-50">${(dk.hocPhan.caHoc/1000>=6&&dk.hocPhan.caHoc/1000<7)?listCa.get(dk.hocPhan.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc/100%10-1).gioKT):null}${(dk.hocPhan.caHoc%100/10>=6&&dk.hocPhan.caHoc%100/10<7)?listCa.get(dk.hocPhan.caHoc%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc%10-1).gioKT):null}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    THU7--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(dk.hocPhan.caHoc/1000>7)?(dk.hocPhan.caHoc%1000/100<4?'Morning':'Afternoon'):null}${(dk.hocPhan.caHoc%100/10>7)?(dk.hocPhan.caHoc%10<4?'Morning':'Afternoon'):null}</strong></small>
+                                        <small class="text-black-50">${(dk.hocPhan.caHoc/1000>7)?listCa.get(dk.hocPhan.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc/100%10-1).gioKT):null}${(dk.hocPhan.caHoc%100/10>7)?listCa.get(dk.hocPhan.caHoc%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc%10-1).gioKT):null}</small>
+                                    </a>
+                                </td>
+                                    <%--                                    CN--%>
+                                <td>
+                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                        <small><strong
+                                                class="js-lists-values-name text-black-100">${(dk.hocPhan.caHoc/1000<1)?(dk.hocPhan.caHoc%1000/100<4?'Morning':'Afternoon'):null}${(dk.hocPhan.caHoc%100/10<1)?(dk.hocPhan.caHoc%10<4?'Morning':'Afternoon'):null}</strong></small>
+                                        <small class="text-black-50">${(dk.hocPhan.caHoc/1000<1)?listCa.get(dk.hocPhan.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc/100%10-1).gioKT):null}${(dk.hocPhan.caHoc%100/10<1)?listCa.get(dk.hocPhan.caHoc%10-1).gioBD.concat("-").concat(listCa.get(dk.hocPhan.caHoc%10-1).gioKT):null}</small>
+                                    </a>
+                                </td>
+                                <td class="text-right">
+                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                </td>
+                            </tr>
+                        </c:forEach>
 
                         </tbody>
                     </table>

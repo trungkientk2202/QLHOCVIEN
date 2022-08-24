@@ -1,10 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" pageEncoding="UTF-8"%>
 <div class="d-flex align-items-center navbar-height">
     <form
-            action="index.html"
+            action="/courses" method="post"
             class="search-form mx-16pt pr-0 pl-16pt flex"
     >
-        <input
+        <input name="name"
                 type="text"
                 class="form-control pl-0"
                 placeholder="Search"
@@ -29,7 +29,7 @@
         <div>
             <div class="d-flex">
                 <div>
-                    <select
+                    <select name="month"
                             id="expire_month"
                             class="form-control custom-select"
                             style="width: 140px"
@@ -49,7 +49,7 @@
                     </select>
                 </div>
                 <div class="ml-8pt">
-                    <select
+                    <select name="year"
                             id="expire_year"
                             class="form-control custom-select"
                             style="width: 100px"
