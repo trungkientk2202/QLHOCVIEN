@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html lang="en" dir="ltr">
@@ -65,7 +65,7 @@
 
         <div class="page-section">
             <div class="container page__container">
-                <%@include file="/WEB-INF/views/layouts/filter-courses.jsp" %>
+                <%@include file="/WEB-INF/views/layouts/filter-courses.jsp"%>
 
                 <div class="page-separator">
                     <div class="page-separator__text">My Courses</div>
@@ -82,7 +82,7 @@
                                 <a href="/courses/${dk.hocPhan.maHP}"
                                    class="js-image"
                                    data-position="">
-                                    <img src="<c:url value="/resources/assets/images/paths/xd_430x168.png"/>"
+                                    <img src="<c:url value="/resources/assets/images/courses/${dk.hocPhan.monHoc.anh.trim()}.png"/>"
                                          alt="course"/>
                                     <span class="overlay__content align-items-start justify-content-start" >
                                     <span class="overlay__action card-body d-flex align-items-center">
@@ -255,7 +255,7 @@
                                 <a href="/courses/${course.maHP}"
                                    class="card-img-top js-image" data-position="" data-height="140" >
                                     <img
-                                            src="<c:url value="/resources/assets/images/paths/angular_430x168.png"/>"
+                                            src="<c:url value="/resources/assets/images/courses/${course.monHoc.anh.trim()}.png"/>"
                                             alt="course"
                                     />
                                     <span class="overlay__content">

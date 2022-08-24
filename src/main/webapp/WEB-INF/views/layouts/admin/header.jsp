@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" pageEncoding="UTF-8"%>
 
 <div id="header" class="mdk-header js-mdk-header mb-0" data-fixed>
     <div class="mdk-header__content">
