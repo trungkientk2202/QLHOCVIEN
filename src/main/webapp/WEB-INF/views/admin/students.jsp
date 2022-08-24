@@ -48,18 +48,41 @@
 
         <!-- Drawer Layout Content -->
         <div class="mdk-drawer-layout__content page-content mt-5">
-            <div class="container page__container page-section pb-0">
-                <h1 class="h2 mb-0">Tables</h1>
-                <ol class="breadcrumb m-0 p-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Components</li>
-                    <li class="breadcrumb-item active">Tables</li>
-                </ol>
+            <div class="pt-32pt">
+                <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
+                    <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
+
+                        <div class="mb-24pt mb-sm-0 mr-sm-24pt">
+                            <h2 class="mb-0">Students</h2>
+
+                            <ol class="breadcrumb p-0 m-0">
+                                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+
+                                <li class="breadcrumb-item active">
+
+                                    Students
+
+                                </li>
+
+                            </ol>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row" role="tablist">
+                        <div class="col-auto">
+                            <a href="" class="btn btn-outline-secondary"><span
+                                    class="icon--left material-icons icon-16pt">add</span>New Student</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
             <div class="container page__container page-section">
                 <div class="page-separator">
-                    <div class="page-separator__text">Users</div>
+                    <div class="page-separator__text">All Students</div>
                 </div>
 
                 <div class="card mb-lg-32pt">
@@ -121,9 +144,7 @@
                             </thead>
                             <tbody class="list" id="users">
                             <c:forEach var="student" items="${list}">
-
-                                <tr class="selected">
-
+                                <tr>
                                     <td class="pr-0">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input js-check-selected-row"

@@ -22,13 +22,13 @@
                     </a>
                 </li>
                 <li class="sidebar-menu-item sidebar-menu-item ${pagina.endsWith('/courses') || pagina.endsWith('/course-register') ? 'active open' : ''}">
-                    <a class="sidebar-menu-button" data-toggle="collapse" href="#instructor_menu">
+                    <a class="sidebar-menu-button" data-toggle="collapse" href="#course_menu">
                         <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dns</span>
                         Courses
                         <span class="sidebar-menu-badge badge badge-accent badge-notifications ml-auto">2</span>
                         <span class="sidebar-menu-toggle-icon"></span>
                     </a>
-                    <ul class="sidebar-submenu collapse sm-indent" id="instructor_menu">
+                    <ul class="sidebar-submenu collapse sm-indent" id="course_menu">
                         <li class="sidebar-menu-item ${pagina.endsWith('/courses') ? 'active open' : ''}">
                             <a class="sidebar-menu-button" href="/admin/courses">
                                 <span class="sidebar-menu-text">All Courses</span>
@@ -43,13 +43,13 @@
                 </li>
                 <li class="sidebar-menu-item ${pagina.endsWith('/students') ? 'active open' : ''}">
                     <a class="sidebar-menu-button" href="/admin/students">
-                        <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">assignment_ind</span>
+                        <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">school</span>
                         Students
                     </a>
                 </li>
                 <li class="sidebar-menu-item ${pagina.endsWith('/instructors') ? 'active open' : ''}">
                     <a class="sidebar-menu-button" href="/admin/instructors">
-                        <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">contact_mail</span>
+                        <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">format_shapes</span>
                         Instructors
                     </a>
                 </li>
