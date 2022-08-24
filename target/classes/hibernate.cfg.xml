@@ -9,8 +9,8 @@
             com.microsoft.sqlserver.jdbc.SQLServerDriver
         </property>
         <property name="hibernate.connection.url">
-<!--            jdbc:sqlserver://localhost:1433;database=QLHOCVIEN;-->
-            jdbc:sqlserver://localhost\SQLEXPRESS;database=QLHOCVIEN;
+            jdbc:sqlserver://localhost:1433;database=QLHOCVIEN;
+<!--            jdbc:sqlserver://localhost\SQLEXPRESS;database=QLHOCVIEN;-->
         </property>
         <property name="hibernate.connection.username">
             sa
