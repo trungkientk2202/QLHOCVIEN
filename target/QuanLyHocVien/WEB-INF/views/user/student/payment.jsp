@@ -181,7 +181,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="text-accent font-size-16pt pr-2">Total: ${tongHP}vnd</div>
+                    <div class="font-size-16pt pr-2">Total: ${tongHP}đ</div>
                 </div>
             </div>
 
@@ -255,7 +255,18 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="text-primary font-size-16pt pr-2">Total: ${tongDHP}vnd</div>
+                    <span class="font-size-16pt pr-2">Total: ${tongDHP}đ</span>
+                </div>
+            </div>
+
+            <div class="card mb-0 mt-1">
+                <div class="card-header d-flex align-items-center justify-content-end">
+                    <div class="flatpickr-wrapper mr-2">
+                        <div>
+                            <strong class="card-title d-block">In Dept:</strong>
+                        </div>
+                    </div>
+                    <span class="font-size-24pt text-accent">1.200.000đ</span>
                 </div>
             </div>
         </div>

@@ -35,6 +35,12 @@
     <!-- App CSS -->
     <link type="text/css" href="<c:url value="/resources/assets/css/app.css"/>" rel="stylesheet">
 
+    <!-- Quill Theme -->
+    <link type="text/css" href="<c:url  value="/resources/assets/css/quill.css"/>" rel="stylesheet">
+
+    <!-- Touchspin -->
+    <link type="text/css" href="<c:url  value="/resources/assets/css/bootstrap-touchspin.css"/>" rel="stylesheet">
+
 </head>
 <body class="layout-sticky layout-sticky-subnav ">
 <%@include file="/WEB-INF/views/layouts/preloader.jsp" %>
@@ -47,7 +53,131 @@
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
 
         <!-- Drawer Layout Content -->
-        <div class="mdk-drawer-layout__content page-content">
+        <div class="mdk-drawer-layout__content page-content mt-5">
+            <div class="pt-32pt">
+                <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
+                    <div class="flex d-flex flex-column flex-sm-row align-items-center">
+
+                        <div class="mb-24pt mb-sm-0 mr-sm-24pt">
+                            <h2 class="mb-0">Edit Course</h2>
+
+                            <ol class="breadcrumb p-0 m-0">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+
+                                <li class="breadcrumb-item active">
+
+                                    Edit Course
+
+                                </li>
+
+                            </ol>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="page-section border-bottom-2">
+                <div class="container page__container">
+
+                    <div class="row">
+                        <div class="col-md-8">
+
+                            <div class="page-separator">
+                                <div class="page-separator__text">Basic information</div>
+                            </div>
+
+                            <label class="form-label">Course name</label>
+                            <div class="form-group mb-24pt">
+                                <input type="text" class="form-control form-control-lg" placeholder="Course title"
+                                       value="Angular Fundamentals">
+                                <small class="form-text text-muted">Please see our <a href="">course title guideline</a></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Price</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group form-inline">
+                                            <span class="input-group-prepend"><span
+                                                    class="input-group-text">vnd</span></span>
+                                            <input type="text" class="form-control" value="240.000">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lesson" class="form-label">Lessons</label>
+                                <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
+                                    <input id="lesson" data-toggle="touch-spin"
+                                           data-min="0" data-max="100"
+                                           data-step="1" type="text" value="0"
+                                           name="demo2" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-32pt">
+                                <label class="form-label">Description</label>
+                                <!-- <textarea class="form-control" rows="3" placeholder="Course description"></textarea> -->
+                                <div style="height: 150px;" class="mb-0" data-toggle="quill"
+                                     data-quill-placeholder="Course description">
+                                    <h1>Hello World!</h1>
+                                    <p>Some initial <strong>bold</strong> text</p>
+                                    <p><br></p>
+                                </div>
+                                <small class="form-text text-muted">Shortly describe this course.</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="page-separator">
+                                <div class="page-separator__text">Photo</div>
+                            </div>
+
+                            <div class="card">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <div class="d-flex align-items-center justify-content-center custom-file embed-responsive-item rounded-sm border-1 border-secondary">
+                                        <div class="position-relative">
+                                            <input type="file" id="file" class="custom-file-input">
+                                            <label for="file" class="custom-file-label bg-transparent text-secondary">Choose file</label>
+                                        </div>
+                                        <img id="photo"
+                                             src=""
+                                             alt=""
+                                             onerror="this.style.display='none'"
+                                             style="position: absolute; inset: 0;width: 100%;height: 100%;object-fit: cover;"/>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <label class="form-label">Filename</label>
+                                    <input type="text" class="form-control"
+                                           value="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0"
+                                           placeholder="Enter Video URL">
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    <a href="#" class="btn btn-primary">Save Course</a>
+                                </div>
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex">
+                                        <a class="flex" href="#"><strong>Save Draft</strong></a>
+                                        <i class="material-icons text-muted">check</i>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <a href="#" class="text-danger"><strong>Cancel</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <%@include file="/WEB-INF/views/layouts/admin/footer.jsp" %>
         </div>
         <!-- // END drawer-layout__content -->
@@ -82,36 +212,16 @@
 <script src="<c:url value="/resources/assets/js/app.js"/>"></script>
 
 
-<!-- Global Settings -->
-<script src="<c:url value="/resources/assets/js/settings.js"/>"></script>
+<!-- Touchspin -->
+<script src="<c:url  value="/resources/assets/vendor/jquery.bootstrap-touchspin.js"/>"></script>
+<script src="<c:url  value="/resources/assets/js/touchspin.js"/>"></script>
 
-<!-- Moment.js -->
-<script src="<c:url value="/resources/assets/vendor/moment.min.js"/>"></script>
-<script src="<c:url value="/resources/assets/vendor/moment-range.min.js"/>"></script>
-
-<!-- Flatpickr -->
-<script src="<c:url value="/resources/assets/vendor/flatpickr/flatpickr.min.js"/>"></script>
-<script src="<c:url value="/resources/assets/js/flatpickr.js"/>"></script>
-
-<!-- Chart.js -->
-<script src="<c:url value="/resources/assets/vendor/Chart.min.js"/>"></script>
-<script src="<c:url value="/resources/assets/js/chartjs.js"/>"></script>
-
-<!-- Chart.js Samples -->
-<script src="<c:url value="/resources/assets/js/page.crm-dashboard.js"/>"></script>
-
-<!-- List.js -->
-<script src="<c:url value="/resources/assets/vendor/list.min.js"/>"></script>
-<script src="<c:url value="/resources/assets/js/list.js"/>"></script>
-
-<!-- Tables -->
-<script src="<c:url value="/resources/assets/js/toggle-check-all.js"/>"></script>
-<script src="<c:url value="/resources/assets/js/check-selected-row.js"/>"></script>
-
+<!-- Quill -->
+<script src="<c:url  value="/resources/assets/vendor/quill.min.js"/>"></script>
+<script src="<c:url  value="/resources/assets/js/quill.js"/>"></script>
 
 <script>
     var drawer = document.querySelector(".mdk-drawer-layout");
-
     drawer.style.overflow = "auto";
 </script>
 </body>

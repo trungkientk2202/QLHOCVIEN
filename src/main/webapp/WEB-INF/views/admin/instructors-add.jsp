@@ -63,7 +63,8 @@
                 </ol>
             </div>
 
-            <div class="container page__container page-section">
+            <form>
+                <div class="container page__container page-section">
                 <div class="row mb-32pt">
                     <div class="col-lg-4">
                         <div class="page-separator">
@@ -147,7 +148,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="row mb-32pt justify-content-end">
+                    <div class=" col-lg-8 d-flex align-items-center">
+                        <div class="flex" style="max-width: 100%">
+                            <div class="button-list text-right">
+                                <button type="button" class="btn btn-outline-secondary">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            </form>
 
             <%@include file="/WEB-INF/views/layouts/admin/footer.jsp" %>
         </div>

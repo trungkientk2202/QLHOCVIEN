@@ -72,7 +72,7 @@
 
                     <div class="row" role="tablist">
                         <div class="col-auto">
-                            <a href="" class="btn btn-outline-secondary"><span
+                            <a href="/admin/courses/add" class="btn btn-outline-secondary"><span
                                     class="icon--left material-icons icon-16pt">add</span> New Course</a>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
 
                                                 <div class="d-flex flex-column">
                                                     <p class="mb-0"><strong class="js-lists-values-name">${monHoc.tenMH}</strong></p>
-                                                    <small class="js-lists-values-email text-50">${monHoc.maMH}</small>
+                                                    <small class="js-lists-values-email text-50">Id: ${monHoc.maMH}</small>
                                                 </div>
 
 

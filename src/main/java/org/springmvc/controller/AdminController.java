@@ -2,6 +2,7 @@ package org.springmvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -77,15 +78,27 @@ public class AdminController {
         modelMap.addAttribute("list",list);
         return "admin/courses";
     }
+
     @RequestMapping(value = "/admin/courses/add", method = RequestMethod.GET)
     public String addCourseAdmin(ModelMap modelMap){
         return "admin/courses-add";
+    }
+    @RequestMapping(value = "/admin/courses/edit/{id}", method = RequestMethod.GET)
+    public String editCourseAdmin(ModelMap modelMap, @PathVariable String id){
+        return "admin/courses-add";
+    }
+    @RequestMapping(value = "/admin/courses/delete", method = RequestMethod.POST)
+    public String deleteCourseAdmin(ModelMap modelMap){
+        return "redirect:/admin/courses";
     }
     @RequestMapping(value = "/admin/course-register", method = RequestMethod.GET)
     public String courseRegisterAdmin(ModelMap modelMap){
         return "admin/courses-register";
     }
-
+    @RequestMapping(value = "/admin/course-register/add", method = RequestMethod.GET)
+    public String addCourseRegisterAdmin(ModelMap modelMap){
+        return "admin/courses-register-add";
+    }
     @RequestMapping(value = "/admin/instructors", method = RequestMethod.GET)
     public String instructorsAdmin(ModelMap modelMap){
         List<GiangVien>list= (List<GiangVien>) giangVienDao.getListGV();
@@ -96,11 +109,33 @@ public class AdminController {
     public String addInstructorAdmin(ModelMap modelMap){
         return "admin/instructors-add";
     }
+    @RequestMapping(value = "/admin/instructors/edit/{id}", method = RequestMethod.GET)
+    public String editInstructorsAdmin(ModelMap modelMap, @PathVariable String id){
+        return "admin/instructors";
+    }
+    @RequestMapping(value = "/admin/instructors/delete", method = RequestMethod.POST)
+    public String deleteInstructorAdmin(ModelMap modelMap){
+        return "redirect:/admin/instructors";
+    }
     @RequestMapping(value = "/admin/students", method = RequestMethod.GET)
     public String studentsAdmin(ModelMap modelMap){
         List<HocVien> list= (List<HocVien>) hocVienDao.getListHV();
         modelMap.addAttribute("list",list);
         return "admin/students";
+    }
+    @RequestMapping(value = "/admin/students/add", method = RequestMethod.GET)
+    public String addStudentAdmin(ModelMap modelMap){
+        List<HocVien> list= (List<HocVien>) hocVienDao.getListHV();
+        modelMap.addAttribute("list",list);
+        return "admin/students-add";
+    }
+    @RequestMapping(value = "/admin/students/edit/{id}", method = RequestMethod.GET)
+    public String editStudentAdmin(ModelMap modelMap, @PathVariable String id){
+        return "admin/students-add";
+    }
+    @RequestMapping(value = "/admin/students/delete", method = RequestMethod.POST)
+    public String deleteStudentAdmin(ModelMap modelMap){
+        return "redirect:/admin/students";
     }
     @RequestMapping(value = "/admin/schedule", method = RequestMethod.GET)
     public String scheduleAdmin(ModelMap modelMap){

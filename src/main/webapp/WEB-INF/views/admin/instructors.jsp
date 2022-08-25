@@ -72,7 +72,7 @@
 
                     <div class="row" role="tablist">
                         <div class="col-auto">
-                            <a href="" class="btn btn-outline-secondary"><span
+                            <a href="/admin/instructors/add" class="btn btn-outline-secondary"><span
                                     class="icon--left material-icons icon-16pt">add</span>New Instructor</a>
                         </div>
                     </div>
