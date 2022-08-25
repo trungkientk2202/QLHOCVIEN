@@ -77,193 +77,193 @@
 
         <div class="container page__container page-section">
             <div class="page-separator">
-                <div class="page-separator__text">Course Name</div>
+                <div class="page-separator__text">${list[0].monHoc.tenMH}</div>
             </div>
+            <form action="/course/register" method="post">
+                <div class="card mb-lg-32pt">
 
-            <div class="card mb-lg-32pt">
-
-                <div class="table-responsive" data-toggle="lists" data-lists-values='["js-lists-values-name"]'>
+                    <div class="table-responsive" data-toggle="lists" data-lists-values='["js-lists-values-name"]'>
 
 
-                    <table class="table table-bordered table-flush mb-0 thead-border-top-0 table-nowrap">
-                        <thead>
-                        <tr>
+                        <table class="table table-bordered table-flush mb-0 thead-border-top-0 table-nowrap">
+                            <thead>
+                            <tr>
 
-                            <th style="width: 18px;" class="pr-0 border-right-0"></th>
+                                <th style="width: 18px;" class="pr-0 border-right-0"></th>
 
-                            <th class="border-left-0">
-                                <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-name">Name</a>
-                            </th>
-                            <th>
-                                <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Monday
-                                </div>
-                            </th>
-                            <th>
-                                <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Tuesday
-                                </div>
-                            </th>
-                            <th>
-                                <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Wednesday
-                                </div>
-                            </th>
-                            <th>
-                                <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Thursday
-                                </div>
-                            </th>
-                            <th>
-                                <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Friday
-                                </div>
-                            </th>
-                            <th>
-                                <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Saturday
-                                </div>
-                            </th>
-                            <th>
-                                <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Sunday
-                                </div>
-                            </th>
-                            <th style="width: 24px;"></th>
-                        </tr>
-                        </thead>
-                        <tbody class="list" id="contacts">
-                        <c:forEach var="course" items="${list}">
-                            <tr class="selected">
-
-                                <td class="pr-0 border-right-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="radio" class="custom-control-input js-check-selected-row"
-                                               checked="${false}"
-                                               id="maHP_${course.maHP}" name="HP">
-                                        <label class="custom-control-label" for="maHP_${course.maHP}"><span
-                                                class="text-hide">Check</span></label>
+                                <th class="border-left-0">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-name">Name</a>
+                                </th>
+                                <th>
+                                    <div class="lh-1 d-flex flex-column text-50 my-4pt">
+                                        Monday
                                     </div>
-                                </td>
-
-                                <td class="border-left-0">
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-                                            <img src="<c:url value="/resources/assets/images/courses/${course.monHoc.anh.trim()}.png"/>"
-                                                 alt="Avatar"
-                                                 class="avatar-img rounded-circle">
-
-
-                                        </div>
-                                        <div class="media-body ml-4pt">
-
-
-                                            <p class="mb-0"><strong
-                                                    class="js-lists-values-name">${course.giangVien.hoTen}</strong>
-                                            </p>
-
-
-                                        </div>
+                                </th>
+                                <th>
+                                    <div class="lh-1 d-flex flex-column text-50 my-4pt">
+                                        Tuesday
                                     </div>
-
-                                </td>
-                                    <%--                                    THU2--%>
-                                <td>
-                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                        <small><strong
-                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=2&&course.caHoc/1000<3)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=2&&course.caHoc%100/10<3)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=2&&course.caHoc/1000<3)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=2&&course.caHoc%100/10<3)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
-                                    </a>
-                                </td>
-                                    <%--                                    THU3--%>
-                                <td>
-                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                        <small><strong
-                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=3&&course.caHoc/1000<4)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=3&&course.caHoc%100/10<4)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=3&&course.caHoc/1000<4)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=3&&course.caHoc%100/10<4)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
-                                    </a>
-                                </td>
-                                    <%--                                    THU4--%>
-                                <td>
-                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                        <small><strong
-                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=4&&course.caHoc/1000<5)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=4&&course.caHoc%100/10<5)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=4&&course.caHoc/1000<5)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=4&&course.caHoc%100/10<5)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
-                                    </a>
-                                </td>
-                                    <%--                                    THU5--%>
-                                <td>
-                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                        <small><strong
-                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=5&&course.caHoc/1000<6)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=5&&course.caHoc%100/10<6)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=5&&course.caHoc/1000<6)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=5&&course.caHoc%100/10<6)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
-                                    </a>
-                                </td>
-                                    <%--                                    THU6--%>
-                                <td>
-                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                        <small><strong
-                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=6&&course.caHoc/1000<7)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=6&&course.caHoc%100/10<7)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=6&&course.caHoc/1000<7)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=6&&course.caHoc%100/10<7)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
-                                    </a>
-                                </td>
-                                    <%--                                    THU7--%>
-                                <td>
-                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                        <small><strong
-                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000>=7)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=7)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000>=7)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=7)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
-                                    </a>
-                                </td>
-                                    <%--                                    CN--%>
-                                <td>
-                                    <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                        <small><strong
-                                                class="js-lists-values-name text-black-100">${(course.caHoc/1000<1)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10<1)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
-                                        <small class="text-black-50">${(course.caHoc/1000<1)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10<1)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
-                                    </a>
-                                </td>
-                                <td class="text-right">
-                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                </td>
+                                </th>
+                                <th>
+                                    <div class="lh-1 d-flex flex-column text-50 my-4pt">
+                                        Wednesday
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="lh-1 d-flex flex-column text-50 my-4pt">
+                                        Thursday
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="lh-1 d-flex flex-column text-50 my-4pt">
+                                        Friday
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="lh-1 d-flex flex-column text-50 my-4pt">
+                                        Saturday
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="lh-1 d-flex flex-column text-50 my-4pt">
+                                        Sunday
+                                    </div>
+                                </th>
+                                <th style="width: 24px;"></th>
                             </tr>
-                        </c:forEach>
+                            </thead>
+                            <tbody class="list" id="contacts">
+                            <c:forEach var="course" items="${list}">
+                                <tr class="selected">
 
-                        </tbody>
-                    </table>
+                                    <td class="pr-0 border-right-0">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="radio" value="${course.maHP}" class="custom-control-input js-check-selected-row"
+                                                   checked="${false}"
+                                                   id="maHP_${course.maHP}" name="HP">
+                                            <label class="custom-control-label" for="maHP_${course.maHP}"><span
+                                                    class="text-hide">Check</span></label>
+                                        </div>
+                                    </td>
+
+                                    <td class="border-left-0">
+
+                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                            <div class="avatar avatar-sm mr-8pt">
+
+                                                <img src="<c:url value="/resources/assets/images/courses/${course.monHoc.anh.trim()}.png"/>"
+                                                     alt="Avatar"
+                                                     class="avatar-img rounded-circle">
+
+
+                                            </div>
+                                            <div class="media-body ml-4pt">
+
+
+                                                <p class="mb-0"><strong
+                                                        class="js-lists-values-name">${course.giangVien.hoTen}</strong>
+                                                </p>
+
+
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                        <%--                                    THU2--%>
+                                    <td>
+                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                            <small><strong
+                                                    class="js-lists-values-name text-black-100">${(course.caHoc/1000>=2&&course.caHoc/1000<3)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=2&&course.caHoc%100/10<3)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                            <small class="text-black-50">${(course.caHoc/1000>=2&&course.caHoc/1000<3)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=2&&course.caHoc%100/10<3)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
+                                        </a>
+                                    </td>
+                                        <%--                                    THU3--%>
+                                    <td>
+                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                            <small><strong
+                                                    class="js-lists-values-name text-black-100">${(course.caHoc/1000>=3&&course.caHoc/1000<4)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=3&&course.caHoc%100/10<4)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                            <small class="text-black-50">${(course.caHoc/1000>=3&&course.caHoc/1000<4)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=3&&course.caHoc%100/10<4)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
+                                        </a>
+                                    </td>
+                                        <%--                                    THU4--%>
+                                    <td>
+                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                            <small><strong
+                                                    class="js-lists-values-name text-black-100">${(course.caHoc/1000>=4&&course.caHoc/1000<5)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=4&&course.caHoc%100/10<5)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                            <small class="text-black-50">${(course.caHoc/1000>=4&&course.caHoc/1000<5)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=4&&course.caHoc%100/10<5)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
+                                        </a>
+                                    </td>
+                                        <%--                                    THU5--%>
+                                    <td>
+                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                            <small><strong
+                                                    class="js-lists-values-name text-black-100">${(course.caHoc/1000>=5&&course.caHoc/1000<6)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=5&&course.caHoc%100/10<6)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                            <small class="text-black-50">${(course.caHoc/1000>=5&&course.caHoc/1000<6)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=5&&course.caHoc%100/10<6)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
+                                        </a>
+                                    </td>
+                                        <%--                                    THU6--%>
+                                    <td>
+                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                            <small><strong
+                                                    class="js-lists-values-name text-black-100">${(course.caHoc/1000>=6&&course.caHoc/1000<7)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=6&&course.caHoc%100/10<7)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                            <small class="text-black-50">${(course.caHoc/1000>=6&&course.caHoc/1000<7)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=6&&course.caHoc%100/10<7)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
+                                        </a>
+                                    </td>
+                                        <%--                                    THU7--%>
+                                    <td>
+                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                            <small><strong
+                                                    class="js-lists-values-name text-black-100">${(course.caHoc/1000>=7)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10>=7)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                            <small class="text-black-50">${(course.caHoc/1000>=7)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10>=7)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
+                                        </a>
+                                    </td>
+                                        <%--                                    CN--%>
+                                    <td>
+                                        <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
+                                            <small><strong
+                                                    class="js-lists-values-name text-black-100">${(course.caHoc/1000<1)?(course.caHoc%1000/100<4?'Morning':'Afternoon'):''}${(course.caHoc%100/10<1)?(course.caHoc%10<4?'Morning':'Afternoon'):''}</strong></small>
+                                            <small class="text-black-50">${(course.caHoc/1000<1)?listCa.get(course.caHoc/100%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc/100%10-1).gioKT):''}${(course.caHoc%100/10<1)?listCa.get(course.caHoc%10-1).gioBD.concat("-").concat(listCa.get(course.caHoc%10-1).gioKT):''}</small>
+                                        </a>
+                                    </td>
+                                    <td class="text-right">
+                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer border-0 p-8pt">
+
+                        <ul class="pagination justify-content-start pagination-xsm m-0">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true" class="material-icons">chevron_left</span>
+                                    <span>Prev</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Page 1">
+                                    <span>1</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Page 2">
+                                    <span>2</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span>Next</span>
+                                    <span aria-hidden="true" class="material-icons">chevron_right</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
                 </div>
-
-                <div class="card-footer border-0 p-8pt">
-
-                    <ul class="pagination justify-content-start pagination-xsm m-0">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true" class="material-icons">chevron_left</span>
-                                <span>Prev</span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Page 1">
-                                <span>1</span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Page 2">
-                                <span>2</span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span>Next</span>
-                                <span aria-hidden="true" class="material-icons">chevron_right</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
 
 
                 <div class="container page__container d-flex flex-column flex-md-row justify-content-end text-center text-sm-left">
@@ -272,11 +272,13 @@
                             <a href="" class="btn btn-outline-primary">Cancel</a>
                         </div>
                         <div class="col-auto">
-                            <a href="/course/register/" class="btn btn-primary">Subscribe</a>
+                            <button class="btn btn-primary w-100">Subscribe</button>
                         </div>
                     </div>
 
                 </div>
+
+            </form>
 
         </div>
 

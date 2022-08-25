@@ -128,7 +128,7 @@
                             <div class="popoverContainer d-none">
                                 <div class="media">
                                     <div class="media-left mr-12pt">
-                                        <img src="<c:url value="/resources/assets/images/paths/xd_40x40@2x.png"/>"
+                                        <img src="<c:url value="/resources/assets/images/courses/${dk.hocPhan.monHoc.anh.trim()}.png"/>"
                                              width="40" height="40" alt="Angular" class="rounded"/>
                                     </div>
                                     <div class="media-body">
@@ -150,20 +150,20 @@
                                     <div class="d-flex align-items-center">
                                         <span  class="material-icons icon-16pt text-black-50 mr-8pt" >check</span>
                                         <p class="flex text-black-50 lh-1 mb-0">
-                                            <small>Fundamentals of working with Angular</small>
+                                            <small>Fundamentals of working with ${dk.hocPhan.monHoc.tenMH}</small>
                                         </p>
                                     </div>
                                     <div class="d-flex align-items-center">
                                 <span
                                         class="material-icons icon-16pt text-black-50 mr-8pt" >check</span>
                                         <p class="flex text-black-50 lh-1 mb-0">
-                                            <small>Create complete Angular applications</small>
+                                            <small>Create complete ${dk.hocPhan.monHoc.tenMH} applications</small>
                                         </p>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
                                         <p class="flex text-black-50 lh-1 mb-0">
-                                            <small>Working with the Angular CLI</small>
+                                            <small>Working with the ${dk.hocPhan.monHoc.tenMH} </small>
                                         </p>
                                     </div>
                                     <div class="d-flex align-items-center">
@@ -175,7 +175,7 @@
                                     <div class="d-flex align-items-center">
                                         <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
                                         <p class="flex text-black-50 lh-1 mb-0">
-                                            <small>Testing with Angular</small>
+                                            <small>Testing with ${dk.hocPhan.monHoc.tenMH}</small>
                                         </p>
                                     </div>
                                 </div>
@@ -306,7 +306,7 @@
                             <div class="popoverContainer d-none">
                                 <div class="media">
                                     <div class="media-left mr-12pt">
-                                        <img src="<c:url value="/resources/assets/images/paths/angular_40x40@2x.png"/>"
+                                        <img src="<c:url value="/resources/assets/images/courses/${course.monHoc.anh.trim()}.png"/>"
                                              width="40" height="40" alt="Angular" class="rounded"/>
                                     </div>
                                     <div class="media-body">
@@ -320,7 +320,7 @@
                                 </div>
 
                                 <p class="my-16pt text-black-70">
-                                    Learn the fundamentals of working with Angular and how to
+                                    Learn the fundamentals of working with ${course.monHoc.tenMH} and how to
                                     create basic applications.
                                 </p>
 
@@ -328,19 +328,19 @@
                                     <div class="d-flex align-items-center">
                                         <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
                                         <p class="flex text-black-50 lh-1 mb-0">
-                                            <small>Fundamentals of working with Angular</small>
+                                            <small>Fundamentals of working with ${course.monHoc.tenMH}</small>
                                         </p>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
                                         <p class="flex text-black-50 lh-1 mb-0">
-                                            <small>Create complete Angular applications</small>
+                                            <small>Create complete ${course.monHoc.tenMH} applications</small>
                                         </p>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
                                         <p class="flex text-black-50 lh-1 mb-0">
-                                            <small>Working with the Angular CLI</small>
+                                            <small>Working with the ${course.monHoc.tenMH}</small>
                                         </p>
                                     </div>
                                     <div class="d-flex align-items-center">
@@ -352,7 +352,7 @@
                                     <div class="d-flex align-items-center">
                                         <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
                                         <p class="flex text-black-50 lh-1 mb-0">
-                                            <small>Testing with Angular</small>
+                                            <small>Testing with ${course.monHoc.tenMH}</small>
                                         </p>
                                     </div>
                                 </div>

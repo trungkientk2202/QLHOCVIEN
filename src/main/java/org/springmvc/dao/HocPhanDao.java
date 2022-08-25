@@ -13,9 +13,25 @@ import java.util.List;
 public class HocPhanDao {
     private static final SessionFactory factory= HibernateConfig.getSessionFactory();
 
-    public List<?> getListHP() {
+    public List<?> getAllHP() {
         try (Session session = factory.openSession()) {
             return session.createQuery("FROM HocPhan").list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public List<?> getListHPChuaDK(List<Integer> list) {
+        try (Session session = factory.openSession()) {
+            return session.createQuery("FROM HocPhan hp where hp.trangThai=true and hp.maHP not in :list").setParameter("list",list).list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public List<?> getListHP() {
+        try (Session session = factory.openSession()) {
+            return session.createQuery("FROM HocPhan hp where hp.trangThai=true").list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;

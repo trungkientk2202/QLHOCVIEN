@@ -108,37 +108,37 @@
                             </th>
                             <th>
                                 <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Monday <small>25/02/2019</small>
+                                    Monday
                                 </div>
                             </th>
                             <th>
                                 <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Tuesday <small>26/02/2019</small>
+                                    Tuesday
                                 </div>
                             </th>
                             <th>
                                 <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Wednesday <small>27/02/2019</small>
+                                    Wednesday
                                 </div>
                             </th>
                             <th>
                                 <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Thursday <small>28/02/2019</small>
+                                    Thursday
                                 </div>
                             </th>
                             <th>
                                 <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Friday <small>01/03/2019</small>
+                                    Friday
                                 </div>
                             </th>
                             <th>
                                 <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Saturday <small>02/03/2019</small>
+                                    Saturday
                                 </div>
                             </th>
                             <th>
                                 <div class="lh-1 d-flex flex-column text-50 my-4pt">
-                                    Sunday <small>03/03/2019</small>
+                                    Sunday
                                 </div>
                             </th>
                             <th style="width: 24px;"></th>

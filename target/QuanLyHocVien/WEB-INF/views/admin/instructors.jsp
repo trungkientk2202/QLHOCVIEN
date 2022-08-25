@@ -163,7 +163,7 @@
                     </div>
 
                     <div class="page-separator">
-                        <div class="page-separator__text">Recently added</div>
+                        <div class="page-separator__text">All instructor</div>
                     </div>
 
                     <div class="card mb-32pt">
@@ -221,90 +221,88 @@
                                 </thead>
                                 <tbody class="list" id="employees">
 
-                                <tr>
+                                <c:forEach var="gv" items="${list}">
+                                    <tr>
 
-                                    <td class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                                   id="customCheck1_employees1">
-                                            <label class="custom-control-label" for="customCheck1_employees1"><span
-                                                    class="text-hide">Check</span></label>
-                                        </div>
-                                    </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-
-                                                <span class="avatar-title rounded-circle">BN</span>
-
+                                        <td class="pr-0">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                                       id="customCheck1_employees1">
+                                                <label class="custom-control-label" for="customCheck1_employees1"><span
+                                                        class="text-hide">Check</span></label>
                                             </div>
-                                            <div class="media-body">
+                                        </td>
+
+                                        <td>
+
+                                            <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                                <div class="avatar avatar-sm mr-8pt">
 
 
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex d-flex flex-column">
-                                                        <p class="mb-0"><strong class="js-lists-values-name">Billy
-                                                            Nunez</strong></p>
-                                                        <small class="js-lists-values-email text-50">Degree: Thạc
-                                                            Sĩ</small>
-                                                    </div>
+                                                    <span class="avatar-title rounded-circle">${gv.hoTen.charAt(0)}</span>
+
                                                 </div>
+                                                <div class="media-body">
 
 
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="flex d-flex flex-column">
+                                                            <p class="mb-0"><strong class="js-lists-values-name">${gv.hoTen}</strong></p>
+                                                            <small class="js-lists-values-email text-50">Degree: ${gv.hocVi}</small>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </td>
+                                        </td>
 
-                                    <td>
-                                        <small class="js-lists-values-major text-50">Công Nghệ Thông Tin</small>
-                                    </td>
+                                        <td>
+                                            <small class="js-lists-values-major text-50">${gv.chuyenMon}</small>
+                                        </td>
 
 
-                                    <td>
-                                        <small class="js-lists-values-phone text-50">239-721-3649</small>
-                                    </td>
+                                        <td>
+                                            <small class="js-lists-values-phone text-50">${gv.sdt}</small>
+                                        </td>
 
-                                    <td>
-                                        <small class="js-lists-values-date text-50">19/02/2019</small>
-                                    </td>
+                                        <td>
+                                            <small class="js-lists-values-date text-50">${gv.ngaySinh}</small>
+                                        </td>
 
-                                    <td>
-                                        <div class="d-flex flex-column">
-                                            <small class="js-lists-values-username mb-4pt">letuan0512</small>
-                                            <span class="indicator-line rounded bg-warning"></span>
-                                        </div>
-                                    </td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <small class="js-lists-values-username mb-4pt">${gv.taiKhoan.tenTK}</small>
+                                                <span class="indicator-line rounded bg-warning"></span>
+                                            </div>
+                                        </td>
 
-                                    <td>
-                                        <small class="js-lists-values-desc text-50"
-                                               style="display: block;width: 150px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
-                                               data-toggle="tooltip"
-                                               data-title="Lorem ipsum dolor sit amet, consectetur adipiscing
+                                        <td>
+                                            <small class="js-lists-values-desc text-50"
+                                                   style="display: block;width: 150px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                                                   data-toggle="tooltip"
+                                                   data-title="Lorem ipsum dolor sit amet, consectetur adipiscing
                                             elit, sed do eiusmod tempor incididunt ut
                                             labore et dolore magna aliqua."
-                                               data-placement="bottom"
-                                               data-boundary="window"
-                                        >
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit, sed do eiusmod tempor incididunt ut
-                                            labore et dolore magna aliqua.
-                                        </small>
-                                    </td>
+                                                   data-placement="bottom"
+                                                   data-boundary="window"
+                                            >
+                                                ${gv.moTa}
+                                            </small>
+                                        </td>
 
-                                    <td class="text-right">
-                                        <div class="d-inline-flex align-items-center">
-                                            <a href="billing-invoice.html"
-                                               class="btn btn-sm btn-outline-secondary mr-16pt">Edit
-                                                <i class="icon--right material-icons">edit</i></a>
-                                            <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary">Delete
-                                                <i class="icon--right material-icons">delete</i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        <td class="text-right">
+                                            <div class="d-inline-flex align-items-center">
+                                                <a href="billing-invoice.html"
+                                                   class="btn btn-sm btn-outline-secondary mr-16pt">Edit
+                                                    <i class="icon--right material-icons">edit</i></a>
+                                                <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary">Delete
+                                                    <i class="icon--right material-icons">delete</i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
 
                                 </tbody>
                             </table>

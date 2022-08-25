@@ -12,6 +12,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springmvc.dao.*;
 import org.springmvc.entity.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -114,19 +115,25 @@ public class UserController {
     }
     @RequestMapping(value = "/courses", method = RequestMethod.GET)
     public String courses(ModelMap modelMap) {
-        List<HocPhan> list= (List<HocPhan>) hocPhanDao.getListHP();
-        modelMap.addAttribute("list",list);
+        List<HocPhan> list= new ArrayList<>();
         List<DangKyHP> listDK=new ArrayList<>();
         if(hocVien!=null){
             listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien);
+            List<Integer> listIds=new ArrayList<>();
+            for(int i=0;i<listDK.size();i++){
+                listIds.add(listDK.get(i).getHocPhan().getMaHP());
+            }
+            list=(List<HocPhan>) hocPhanDao.getListHPChuaDK(listIds);
+        }else{
+            list=(List<HocPhan>) hocPhanDao.getListHP();
         }
+        modelMap.addAttribute("list",list);
         modelMap.addAttribute("listDK",listDK);
         return "user/student/courses";
 
     }
     @RequestMapping(value = "/courses", method = RequestMethod.POST)
     public String getCourses(ModelMap modelMap,@RequestParam("name") String name){
-        System.out.println("\n\n\n"+name);
         if(name!=null){
             List<HocPhan> list= (List<HocPhan>) hocPhanDao.getListHocPhan(name);
             modelMap.addAttribute("list",list);
@@ -148,18 +155,25 @@ public class UserController {
 
     @RequestMapping(value = "/course/register/{id}", method = RequestMethod.GET)
     public String getCourseRegister(ModelMap modelMap, @PathVariable("id") int id){
-        List<HocPhan>list= (List<HocPhan>) hocPhanDao.getListHPByMH(monHocDao.getMH(id));
+        HocPhan hocPhan=hocPhanDao.getHP(id);
+        List<HocPhan>list= (List<HocPhan>) hocPhanDao.getListHPByMH(monHocDao.getMH(hocPhan.getMonHoc().getMaMH()));
         modelMap.addAttribute("list",list);
         List<Ca> listCa= (List<Ca>) caDao.getListCa();
         modelMap.addAttribute("listCa",listCa);
         return "user/student/course-register";
     }
-    @RequestMapping(value = "/course/register/{id}", method = RequestMethod.POST)
-    public String courseRegister(ModelMap modelMap, @PathVariable("id") int id){
-        List<HocPhan>list= (List<HocPhan>) hocPhanDao.getListHPByMH(monHocDao.getMH(id));
-        modelMap.addAttribute("list",list);
-        List<Ca> listCa= (List<Ca>) caDao.getListCa();
-        modelMap.addAttribute("listCa",listCa);
+    @RequestMapping(value = "/course/register", method = RequestMethod.POST)
+    public String courseRegister(ModelMap modelMap, @RequestParam("HP") int id){
+        HocPhan hocPhan =hocPhanDao.getHP(id);
+        DangKyHP dangKyHP=new DangKyHP();
+        DangKyHPID dangKyHPID=new DangKyHPID(hocVien.getMaHV(),hocPhan.getMaHP());
+        dangKyHP.setId(dangKyHPID);
+        dangKyHP.setHocPhan(hocPhan);
+        dangKyHP.setHocVien(hocVien);
+        dangKyHP.setHuyDK(false);
+        if(dangKyHPDao.insertDKHP(dangKyHP)==1){
+            return "redirect:/courses";
+        }
         return "user/student/course-register";
     }
     @RequestMapping(value = "/payment", method = RequestMethod.GET)

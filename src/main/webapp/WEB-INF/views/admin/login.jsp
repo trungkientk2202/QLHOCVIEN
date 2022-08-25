@@ -39,9 +39,9 @@
 
 <div class="pt-32pt pt-sm-64pt pb-32pt">
     <div class="container page__container">
-        <form action="index.html" class="col-md-5 p-4 mx-auto bg-white rounded-sm shadow-sm">
+        <form action="/admin/login" method="post" class="col-md-5 p-4 mx-auto bg-white rounded-sm shadow-sm">
             <div>
-                <a href="index.html" class="sidebar-brand ">
+                <a href="/" class="sidebar-brand ">
                 <span class="avatar avatar-xl sidebar-brand-icon h-auto">
                             <span class="avatar-title rounded bg-primary"><img src="<c:url value="/resources/assets/images/illustration/student/128/white.svg"/>" class="img-fluid" alt="logo" /></span>
                         </span>
@@ -50,11 +50,11 @@
             </div>
             <div class="form-group">
                 <label class="form-label" for="email">Username:</label>
-                <input id="email" type="text" class="form-control" placeholder="Your Username...">
+                <input id="email" name="username" type="text" class="form-control" placeholder="Your Username...">
             </div>
             <div class="form-group">
                 <label class="form-label" for="password">Password:</label>
-                <input id="password" type="password" class="form-control" placeholder="Your Password...">
+                <input id="password" name="password" type="password" class="form-control" placeholder="Your Password...">
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
