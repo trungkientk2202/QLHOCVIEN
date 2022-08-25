@@ -65,7 +65,7 @@
                                 </li>
                                 <li class="breadcrumb-item active">
 
-                                    Register
+                                    Subscribe
 
                                 </li>
 
@@ -77,7 +77,7 @@
 
                     <div class="row" role="tablist">
                         <div class="col-auto">
-                            <a href="" class="btn btn-outline-secondary">Register a Course<span
+                            <a href="/admin/course-register/add" class="btn btn-outline-secondary">Subscribe a Course<span
                                     class="icon--right material-icons icon-16pt">arrow_forward</span></a>
                         </div>
                     </div>

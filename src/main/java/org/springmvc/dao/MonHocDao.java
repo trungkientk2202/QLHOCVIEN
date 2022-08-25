@@ -22,6 +22,7 @@ public class MonHocDao {
             return null;
         }
     }
+
     public MonHoc getMH(int id) {
         try{
             Session session = factory.openSession();

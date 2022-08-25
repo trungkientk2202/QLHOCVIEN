@@ -36,7 +36,7 @@
                         </li>
                         <li class="sidebar-menu-item ${pagina.endsWith('/course-register') ? 'active open' : ''}">
                             <a class="sidebar-menu-button" href="/admin/course-register">
-                                <span class="sidebar-menu-text">Register</span>
+                                <span class="sidebar-menu-text">Subscribe Course</span>
                             </a>
                         </li>
                     </ul>

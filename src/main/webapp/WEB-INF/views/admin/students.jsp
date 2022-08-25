@@ -72,7 +72,7 @@
 
                     <div class="row" role="tablist">
                         <div class="col-auto">
-                            <a href="" class="btn btn-outline-secondary"><span
+                            <a href="/admin/students/add" class="btn btn-outline-secondary"><span
                                     class="icon--left material-icons icon-16pt">add</span>New Student</a>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                                 </th>
 
                                 <th>
-                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-employee-name">Employee</a>
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-employee-name">Name</a>
                                 </th>
 
                                 <th style="width: 48px;">
@@ -147,8 +147,7 @@
                                 <tr>
                                     <td class="pr-0">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                                   checked="" id="customCheck1_users1">
+                                            <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_users1">
                                             <label class="custom-control-label" for="customCheck1_users1"><span
                                                     class="text-hide">Check</span></label>
                                         </div>
@@ -205,9 +204,7 @@
                                         <small class="js-lists-values-desc text-50"
                                                style="display: block;width: 150px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
                                                data-toggle="tooltip"
-                                               data-title="Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit, sed do eiusmod tempor incididunt ut
-                                            labore et dolore magna aliqua."
+                                               data-title="${student.moTa}"
                                                data-placement="bottom"
                                                data-boundary="window"
                                         >
@@ -217,10 +214,10 @@
 
                                     <td class="text-right">
                                         <div class="d-inline-flex align-items-center">
-                                            <a href="billing-invoice.html"
+                                            <a href="/admin/students/edit/${student.maHV}"
                                                class="btn btn-sm btn-outline-secondary mr-16pt">Edit
                                                 <i class="icon--right material-icons">edit</i></a>
-                                            <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary">Delete
+                                            <a href="#" class="btn btn-sm btn-outline-secondary">Delete
                                                 <i class="icon--right material-icons">delete</i></a>
                                         </div>
                                     </td>
