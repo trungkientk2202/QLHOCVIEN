@@ -207,13 +207,13 @@ public class UserController {
     }
     @RequestMapping(value = "/instructor/courses", method = RequestMethod.GET)
     public String courseDetailsInstructor(ModelMap modelMap){
-        return "user/instructor/course-details";
-    }
-    @RequestMapping(value = "/instructor/course-details", method = RequestMethod.GET)
-    public String coursesInstructor(ModelMap modelMap){
         return "user/instructor/courses";
     }
-    @RequestMapping(value = "/instructor/request-course", method = RequestMethod.GET)
+    @RequestMapping(value = "/instructor/course-detail/{id}", method = RequestMethod.GET)
+    public String coursesInstructor(ModelMap modelMap, @PathVariable String id){
+        return "user/instructor/course-detail";
+    }
+    @RequestMapping(value = "/instructor/course/request", method = RequestMethod.GET)
     public String requestCourseInstructor(ModelMap modelMap){
         return "user/instructor/course-request";
     }
