@@ -30,8 +30,6 @@ public class AdminController {
     private final MonHocDao monHocDao= new MonHocDao();
 
     private final CaDao caDao= new CaDao();
-    private static HocVien hocVien = new HocVien();
-    private static GiangVien giangVien = new GiangVien();
     // admin
     private static HttpSession getSession(){
         RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
@@ -107,11 +105,15 @@ public class AdminController {
     }
     @RequestMapping(value = "/admin/instructors/add", method = RequestMethod.GET)
     public String addInstructorAdmin(ModelMap modelMap){
+        GiangVien giangVien=new GiangVien();
+        modelMap.addAttribute("giangVien",giangVien);
         return "admin/instructors-add";
     }
     @RequestMapping(value = "/admin/instructors/edit/{id}", method = RequestMethod.GET)
-    public String editInstructorsAdmin(ModelMap modelMap, @PathVariable String id){
-        return "admin/instructors";
+    public String editInstructorsAdmin(ModelMap modelMap, @PathVariable int id){
+        GiangVien giangVien=giangVienDao.getGV(id);
+        modelMap.addAttribute("giangVien",giangVien);
+        return "admin/instructors-add";
     }
     @RequestMapping(value = "/admin/instructors/delete", method = RequestMethod.POST)
     public String deleteInstructorAdmin(ModelMap modelMap){
@@ -125,12 +127,14 @@ public class AdminController {
     }
     @RequestMapping(value = "/admin/students/add", method = RequestMethod.GET)
     public String addStudentAdmin(ModelMap modelMap){
-        List<HocVien> list= (List<HocVien>) hocVienDao.getListHV();
-        modelMap.addAttribute("list",list);
+        HocVien hocVien=null;
+        modelMap.addAttribute("hocVien",hocVien);
         return "admin/students-add";
     }
     @RequestMapping(value = "/admin/students/edit/{id}", method = RequestMethod.GET)
-    public String editStudentAdmin(ModelMap modelMap, @PathVariable String id){
+    public String editStudentAdmin(ModelMap modelMap,@PathVariable("id") int id){
+        HocVien hocVien=hocVienDao.getHV(id);
+        modelMap.addAttribute("hocVien",hocVien);
         return "admin/students-add";
     }
     @RequestMapping(value = "/admin/students/delete", method = RequestMethod.POST)

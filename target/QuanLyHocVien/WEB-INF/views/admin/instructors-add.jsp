@@ -79,19 +79,19 @@
 
                             <div class="form-group">
                                 <label class="form-label" for="name">Instructor's Name</label>
-                                <input type="text" class="form-control" id="name"
-                                       placeholder="...">
+                                <input type="text" class="form-control" id="name" name="name" value="${giangVien!=null?giangVien.hoTen:''}"
+                                       placeholder="name">
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg">
                                         <label class="form-label" for="degree">Degree</label>
-                                        <input type="text" class="form-control" id="degree"
+                                        <input type="text" class="form-control" id="degree" name="hocvi" value="${giangVien!=null?giangVien.hocVi:''}"
                                                placeholder="...">
                                     </div>
                                     <div class="col-lg">
                                         <label class="form-label" for="major">Major</label>
-                                        <input type="text" class="form-control" id="major"
+                                        <input type="text" class="form-control" id="major" name="chuyenMon" value="${giangVien!=null?giangVien.chuyenMon:''}"
                                                placeholder="...">
                                     </div>
                                 </div>
@@ -112,18 +112,16 @@
                         <div class="flex" style="max-width: 100%">
                             <div class="form-group">
                                 <label class="form-label" for="phone">Phone</label>
-                                <input id="phone" type="text" class="form-control" placeholder="Phone: (+00) 000-000000" data-mask="(+00) 000-000000">
+                                <input id="phone" type="text" class="form-control" name="sdt" value="${giangVien!=null?giangVien.sdt:''}" placeholder="Phone: (+00) 000-000000" data-mask="(+00) 000-000000">
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="date">Date Of Birth</label>
-                                <input id="date" type="text" class="form-control" placeholder="yyyy/mm/dd" data-toggle="daterangepicker" data-daterangepicker-drops="down" data-daterangepicker-start-date="2018/11/06" data-daterangepicker-single-date-picker="true">
+                                <input id="date" type="text" class="form-control" name="birth" value="${giangVien!=null?giangVien.ngaySinh:''}" placeholder="yyyy/mm/dd" data-toggle="daterangepicker" data-daterangepicker-drops="down" data-daterangepicker-start-date="2018/11/06" data-daterangepicker-single-date-picker="true">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Description</label>
                                 <div style="height: 150px;" data-toggle="quill" data-quill-placeholder="Quill WYSIWYG editor">
-                                    <h1>Hello World!</h1>
-                                    <p>Some initial <strong>bold</strong> text</p>
-                                    <p><br></p>
+                                    <input name="name" value="${giangVien!=null?giangVien.moTa:''}">
                                 </div>
                             </div>
                         </div>
@@ -142,7 +140,7 @@
                         <div class="flex" style="max-width: 100%">
                             <div class="form-group">
                                 <label class="form-label" for="account">Account's Provided</label>
-                                <input type="text" class="form-control" id="account"
+                                <input type="text" class="form-control" id="account" name="accout" value="${giangVien!=null?giangVien.taiKhoan.tenTK:''}"
                                        placeholder="Example: trungkienlk123">
                             </div>
                         </div>

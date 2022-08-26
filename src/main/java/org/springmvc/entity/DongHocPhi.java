@@ -21,15 +21,18 @@ public class DongHocPhi {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date ngayDong;
+    @Column(name = "TRANGTHAI")
+    private boolean trangThai;
 
     public DongHocPhi() {
     }
 
-    public DongHocPhi(int id, HocVien hocVien, long soTienDong, Date ngayDong) {
+    public DongHocPhi(int id, HocVien hocVien, long soTienDong, Date ngayDong, boolean trangThai) {
         this.id = id;
         this.hocVien = hocVien;
         this.soTienDong = soTienDong;
         this.ngayDong = ngayDong;
+        this.trangThai = trangThai;
     }
 
     public int getId() {
@@ -62,5 +65,13 @@ public class DongHocPhi {
 
     public void setNgayDong(Date ngayDong) {
         this.ngayDong = ngayDong;
+    }
+
+    public boolean isTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(boolean trangThai) {
+        this.trangThai = trangThai;
     }
 }

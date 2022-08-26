@@ -15,6 +15,7 @@ public class HibernateConfig {
         configuration.configure("hibernate.cfg.xml");
 
         configuration.addAnnotatedClass(Ca.class);
+        configuration.addAnnotatedClass(BaiGiang.class);
         configuration.addAnnotatedClass(DangKyHP.class);
         configuration.addAnnotatedClass(DangKyHPID.class);
         configuration.addAnnotatedClass(DongHocPhi.class);

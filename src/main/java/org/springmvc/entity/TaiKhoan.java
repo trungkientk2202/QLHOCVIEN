@@ -13,14 +13,16 @@ public class TaiKhoan {
     @OneToOne
     @JoinColumn(name = "MALOAITK", nullable = false)
     private LoaiTaiKhoan loaiTaiKhoan;
-
+    @Column(name = "TRANGTHAI")
+    private boolean trangThai;
     public TaiKhoan() {
     }
 
-    public TaiKhoan(String tenTK, String matKhau, LoaiTaiKhoan loaiTaiKhoan) {
+    public TaiKhoan(String tenTK, String matKhau, LoaiTaiKhoan loaiTaiKhoan, boolean trangThai) {
         this.tenTK = tenTK;
         this.matKhau = matKhau;
         this.loaiTaiKhoan = loaiTaiKhoan;
+        this.trangThai = trangThai;
     }
 
     public String getTenTK() {
@@ -45,5 +47,13 @@ public class TaiKhoan {
 
     public void setLoaiTaiKhoan(LoaiTaiKhoan loaiTaiKhoan) {
         this.loaiTaiKhoan = loaiTaiKhoan;
+    }
+
+    public boolean isTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(boolean trangThai) {
+        this.trangThai = trangThai;
     }
 }

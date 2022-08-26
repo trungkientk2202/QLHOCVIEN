@@ -34,12 +34,16 @@ public class HocPhan {
     private Date ngayKT;
     @Column(name = "TRANGTHAI")
     private boolean trangThai;
-    @OneToMany(mappedBy = "hocPhan",fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+    @Column(name = "SOTIETDAHOC")
+    private int soTietDaHoc;
+    @OneToMany(mappedBy = "hocPhan",fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
     public Collection<DangKyHP> dangKyHPS;
+    @OneToMany(mappedBy = "hocPhan",fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
+    private Collection<BaiGiang> baiGiangs;
     public HocPhan() {
     }
 
-    public HocPhan(int maHP, GiangVien giangVien, Phong phong, MonHoc monHoc, int caHoc, Date ngayBD, Date ngayKT, boolean trangThai, Collection<DangKyHP> dangKyHPS) {
+    public HocPhan(int maHP, GiangVien giangVien, Phong phong, MonHoc monHoc, int caHoc, Date ngayBD, Date ngayKT, boolean trangThai, int soTietDaHoc, Collection<DangKyHP> dangKyHPS, Collection<BaiGiang> baiGiangs) {
         this.maHP = maHP;
         this.giangVien = giangVien;
         this.phong = phong;
@@ -48,7 +52,9 @@ public class HocPhan {
         this.ngayBD = ngayBD;
         this.ngayKT = ngayKT;
         this.trangThai = trangThai;
+        this.soTietDaHoc = soTietDaHoc;
         this.dangKyHPS = dangKyHPS;
+        this.baiGiangs = baiGiangs;
     }
 
     public int getMaHP() {
@@ -115,11 +121,27 @@ public class HocPhan {
         this.trangThai = trangThai;
     }
 
+    public int getSoTietDaHoc() {
+        return soTietDaHoc;
+    }
+
+    public void setSoTietDaHoc(int soTietDaHoc) {
+        this.soTietDaHoc = soTietDaHoc;
+    }
+
     public Collection<DangKyHP> getDangKyHPS() {
         return dangKyHPS;
     }
 
     public void setDangKyHPS(Collection<DangKyHP> dangKyHPS) {
         this.dangKyHPS = dangKyHPS;
+    }
+
+    public Collection<BaiGiang> getBaiGiangs() {
+        return baiGiangs;
+    }
+
+    public void setBaiGiangs(Collection<BaiGiang> baiGiangs) {
+        this.baiGiangs = baiGiangs;
     }
 }

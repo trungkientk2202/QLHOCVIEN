@@ -34,7 +34,7 @@ public class GiangVienDao {
             return null;
         }
     }
-    public GiangVien getHV(int id) {
+    public GiangVien getGV(int id) {
         try{
             Session session = factory.openSession();
             String hql = "FROM GiangVien gv where gv.maGV = "+id;

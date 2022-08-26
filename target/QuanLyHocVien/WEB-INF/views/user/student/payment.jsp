@@ -266,7 +266,7 @@
                             <strong class="card-title d-block">In Dept:</strong>
                         </div>
                     </div>
-                    <span class="font-size-24pt text-accent">1.200.000đ</span>
+                    <span class="font-size-24pt text-accent">${tongHP-tongDHP}đ</span>
                 </div>
             </div>
         </div>

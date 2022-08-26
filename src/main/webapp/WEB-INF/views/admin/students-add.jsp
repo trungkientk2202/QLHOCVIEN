@@ -63,7 +63,7 @@
                 </ol>
             </div>
 
-            <form>
+            <form action="/admin/students/edit/${hocVien==null?hocVien.maHV:0}" method="post">
                 <div class="container page__container page-section">
                     <div class="row mb-32pt">
                         <div class="col-lg-4">
@@ -78,16 +78,16 @@
                             <div class="flex" style="max-width: 100%">
                                 <div class="form-group">
                                     <label class="form-label" for="name">Name</label>
-                                    <input type="text" class="form-control" id="name"
-                                           placeholder="...">
+                                    <input type="text" class="form-control" id="name" name="name"
+                                           placeholder="Name" value="${hocVien!=null?hocVien.hoTen:''}">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="phone">Phone</label>
-                                    <input id="phone" type="text" class="form-control" placeholder="Phone: (+00) 000-000000" data-mask="(+00) 000-000000">
+                                    <input id="phone" type="text" class="form-control" name="phone" value="${hocVien!=null?hocVien.sdt:''}" placeholder="Phone: (+00) 000-000000" data-mask="(+00) 000-000000">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="address">Address</label>
-                                    <input id="address" type="text" class="form-control" placeholder="...">
+                                    <input id="address" type="text" name="address" value="${hocVien!=null?hocVien.diaChi:''}" class="form-control" placeholder="...">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="male">Sex</label>
@@ -104,14 +104,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="date">Date Of Birth</label>
-                                    <input id="date" type="text" class="form-control" placeholder="yyyy/mm/dd" data-toggle="daterangepicker" data-daterangepicker-drops="down" data-daterangepicker-start-date="2018/11/06" data-daterangepicker-single-date-picker="true">
+                                    <input id="date" type="text" name="birth" value="${hocVien!=null?hocVien.ngaySinh:''}" class="form-control" placeholder="yyyy/mm/dd" data-toggle="daterangepicker" data-daterangepicker-drops="down" data-daterangepicker-single-date-picker="true">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Description</label>
-                                    <div style="height: 150px;" data-toggle="quill" data-quill-placeholder="Quill WYSIWYG editor">
-                                        <h1>Hello World!</h1>
-                                        <p>Some initial <strong>bold</strong> text</p>
-                                        <p><br></p>
+                                    <div style="height: 150px;" data-toggle="quill" data-quill-placeholder="More information">
+                                        <input name="moTa" value="${hocVien!=null?hocVien.moTa:''}">
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +128,7 @@
                             <div class="flex" style="max-width: 100%">
                                 <div class="form-group">
                                     <label class="form-label" for="account">Username</label>
-                                    <input type="text" class="form-control" id="account"
+                                    <input type="text" name="username" class="form-control" id="account"
                                            placeholder="Example: trungkienlk123">
                                 </div>
                             </div>

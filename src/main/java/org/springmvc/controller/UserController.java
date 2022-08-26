@@ -92,7 +92,7 @@ public class UserController {
     public String register(@RequestParam("userName") String username,@RequestParam("name") String name,@RequestParam("password") String pass,ModelMap modelMap,
                 @RequestParam("sex") Boolean sex,@RequestParam("date") Date date,
                @RequestParam("phone") String phone,@RequestParam("address") String address) {
-        TaiKhoan taiKhoan = new TaiKhoan(username, pass, loaiTaiKhoanDao.getLoaiTk(1));
+        TaiKhoan taiKhoan = new TaiKhoan(username, pass, loaiTaiKhoanDao.getLoaiTk(1),true);
         if(taiKhoanDao.insertTK(taiKhoan)==1){
             HocVien hv =new HocVien();
             hv.setHoTen(name);
