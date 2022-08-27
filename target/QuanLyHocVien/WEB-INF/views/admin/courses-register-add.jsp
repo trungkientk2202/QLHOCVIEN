@@ -86,93 +86,92 @@
 
                 </div>
             </div>
+            <form action="/admin/course-register/edit/${hocPhan!=null?hocPhan.maHP:0}" method="post">
+                <div class="page-section border-bottom-2">
+                    <div class="container page__container">
 
-            <div class="page-section border-bottom-2">
-                <div class="container page__container">
+                        <div class="row">
+                            <div class="col-md-8">
 
-                    <div class="row">
-                        <div class="col-md-8">
-
-                            <div class="page-separator">
-                                <div class="page-separator__text">Basic information</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label" for="select01">Course Name</label>
-                                <select id="select01" data-toggle="select" class="form-control form-control-lg">
-                                    <option selected="">ReactJs</option>
-                                    <option>Another option</option>
-                                    <option>Third option is here</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label" for="select02">Instructor's Name</label>
-                                <select id="select02" data-toggle="select" class="form-control">
-                                    <option selected="">Billy Butcher</option>
-                                    <option>Another option</option>
-                                    <option>Third option is here</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg">
-                                        <label class="form-label" for="select-room">Room</label>
-                                        <select id="select-room" class="form-control custom-select">
-                                            <option selected>A305</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg">
-                                        <label class="form-label" for="select-shift">Shift</label>
-                                        <select id="select-shift" class="form-control custom-select">
-                                            <option selected>12-15</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
+                                <div class="page-separator">
+                                    <div class="page-separator__text">Basic information</div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="form-label" for="dateRangePickerSample02">Range</label>
-                                <input id="dateRangePickerSample02" type="text" class="form-control"
-                                       placeholder="Range example" data-toggle="daterangepicker"
-                                       data-daterangepicker-drops="up" data-daterangepicker-start-date="2018/11/06"
-                                       data-daterangepicker-end-date="2018/12/06">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="list-group list-group-flush">
-                                    <div class="list-group-item d-flex">
-                                        <div class="flex" style="max-width: 100%">
-                                            <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
-                                                <input checked="" type="checkbox" id="subscribe"
-                                                       class="custom-control-input">
-                                                <label class="custom-control-label" for="subscribe">
-                                                    <span style="position: absolute;right: -120px;">Active Course</span>
-                                                </label>
-                                            </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="select01">Course Name</label>
+                                    <select name="monHoc" id="select01" data-toggle="select" class="form-control form-control-lg" >
+                                        <option value="${hocPhan!=null?hocPhan.monHoc.maMH:listMH[0].maMH}" selected="selected">${hocPhan!=null?hocPhan.monHoc.tenMH:listMH[0].tenMH}</option>
+                                        <c:forEach var="mh" items="${listMH}">
+                                            <option value="${mh.maMH}">${mh.tenMH.trim()}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="select02">Instructor's Name</label>
+                                    <select name="giangVien" id="select02" data-toggle="select" class="form-control form-control-lg" >
+                                        <option  value="${hocPhan!=null?hocPhan.giangVien.maGV:listGV[0].maGV}" selected="selected">${hocPhan!=null?hocPhan.giangVien.hoTen:listGV[0].hoTen}</option>
+                                        <c:forEach var="gv" items="${listGV}">
+                                            <option value="${gv.maGV}">${gv.hoTen.trim()}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg">
+                                            <label class="form-label">Room</label>
+                                            <select name="phong" id="select03" data-toggle="select" class="form-control form-control-lg" >
+                                                <option  value="${hocPhan!=null?hocPhan.phong.maPhong:listPhong[0].maPhong}" selected="selected">${hocPhan!=null?hocPhan.phong.tenPhong:listPhong[0].tenPhong}</option>
+                                                <c:forEach var="phong" items="${listPhong}">
+                                                    <option  value="${phong.maPhong}">${phong.tenPhong}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg">
+                                            <label class="form-label" >Shift</label>
+                                            <input name="caHoc" value="${hocPhan!=null?hocPhan.caHoc:''}">
                                         </div>
                                     </div>
-                                    <div class="card-header text-center w-100">
-                                        <a href="#" class="btn btn-primary d-block">Save Course</a>
-                                    </div>
-                                    <div class="list-group-item">
-                                        <a href="#" class="text-danger"><strong>Cancel</strong></a>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="dateRangePickerSample02">Range</label>
+                                    <input id="dateRangePickerSample02" name="ngay" type="text" class="form-control"
+                                           placeholder="Range example" data-toggle="daterangepicker"
+                                           data-daterangepicker-drops="up" data-daterangepicker-start-date="${hocPhan!=null?hocPhan.ngayBD:"2022/08/01"}"
+                                           data-daterangepicker-end-date="${hocPhan!=null?hocPhan.ngayKT:"2022/08/01"}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item d-flex">
+                                            <div class="flex" style="max-width: 100%">
+                                                <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
+                                                    <input checked="" name="trangThai" type="checkbox" id="subscribe"
+                                                           class="custom-control-input">
+                                                    <label class="custom-control-label" for="subscribe">
+                                                        <span style="position: absolute;right: -120px;">Active Course</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-header text-center w-100">
+                                            <button type="submit" class="btn btn-primary d-block">Save Course</button>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <a href="/admin/course-register" class="text-danger"><strong>Cancel</strong></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
+            </form>
+
 
             <%@include file="/WEB-INF/views/layouts/admin/footer.jsp" %>
         </div>

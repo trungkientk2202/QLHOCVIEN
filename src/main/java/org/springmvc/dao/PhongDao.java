@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springmvc.entity.Ca;
+import org.springmvc.entity.GiangVien;
 import org.springmvc.entity.Phong;
 import org.springmvc.webconfig.HibernateConfig;
 
@@ -21,7 +22,18 @@ public class PhongDao {
             return null;
         }
     }
-
+    public Phong getPhong(int id) {
+        try{
+            Session session = factory.openSession();
+            String hql = "FROM Phong p where p.maPhong = "+id;
+            List<Phong> listHV= session.createQuery(hql).list();
+            Phong phong=listHV.get(0);
+            return phong;
+        }catch (HibernateException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
     public Integer insertPhong(Phong phong) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();

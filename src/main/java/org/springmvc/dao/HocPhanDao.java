@@ -21,7 +21,7 @@ public class HocPhanDao {
             return null;
         }
     }
-    public List<?> getListHPChuaDK(List<Integer> list) {
+    public List<HocPhan> getListHPChuaDK(List<Integer> list) {
         try (Session session = factory.openSession()) {
             return session.createQuery("FROM HocPhan hp where hp.trangThai=true and hp.maHP not in :list").setParameter("list",list).list();
         } catch (HibernateException e) {

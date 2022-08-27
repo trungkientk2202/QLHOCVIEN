@@ -11,6 +11,8 @@ import org.springmvc.entity.*;
 import org.springmvc.utils.Session;
 
 import javax.servlet.http.HttpSession;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class AdminController {
     private final GiangVienDao giangVienDao = new GiangVienDao();
     private final HocPhanDao hocPhanDao = new HocPhanDao();
     private final MonHocDao monHocDao= new MonHocDao();
-
+    private final PhongDao phongDao= new PhongDao();
     private final CaDao caDao= new CaDao();
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
@@ -86,10 +88,62 @@ public class AdminController {
     }
     @RequestMapping(value = "/admin/course-register", method = RequestMethod.GET)
     public String courseRegisterAdmin(ModelMap modelMap){
+        List<HocPhan> list= (List<HocPhan>) hocPhanDao.getListHP();
+        modelMap.addAttribute("list",list);
         return "admin/courses-register";
     }
     @RequestMapping(value = "/admin/course-register/add", method = RequestMethod.GET)
     public String addCourseRegisterAdmin(ModelMap modelMap){
+        HocPhan hocPhan=null;
+        modelMap.addAttribute("hocPhan",hocPhan);
+        List<MonHoc> listMH= (List<MonHoc>) monHocDao.getListMH();
+        modelMap.addAttribute("listMH",listMH);
+        List<GiangVien> listGV= (List<GiangVien>) giangVienDao.getListGV();
+        modelMap.addAttribute("listGV",listGV);
+        List<Phong> listPhong= (List<Phong>) phongDao.getListPhong() ;
+        modelMap.addAttribute("listPhong",listPhong);
+        return "admin/courses-register-add";
+    }
+    @RequestMapping(value = "/admin/course-register/edit/{id}", method = RequestMethod.GET)
+    public String editCourseRegisterAdmin(ModelMap modelMap,@PathVariable int id){
+        HocPhan hocPhan=hocPhanDao.getHP(id);
+        modelMap.addAttribute("hocPhan",hocPhan);
+        List<MonHoc> listMH= (List<MonHoc>) monHocDao.getListMH();
+        modelMap.addAttribute("listMH",listMH);
+        List<GiangVien> listGV= (List<GiangVien>) giangVienDao.getListGV();
+        modelMap.addAttribute("listGV",listGV);
+        List<Phong> listPhong= (List<Phong>) phongDao.getListPhong() ;
+        modelMap.addAttribute("listPhong",listPhong);
+        return "admin/courses-register-add";
+    }
+    @RequestMapping(value = "/admin/course-register/edit/{id}", method = RequestMethod.POST)
+    public String insertCourseRegisterAdmin(ModelMap modelMap,@PathVariable("id") int id,@RequestParam("monHoc") int maMH,
+                                            @RequestParam("giangVien") int maGV,@RequestParam("phong") int maPhong,
+                                            @RequestParam("caHoc") int caHoc,@RequestParam("ngay") String ngay,@RequestParam("trangThai") Boolean trangThai) throws ParseException {
+        HocPhan hocPhan=new HocPhan();;
+        if(id==0){
+            hocPhan.setSoTietDaHoc(0);
+        }else{
+            hocPhan=hocPhanDao.getHP(id);
+        }
+        MonHoc monHoc=monHocDao.getMH(maMH);
+        hocPhan.setMonHoc(monHoc);
+        GiangVien giangVien=giangVienDao.getGV(maGV);
+        hocPhan.setGiangVien(giangVien);
+        Phong phong=phongDao.getPhong(maPhong);
+        hocPhan.setPhong(phong);
+        String array[]=ngay.split(" to ");
+        Date ngayBD= new SimpleDateFormat("yyyy/mm/dd").parse(array[0]);
+        hocPhan.setNgayBD(ngayBD);
+        Date ngayKT= new SimpleDateFormat("yyyy/mm/dd").parse(array[1]);
+        hocPhan.setNgayKT(ngayKT);
+        hocPhan.setCaHoc(caHoc);
+        hocPhan.setTrangThai(trangThai);
+        hocPhanDao.updateHP(hocPhan);
+        return "redirect:/admin/course-register";
+    }
+    @RequestMapping(value = "/admin/course-register/delete/{id}", method = RequestMethod.GET)
+    public String deleteCourseRegisterAdmin(ModelMap modelMap){
         return "admin/courses-register-add";
     }
     @RequestMapping(value = "/admin/instructors", method = RequestMethod.GET)

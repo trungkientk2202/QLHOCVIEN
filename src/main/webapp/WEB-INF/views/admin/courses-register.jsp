@@ -160,83 +160,74 @@
                             </thead>
                             <tbody class="list" id="clients">
 
-                            <tr>
+                            <c:forEach var="hp" items="${list}">
 
-                                <td class="pr-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                               id="customCheck1_clients_1">
-                                        <label class="custom-control-label" for="customCheck1_clients_1"><span
-                                                class="text-hide">Check</span></label>
-                                    </div>
-                                </td>
+                                <tr>
 
-                                <td>
-
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-
-                                            <span class="avatar-title rounded-sm">AJ</span>
-
+                                    <td class="pr-0">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
+                                                   id="customCheck1_clients_1">
+                                            <label class="custom-control-label" for="customCheck1_clients_1"><span
+                                                    class="text-hide">Check</span></label>
                                         </div>
-                                        <div class="media-body">
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-name">AngularJs</strong></p>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                            <div class="media-body">
+                                                <div class="d-flex flex-column">
+                                                    <p class="mb-0"><strong class="js-lists-values-name">${hp.monHoc.tenMH}</strong></p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </td>
+                                    </td>
 
-                                <td>
+                                    <td>
 
-                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                        <div class="avatar avatar-sm mr-8pt">
-
-
-                                            <span class="avatar-title rounded-circle bg-warning">BN</span>
-
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0"><strong class="js-lists-values-instructor">Billy Nunez</strong></p>
+                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                            <div class="media-body">
+                                                <div class="d-flex flex-column">
+                                                    <p class="mb-0"><strong class="js-lists-values-instructor">${hp.giangVien.hoTen}</strong></p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </td>
+                                    </td>
 
-                                <td>
-                                    <small class="js-lists-values-room text-50">A3-305</small>
-                                </td>
-                                <td>
-                                    <small class="js-lists-values-shift text-50">12-13</small>
-                                </td>
+                                    <td>
+                                        <small class="js-lists-values-room text-50">${hp.phong.maPhong}</small>
+                                    </td>
+                                    <td>
+                                        <small class="js-lists-values-shift text-50">${hp.caHoc}</small>
+                                    </td>
 
-                                <td>
-                                    <small class="js-lists-values-from text-50">18/02/2019</small>
-                                </td>
-                                <td>
-                                    <small class="js-lists-values-to text-50">18/02/2019</small>
-                                </td>
+                                    <td>
+                                        <small class="js-lists-values-from text-50">${hp.ngayBD}</small>
+                                    </td>
+                                    <td>
+                                        <small class="js-lists-values-to text-50">${hp.ngayKT}</small>
+                                    </td>
 
-                                <td>
-                                    <div class="d-flex flex-column">
-                                        <small class="js-lists-values-status text-50 mb-4pt">Opened</small>
-                                        <span class="indicator-line rounded bg-primary"></span>
-                                    </div>
-                                </td>
+                                    <td>
+                                        <div class="d-flex flex-column">
+                                            <small class="js-lists-values-status text-50 mb-4pt">${hp.trangThai==true?'Opened':'Closed'}</small>
+                                            <span class="indicator-line rounded bg-primary"></span>
+                                        </div>
+                                    </td>
 
-                                <td class="text-right">
-                                    <div class="d-inline-flex align-items-center">
-                                        <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary mr-16pt">Edit
-                                            <i class="icon--right material-icons">edit</i></a>
-                                        <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary">Delete
-                                            <i class="icon--right material-icons">delete</i></a>
-                                    </div>
-                                </td>
-                            </tr>
+                                    <td class="text-right">
+                                        <div class="d-inline-flex align-items-center">
+                                            <a href="/admin/course-register/edit/${hp.maHP}" class="btn btn-sm btn-outline-secondary mr-16pt">Edit
+                                                <i class="icon--right material-icons">edit</i></a>
+                                            <a href="/admin/course-register/delete/${hp.maHP}" class="btn btn-sm btn-outline-secondary">Delete
+                                                <i class="icon--right material-icons">delete</i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </c:forEach>
 
                             </tbody>
                         </table>
