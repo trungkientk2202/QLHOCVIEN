@@ -9,7 +9,7 @@ import java.util.Date;
 @Table(name = "DONGHOCPHI")
 public class DongHocPhi {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private int id;
     @ManyToOne

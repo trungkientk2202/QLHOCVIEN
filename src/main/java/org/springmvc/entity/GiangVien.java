@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name = "GIANGVIEN")
 public class GiangVien {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MAGV")
     private int maGV;
     @Column(name = "HOTEN")
@@ -31,7 +31,7 @@ public class GiangVien {
     @Column(name = "MOTA")
     private String moTa;
 
-    @OneToMany(mappedBy = "giangVien",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "giangVien",fetch = FetchType.LAZY)
     private Collection<HocPhan> hocPhans;
     public GiangVien() {
     }

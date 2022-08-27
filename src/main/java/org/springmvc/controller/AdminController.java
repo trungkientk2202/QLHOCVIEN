@@ -19,6 +19,7 @@ import java.util.List;
 @Controller
 public class AdminController {
     private final TaiKhoanDao taiKhoanDao = new TaiKhoanDao();
+    private final LoaiTaiKhoanDao loaiTaiKhoanDao = new LoaiTaiKhoanDao();
     private final HocVienDao hocVienDao = new HocVienDao();
     private final GiangVienDao giangVienDao = new GiangVienDao();
     private final HocPhanDao hocPhanDao = new HocPhanDao();
@@ -139,8 +140,16 @@ public class AdminController {
         hocPhan.setNgayKT(ngayKT);
         hocPhan.setCaHoc(caHoc);
         hocPhan.setTrangThai(trangThai);
-        hocPhanDao.updateHP(hocPhan);
-        return "redirect:/admin/course-register";
+        if(id!=0){
+            if(hocPhanDao.updateHP(hocPhan)==1){
+                return "redirect:/admin/course-register";
+            }
+        }else{
+            if(hocPhanDao.insertHP(hocPhan)==1){
+                return "redirect:/admin/course-register";
+            }
+        }
+        return "redirect:/admin/course-register/edit/"+id;
     }
     @RequestMapping(value = "/admin/course-register/delete/{id}", method = RequestMethod.GET)
     public String deleteCourseRegisterAdmin(ModelMap modelMap){
@@ -154,7 +163,7 @@ public class AdminController {
     }
     @RequestMapping(value = "/admin/instructors/add", method = RequestMethod.GET)
     public String addInstructorAdmin(ModelMap modelMap){
-        GiangVien giangVien=new GiangVien();
+        GiangVien giangVien=null;
         modelMap.addAttribute("giangVien",giangVien);
         return "admin/instructors-add";
     }
@@ -165,30 +174,38 @@ public class AdminController {
         return "admin/instructors-add";
     }
     @RequestMapping(value = "/admin/instructors/edit/{id}", method = RequestMethod.POST)
-    public String insertInstructorsAdmin(ModelMap modelMap, @PathVariable int id, @RequestParam("btn") String btn
+    public String insertInstructorsAdmin(ModelMap modelMap, @PathVariable int id, @RequestParam("btn") String btn, @RequestParam("account") String account
             , @RequestParam("name") String hoTen, @RequestParam("hocVi") String hocVi, @RequestParam("chuyenMon") String chuyenMon
             , @RequestParam("sdt") String sdt, @RequestParam("birth") Date ngaySinh, @RequestParam("moTa") String moTa){
         if(btn.equals("cancle")){
             return "redirect:/admin/instructors";
         }
         GiangVien giangVien=new GiangVien();
+        if(id!=0){
+            giangVien=giangVienDao.getGV(id);
+        }else{
+            TaiKhoan taiKhoan = new TaiKhoan(account, String.valueOf(123), loaiTaiKhoanDao.getLoaiTk(2),true);
+            if(taiKhoanDao.insertTK(taiKhoan)!=1){
+                return "redirect:/admin/instructors";
+            }
+            giangVien.setTaiKhoan(taiKhoan);
+        }
         giangVien.setHoTen(hoTen);
         giangVien.setHocVi(hocVi);
         giangVien.setChuyenMon(chuyenMon);
         giangVien.setNgaySinh(ngaySinh);
         giangVien.setSdt(sdt);
-        giangVien.setMoTa(moTa);
+        giangVien.setMoTa(moTa.trim());
         if(id!=0){
-            giangVien.setMaGV(id);
             if(giangVienDao.updateHV(giangVien)==1){
-                return "redirect:/admin/dashboard";
+                return "redirect:/admin/instructors";
             }
         }else{
             if(giangVienDao.insertGV(giangVien)==1){
-                return "redirect:/admin/schedule";
+                return "redirect:/admin/instructors";
             }
         }
-        return "redirect:/admin/instructors";
+        return "redirect:/admin/instructors/edit/"+id;
     }
     @RequestMapping(value = "/admin/instructors/delete", method = RequestMethod.POST)
     public String deleteInstructorAdmin(ModelMap modelMap){
@@ -206,8 +223,43 @@ public class AdminController {
         modelMap.addAttribute("hocVien",hocVien);
         return "admin/students-add";
     }
+    @RequestMapping(value = "/admin/students/edit/{id}", method = RequestMethod.POST)
+    public String editStudentAdmin(ModelMap modelMap,@PathVariable int id, @RequestParam("btn") String btn, @RequestParam("account") String account
+            , @RequestParam("name") String hoTen, @RequestParam("address") String diaChi, @RequestParam("sex") Boolean sex
+            , @RequestParam("phone") String sdt, @RequestParam("birth") Date ngaySinh, @RequestParam("moTa") String moTa){
+        if(btn.equals("cancle")){
+            return "redirect:/admin/students";
+        }
+        HocVien hocVien=new HocVien();
+        if(id!=0){
+            hocVien=hocVienDao.getHV(id);
+        }else{
+            TaiKhoan taiKhoan = new TaiKhoan(account, String.valueOf(123), loaiTaiKhoanDao.getLoaiTk(1),true);
+            if(taiKhoanDao.insertTK(taiKhoan)!=1){
+                return "redirect:/admin/students";
+            }
+            hocVien.setTaiKhoan(taiKhoan);
+        }
+        hocVien.setHoTen(hoTen);
+        hocVien.setDiaChi(diaChi);
+        hocVien.setPhai(sex);
+        hocVien.setSdt(sdt);
+
+        hocVien.setNgaySinh(ngaySinh);
+        hocVien.setMoTa(moTa.trim());
+        if(id!=0){
+            if(hocVienDao.updateHV(hocVien)==1){
+                return "redirect:/admin/students";
+            }
+        }else{
+            if(hocVienDao.insertHV(hocVien)==1){
+                return "redirect:/admin/students";
+            }
+        }
+        return "redirect:/admin/students/edit/"+id;
+    }
     @RequestMapping(value = "/admin/students/edit/{id}", method = RequestMethod.GET)
-    public String editStudentAdmin(ModelMap modelMap,@PathVariable("id") int id){
+    public String insertStudentAdmin(ModelMap modelMap,@PathVariable("id") int id){
         HocVien hocVien=hocVienDao.getHV(id);
         modelMap.addAttribute("hocVien",hocVien);
         return "admin/students-add";

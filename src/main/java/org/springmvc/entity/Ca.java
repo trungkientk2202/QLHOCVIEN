@@ -7,7 +7,7 @@ import java.util.Collection;
 @Table(name = "CA")
 public class Ca {
    @Id
-   @GeneratedValue
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "MACA")
    private int maCa;
    @Column(name = "GIOBD")
