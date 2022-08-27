@@ -119,7 +119,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Description</label>
-                                <div style="height: 150px;" data-toggle="quill" data-quill-placeholder="Quill WYSIWYG editor">
+                                <div style="height: 150px;" data-toggle="quill" data-quill-placeholder="Description...">
                                     <input type="text" name="moTa" value="${giangVien!=null?giangVien.moTa:''}">
                                 </div>
                             </div>
