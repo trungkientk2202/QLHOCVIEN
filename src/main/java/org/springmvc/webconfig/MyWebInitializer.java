@@ -2,8 +2,11 @@ package org.springmvc.webconfig;
 
 import javax.servlet.Filter;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
 
 public class MyWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
