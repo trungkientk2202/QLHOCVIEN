@@ -266,17 +266,31 @@
                   >
                 </span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-header"><strong>${user.hoTen}</strong></div>
-                <a class="dropdown-item" href="edit-account.html"
-                >Edit Account</a
-                >
-                <a class="dropdown-item" href="billing.html">Billing</a>
-                <a class="dropdown-item" href="billing-history.html"
-                >Payments</a
-                >
-                <a class="dropdown-item" href="/logout">Logout</a>
-            </div>
+            <c:choose>
+                <c:when test="${sessionScope.account.loaiTaiKhoan.maLoaiTK == 1}">
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-header"><strong>${user.hoTen}</strong></div>
+                        <a class="dropdown-item" href="edit-account.html"
+                        >Edit Account</a
+                        >
+                        <a class="dropdown-item" href="billing.html">Billing</a>
+                        <a class="dropdown-item" href="billing-history.html"
+                        >Payments</a
+                        >
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                </c:when>
+                <c:when test="${sessionScope.account.loaiTaiKhoan.maLoaiTK == 2}">
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-header"><strong>${user.hoTen}</strong></div>
+                        <a class="dropdown-item" href="edit-account.html"
+                        >Edit Account</a
+                        >
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                </c:when>
+            </c:choose>
+
         </div>
     </div>
 </div>

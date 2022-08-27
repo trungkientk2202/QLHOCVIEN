@@ -84,7 +84,7 @@
             <%@include file="/WEB-INF/views/layouts/filter-courses.jsp" %>
 
             <div class="page-separator">
-                <div class="page-separator__text">Development Courses</div>
+                <div class="page-separator__text">Courses On Going</div>
             </div>
 
 
@@ -99,8 +99,8 @@
                             <img src="<c:url value="/resources/assets/images/paths/angular_430x168.png"/>" alt="course">
                             <span class="overlay__content align-items-start justify-content-start">
                                     <span class="overlay__action card-body d-flex align-items-center">
-                                        <i class="material-icons mr-4pt">edit</i>
-                                        <span class="card-title text-white">Edit</span>
+                                        <i class="material-icons mr-4pt">view_list</i>
+                                        <span class="card-title text-white">Students</span>
                                     </span>
                                 </span>
                         </a>
@@ -112,7 +112,7 @@
                                             fundamentals</a>
                                     </div>
                                     <a href="instructor-edit-course.html"
-                                       class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
+                                       class="ml-4pt material-icons text-black-20 card-course__icon-favorite">info</a>
                                 </div>
                                 <div class="d-flex">
                                     <div class="rating flex">
@@ -189,7 +189,7 @@
                                 </div>
                             </div>
                             <div class="col text-right">
-                                <a href="instructor-edit-course.html" class="btn btn-primary">Edit course</a>
+                                <a href="/instructor/course-detail/${1}" class="btn btn-primary">Detail</a>
                             </div>
                         </div>
 
@@ -205,8 +205,8 @@
                             <img src="<c:url value="/resources/assets/images/paths/swift_430x168.png"/>" alt="course">
                             <span class="overlay__content align-items-start justify-content-start">
                                     <span class="overlay__action card-body d-flex align-items-center">
-                                        <i class="material-icons mr-4pt">edit</i>
-                                        <span class="card-title text-white">Edit</span>
+                                        <i class="material-icons mr-4pt">view_list</i>
+                                        <span class="card-title text-white">Students</span>
                                     </span>
                                 </span>
                         </a>
@@ -218,7 +218,7 @@
                                             Application in Swift</a>
                                     </div>
                                     <a href="instructor-edit-course.html"
-                                       class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
+                                       class="ml-4pt material-icons text-black-20 card-course__icon-favorite">info</a>
                                 </div>
                                 <div class="d-flex">
                                     <div class="rating flex">
@@ -295,7 +295,7 @@
                                 </div>
                             </div>
                             <div class="col text-right">
-                                <a href="instructor-edit-course.html" class="btn btn-primary">Edit course</a>
+                                <a href="/instructor/course-detail/${1}" class="btn btn-primary">Detail</a>
                             </div>
                         </div>
 
@@ -312,8 +312,8 @@
                                  alt="course">
                             <span class="overlay__content align-items-start justify-content-start">
                                     <span class="overlay__action card-body d-flex align-items-center">
-                                        <i class="material-icons mr-4pt">edit</i>
-                                        <span class="card-title text-white">Edit</span>
+                                        <i class="material-icons mr-4pt">view_list</i>
+                                        <span class="card-title text-white">Students</span>
                                     </span>
                                 </span>
                         </a>
@@ -325,7 +325,7 @@
                                             WordPress Website</a>
                                     </div>
                                     <a href="instructor-edit-course.html"
-                                       class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
+                                       class="ml-4pt material-icons text-black-20 card-course__icon-favorite">info</a>
                                 </div>
                                 <div class="d-flex">
                                     <div class="rating flex">
@@ -402,7 +402,7 @@
                                 </div>
                             </div>
                             <div class="col text-right">
-                                <a href="instructor-edit-course.html" class="btn btn-primary">Edit course</a>
+                                <a href="/instructor/course-detail/${1}" class="btn btn-primary">Detail</a>
                             </div>
                         </div>
 
@@ -418,8 +418,8 @@
                             <img src="<c:url value="/resources/assets/images/paths/react_430x168.png"/>" alt="course">
                             <span class="overlay__content align-items-start justify-content-start">
                                     <span class="overlay__action card-body d-flex align-items-center">
-                                        <i class="material-icons mr-4pt">edit</i>
-                                        <span class="card-title text-white">Edit</span>
+                                        <i class="material-icons mr-4pt">view_list</i>
+                                        <span class="card-title text-white">Students</span>
                                     </span>
                                 </span>
                         </a>
@@ -431,7 +431,7 @@
                                             Native Developer</a>
                                     </div>
                                     <a href="instructor-edit-course.html"
-                                       class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
+                                       class="ml-4pt material-icons text-black-20 card-course__icon-favorite">info</a>
                                 </div>
                                 <div class="d-flex">
                                     <div class="rating flex">
@@ -508,7 +508,7 @@
                                 </div>
                             </div>
                             <div class="col text-right">
-                                <a href="instructor-edit-course.html" class="btn btn-primary">Edit course</a>
+                                <a href="/instructor/course-detail/${1}" class="btn btn-primary">Detail</a>
                             </div>
                         </div>
 
@@ -574,7 +574,7 @@
             </div>
 
             <div class="page-separator">
-                <div class="page-separator__text">Design Courses</div>
+                <div class="page-separator__text">Courses Finished</div>
             </div>
 
 

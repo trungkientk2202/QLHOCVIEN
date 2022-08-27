@@ -48,6 +48,10 @@
 
     <!-- App CSS -->
     <link type="text/css" href="<c:url value="/resources/assets/css/app.css"/>" rel="stylesheet"/>
+
+    <!-- Toastr -->
+    <link type="text/css" href="<c:url value="/resources/assets/vendor/toastr.min.css"/>" rel="stylesheet">
+    <link type="text/css" href="<c:url value="/resources/assets/css/toastr.css"/>" rel="stylesheet">
 </head>
 <body class="layout-app">
 <%@include file="/WEB-INF/views/layouts/preloader.jsp" %>
@@ -87,8 +91,10 @@
 
                 <div class="row" role="tablist">
                     <div class="col-auto">
-                        <a href="discussions-ask.html" class="btn btn-primary">Pay <span class="material-icons">arrow_forward</span>
-                        </a>
+                        <form action="payment/pay/paypal" method="post">
+                            <a href="javascript:void(0)" onclick="this.parentNode.submit()" class="btn btn-primary">PAY WITH PAYPAL<span class="material-icons icon--right">arrow_forward</span>
+                            </a>
+                        </form>
                     </div>
                 </div>
 
@@ -281,6 +287,30 @@
     <!-- END drawer -->
 </div>
 
+<!--Toastr-->
+<c:if test="${cancelMessage != null}">
+    <button style="display: none" type="button" id="btn-toastr" class="btn btn-warning" data-toggle="toastr" data-toastr-type="warning"
+            data-toastr-title="Error!" data-toastr-message="${cancelMessage}">
+        Cancel
+    </button>
+    <script type="text/javascript">
+        window.onload=function(){
+            document.getElementById("btn-toastr").click();
+        };
+    </script>
+</c:if>
+<c:if test="${successMessage != null}">
+    <button style="display: none" type="button" id="btn-toastr" class="btn btn-success" data-toggle="toastr" data-toastr-type="success"
+            data-toastr-title="Error!" data-toastr-message="${successMessage}">
+        Success
+    </button>
+    <script type="text/javascript">
+        window.onload=function(){
+            document.getElementById("btn-toastr").click();
+        };
+    </script>
+</c:if>
+
 <!-- jQuery -->
 <script src="<c:url value="/resources/assets/vendor/jquery.min.js"/>"></script>
 
@@ -306,6 +336,10 @@
 <!-- Tables -->
 <script src="<c:url value="/resources/assets/js/toggle-check-all.js"/>"></script>
 <script src="<c:url value="/resources/assets/js/check-selected-row.js"/>"></script>
+
+<!-- Toastr -->
+<script src="<c:url value="/resources/assets/vendor/toastr.min.js"/>"></script>
+<script src="<c:url value="/resources/assets/js/toastr.js"/>"></script>
 
 <script>
     var drawer = document.querySelector(".mdk-drawer-layout");

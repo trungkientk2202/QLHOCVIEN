@@ -6,13 +6,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springmvc.dao.*;
 import org.springmvc.entity.*;
+import org.springmvc.utils.Session;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
@@ -20,28 +17,16 @@ import java.util.List;
 @Controller
 public class AdminController {
     private final TaiKhoanDao taiKhoanDao = new TaiKhoanDao();
-    private final LoaiTaiKhoanDao loaiTaiKhoanDao = new LoaiTaiKhoanDao();
     private final HocVienDao hocVienDao = new HocVienDao();
     private final GiangVienDao giangVienDao = new GiangVienDao();
-
     private final HocPhanDao hocPhanDao = new HocPhanDao();
-
-    private final DongHocPhiDao dongHocPhiDao = new DongHocPhiDao();
-    private final DangKyHPDao dangKyHPDao= new DangKyHPDao();
     private final MonHocDao monHocDao= new MonHocDao();
 
     private final CaDao caDao= new CaDao();
-    // admin
-    private static HttpSession getSession(){
-        RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
-        ServletRequestAttributes attributes = (ServletRequestAttributes) requestAttributes;
-        HttpServletRequest request = attributes.getRequest();
-        return request.getSession(true);
-    }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(ModelMap modelMap){
-        HttpSession session = getSession();
+        HttpSession session = Session.getSession();
 
         if(session.getAttribute("admin") != null)
             return "redirect:/admin/dashboard";
@@ -52,7 +37,7 @@ public class AdminController {
     public String loginAdmin( @RequestParam("username") String name, @RequestParam("password") String pass, ModelMap modelMap){
         TaiKhoan taiKhoan = taiKhoanDao.login(name, pass, String.valueOf(3));
 
-        HttpSession httpSession = getSession();
+        HttpSession httpSession = Session.getSession();
 
         if (taiKhoan == null) {
             modelMap.addAttribute("message", "Incorrect username or password!");

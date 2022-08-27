@@ -6,19 +6,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springmvc.dao.*;
 import org.springmvc.entity.*;
+import org.springmvc.utils.Globals;
+import org.springmvc.utils.Session;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class UserController {
@@ -26,23 +20,12 @@ public class UserController {
     private final LoaiTaiKhoanDao loaiTaiKhoanDao = new LoaiTaiKhoanDao();
     private final HocVienDao hocVienDao = new HocVienDao();
     private final GiangVienDao giangVienDao = new GiangVienDao();
-
     private final HocPhanDao hocPhanDao = new HocPhanDao();
-
     private final DongHocPhiDao dongHocPhiDao = new DongHocPhiDao();
     private final DangKyHPDao dangKyHPDao= new DangKyHPDao();
     private final MonHocDao monHocDao= new MonHocDao();
-
     private final CaDao caDao= new CaDao();
-    private static HocVien hocVien = new HocVien();
-    private static GiangVien giangVien = new GiangVien();
-
-    private static HttpSession getSession(){
-        RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
-        ServletRequestAttributes attributes = (ServletRequestAttributes) requestAttributes;
-        HttpServletRequest request = attributes.getRequest();
-        return request.getSession(true);
-    }
+    private final HocVien hocVien = new HocVien();
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(ModelMap modelMap) {
@@ -51,7 +34,7 @@ public class UserController {
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(){
-        HttpSession httpSession = getSession();
+        HttpSession httpSession = Session.getSession();
 
         httpSession.removeAttribute("account");
 
@@ -62,7 +45,7 @@ public class UserController {
     public String login(@RequestParam("user-type") String userType, @RequestParam("userName") String name, @RequestParam("password") String pass, ModelMap modelMap) {
         TaiKhoan taiKhoan = taiKhoanDao.login(name, pass, userType);
 
-        HttpSession httpSession = getSession();
+        HttpSession httpSession = Session.getSession();
 
         if (taiKhoan == null) {
             modelMap.addAttribute("message", "Incorrect username or password!");
@@ -70,13 +53,13 @@ public class UserController {
         } else {
             httpSession.setAttribute("account", taiKhoan);
             if(taiKhoan.getLoaiTaiKhoan().getMaLoaiTK() == 1) {
-                hocVien = hocVienDao.getHVByUserName(taiKhoan);
+                HocVien hocVien = hocVienDao.getHVByUserName(taiKhoan);
                 modelMap.addAttribute("user",hocVien);
                 return "redirect:/dashboard";
             }
             if(taiKhoan.getLoaiTaiKhoan().getMaLoaiTK() == 2) {
-                giangVien = giangVienDao.getGVByUserName(taiKhoan);
-                modelMap.addAttribute("user",giangVien);
+                GiangVien giangVien = giangVienDao.getGVByUserName(taiKhoan);
+                modelMap.addAttribute("user", giangVien);
                 return "redirect:/instructor/dashboard";
             }
             return null;
@@ -117,16 +100,12 @@ public class UserController {
     public String courses(ModelMap modelMap) {
         List<HocPhan> list= new ArrayList<>();
         List<DangKyHP> listDK=new ArrayList<>();
-        if(hocVien!=null){
-            listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien);
-            List<Integer> listIds=new ArrayList<>();
-            for(int i=0;i<listDK.size();i++){
-                listIds.add(listDK.get(i).getHocPhan().getMaHP());
-            }
-            list=(List<HocPhan>) hocPhanDao.getListHPChuaDK(listIds);
-        }else{
-            list=(List<HocPhan>) hocPhanDao.getListHP();
+        listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien);
+        List<Integer> listIds=new ArrayList<>();
+        for (DangKyHP dangKyHP : listDK) {
+            listIds.add(dangKyHP.getHocPhan().getMaHP());
         }
+        list=(List<HocPhan>) hocPhanDao.getListHPChuaDK(listIds);
         modelMap.addAttribute("list",list);
         modelMap.addAttribute("listDK",listDK);
         return "user/student/courses";
@@ -138,9 +117,7 @@ public class UserController {
             List<HocPhan> list= (List<HocPhan>) hocPhanDao.getListHocPhan(name);
             modelMap.addAttribute("list",list);
             List<DangKyHP> listDK=new ArrayList<>();
-            if(hocVien!=null){
-                listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien);
-            }
+            listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien);
             modelMap.addAttribute("listDK",listDK);
         }
         return "user/student/courses";
@@ -178,7 +155,7 @@ public class UserController {
     }
     @RequestMapping(value = "/payment", method = RequestMethod.GET)
     public String payment(ModelMap modelMap){
-        HttpSession httpSession = getSession();
+        HttpSession httpSession = Session.getSession();
         HocVien hocVien1=hocVienDao.getHVByUserName((TaiKhoan) httpSession.getAttribute("account"));
         List<DangKyHP>list= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien1);
         modelMap.addAttribute("list",list);
@@ -188,6 +165,15 @@ public class UserController {
         modelMap.addAttribute("tongHP",tongHocPhi);
         long tongDongHocPhi=dongHocPhiDao.getTongDHPByHV(hocVien1);
         modelMap.addAttribute("tongDHP",tongDongHocPhi);
+
+        if(Globals.paymentStatus == 1){
+            modelMap.addAttribute("cancelMessage","Canceled Order!");
+            Globals.paymentStatus = -1;
+        }
+        else if(Globals.paymentStatus == 2){
+            modelMap.addAttribute("successMessage","Payment Successful!");
+            Globals.paymentStatus = -1;
+        }
         return "user/student/payment";
     }
 
@@ -207,13 +193,13 @@ public class UserController {
     }
     @RequestMapping(value = "/instructor/courses", method = RequestMethod.GET)
     public String courseDetailsInstructor(ModelMap modelMap){
-        return "user/instructor/course-details";
-    }
-    @RequestMapping(value = "/instructor/course-details", method = RequestMethod.GET)
-    public String coursesInstructor(ModelMap modelMap){
         return "user/instructor/courses";
     }
-    @RequestMapping(value = "/instructor/request-course", method = RequestMethod.GET)
+    @RequestMapping(value = "/instructor/course-detail/{id}", method = RequestMethod.GET)
+    public String coursesInstructor(ModelMap modelMap, @PathVariable String id){
+        return "user/instructor/course-detail";
+    }
+    @RequestMapping(value = "/instructor/course/request", method = RequestMethod.GET)
     public String requestCourseInstructor(ModelMap modelMap){
         return "user/instructor/course-request";
     }

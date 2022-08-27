@@ -61,14 +61,19 @@
                 <div class="flex d-flex flex-column flex-sm-row align-items-center">
 
                     <div class="mb-24pt mb-sm-0 mr-sm-24pt">
-                        <h2 class="mb-0">Edit Course</h2>
+                        <h2 class="mb-0">Course Detail</h2>
 
                         <ol class="breadcrumb p-0 m-0">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/instructor/dashboard">Dashboard</a></li>
 
+                            <li class="breadcrumb-item">
+
+                                Course
+
+                            </li>
                             <li class="breadcrumb-item active">
 
-                                Edit Course
+                                Course Detail
 
                             </li>
 
@@ -86,10 +91,10 @@
                     <div class="col-md-8">
 
                         <div class="page-separator">
-                            <div class="page-separator__text">Basic information</div>
+                            <div class="page-separator__text">Edit Course's Content</div>
                         </div>
 
-                        <label class="form-label">Course title</label>
+                        <label class="form-label">Content Title</label>
                         <div class="form-group mb-24pt">
                             <input type="text" class="form-control form-control-lg" placeholder="Course title" value="Angular Fundamentals">
                             <small class="form-text text-muted">Please see our <a href="">course title guideline</a></small>
@@ -103,7 +108,7 @@
                                 <p>Some initial <strong>bold</strong> text</p>
                                 <p><br></p>
                             </div>
-                            <small class="form-text text-muted">Shortly describe this course.</small>
+                            <small class="form-text text-muted">Shortly describe this content.</small>
                         </div>
 
                         <div class="page-separator">
@@ -117,10 +122,18 @@
                                     <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
                                 </a>
                                 <div class="accordion__menu collapse" id="course-toc-1">
+                                    <div class="accordion__menu-link active">
+                                        <i class="material-icons text-70 icon-16pt icon--left">play_circle_outline</i>
+                                        <a class="flex" href="student-lesson.html">Video</a>
+                                        <span class="text-muted">1m 10s</span>
+                                    </div>
+                                    <div class="accordion__menu-link align-items-start">
+                                        <i class="material-icons text-70 icon-16pt icon--left mt-1">vertical_split</i>
+                                        <a class="flex" href="student-lesson.html">Content: It’s not every day that one of the most important front-end libraries in web development gets a complete overhaul. Keep your skills relevant and up-to-date with this comprehensive introduction to Google’s popular community project.</a>
+                                    </div>
                                     <div class="accordion__menu-link">
                                         <i class="material-icons text-70 icon-16pt icon--left">drag_handle</i>
-                                        <a class="flex" href="student-lesson.html">Watch Trailer</a>
-                                        <span class="text-muted">1m 10s</span>
+                                        <a class="flex" href="student-lesson.html">Note: Introduction to TypeScript</a>
                                     </div>
                                 </div>
                             </div>
@@ -131,73 +144,23 @@
                                 </a>
                                 <div class="accordion__menu collapse show" id="course-toc-2">
                                     <div class="accordion__menu-link">
-                                        <i class="material-icons text-70 icon-16pt icon--left">drag_handle</i>
-                                        <a class="flex" href="student-lesson.html">Introduction</a>
+                                        <i class="material-icons text-70 icon-16pt icon--left">play_circle_outline</i>
+                                        <a class="flex" href="student-lesson.html">Video</a>
                                         <span class="text-muted">8m 42s</span>
                                     </div>
-                                    <div class="accordion__menu-link active">
-                                        <i class="material-icons text-70 icon-16pt icon--left">drag_handle</i>
-                                        <a class="flex" href="student-lesson.html">Introduction to TypeScript</a>
-                                        <span class="text-muted">50m 13s</span>
+                                    <div class="accordion__menu-link align-items-start">
+                                        <i class="material-icons text-70 icon-16pt icon--left mt-1">vertical_split</i>
+                                        <a class="flex" href="student-lesson.html">Content: It’s not every day that one of the most important front-end libraries in web development gets a complete overhaul. Keep your skills relevant and up-to-date with this comprehensive introduction to Google’s popular community project.</a>
                                     </div>
                                     <div class="accordion__menu-link">
                                         <i class="material-icons text-70 icon-16pt icon--left">drag_handle</i>
-                                        <a class="flex" href="student-lesson.html">Comparing Angular to AngularJS</a>
-                                        <span class="text-muted">12m 10s</span>
-                                    </div>
-                                    <div class="accordion__menu-link">
-                                        <i class="material-icons text-70 icon-16pt icon--left">drag_handle</i>
-                                        <a class="flex" href="student-take-quiz.html">Quiz: Getting Started With Angular</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion__item">
-                                <a href="#" class="accordion__toggle collapsed" data-toggle="collapse" data-target="#course-toc-3" data-parent="#parent">
-                                    <span class="flex">Creating and Communicating Between Angular Components</span>
-                                    <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
-                                </a>
-                                <div class="accordion__menu collapse" id="course-toc-3">
-                                    <div class="accordion__menu-link">
-                                        <i class="material-icons text-70 icon-16pt icon--left">drag_handle</i>
-                                        <a class="flex" href="student-lesson.html">Angular Components</a>
-                                        <span class="text-muted">04:23</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion__item">
-                                <a href="#" class="accordion__toggle collapsed" data-toggle="collapse" data-target="#course-toc-4" data-parent="#parent">
-                                    <span class="flex">Exploring the Angular Template Syntax</span>
-                                    <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
-                                </a>
-                                <div class="accordion__menu collapse" id="course-toc-4">
-                                    <div class="accordion__menu-link">
-                                        <i class="material-icons text-70 icon-16pt icon--left">drag_handle</i>
-                                        <a class="flex" href="student-lesson.html">Template Syntax</a>
-                                        <span class="text-muted">04:23</span>
+                                        <a class="flex" href="student-lesson.html">Note: Introduction</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <a href="#" class="btn btn-outline-secondary mb-24pt mb-sm-0">Add Section</a>
-
                     </div>
                     <div class="col-md-4">
-
-                        <div class="card">
-                            <div class="card-header text-center">
-                                <a href="#" class="btn btn-accent">Save changes</a>
-                            </div>
-                            <div class="list-group list-group-flush">
-                                <div class="list-group-item d-flex">
-                                    <a class="flex" href="#"><strong>Save Draft</strong></a>
-                                    <i class="material-icons text-muted">check</i>
-                                </div>
-                                <div class="list-group-item">
-                                    <a href="#" class="text-danger"><strong>Delete Course</strong></a>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="page-separator">
                             <div class="page-separator__text">Video</div>
@@ -214,47 +177,25 @@
                             </div>
                         </div>
 
-                        <div class="page-separator">
-                            <div class="page-separator__text">Options</div>
-                        </div>
+                        <div class="page-separator" style="margin-top: 8.1rem;"></div>
 
                         <div class="card">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label class="form-label">Category</label>
-                                    <select name="category" class="form-control custom-select">
-                                        <option value="vuejs">VueJs</option>
-                                        <option value="vuejs">Angular</option>
-                                        <option value="vuejs">React</option>
-                                    </select>
-                                    <small class="form-text text-muted">Select a category.</small>
+                            <div class="card-header text-center">
+                                <a href="#" class="btn btn-accent">Add Sections</a>
+                            </div>
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item d-flex">
+                                    <a class="flex" href="#"><strong>Save Draft</strong></a>
+                                    <i class="material-icons text-muted">check</i>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label">Price</label>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input-group form-inline">
-                                                <span class="input-group-prepend"><span class="input-group-text">$</span></span>
-                                                <input type="text" class="form-control" value="24">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <small class="form-text text-muted">The recommended price is between &dollar;17 and &dollar;24</small>
-                                </div>
-                                <div class="form-group mb-0">
-                                    <label class="form-label" for="select03">Tags</label>
-                                    <select id="select03" data-toggle="select" multiple class="form-control">
-                                        <option selected="">JavaScript</option>
-                                        <option selected="">Angular</option>
-                                        <option>Bootstrap</option>
-                                        <option>CSS</option>
-                                        <option>HTML</option>
-                                    </select>
-                                    <small class="form-text text-muted">Select one or more tags.</small>
+                                <div class="list-group-item">
+                                    <a href="#" class="text-danger"><strong>
+                                        <span class="material-icons">undo</span>
+                                        Reset
+                                    </strong></a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 

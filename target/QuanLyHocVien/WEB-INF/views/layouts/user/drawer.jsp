@@ -95,26 +95,41 @@
 
                     <div class="sidebar-heading">INSTRUCTOR</div>
                     <ul class="sidebar-menu">
-                        <li class="sidebar-menu-item">
-                            <a class="sidebar-menu-button js-sidebar-collapse" data-toggle="collapse" href="#student_menu">
-                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">school</span>
-                                Student
+                        <li class="sidebar-menu-item ${pagina.endsWith('/dashboard') ? 'active open' : ''}">
+                            <a class="sidebar-menu-button js-sidebar-collapse" data-toggle="collapse"
+                               href="/instructor/dashboard">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">format_shapes</span>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item ${pagina.endsWith('/courses') || pagina.endsWith('/request') || pagina.endsWith('/course-detail') ? 'active open' : ''}">
+                            <a
+                                    class="sidebar-menu-button js-sidebar-collapse"
+                                    data-toggle="collapse"
+                                    href="#instructor_course_menu"
+                            >
+                    <span
+                            class="material-icons sidebar-menu-icon sidebar-menu-icon--left"
+                    >dns</span
+                    >
+                                Courses
                                 <span class="ml-auto sidebar-menu-toggle-icon"></span>
                             </a>
-                            <ul class="sidebar-submenu collapse sm-indent" id="instructor_menu">
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="fixed-index.html">
-                                        <span class="sidebar-menu-text">Home</span>
+                            <ul class="sidebar-submenu collapse sm-indent" id="instructor_course_menu">
+                                <li class="sidebar-menu-item ${pagina.endsWith('/courses') || pagina.endsWith('/course-detail') ? 'active open' : ''}">
+                                    <a class="sidebar-menu-button" href="/instructor/courses">
+                                        <span class="sidebar-menu-text">Manage Courses</span>
                                     </a>
                                 </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="fixed-student-take-course.html">
-                                        <span class="sidebar-menu-text">Take Course</span>
-                                        <span class="sidebar-menu-badge badge badge-accent badge-notifications ml-auto">PRO</span>
+                                <li class="sidebar-menu-item ${pagina.endsWith('/request') ? 'active open' : ''}">
+                                    <a
+                                            class="sidebar-menu-button"
+                                            href="/instructor/course/request"
+                                    >
+                                        <span class="sidebar-menu-text">Request Course</span>
                                     </a>
                                 </li>
                             </ul>
-                        </li>
                         </li>
                     </ul>
                 </div>
