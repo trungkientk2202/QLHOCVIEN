@@ -1,20 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" pageEncoding="UTF-8"%>
-<div class="d-flex align-items-center navbar-height">
-    <form
-            action="/courses" method="post"
-            class="search-form mx-16pt pr-0 pl-16pt flex"
-    >
-        <input name="name"
-                type="text"
-                class="form-control pl-0"
-                placeholder="Search"
-        />
-        <button class="btn" type="submit">
-            <i class="material-icons">search</i>
-        </button>
-    </form>
-</div>
 
+<form>
+    <div class="d-flex align-items-center navbar-height">
+        <div
+                action="/courses" method="post"
+                class="search-form pr-0 pl-16pt flex"
+        >
+            <input name="name"
+                   type="text"
+                   class="form-control pl-0"
+                   placeholder="Search"
+            />
+            <button class="btn" type="submit">
+                <i class="material-icons">search</i>
+            </button>
+        </div>
+</div>
 <div
         class="d-flex flex-column flex-sm-row align-items-sm-center mb-24pt"
         style="white-space: nowrap"
@@ -66,12 +67,11 @@
         </div>
     </div>
 
-    <a
-            href="#"
-            data-target="#library-drawer"
-            data-toggle="sidebar"
+    <button
+            type="submit"
             class="btn btn-sm btn-white ml-sm-16pt"
     >
         <i class="material-icons icon--left">tune</i> Filters
-    </a>
+    </button>
 </div>
+</form>

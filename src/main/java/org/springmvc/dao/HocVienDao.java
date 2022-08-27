@@ -66,7 +66,14 @@ public class HocVienDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(hocVien);
+            HocVien hv = session.get(HocVien.class, hocVien.getMaHV());
+            hv.setHoTen(hocVien.getHoTen());
+            hv.setSdt(hocVien.getSdt());
+            hv.setDiaChi(hocVien.getDiaChi());
+            hv.setPhai(hocVien.getPhai());
+            hv.setNgaySinh(hocVien.getNgaySinh());
+            hv.setMoTa(hocVien.getMoTa());
+            session.update(hv);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -81,7 +88,8 @@ public class HocVienDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(hocVien);
+            HocVien hv = session.get(HocVien.class, hocVien.getMaHV());
+            session.delete(hv);
             t.commit();
         } catch (Exception e) {
             t.rollback();

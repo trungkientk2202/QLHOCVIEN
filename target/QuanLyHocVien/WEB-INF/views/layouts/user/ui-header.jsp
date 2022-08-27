@@ -269,8 +269,8 @@
             <c:choose>
                 <c:when test="${sessionScope.account.loaiTaiKhoan.maLoaiTK == 1}">
                     <div class="dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-header"><strong>${user.hoTen}</strong></div>
-                        <a class="dropdown-item" href="edit-account.html"
+                        <div class="dropdown-header"><strong>${sessionScope.user.hoTen}</strong></div>
+                        <a class="dropdown-item" href="/profile"
                         >Edit Account</a
                         >
                         <a class="dropdown-item" href="billing.html">Billing</a>
@@ -282,8 +282,8 @@
                 </c:when>
                 <c:when test="${sessionScope.account.loaiTaiKhoan.maLoaiTK == 2}">
                     <div class="dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-header"><strong>${user.hoTen}</strong></div>
-                        <a class="dropdown-item" href="edit-account.html"
+                        <div class="dropdown-header"><strong>${sessionScope.user.hoTen}</strong></div>
+                        <a class="dropdown-item" href="/instructor/profile"
                         >Edit Account</a
                         >
                         <a class="dropdown-item" href="/logout">Logout</a>

@@ -90,14 +90,12 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6">
-
-
+                                <div class="col-md-12">
                                     <div class="card ">
                                         <div class="card-header pb-0 border-0 d-flex">
                                             <div class="flex">
-                                                <div class="h2 mb-0">130</div>
-                                                <p class="card-title">Contacts</p>
+                                                <div class="h2 mb-0">Center System</div>
+                                                <p class="card-title">Information</p>
                                             </div>
                                             <i class="material-icons text-50">more_horiz</i>
                                         </div>
@@ -106,7 +104,7 @@
 
                                                 <div class="mb-4pt">
                                                     <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Customers</small>
+                                                        <small class="flex lh-24pt">Students</small>
                                                         <small class="lh-24pt">70</small>
                                                     </p>
                                                     <div class="progress" style="height: 4px;">
@@ -118,7 +116,7 @@
 
                                                 <div class="mb-4pt">
                                                     <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Leads</small>
+                                                        <small class="flex lh-24pt">Instructors</small>
                                                         <small class="lh-24pt">21</small>
                                                     </p>
                                                     <div class="progress" style="height: 4px;">
@@ -130,19 +128,19 @@
 
                                                 <div class="mb-4pt">
                                                     <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Opportunities</small>
+                                                        <small class="flex lh-24pt">All Courses</small>
                                                         <small class="lh-24pt">12</small>
                                                     </p>
                                                     <div class="progress" style="height: 4px;">
                                                         <div class="progress-bar bg-primary" role="progressbar"
-                                                             style="width: 9%;" aria-valuenow="9" aria-valuemin="0"
+                                                             style="width: 99%;" aria-valuenow="99" aria-valuemin="0"
                                                              aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
 
                                                 <div>
                                                     <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Subscribers</small>
+                                                        <small class="flex lh-24pt">Opening Courses</small>
                                                         <small class="lh-24pt">27</small>
                                                     </p>
                                                     <div class="progress" style="height: 4px;">
@@ -153,87 +151,11 @@
                                                 </div>
 
                                             </div>
-                                            <div class="text-center">
-                                                <a href="" class="btn btn-sm btn-outline-secondary">View contacts</a>
-                                            </div>
                                         </div>
                                     </div>
-
-
-                                </div>
-                                <div class="col-md-6">
-
-
-                                    <div class="card ">
-                                        <div class="card-header pb-0 border-0 d-flex">
-                                            <div class="flex">
-                                                <div class="h2 mb-0">53</div>
-                                                <p class="card-title">Companies</p>
-                                            </div>
-                                            <i class="material-icons text-50">more_horiz</i>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="text-50 mb-16pt">
-
-                                                <div class="mb-4pt">
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Customers</small>
-                                                        <small class="lh-24pt">20</small>
-                                                    </p>
-                                                    <div class="progress" style="height: 4px;">
-                                                        <div class="progress-bar bg-primary" role="progressbar"
-                                                             style="width: 37%;" aria-valuenow="37" aria-valuemin="0"
-                                                             aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="mb-4pt">
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Leads</small>
-                                                        <small class="lh-24pt">12</small>
-                                                    </p>
-                                                    <div class="progress" style="height: 4px;">
-                                                        <div class="progress-bar bg-primary" role="progressbar"
-                                                             style="width: 22%;" aria-valuenow="22" aria-valuemin="0"
-                                                             aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="mb-4pt">
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Opportunities</small>
-                                                        <small class="lh-24pt">7</small>
-                                                    </p>
-                                                    <div class="progress" style="height: 4px;">
-                                                        <div class="progress-bar bg-primary" role="progressbar"
-                                                             style="width: 13%;" aria-valuenow="13" aria-valuemin="0"
-                                                             aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div>
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Subscribers</small>
-                                                        <small class="lh-24pt">14</small>
-                                                    </p>
-                                                    <div class="progress" style="height: 4px;">
-                                                        <div class="progress-bar bg-primary" role="progressbar"
-                                                             style="width: 26%;" aria-valuenow="26" aria-valuemin="0"
-                                                             aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="text-center">
-                                                <a href="" class="btn btn-sm btn-outline-secondary">View companies</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
                                 </div>
                             </div>
-
+                            
                             <div class="row card-group-row">
                                 <div class="col-md-6 card-group-row__col">
 
@@ -312,10 +234,20 @@
                                         </div>
                                         <div class="card-body position-relative o-hidden p-0">
                                             <div class="chart z-0" style="height: 125px;">
+                                                <div class="chartjs-size-monitor">
+                                                    <div class="chartjs-size-monitor-expand">
+                                                        <div class=""></div>
+                                                    </div>
+                                                    <div class="chartjs-size-monitor-shrink">
+                                                        <div class=""></div>
+                                                    </div>
+                                                </div>
                                                 <canvas id="viewsChart"
-                                                        class="chart-canvas js-update-chart-line js-update-chart-line-2nd-accent"
+                                                        class="chart-canvas js-update-chart-line js-update-chart-line-2nd-accent chartjs-render-monitor"
                                                         data-chart-line-border-color="primary,gray"
-                                                        data-chart-suffix=" views" data-chart-hide-axes="true"></canvas>
+                                                        data-chart-suffix=" views" data-chart-hide-axes="true"
+                                                        style="display: block; width: 286px; height: 125px;" width="286"
+                                                        height="125"></canvas>
                                             </div>
                                         </div>
                                     </div>
