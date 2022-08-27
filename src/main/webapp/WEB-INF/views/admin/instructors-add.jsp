@@ -62,8 +62,7 @@
                     <li class="breadcrumb-item active">Add</li>
                 </ol>
             </div>
-
-            <form>
+            <form action="/admin/instructors/edit/${giangVien!=null?giangVien.maGV:0}" method="post">
                 <div class="container page__container page-section">
                 <div class="row mb-32pt">
                     <div class="col-lg-4">
@@ -86,7 +85,7 @@
                                 <div class="row">
                                     <div class="col-lg">
                                         <label class="form-label" for="degree">Degree</label>
-                                        <input type="text" class="form-control" id="degree" name="hocvi" value="${giangVien!=null?giangVien.hocVi:''}"
+                                        <input type="text" class="form-control" id="degree" name="hocVi" value="${giangVien!=null?giangVien.hocVi:''}"
                                                placeholder="...">
                                     </div>
                                     <div class="col-lg">
@@ -116,12 +115,12 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="date">Date Of Birth</label>
-                                <input id="date" type="text" class="form-control" name="birth" value="${giangVien!=null?giangVien.ngaySinh:''}" placeholder="yyyy/mm/dd" data-toggle="daterangepicker" data-daterangepicker-drops="down" data-daterangepicker-start-date="2018/11/06" data-daterangepicker-single-date-picker="true">
+                                <input id="date" type="text" class="form-control" name="birth" value="${giangVien!=null?giangVien.ngaySinh:''}" placeholder="yyyy/mm/dd" data-toggle="daterangepicker" data-daterangepicker-drops="down" data-daterangepicker-single-date-picker="true">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Description</label>
                                 <div style="height: 150px;" data-toggle="quill" data-quill-placeholder="Quill WYSIWYG editor">
-                                    <input name="name" value="${giangVien!=null?giangVien.moTa:''}">
+                                    <input type="text" name="moTa" value="${giangVien!=null?giangVien.moTa:''}">
                                 </div>
                             </div>
                         </div>
@@ -150,8 +149,8 @@
                     <div class=" col-lg-8 d-flex align-items-center">
                         <div class="flex" style="max-width: 100%">
                             <div class="button-list text-right">
-                                <button type="button" class="btn btn-outline-secondary">Cancel</button>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" name="btn" value="cancle" class="btn btn-outline-secondary">Cancel</button>
+                                <button type="submit" name="btn" value="save" class="btn btn-primary">Save</button>
                             </div>
                         </div>
                     </div>

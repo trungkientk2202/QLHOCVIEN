@@ -29,8 +29,8 @@
                         <span class="sidebar-menu-toggle-icon"></span>
                     </a>
                     <ul class="sidebar-submenu collapse sm-indent" id="course_menu">
-                        <li class="sidebar-menu-item ${pagina.endsWith('/courses') ? 'active open' : ''}">
-                            <a class="sidebar-menu-button" href="/admin/courses">
+                        <li class="sidebar-menu-item ${pagina.endsWith('/subjects') ? 'active open' : ''}">
+                            <a class="sidebar-menu-button" href="/admin/subjects">
                                 <span class="sidebar-menu-text">All Subjects</span>
                             </a>
                         </li>

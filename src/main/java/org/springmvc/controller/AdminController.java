@@ -14,6 +14,7 @@ import org.springmvc.entity.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -70,24 +71,33 @@ public class AdminController {
         return "admin/dashboard";
     }
 
-    @RequestMapping(value = "/admin/courses", method = RequestMethod.GET)
-    public String coursesAdmin(ModelMap modelMap){
+    @RequestMapping(value = "/admin/subjects", method = RequestMethod.GET)
+    public String subjectsAdmin(ModelMap modelMap){
         List<MonHoc> list= (List<MonHoc>) monHocDao.getListMH();
         modelMap.addAttribute("list",list);
-        return "admin/courses";
+        return "admin/subjects";
     }
 
-    @RequestMapping(value = "/admin/courses/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/subject/add", method = RequestMethod.GET)
     public String addCourseAdmin(ModelMap modelMap){
-        return "admin/courses-add";
+        MonHoc monHoc=null;
+        modelMap.addAttribute("monHoc",monHoc);
+        return "admin/subjects-add";
     }
-    @RequestMapping(value = "/admin/courses/edit/{id}", method = RequestMethod.GET)
-    public String editCourseAdmin(ModelMap modelMap, @PathVariable String id){
-        return "admin/courses-add";
+
+    @RequestMapping(value = "/admin/subject/edit/{id}", method = RequestMethod.GET)
+    public String editCourseAdmin(ModelMap modelMap, @PathVariable int id){
+        MonHoc monHoc=monHocDao.getMH(id);
+        modelMap.addAttribute("monHoc",monHoc);
+        return "admin/subjects-add";
     }
-    @RequestMapping(value = "/admin/courses/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/subject/edit/{id}", method = RequestMethod.POST)
+    public String insertCourseAdmin(ModelMap modelMap, @PathVariable int id){
+        return "admin/subjects-add";
+    }
+    @RequestMapping(value = "/admin/subject/delete", method = RequestMethod.POST)
     public String deleteCourseAdmin(ModelMap modelMap){
-        return "redirect:/admin/courses";
+        return "admin/subjects";
     }
     @RequestMapping(value = "/admin/course-register", method = RequestMethod.GET)
     public String courseRegisterAdmin(ModelMap modelMap){
@@ -114,6 +124,32 @@ public class AdminController {
         GiangVien giangVien=giangVienDao.getGV(id);
         modelMap.addAttribute("giangVien",giangVien);
         return "admin/instructors-add";
+    }
+    @RequestMapping(value = "/admin/instructors/edit/{id}", method = RequestMethod.POST)
+    public String insertInstructorsAdmin(ModelMap modelMap, @PathVariable int id, @RequestParam("btn") String btn
+            , @RequestParam("name") String hoTen, @RequestParam("hocVi") String hocVi, @RequestParam("chuyenMon") String chuyenMon
+            , @RequestParam("sdt") String sdt, @RequestParam("birth") Date ngaySinh, @RequestParam("moTa") String moTa){
+        if(btn.equals("cancle")){
+            return "redirect:/admin/instructors";
+        }
+        GiangVien giangVien=new GiangVien();
+        giangVien.setHoTen(hoTen);
+        giangVien.setHocVi(hocVi);
+        giangVien.setChuyenMon(chuyenMon);
+        giangVien.setNgaySinh(ngaySinh);
+        giangVien.setSdt(sdt);
+        giangVien.setMoTa(moTa);
+        if(id!=0){
+            giangVien.setMaGV(id);
+            if(giangVienDao.updateHV(giangVien)==1){
+                return "redirect:/admin/dashboard";
+            }
+        }else{
+            if(giangVienDao.insertGV(giangVien)==1){
+                return "redirect:/admin/schedule";
+            }
+        }
+        return "redirect:/admin/instructors";
     }
     @RequestMapping(value = "/admin/instructors/delete", method = RequestMethod.POST)
     public String deleteInstructorAdmin(ModelMap modelMap){
