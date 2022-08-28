@@ -155,7 +155,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="row card-group-row">
                                 <div class="col-md-6 card-group-row__col">
 
