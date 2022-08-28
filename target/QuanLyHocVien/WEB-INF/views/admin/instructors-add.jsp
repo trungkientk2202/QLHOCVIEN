@@ -112,13 +112,13 @@
                             <div class="form-group">
                                 <label class="form-label" for="phone">Phone</label>
                                 <input id="phone" type="text" class="form-control" name="sdt"
-                                       value="${giangVien!=null?giangVien.sdt:''}" placeholder="Phone: (+00) 000-000000"
-                                       data-mask="(+00) 000-000000">
+                                       value="${giangVien!=null?giangVien.sdt:''}" placeholder="Phone: 0123456789"
+data-mask="00000000000">
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="date">Date Of Birth</label>
                                 <input id="date" type="text" class="form-control" name="birth"
-                                       value="${giangVien!=null?giangVien.ngaySinh:''}"
+                                       data-daterangepicker-start-date="${giangVien!=null?giangVien.ngaySinh:'2022/08/01'}"
                                        placeholder="yyyy/mm/dd" data-toggle="daterangepicker"
                                        data-daterangepicker-drops="down" data-daterangepicker-single-date-picker="true">
                             </div>
@@ -197,8 +197,8 @@
                                         class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2"
                                         y="14"></rect> </svg></button></span>
                                 </div>
-                                <textarea class="form-control" rows="5" id="description"
-                                          placeholder="Subject description"></textarea>
+                                <textarea name="moTa" class="form-control" rows="5" id="description"
+                                          placeholder="Subject description">${giangVien.moTa}</textarea>
                                 <small class="form-text text-muted">Shortly describe this subject.</small>
                             </div>
                         </div>
@@ -217,7 +217,7 @@
                             <div class="flex" style="max-width: 100%">
                                 <div class="form-group">
                                     <label class="form-label" for="account">Account's Provided</label>
-                                    <input type="text" class="form-control" id="account" name="accout" value="${giangVien!=null?giangVien.taiKhoan.tenTK:''}"
+                                    <input type="text" class="form-control" id="account" name="account" value="${giangVien!=null?giangVien.taiKhoan.tenTK:''}"
                                        placeholder="Example: trungkienlk123">
                             </div>
                         </div>

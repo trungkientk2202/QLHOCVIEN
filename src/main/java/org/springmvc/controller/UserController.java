@@ -26,7 +26,6 @@ public class UserController {
     private final DangKyHPDao dangKyHPDao= new DangKyHPDao();
     private final MonHocDao monHocDao= new MonHocDao();
     private final CaDao caDao= new CaDao();
-    private final HocVien hocVien = new HocVien();
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(ModelMap modelMap) {
@@ -99,9 +98,11 @@ public class UserController {
     }
     @RequestMapping(value = "/courses", method = RequestMethod.GET)
     public String courses(ModelMap modelMap) {
+        HttpSession httpSession = Session.getSession();
+        HocVien hocVien1=hocVienDao.getHVByUserName((TaiKhoan) httpSession.getAttribute("account"));
         List<HocPhan> list= new ArrayList<>();
         List<DangKyHP> listDK=new ArrayList<>();
-        listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien);
+        listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien1);
         List<Integer> listIds=new ArrayList<>();
         for (DangKyHP dangKyHP : listDK) {
             listIds.add(dangKyHP.getHocPhan().getMaHP());
@@ -115,10 +116,12 @@ public class UserController {
     @RequestMapping(value = "/courses", method = RequestMethod.POST)
     public String getCourses(ModelMap modelMap,@RequestParam("name") String name){
         if(name!=null){
+            HttpSession httpSession = Session.getSession();
+            HocVien hocVien1=hocVienDao.getHVByUserName((TaiKhoan) httpSession.getAttribute("account"));
             List<HocPhan> list= (List<HocPhan>) hocPhanDao.getListHocPhan(name);
             modelMap.addAttribute("list",list);
             List<DangKyHP> listDK=new ArrayList<>();
-            listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien);
+            listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien1);
             modelMap.addAttribute("listDK",listDK);
         }
         return "user/student/courses";
@@ -142,12 +145,14 @@ public class UserController {
     }
     @RequestMapping(value = "/course/register", method = RequestMethod.POST)
     public String courseRegister(ModelMap modelMap, @RequestParam("HP") int id){
+        HttpSession httpSession = Session.getSession();
+        HocVien hocVien1=hocVienDao.getHVByUserName((TaiKhoan) httpSession.getAttribute("account"));
         HocPhan hocPhan =hocPhanDao.getHP(id);
         DangKyHP dangKyHP=new DangKyHP();
-        DangKyHPID dangKyHPID=new DangKyHPID(hocVien.getMaHV(),hocPhan.getMaHP());
+        DangKyHPID dangKyHPID=new DangKyHPID(hocVien1.getMaHV(),hocPhan.getMaHP());
         dangKyHP.setId(dangKyHPID);
         dangKyHP.setHocPhan(hocPhan);
-        dangKyHP.setHocVien(hocVien);
+        dangKyHP.setHocVien(hocVien1);
         dangKyHP.setHuyDK(false);
         if(dangKyHPDao.insertDKHP(dangKyHP)==1){
             return "redirect:/courses";
@@ -179,11 +184,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/schedule", method = RequestMethod.GET)
-    public String schedule(ModelMap modelMap) {
-        List<DangKyHP> list = (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien);
-        modelMap.addAttribute("list", list);
-        List<Ca> listCa = (List<Ca>) caDao.getListCa();
-        modelMap.addAttribute("listCa", listCa);
+    public String schedule(ModelMap modelMap){
+        HttpSession httpSession = Session.getSession();
+        HocVien hocVien1=hocVienDao.getHVByUserName((TaiKhoan) httpSession.getAttribute("account"));
+        List<DangKyHP>list= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien1);
+        modelMap.addAttribute("list",list);
+        List<Ca> listCa= (List<Ca>) caDao.getListCa();
+        modelMap.addAttribute("listCa",listCa);
         return "user/student/schedule";
     }
 

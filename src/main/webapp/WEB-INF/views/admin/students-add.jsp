@@ -63,7 +63,7 @@
                 </ol>
             </div>
 
-            <form action="/admin/students/edit/${hocVien==null?hocVien.maHV:0}" method="post">
+            <form action="/admin/students/edit/${hocVien!=null?hocVien.maHV:0}" method="post">
                 <div class="container page__container page-section">
                     <div class="row mb-32pt">
                         <div class="col-lg-4">
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="phone">Phone</label>
-                                    <input id="phone" type="text" class="form-control" name="phone" value="${hocVien!=null?hocVien.sdt:''}" placeholder="Phone: (+00) 000-000000" data-mask="(+00) 000-000000">
+                                    <input id="phone" type="text" class="form-control" name="phone" value="${hocVien!=null?hocVien.sdt:''}" placeholder="Phone: 0123456789" data-mask="00000000000">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="address">Address</label>
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="date">Date Of Birth</label>
-                                    <input id="date" type="text" name="birth" value="${hocVien!=null?hocVien.ngaySinh:''}" class="form-control" placeholder="yyyy/mm/dd" data-toggle="daterangepicker" data-daterangepicker-drops="down" data-daterangepicker-single-date-picker="true">
+                                    <input id="date" type="text" name="birth" data-daterangepicker-start-date="${hocVien!=null?hocVien.ngaySinh:'2022/08/01'}" class="form-control" placeholder="yyyy/mm/dd" data-toggle="daterangepicker" data-daterangepicker-drops="down" data-daterangepicker-single-date-picker="true">
                                 </div>
                                 <div class="form-group mb-32pt">
                                     <label class="form-label" for="description">Description</label>
@@ -181,8 +181,8 @@
                                             class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2"
                                             y="14"></rect> </svg></button></span>
                                     </div>
-                                    <textarea class="form-control" rows="5" id="description"
-                                              placeholder="Subject description"></textarea>
+                                    <textarea name="moTa" class="form-control" rows="5" id="description"
+                                              placeholder="Subject description">${hocVien!=null?hocVien.moTa:''}</textarea>
                                     <small class="form-text text-muted">Shortly describe this subject.</small>
                                 </div>
                             </div>
@@ -201,7 +201,7 @@
                             <div class="flex" style="max-width: 100%">
                                 <div class="form-group">
                                     <label class="form-label" for="account">Username</label>
-                                    <input type="text" name="username" class="form-control" id="account"
+                                    <input type="text" name="account" class="form-control" id="account"
                                            placeholder="Example: trungkienlk123">
                                 </div>
                             </div>
@@ -211,8 +211,8 @@
                         <div class=" col-lg-8 d-flex align-items-center">
                             <div class="flex" style="max-width: 100%">
                                 <div class="button-list text-right">
-                                    <button type="button" class="btn btn-outline-secondary">Cancel</button>
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button type="submit" name="btn" value="cancle" class="btn btn-outline-secondary">Cancel</button>
+                                    <button type="submit" name="btn" value="save" class="btn btn-primary">Save</button>
                                 </div>
                             </div>
                         </div>

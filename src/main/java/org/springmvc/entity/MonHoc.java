@@ -7,7 +7,7 @@ import java.util.Collection;
 @Table(name = "MONHOC")
 public class MonHoc {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MAMH")
     private int maMH;
     @Column(name = "TENMH")
