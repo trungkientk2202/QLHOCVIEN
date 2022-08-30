@@ -68,14 +68,14 @@
                 <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
 
                     <div class="mb-24pt mb-sm-0 mr-sm-24pt">
-                        <h2 class="mb-0">Tuition Payment</h2>
+                        <h2 class="mb-0">Schedule</h2>
 
                         <ol class="breadcrumb p-0 m-0">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
 
                             <li class="breadcrumb-item active">
 
-                                Payment
+                                Schedule
 
                             </li>
 

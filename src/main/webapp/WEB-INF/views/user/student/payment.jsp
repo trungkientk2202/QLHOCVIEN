@@ -146,7 +146,7 @@
                                     <a class="js-lists-values-orders-name" href="">${course.hocPhan.monHoc.tenMH}</a>
                                 </div>
                             </td>
-                            <td class="js-lists-values-orders-date text-50">${course.hocPhan.trangThai}</td>
+                            <td class="js-lists-values-orders-date text-50">${course.hocPhan.trangThai==true?'Success':''}</td>
                             <td>
                                 <a class="js-lists-values-orders-amount" href="">${course.hocPhan.monHoc.hocPhi}đ</a>
                             </td>
@@ -290,7 +290,7 @@
 <!--Toastr-->
 <c:if test="${cancelMessage != null}">
     <button style="display: none" type="button" id="btn-toastr" class="btn btn-warning" data-toggle="toastr" data-toastr-type="warning"
-            data-toastr-title="Error!" data-toastr-message="${cancelMessage}">
+            data-toastr-title="Warning!" data-toastr-message="${cancelMessage}">
         Cancel
     </button>
     <script type="text/javascript">
@@ -301,7 +301,7 @@
 </c:if>
 <c:if test="${successMessage != null}">
     <button style="display: none" type="button" id="btn-toastr" class="btn btn-success" data-toggle="toastr" data-toastr-type="success"
-            data-toastr-title="Error!" data-toastr-message="${successMessage}">
+            data-toastr-title="Success!" data-toastr-message="${successMessage}">
         Success
     </button>
     <script type="text/javascript">

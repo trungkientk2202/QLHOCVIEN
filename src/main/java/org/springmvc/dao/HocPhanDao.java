@@ -54,17 +54,19 @@ public class HocPhanDao {
             return null;
         }
     }
-    public List<?> getListHocPhan(String name) {
+    public List<?> getListHocPhan(String name, int month,int year) {
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM HocPhan hp where hp.monHoc.tenMH like '%"+name+"%'").list();
+            return session.createQuery("FROM HocPhan hp where hp.monHoc.tenMH like '%"+name+"%' and month(hp.ngayBD)<="+month+" and year(hp.ngayKT)>= "+month
+            +" and year(hp.ngayBD)<="+year+" and year(ngayKT)>="+year).list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;
         }
     }
-    public List<?> getListHPByDate(Date date) {
+    public List<?> getListHPByDate(int month,int year) {
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM HocPhan hp where hp.ngayBD <= "+date).list();
+            return session.createQuery("FROM HocPhan hp where month(hp.ngayBD)<="+month+" and year(hp.ngayKT)>= "+month
+                    +" and year(hp.ngayBD)<="+year+" and year(ngayKT)>="+year).list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;

@@ -67,7 +67,9 @@ public class TaiKhoanDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(taiKhoan);
+            TaiKhoan tk = session.get(TaiKhoan.class, taiKhoan.getTenTK());
+            tk.setMatKhau(taiKhoan.getMatKhau());
+            session.update(tk);
             t.commit();
         } catch (Exception e) {
             t.rollback();
