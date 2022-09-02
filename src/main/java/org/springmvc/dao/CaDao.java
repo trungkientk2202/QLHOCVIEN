@@ -42,7 +42,10 @@ public class CaDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(ca);
+            Ca c= session.get(Ca.class,ca.getMaCa());
+            c.setGioBD(ca.getGioBD());
+            c.setGioKT(ca.getGioKT());
+            session.update(c);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -57,7 +60,8 @@ public class CaDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(ca);
+            Ca c= session.get(Ca.class,ca.getMaCa());
+            session.delete(c);
             t.commit();
         } catch (Exception e) {
             t.rollback();

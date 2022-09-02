@@ -26,6 +26,7 @@ public class UserController {
     private final DangKyHPDao dangKyHPDao= new DangKyHPDao();
     private final MonHocDao monHocDao= new MonHocDao();
     private final CaDao caDao= new CaDao();
+    private final BaiGiangDao baiGiangDao = new BaiGiangDao();
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(ModelMap modelMap) {
@@ -37,7 +38,6 @@ public class UserController {
         HttpSession httpSession = Session.getSession();
 
         httpSession.removeAttribute("account");
-        httpSession.removeAttribute("user");
 
         return "redirect:/";
     }
@@ -72,7 +72,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@RequestParam("userName") String username,@RequestParam("name") String name,@RequestParam("password") String pass,ModelMap modelMap,
+    public String register(@RequestParam("userName") String username,@RequestParam("name") String name,
+                           @RequestParam("password") String pass,ModelMap modelMap,
                 @RequestParam("sex") Boolean sex,@RequestParam("date") Date date,
                @RequestParam("phone") String phone,@RequestParam("address") String address) {
         TaiKhoan taiKhoan = new TaiKhoan(username, pass, loaiTaiKhoanDao.getLoaiTk(1),true);
@@ -110,20 +111,32 @@ public class UserController {
         list=(List<HocPhan>) hocPhanDao.getListHPChuaDK(listIds);
         modelMap.addAttribute("list",list);
         modelMap.addAttribute("listDK",listDK);
+        modelMap.addAttribute("name",null);
+        modelMap.addAttribute("month",null);
+        modelMap.addAttribute("year",null);
         return "user/student/courses";
 
     }
     @RequestMapping(value = "/courses", method = RequestMethod.POST)
-    public String getCourses(ModelMap modelMap,@RequestParam("name") String name){
+    public String getCourses(ModelMap modelMap,@RequestParam("name") String name,
+                             @RequestParam("month") int month,@RequestParam("year") int year){
+        HttpSession httpSession = Session.getSession();
+        HocVien hocVien1=hocVienDao.getHVByUserName((TaiKhoan) httpSession.getAttribute("account"));
+        List<HocPhan> list=new ArrayList<>();
         if(name!=null){
-            HttpSession httpSession = Session.getSession();
-            HocVien hocVien1=hocVienDao.getHVByUserName((TaiKhoan) httpSession.getAttribute("account"));
-            List<HocPhan> list= (List<HocPhan>) hocPhanDao.getListHocPhan(name);
-            modelMap.addAttribute("list",list);
-            List<DangKyHP> listDK=new ArrayList<>();
-            listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien1);
-            modelMap.addAttribute("listDK",listDK);
+
+            list= (List<HocPhan>) hocPhanDao.getListHocPhan(name,month,year);
+
+        }else{
+            list= (List<HocPhan>) hocPhanDao.getListHPByDate(month,year);
         }
+        List<DangKyHP> listDK=new ArrayList<>();
+        listDK= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien1);
+        modelMap.addAttribute("listDK",listDK);
+        modelMap.addAttribute("list",list);
+        modelMap.addAttribute("name",name);
+        modelMap.addAttribute("month",month);
+        modelMap.addAttribute("year",year);
         return "user/student/courses";
 
     }
@@ -131,10 +144,13 @@ public class UserController {
     public String courseDetails(ModelMap modelMap, @PathVariable("id") int id){
         HocPhan hocPhan=hocPhanDao.getHP(id);
         modelMap.addAttribute("hocPhan",hocPhan);
+        List<BaiGiang> list = (List<BaiGiang>) baiGiangDao.getListBaiGiangByHP(hocPhan);
+        modelMap.addAttribute("list",list);
         return "user/student/course-details";
     }
 
     @RequestMapping(value = "/course/register/{id}", method = RequestMethod.GET)
+
     public String getCourseRegister(ModelMap modelMap, @PathVariable("id") int id){
         HocPhan hocPhan=hocPhanDao.getHP(id);
         List<HocPhan>list= (List<HocPhan>) hocPhanDao.getListHPByMH(monHocDao.getMH(hocPhan.getMonHoc().getMaMH()));
@@ -206,12 +222,14 @@ public class UserController {
         return "user/student/profile";
     }
 
+
     @RequestMapping(value = "/profile/basic", method = RequestMethod.POST)
     public String profileUpdate(@RequestParam("name") String name,
                                 @RequestParam("sex") Boolean sex,
                                 @RequestParam("date") Date date,
                                 @RequestParam("phone") String phone,
                                 @RequestParam("address") String address,
+                                @RequestParam("password")String password,
                                 RedirectAttributes ra,
                                 ModelMap modelMap) {
         HttpSession session = Session.getSession();
@@ -229,8 +247,31 @@ public class UserController {
         } else {
             ra.addFlashAttribute("errorMessage", "Update Information Failed!");
         }
-
+//        if(!password.equals("")&&password!=null){
+//
+//        }
         return "redirect:/profile";
+    }
+    @RequestMapping(value = "/profile/instructor/basic", method = RequestMethod.POST)
+    public String profileInsUpdate(@RequestParam("name") String name,
+                                @RequestParam("sex") Boolean sex,
+                                @RequestParam("date") Date date,
+                                @RequestParam("phone") String phone,
+                                @RequestParam("address") String address,
+                                RedirectAttributes ra,
+                                ModelMap modelMap) {
+        HttpSession session = Session.getSession();
+        GiangVien gv=giangVienDao.getGVByUserName((TaiKhoan) session.getAttribute("account"));
+
+        if (giangVienDao.updateHV(gv) == 1) {
+            gv = giangVienDao.getGVByUserName((TaiKhoan) session.getAttribute("account"));
+            session.setAttribute("user", gv);
+            ra.addFlashAttribute("successMessage", "Update Information Successful!");
+        } else {
+            ra.addFlashAttribute("errorMessage", "Update Information Failed!");
+        }
+
+        return "redirect:/instructor/profile";
     }
 
     @RequestMapping(value = "/profile/account", method = RequestMethod.POST)
@@ -261,10 +302,16 @@ public class UserController {
     }
 
     @RequestMapping(value = "/instructor/profile", method = RequestMethod.GET)
-    public String profileInstructor(ModelMap modelMap) {
+    public String instructorProfile(ModelMap modelMap,
+                                    @ModelAttribute("successMessage") String successMessage,
+                                    @ModelAttribute("errorMessage") String errorMessage) {
+        if (successMessage != null)
+            modelMap.addAttribute("successMessage", successMessage);
+        if (errorMessage != null)
+            modelMap.addAttribute("errorMessage", errorMessage);
+
         return "user/instructor/profile";
     }
-
     @RequestMapping(value = "/instructor/courses", method = RequestMethod.GET)
     public String courseDetailsInstructor(ModelMap modelMap) {
         return "user/instructor/courses";

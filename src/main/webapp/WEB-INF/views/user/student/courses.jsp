@@ -73,7 +73,6 @@
 
                 <div class="row card-group-row">
                     <c:forEach var="dk" items="${listDK}">
-
                         <div class="col-md-6 col-lg-4 col-xl-3 card-group-row__col">
                             <div class="card card-sm card--elevated p-relative o-hidden overlay overlay--primary-dodger-blue js-overlay mdk-reveal js-mdk-reveal card-group-row__card"
                                  data-partial-height="44"

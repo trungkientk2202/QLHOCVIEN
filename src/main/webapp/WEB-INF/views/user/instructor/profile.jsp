@@ -90,7 +90,7 @@
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <form>
+                    <form action="/profile/instructor/basic" method="post">
                         <div class="form-group">
                             <label class="form-label">Full Name</label>
                             <input type="text" class="form-control" value="Alexander" placeholder="Your name ...">
@@ -98,8 +98,8 @@
                         <div class="form-group">
                             <label class="form-label" for="phone">Phone</label>
                             <input id="phone" type="text" class="form-control" name="sdt"
-                                   value="${giangVien!=null?giangVien.sdt:''}" placeholder="Phone: (+00) 000-000000"
-                                   data-mask="(+00) 000-000000">
+                                   value="${giangVien!=null?giangVien.sdt:''}" placeholder="Phone: 0123456789"
+                                   data-mask="0000000000">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="date">Date Of Birth</label>

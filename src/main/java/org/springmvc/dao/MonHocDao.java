@@ -55,7 +55,13 @@ public class MonHocDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(monHoc);
+            MonHoc mh = session.get(MonHoc.class, monHoc.getMaMH());
+            mh.setTenMH(monHoc.getTenMH());
+            mh.setHocPhi(monHoc.getHocPhi());
+            mh.setMoTa(monHoc.getMoTa());
+            mh.setAnh(monHoc.getAnh());
+            mh.setSoTiet(monHoc.getSoTiet());
+            session.update(mh);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -70,6 +76,7 @@ public class MonHocDao {
         Transaction t = session.beginTransaction();
 
         try {
+            MonHoc mh = session.get(MonHoc.class, monHoc.getMaMH());
             session.delete(monHoc);
             t.commit();
         } catch (Exception e) {

@@ -130,7 +130,9 @@
                                         </div>
                                         <div class="col-lg">
                                             <label class="form-label" >Shift</label>
-                                            <input name="caHoc" value="${hocPhan!=null?hocPhan.caHoc:''}">
+                                            <div>
+                                                <input name="caHoc" value="${hocPhan!=null?hocPhan.caHoc:''}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

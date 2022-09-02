@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" pageEncoding="UTF-8"%>
 
-<form>
+<form action="/courses" method="post">
     <div class="d-flex align-items-center navbar-height">
         <div
-                action="/courses" method="post"
                 class="search-form pr-0 pl-16pt flex"
         >
             <input name="name"
                    type="text"
+                   value="${name!=null?name:''}"
                    class="form-control pl-0"
                    placeholder="Search"
             />
@@ -31,6 +31,7 @@
             <div class="d-flex">
                 <div>
                     <select name="month"
+                            data-value="${month!=null?month:1}"
                             id="expire_month"
                             class="form-control custom-select"
                             style="width: 140px"
@@ -51,6 +52,7 @@
                 </div>
                 <div class="ml-8pt">
                     <select name="year"
+                            data-value="${year!=null?year:2018}"
                             id="expire_year"
                             class="form-control custom-select"
                             style="width: 100px"

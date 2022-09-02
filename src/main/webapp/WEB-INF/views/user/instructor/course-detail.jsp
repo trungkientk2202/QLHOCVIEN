@@ -158,6 +158,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <button class="btn btn-success">Finish Lesson</button>
                         </div>
                     </div>
                     <div class="col-md-4">

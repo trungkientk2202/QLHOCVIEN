@@ -146,7 +146,7 @@
                                     <a class="js-lists-values-orders-name" href="">${course.hocPhan.monHoc.tenMH}</a>
                                 </div>
                             </td>
-                            <td class="js-lists-values-orders-date text-50">${course.hocPhan.trangThai}</td>
+                            <td class="js-lists-values-orders-date text-50">${course.hocPhan.trangThai==true?'Success':''}</td>
                             <td>
                                 <a class="js-lists-values-orders-amount" href="">${course.hocPhan.monHoc.hocPhi}đ</a>
                             </td>

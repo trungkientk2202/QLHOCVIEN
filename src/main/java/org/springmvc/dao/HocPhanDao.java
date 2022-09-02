@@ -54,17 +54,19 @@ public class HocPhanDao {
             return null;
         }
     }
-    public List<?> getListHocPhan(String name) {
+    public List<?> getListHocPhan(String name, int month,int year) {
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM HocPhan hp where hp.monHoc.tenMH like '%"+name+"%'").list();
+            return session.createQuery("FROM HocPhan hp where hp.monHoc.tenMH like '%"+name+"%' and month(hp.ngayBD)<="+month+" and year(hp.ngayKT)>= "+month
+            +" and year(hp.ngayBD)<="+year+" and year(ngayKT)>="+year).list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;
         }
     }
-    public List<?> getListHPByDate(Date date) {
+    public List<?> getListHPByDate(int month,int year) {
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM HocPhan hp where hp.ngayBD <= "+date).list();
+            return session.createQuery("FROM HocPhan hp where month(hp.ngayBD)<="+month+" and year(hp.ngayKT)>= "+month
+                    +" and year(hp.ngayBD)<="+year+" and year(ngayKT)>="+year).list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;
@@ -103,7 +105,16 @@ public class HocPhanDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(hocPhan);
+            HocPhan hp = session.get(HocPhan.class, hocPhan.getMaHP());
+            hp.setMonHoc(hocPhan.getMonHoc());
+            hp.setCaHoc(hocPhan.getCaHoc());
+            hp.setGiangVien(hocPhan.getGiangVien());
+            hp.setPhong(hocPhan.getPhong());
+            hp.setNgayBD(hocPhan.getNgayBD());
+            hp.setNgayKT(hocPhan.getNgayKT());
+            hp.setSoTietDaHoc(hocPhan.getSoTietDaHoc());
+            hp.setTrangThai(hocPhan.isTrangThai());
+            session.update(hp);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -118,7 +129,8 @@ public class HocPhanDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(hocPhan);
+            HocPhan hp = session.get(HocPhan.class, hocPhan.getMaHP());
+            session.delete(hp);
             t.commit();
         } catch (Exception e) {
             t.rollback();

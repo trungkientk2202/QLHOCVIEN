@@ -33,7 +33,7 @@ public class DangKyHPDao {
         return (Long) session.createQuery("SELECT sum(dkhp.hocPhan.monHoc.hocPhi) FROM DangKyHP dkhp where dkhp.hocVien= :hocVien").setParameter("hocVien",hocVien).uniqueResult();
     }
 
-    public DangKyHP getDKHP(int maDKHP) {
+    public DangKyHP getDKHP(DangKyHPID maDKHP) {
         try{
             Session session = factory.openSession();
             String hql = "FROM DangKyHP dk where dk.id = "+maDKHP;
@@ -65,7 +65,11 @@ public class DangKyHPDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(dangKyHP);
+            DangKyHPID id=new DangKyHPID(dangKyHP.getId().getMaHV(),dangKyHP.getId().getMaHP()) ;
+            DangKyHP dk = session.get(DangKyHP.class,id);
+            dk.setHuyDK(dangKyHP.getHuyDK());
+            dk.setGhiChu(dangKyHP.getGhiChu());
+            session.update(dk);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -80,7 +84,9 @@ public class DangKyHPDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(dangKyHP);
+            DangKyHPID id=new DangKyHPID(dangKyHP.getId().getMaHV(),dangKyHP.getId().getMaHP()) ;
+            DangKyHP dk = session.get(DangKyHP.class,id);
+            session.delete(dk);
             t.commit();
         } catch (Exception e) {
             t.rollback();

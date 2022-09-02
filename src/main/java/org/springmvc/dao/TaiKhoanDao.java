@@ -69,6 +69,8 @@ public class TaiKhoanDao {
         try {
             TaiKhoan tk = session.get(TaiKhoan.class, taiKhoan.getTenTK());
             tk.setMatKhau(taiKhoan.getMatKhau());
+            tk.setTrangThai(taiKhoan.isTrangThai());
+            tk.setLoaiTaiKhoan(taiKhoan.getLoaiTaiKhoan());
             session.update(tk);
             t.commit();
         } catch (Exception e) {
@@ -84,7 +86,8 @@ public class TaiKhoanDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(taiKhoan);
+            TaiKhoan tk = session.get(TaiKhoan.class, taiKhoan.getTenTK());
+            session.delete(tk);
             t.commit();
         } catch (Exception e) {
             t.rollback();

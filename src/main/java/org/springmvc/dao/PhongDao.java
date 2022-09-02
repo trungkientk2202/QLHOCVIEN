@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springmvc.entity.Ca;
 import org.springmvc.entity.GiangVien;
+import org.springmvc.entity.MonHoc;
 import org.springmvc.entity.Phong;
 import org.springmvc.webconfig.HibernateConfig;
 
@@ -54,7 +55,11 @@ public class PhongDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(phong);
+            Phong p = session.get(Phong.class, phong.getMaPhong());
+            p.setTenPhong(phong.getTenPhong());
+            p.setDiaDiem(phong.getDiaDiem());
+            p.setMoTa(phong.getMoTa());
+            session.update(p);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -69,7 +74,8 @@ public class PhongDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(phong);
+            Phong p = session.get(Phong.class, phong.getMaPhong());
+            session.delete(p);
             t.commit();
         } catch (Exception e) {
             t.rollback();
