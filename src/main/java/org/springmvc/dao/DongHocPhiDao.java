@@ -64,7 +64,12 @@ public class DongHocPhiDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(dongHocPhi);
+            DongHocPhi dhp = session.get(DongHocPhi.class, dongHocPhi.getId());
+            dhp.setHocVien(dongHocPhi.getHocVien());
+            dhp.setNgayDong(dongHocPhi.getNgayDong());
+            dhp.setSoTienDong(dongHocPhi.getSoTienDong());
+            dhp.setTrangThai(dongHocPhi.isTrangThai());
+            session.update(dhp);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -79,7 +84,8 @@ public class DongHocPhiDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(dongHocPhi);
+            DongHocPhi dhp = session.get(DongHocPhi.class, dongHocPhi.getId());
+            session.delete(dhp);
             t.commit();
         } catch (Exception e) {
             t.rollback();

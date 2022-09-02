@@ -105,7 +105,16 @@ public class HocPhanDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(hocPhan);
+            HocPhan hp = session.get(HocPhan.class, hocPhan.getMaHP());
+            hp.setMonHoc(hocPhan.getMonHoc());
+            hp.setCaHoc(hocPhan.getCaHoc());
+            hp.setGiangVien(hocPhan.getGiangVien());
+            hp.setPhong(hocPhan.getPhong());
+            hp.setNgayBD(hocPhan.getNgayBD());
+            hp.setNgayKT(hocPhan.getNgayKT());
+            hp.setSoTietDaHoc(hocPhan.getSoTietDaHoc());
+            hp.setTrangThai(hocPhan.isTrangThai());
+            session.update(hp);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -120,7 +129,8 @@ public class HocPhanDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(hocPhan);
+            HocPhan hp = session.get(HocPhan.class, hocPhan.getMaHP());
+            session.delete(hp);
             t.commit();
         } catch (Exception e) {
             t.rollback();

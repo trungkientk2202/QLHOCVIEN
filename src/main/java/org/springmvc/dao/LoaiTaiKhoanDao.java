@@ -4,6 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springmvc.entity.HocPhan;
 import org.springmvc.entity.LoaiTaiKhoan;
 import org.springmvc.webconfig.HibernateConfig;
 
@@ -49,12 +50,15 @@ public class LoaiTaiKhoanDao {
         }
         return 1;
     }
-    public Integer updateLoaiTK(LoaiTaiKhoan LoaiTaiKhoan) {
+    public Integer updateLoaiTK(LoaiTaiKhoan loaiTaiKhoan) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(LoaiTaiKhoan);
+            LoaiTaiKhoan ltk = session.get(LoaiTaiKhoan.class, loaiTaiKhoan.getMaLoaiTK());
+            ltk.setMaLoaiTK(loaiTaiKhoan.getMaLoaiTK());
+            ltk.setTenLoaiTk(loaiTaiKhoan.getTenLoaiTk());
+            session.update(ltk);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -64,12 +68,13 @@ public class LoaiTaiKhoanDao {
         }
         return 1;
     }
-    public Integer deleteLoaiTK(LoaiTaiKhoan LoaiTaiKhoan) {
+    public Integer deleteLoaiTK(LoaiTaiKhoan loaiTaiKhoan) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(LoaiTaiKhoan);
+            LoaiTaiKhoan ltk = session.get(LoaiTaiKhoan.class, loaiTaiKhoan.getMaLoaiTK());
+            session.delete(ltk);
             t.commit();
         } catch (Exception e) {
             t.rollback();

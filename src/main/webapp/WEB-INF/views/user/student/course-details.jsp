@@ -114,15 +114,15 @@
                         <ul class="list-unstyled">
                             <li class="d-flex align-items-center">
                                 <span class="material-icons text-50 mr-8pt">check</span>
-                                <span class="text-70">Fundamentals of working with Angular</span>
+                                <span class="text-70">Fundamentals of working with ${hocPhan.monHoc.tenMH}</span>
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="material-icons text-50 mr-8pt">check</span>
-                                <span class="text-70">Create complete Angular applications</span>
+                                <span class="text-70">Create complete ${hocPhan.monHoc.tenMH} applications</span>
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="material-icons text-50 mr-8pt">check</span>
-                                <span class="text-70">Working with the Angular CLI</span>
+                                <span class="text-70">Working with the ${hocPhan.monHoc.tenMH}</span>
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="material-icons text-50 mr-8pt">check</span>
@@ -130,7 +130,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <span class="material-icons text-50 mr-8pt">check</span>
-                                <span class="text-70">Testing with Angular</span>
+                                <span class="text-70">Testing with ${hocPhan.monHoc.tenMH}</span>
                             </li>
                         </ul>
                     </div>
@@ -176,48 +176,30 @@
 
 
         <div class="container page__container">
-            <div class="border-left-2 page-section pl-32pt pb-8pt">
-                <div class="d-flex align-items-center page-num-container">
-                    <div class="page-num">1</div>
-                    <h4>Beginner</h4>
-                </div>
-                <p class="text-70 mb-lg-32pt">Throughout these Angular courses for beginner*s you will learn core concepts*, common patterns using Angular and, finally, some of the best practices to build fully-functioning web applications using the Angular framework.</p>
-                <div class="js-player embed-responsive embed-responsive-16by9 mb-32pt">
-                    <div class="player embed-responsive-item">
-                        <div class="player__content">
-                            <div class="player__image" style="--player-image: url(<c:url value="/resources/assets/images/illustration/player.svg"/>)"></div>
-                            <a href="" class="player__play bg-primary">
-                                <span class="material-icons">play_arrow</span>
-                            </a>
-                        </div>
-                        <div class="player__embed d-none">
-                            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" allowfullscreen=""></iframe>
+            <c:forEach var="bg" items="${list}">
+                <div class="border-left-2 page-section pl-32pt pb-8pt">
+                    <div class="d-flex align-items-center page-num-container">
+                        <div class="page-num">1</div>
+                        <h4>${bg.tieuDe}</h4>
+                    </div>
+                    <p class="text-70 mb-lg-32pt">${bg.noiDung}</p>
+                    <div class="js-player embed-responsive embed-responsive-16by9 mb-32pt">
+                        <div class="player embed-responsive-item">
+                            <div class="player__content">
+                                <div class="player__image" style="--player-image: url(<c:url value="/resources/assets/images/illustration/player.svg"/>)"></div>
+                                <a href="" class="player__play bg-primary">
+                                    <span class="material-icons">play_arrow</span>
+                                </a>
+                            </div>
+                            <div class="player__embed d-none">
+                                <iframe class="embed-responsive-item" src="${bg.duongDan.trim()}?title=0&amp;byline=0&amp;portrait=0" allowfullscreen=""></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="border-left py-32pt pb-lg-64pt pl-32pt">
-                <div class="d-flex align-items-center page-num-container">
-                    <div class="page-num">2</div>
-                    <div class="page-num">2</div>
-                    <h4>Intermediate</h4>
-                </div>
-                <p class="text-70 mb-lg-32pt">Once you have the basics using the Angular framework, you will continue to build on your existing knowledge and, with these intermediate courses you will have a deeper understanding into features like services, routing and testing.</p>
+            </c:forEach>
 
-                <div class="js-player embed-responsive embed-responsive-16by9 mb-32pt">
-                    <div class="player embed-responsive-item">
-                        <div class="player__content">
-                            <div class="player__image" style="--player-image: url(<c:url value="/resources/assets/images/illustration/player.svg"/>)"></div>
-                            <a href="" class="player__play bg-primary">
-                                <span class="material-icons">play_arrow</span>
-                            </a>
-                        </div>
-                        <div class="player__embed d-none">
-                            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
         <!--    footer -->

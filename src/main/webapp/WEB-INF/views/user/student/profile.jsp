@@ -84,14 +84,15 @@
                 </a>
             </div>
         </div>
-
+        <form action="/profile/basic" method="post">
         <div class="container page__container page-section">
             <div class="page-separator">
                 <div class="page-separator__text">Basic Information</div>
             </div>
             <div class="row">
+
                 <div class="col-md-8">
-                    <form action="/profile/basic" method="post">
+
                         <div class="form-group">
                             <label class="form-label">Full Name</label>
                             <input name="name" type="text" class="form-control" value="${sessionScope.user.hoTen}" placeholder="Your name ...">
@@ -99,7 +100,7 @@
                         <div class="form-group">
                             <label class="form-label" for="phone">Phone</label>
                             <input id="phone" type="text" class="form-control" name="phone" value="${sessionScope.user.sdt}"
-                                   placeholder="Phone: (+00) 000-000000" data-mask="(+00) 000-000000">
+                                   placeholder="Phone: 0123456789" data-mask="0000000000">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="address">Address</label>
@@ -128,7 +129,7 @@
                                    data-daterangepicker-drops="down" data-daterangepicker-single-date-picker="true">
                         </div>
                         <button type="submit" class="btn btn-primary">Save changes</button>
-                    </form>
+
                 </div>
                 <div class="col-md-4">
                     <div class="page-separator">
@@ -151,6 +152,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -177,7 +179,7 @@
                 </form>
             </div>
         </div>
-
+        </form>
         <!--    footer -->
         <%@include file="/WEB-INF/views/layouts/user/footer.jsp" %>
         <!--  end footer -->

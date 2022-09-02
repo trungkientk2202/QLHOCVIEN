@@ -66,7 +66,15 @@ public class GiangVienDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.update(giangVien);
+            GiangVien gv = session.get(GiangVien.class, giangVien.getMaGV());
+            gv.setHoTen(giangVien.getHoTen());
+            gv.setChuyenMon(giangVien.getChuyenMon());
+            gv.setHocVi(giangVien.getHocVi());
+            gv.setSdt(giangVien.getSdt());
+            gv.setMoTa(giangVien.getMoTa());
+            gv.setNgaySinh(giangVien.getNgaySinh());
+            gv.setTaiKhoan(giangVien.getTaiKhoan());
+            session.update(gv);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -81,7 +89,8 @@ public class GiangVienDao {
         Transaction t = session.beginTransaction();
 
         try {
-            session.delete(giangVien);
+            GiangVien gv = session.get(GiangVien.class, giangVien.getMaGV());
+            session.delete(gv);
             t.commit();
         } catch (Exception e) {
             t.rollback();

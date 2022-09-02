@@ -4,43 +4,40 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springmvc.entity.GiangVien;
-import org.springmvc.entity.LoaiTaiKhoan;
-import org.springmvc.entity.MonHoc;
+import org.springmvc.entity.BaiGiang;
+import org.springmvc.entity.Ca;
+import org.springmvc.entity.HocPhan;
 import org.springmvc.webconfig.HibernateConfig;
 
 import java.util.List;
 
-public class MonHocDao {
+public class BaiGiangDao {
     private static final SessionFactory factory= HibernateConfig.getSessionFactory();
 
-    public List<?> getListMH() {
+    public List<?> getListBaiGiang() {
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM MonHoc").list();
+            return session.createQuery("FROM BaiGiang ").list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public MonHoc getMH(int id) {
-        try{
-            Session session = factory.openSession();
-            String hql = "FROM MonHoc mh where mh.maMH = "+id;
-            List<MonHoc> listMH= session.createQuery(hql).list();
-            MonHoc monHoc=listMH.get(0);
-            return monHoc;
-        }catch (HibernateException e){
+    public List<?> getListBaiGiangByHP(HocPhan hocPhan) {
+        try (Session session = factory.openSession()) {
+            return session.createQuery("FROM BaiGiang bg where bg.hocPhan =:hocPhan").setParameter("hocPhan",hocPhan).list();
+        } catch (HibernateException e) {
             e.printStackTrace();
             return null;
         }
     }
-    public Integer insertMH(MonHoc monHoc) {
+
+    public Integer insertBaiGiang(BaiGiang baiGiang) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            session.save(monHoc);
+            session.save(baiGiang);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -50,18 +47,18 @@ public class MonHocDao {
         }
         return 1;
     }
-    public Integer updateMH(MonHoc monHoc) {
+    public Integer updateBaiGiang(BaiGiang baiGiang) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            MonHoc mh = session.get(MonHoc.class, monHoc.getMaMH());
-            mh.setTenMH(monHoc.getTenMH());
-            mh.setHocPhi(monHoc.getHocPhi());
-            mh.setMoTa(monHoc.getMoTa());
-            mh.setAnh(monHoc.getAnh());
-            mh.setSoTiet(monHoc.getSoTiet());
-            session.update(mh);
+            BaiGiang bg= session.get(BaiGiang.class,baiGiang.getMaBG());
+            bg.setHocPhan(baiGiang.getHocPhan());
+            bg.setTieuDe(baiGiang.getTieuDe());
+            bg.setNoiDung(baiGiang.getNoiDung());
+            bg.setDuongDan(baiGiang.getDuongDan());
+            bg.setNgayTao(baiGiang.getNgayTao());
+            session.update(bg);
             t.commit();
         } catch (Exception e) {
             t.rollback();
@@ -71,13 +68,13 @@ public class MonHocDao {
         }
         return 1;
     }
-    public Integer deleteMH(MonHoc monHoc) {
+    public Integer deleteBaiGiang(BaiGiang baiGiang) {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
         try {
-            MonHoc mh = session.get(MonHoc.class, monHoc.getMaMH());
-            session.delete(monHoc);
+            BaiGiang bg= session.get(BaiGiang.class,baiGiang.getMaBG());
+            session.delete(bg);
             t.commit();
         } catch (Exception e) {
             t.rollback();
