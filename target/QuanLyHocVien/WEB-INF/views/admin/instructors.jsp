@@ -297,7 +297,7 @@
                                                 <a href="/admin/instructors/edit/${gv.maGV}"
                                                    class="btn btn-sm btn-outline-secondary mr-16pt">Edit
                                                     <i class="icon--right material-icons">edit</i></a>
-                                                <a href="/admin/instructors/delete/${gv.maGV}" class="btn btn-sm btn-outline-secondary">Delete
+                                                <a href="/admin/instructors/delete/${gv.maGV}" class="btn btn-sm btn-outline-secondary">${gv.taiKhoan.trangThai==true?"Inactive":"Active"}
                                                     <i class="icon--right material-icons">delete</i></a>
                                             </div>
                                         </td>

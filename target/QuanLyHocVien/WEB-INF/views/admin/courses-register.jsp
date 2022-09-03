@@ -198,7 +198,7 @@
                                     </td>
 
                                     <td>
-                                        <small class="js-lists-values-room text-50">${hp.phong.maPhong}</small>
+                                        <small class="js-lists-values-room text-50">${hp.phong.tenPhong}</small>
                                     </td>
                                     <td>
                                         <small class="js-lists-values-shift text-50">${hp.caHoc}</small>
@@ -222,7 +222,7 @@
                                         <div class="d-inline-flex align-items-center">
                                             <a href="/admin/course-register/edit/${hp.maHP}" class="btn btn-sm btn-outline-secondary mr-16pt">Edit
                                                 <i class="icon--right material-icons">edit</i></a>
-                                            <a href="/admin/course-register/delete/${hp.maHP}" class="btn btn-sm btn-outline-secondary">Delete
+                                            <a href="/admin/course-register/delete/${hp.maHP}" class="btn btn-sm btn-outline-secondary">${hp.trangThai==true?'Closed':'Opened'}
                                                 <i class="icon--right material-icons">delete</i></a>
                                         </div>
                                     </td>

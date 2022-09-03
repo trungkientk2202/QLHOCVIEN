@@ -83,13 +83,15 @@ public class AdminController {
     public String insertCourseAdmin(ModelMap modelMap, @PathVariable int id){
         return "admin/subjects-add";
     }
-    @RequestMapping(value = "/admin/subject/delete", method = RequestMethod.POST)
-    public String deleteCourseAdmin(ModelMap modelMap){
-        return "admin/subjects";
+    @RequestMapping(value = "/admin/subject/delete/{id}", method = RequestMethod.GET)
+    public String deleteCourseAdmin(ModelMap modelMap,@PathVariable("id")int id){
+        MonHoc monHoc=monHocDao.getMH(id);
+        monHocDao.deleteMH(monHoc);
+        return "redirect:/admin/subjects";
     }
     @RequestMapping(value = "/admin/course-register", method = RequestMethod.GET)
     public String courseRegisterAdmin(ModelMap modelMap){
-        List<HocPhan> list= (List<HocPhan>) hocPhanDao.getListHP();
+        List<HocPhan> list= (List<HocPhan>) hocPhanDao.getAllHP();
         modelMap.addAttribute("list",list);
         return "admin/courses-register";
     }
@@ -152,8 +154,11 @@ public class AdminController {
         return "redirect:/admin/course-register/edit/"+id;
     }
     @RequestMapping(value = "/admin/course-register/delete/{id}", method = RequestMethod.GET)
-    public String deleteCourseRegisterAdmin(ModelMap modelMap){
-        return "admin/courses-register-add";
+    public String deleteCourseRegisterAdmin(ModelMap modelMap,@PathVariable("id")int id){
+        HocPhan hocPhan=hocPhanDao.getHP(id);
+        hocPhan.setTrangThai(!hocPhan.isTrangThai());
+        hocPhanDao.updateHP(hocPhan);
+        return "redirect:/admin/course-register";
     }
     @RequestMapping(value = "/admin/instructors", method = RequestMethod.GET)
     public String instructorsAdmin(ModelMap modelMap){
@@ -207,8 +212,16 @@ public class AdminController {
         }
         return "redirect:/admin/instructors/edit/"+id;
     }
-    @RequestMapping(value = "/admin/instructors/delete", method = RequestMethod.POST)
-    public String deleteInstructorAdmin(ModelMap modelMap){
+    @RequestMapping(value = "/admin/instructors/delete/{id}", method = RequestMethod.GET)
+    public String deleteInstructorAdmin(ModelMap modelMap,@PathVariable("id") int id){
+        GiangVien giangVien=giangVienDao.getGV(id);
+        TaiKhoan taiKhoan=giangVien.getTaiKhoan();
+        taiKhoan.setTrangThai(!taiKhoan.isTrangThai());
+        if(taiKhoanDao.updateTK(taiKhoan)==1){
+
+        }else{
+
+        }
         return "redirect:/admin/instructors";
     }
     @RequestMapping(value = "/admin/students", method = RequestMethod.GET)
@@ -264,8 +277,16 @@ public class AdminController {
         modelMap.addAttribute("hocVien",hocVien);
         return "admin/students-add";
     }
-    @RequestMapping(value = "/admin/students/delete", method = RequestMethod.POST)
-    public String deleteStudentAdmin(ModelMap modelMap){
+    @RequestMapping(value = "/admin/students/delete/{id}", method = RequestMethod.GET)
+    public String deleteStudentAdmin(ModelMap modelMap,@PathVariable("id") int id){
+        HocVien hocVien=hocVienDao.getHV(id);
+        TaiKhoan taiKhoan=hocVien.getTaiKhoan();
+        taiKhoan.setTrangThai(!taiKhoan.isTrangThai());
+        if(taiKhoanDao.updateTK(taiKhoan)==1){
+
+        }else{
+
+        }
         return "redirect:/admin/students";
     }
     @RequestMapping(value = "/admin/schedule", method = RequestMethod.GET)

@@ -187,8 +187,8 @@
                                             class="ql-stroke" x1="15" x2="11" y1="11" y2="15"></line> <rect
                                             class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2" y="14"></rect> </svg></button></span>
                                     </div>
-                                    <textarea class="form-control" rows="5" id="description"
-                                              placeholder="Subject description"></textarea>
+                                    <textarea class="form-control" rows="5" name="moTa"  id="description"
+                                              placeholder="Subject description">${monHoc!=null?monHoc.moTa:''}</textarea>
                                     <small class="form-text text-muted">Shortly describe this subject.</small>
                                 </div>
                             </div>
@@ -213,15 +213,15 @@
                                     </div>
                                     <div class="card-body">
                                         <label class="form-label">Filename</label>
-                                        <input type="text" class="form-control"
-                                               value="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0"
+                                        <input type="text" class="form-control" name="anh"
+                                               value="${monHoc!=null?monHoc.anh:""}"
                                                placeholder="Enter Video URL">
                                     </div>
                                 </div>
 
                                 <div class="card">
                                     <div class="card-header text-center">
-                                        <a href="#" class="btn btn-primary">Save Subject</a>
+                                        <button name="Save" type="submit" class="btn btn-primary">Save Subject</button>
                                     </div>
                                     <div class="list-group list-group-flush">
                                         <div class="list-group-item d-flex">

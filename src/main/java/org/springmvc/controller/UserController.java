@@ -314,11 +314,22 @@ public class UserController {
     }
     @RequestMapping(value = "/instructor/courses", method = RequestMethod.GET)
     public String courseDetailsInstructor(ModelMap modelMap) {
+        HttpSession session = Session.getSession();
+        GiangVien gv=giangVienDao.getGVByUserName((TaiKhoan) session.getAttribute("account"));
+        modelMap.addAttribute("gv",gv);
+        List<HocPhan> listDangDay= (List<HocPhan>) hocPhanDao.getListDangDayHPByGV(gv);
+        modelMap.addAttribute("listDangDay",listDangDay);
+        List<HocPhan> listDaDay= (List<HocPhan>) hocPhanDao.getListDaDayHPByGV(gv);
+        modelMap.addAttribute("listDaDay",listDaDay);
         return "user/instructor/courses";
     }
 
     @RequestMapping(value = "/instructor/course-detail/{id}", method = RequestMethod.GET)
-    public String coursesInstructor(ModelMap modelMap, @PathVariable String id) {
+    public String coursesInstructor(ModelMap modelMap, @PathVariable int id) {
+        HocPhan hocPhan=hocPhanDao.getHP(id);
+        modelMap.addAttribute("hocPhan",hocPhan);
+        List<BaiGiang> list = (List<BaiGiang>) baiGiangDao.getListBaiGiangByHP(hocPhan);
+        modelMap.addAttribute("list",list);
         return "user/instructor/course-detail";
     }
 

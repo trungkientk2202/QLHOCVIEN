@@ -192,8 +192,7 @@
                                 </a>
                             </div>
                             <div class="player__embed d-none">
-                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/GDVNkenmIHU" title="Tự học Database và SQL Cơ Bản siêu nhanh trong 10 phút" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+                                <iframe class="embed-responsive-item" src="${bg.duongDan.trim()}?title=0&amp;byline=0&amp;portrait=0" allowfullscreen=""></iframe>
                             </div>
                         </div>
                     </div>

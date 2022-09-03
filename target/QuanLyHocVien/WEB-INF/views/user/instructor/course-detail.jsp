@@ -91,12 +91,12 @@
                     <div class="col-md-8">
 
                         <div class="page-separator">
-                            <div class="page-separator__text">Edit Course's Content</div>
+                            <div class="page-separator__text">Add Course's Content</div>
                         </div>
 
                         <label class="form-label">Content Title</label>
                         <div class="form-group mb-24pt">
-                            <input type="text" class="form-control form-control-lg" placeholder="Course title" value="Angular Fundamentals">
+                            <input type="text" class="form-control form-control-lg" placeholder="Course title" name="title">
                             <small class="form-text text-muted">Please see our <a href="">course title guideline</a></small>
                         </div>
 
@@ -173,7 +173,7 @@
                             </div>
                             <div class="card-body">
                                 <label class="form-label">URL</label>
-                                <input type="text" class="form-control" value="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" placeholder="Enter Video URL">
+                                <input type="text" name="duongDan" class="form-control" value="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" placeholder="Enter Video URL">
                                 <small class="form-text text-muted">Enter a valid video URL.</small>
                             </div>
                         </div>
