@@ -168,13 +168,18 @@
                         </div>
 
                         <div class="card">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" allowfullscreen=""></iframe>
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label">URL</label>
-                                <input type="text" class="form-control" value="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" placeholder="Enter Video URL">
-                                <small class="form-text text-muted">Enter a valid video URL.</small>
+                            <div class="js-player embed-responsive embed-responsive-16by9 mb-32pt">
+                                <div class="player embed-responsive-item">
+                                    <div class="player__content">
+                                        <div class="player__image" style="--player-image: url(<c:url value="/resources/assets/images/illustration/player.svg"/>)"></div>
+                                        <a href="" class="player__play bg-primary">
+                                            <span class="material-icons">play_arrow</span>
+                                        </a>
+                                    </div>
+                                    <div class="player__embed d-none">
+                                        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" allowfullscreen=""></iframe>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

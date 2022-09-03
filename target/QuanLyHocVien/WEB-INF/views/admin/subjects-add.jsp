@@ -201,7 +201,7 @@
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <div class="d-flex align-items-center justify-content-center custom-file embed-responsive-item rounded-sm border-1 border-secondary">
                                             <div class="position-relative">
-                                                <input type="file" id="file" class="custom-file-input">
+                                                <input type="file" id="file" class="custom-file-input"  accept="image/*">
                                                 <label for="file" class="custom-file-label bg-transparent text-secondary">Choose file</label>
                                             </div>
                                             <img id="photo"
@@ -213,8 +213,8 @@
                                     </div>
                                     <div class="card-body">
                                         <label class="form-label">Filename</label>
-                                        <input type="text" class="form-control"
-                                               value="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0"
+                                        <input name="photo" type="text" class="form-control" id="base64"
+                                               value=""
                                                placeholder="Enter Video URL">
                                     </div>
                                 </div>
@@ -285,6 +285,30 @@
 <script>
     var drawer = document.querySelector(".mdk-drawer-layout");
     drawer.style.overflow = "auto";
+
+    var file = document.querySelector("#file");
+    var photo = document.querySelector("#photo");
+    file.addEventListener("change", (evt) => {
+        var tgt = evt.target || window.event.srcElement,
+            files = tgt.files;
+
+        // FileReader support
+        if (FileReader && files && files.length) {
+            var fr = new FileReader();
+            fr.onload = function () {
+                photo.src = fr.result;
+                photo.style.display="block";
+                document.getElementById("base64").value = fr.result;
+            }
+            fr.readAsDataURL(files[0]);
+        }
+        // Not supported
+        else {
+            // fallback -- perhaps submit the input to an iframe and temporarily store
+            // them on the server until the user's session ends.
+            photo.style.display="none";
+        }
+    })
 </script>
 </body>
 </html>
