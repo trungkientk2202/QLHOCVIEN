@@ -32,8 +32,16 @@
     <!-- App CSS -->
     <link type="text/css" href="<c:url value="/resources/assets/css/app.css"/>" rel="stylesheet">
 
+    <!-- Flatpickr -->
+    <link type="text/css" href="<c:url value="/resources/assets/css/flatpickr.css"/>" rel="stylesheet">
+    <link type="text/css" href="<c:url value="/resources/assets/css/flatpickr-airbnb.css"/>" rel="stylesheet">
+
+    <!-- Select2 -->
+    <link type="text/css" href="<c:url value="/resources/assets/css/select2.css"/>" rel="stylesheet">
+    <link type="text/css" href="<c:url value="/resources/assets/vendor/select2/select2.min.css"/>" rel="stylesheet">
+
 </head>
-<body class="layout-sticky layout-sticky-subnav ">
+<body class="layout-sticky layout-sticky-subnav">
 <%@include file="/WEB-INF/views/layouts/preloader.jsp" %>
 <!-- Header Layout -->
 <div class="mdk-header-layout js-mdk-header-layout">
@@ -41,722 +49,394 @@
     <%@include file="/WEB-INF/views/layouts/admin/header.jsp" %>
     <!-- // END Header -->
 
-    <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
+    <!-- Header Layout Content -->
+    <div class="mdk-header-layout__content" style="margin-top: -64px">
 
-        <!-- Drawer Layout Content -->
-        <div class="mdk-drawer-layout__content page-content mt-5">
+        <!-- Drawer Layout -->
+        <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
 
+            <!-- Drawer Layout Content -->
+            <div class="mdk-drawer-layout__content page-content mt-5">
+                <div class="pt-32pt">
+                    <div class="container-fluid page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
+                        <div class="flex d-flex flex-column flex-sm-row align-items-center">
 
-            <div class="pt-32pt">
-                <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
-                    <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
+                            <div class="mb-24pt mb-sm-0 mr-sm-24pt">
+                                <h2 class="mb-0">Earnings</h2>
 
-                        <div class="mb-24pt mb-sm-0 mr-sm-24pt">
-                            <h2 class="mb-0">CRM Dashboard</h2>
+                                <ol class="breadcrumb p-0 m-0">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
 
-                            <ol class="breadcrumb p-0 m-0">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active">
 
-                                <li class="breadcrumb-item active">
+                                        Earnings
 
-                                    CRM Dashboard
+                                    </li>
 
-                                </li>
+                                </ol>
 
-                            </ol>
-
+                            </div>
                         </div>
+
+
                     </div>
-
-
-                    <div class="row" role="tablist">
-                        <div class="col-auto">
-                            <a href="" class="btn btn-outline-secondary">New Report</a>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
 
+                <div class="page-section border-bottom-2">
+                    <div class="container-fluid page__container">
 
-            <div class="container page__container">
-                <div class="page-section">
-
-                    <div class="row mb-lg-8pt">
-                        <div class="col-lg-8">
-
-                            <div class="page-separator">
-                                <div class="page-separator__text">Overview</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card ">
-                                        <div class="card-header pb-0 border-0 d-flex">
-                                            <div class="flex">
-                                                <div class="h2 mb-0">Center System</div>
-                                                <p class="card-title">Information</p>
-                                            </div>
-                                            <i class="material-icons text-50">more_horiz</i>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="text-50 mb-16pt">
-
-                                                <div class="mb-4pt">
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Students</small>
-                                                        <small class="lh-24pt">70</small>
-                                                    </p>
-                                                    <div class="progress" style="height: 4px;">
-                                                        <div class="progress-bar bg-primary" role="progressbar"
-                                                             style="width: 53%;" aria-valuenow="53" aria-valuemin="0"
-                                                             aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="mb-4pt">
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Instructors</small>
-                                                        <small class="lh-24pt">21</small>
-                                                    </p>
-                                                    <div class="progress" style="height: 4px;">
-                                                        <div class="progress-bar bg-primary" role="progressbar"
-                                                             style="width: 16%;" aria-valuenow="16" aria-valuemin="0"
-                                                             aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="mb-4pt">
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">All Courses</small>
-                                                        <small class="lh-24pt">12</small>
-                                                    </p>
-                                                    <div class="progress" style="height: 4px;">
-                                                        <div class="progress-bar bg-primary" role="progressbar"
-                                                             style="width: 99%;" aria-valuenow="99" aria-valuemin="0"
-                                                             aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div>
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <small class="flex lh-24pt">Opening Courses</small>
-                                                        <small class="lh-24pt">27</small>
-                                                    </p>
-                                                    <div class="progress" style="height: 4px;">
-                                                        <div class="progress-bar bg-primary" role="progressbar"
-                                                             style="width: 20%;" aria-valuenow="20" aria-valuemin="0"
-                                                             aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card border-1 border-left-3 border-left-accent text-center mb-lg-0">
+                                    <div class="card-body">
+                                        <h4 class="h2 mb-0">1,569 Students</h4>
+                                        <div>Total - 20,023 Students</div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="row card-group-row">
-                                <div class="col-md-6 card-group-row__col">
-
-                                    <div class="card card-group-row__card">
-                                        <div class="card-header d-flex">
-                                            <div class="flex d-flex align-items-center">
-                                                <div class="h2 mb-0 mr-3">20%</div>
-                                                <div class="flex d-flex flex-column">
-                                                    <p class="card-title">Renewals</p>
-                                                    <p class="card-subtitle text-50">This month</p>
-                                                </div>
-                                            </div>
-                                            <a href="#"><i class="material-icons text-50">more_horiz</i></a>
-                                        </div>
-                                        <div class="card-body d-flex flex-column justify-content-center">
-
-
-                                            <div class="mb-4pt">
-                                                <p class="d-flex align-items-center mb-0">
-                                                    <small class="flex lh-24pt"><strong>Rend A Car,
-                                                        Frankfurt</strong></small>
-                                                    <small class="text-50 lh-24pt">expires in 12 days</small>
-                                                </p>
-                                                <div class="progress" style="height: 4px;">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                         style="width: 20%;" aria-valuenow="20" aria-valuemin="0"
-                                                         aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4pt">
-                                                <p class="d-flex align-items-center mb-0">
-                                                    <small class="flex lh-24pt"><strong>Rend A Car,
-                                                        Frankfurt</strong></small>
-                                                    <small class="text-50 lh-24pt">expires in 30 days</small>
-                                                </p>
-                                                <div class="progress" style="height: 4px;">
-                                                    <div class="progress-bar bg-accent" role="progressbar"
-                                                         style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
-                                                         aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-
-                                        </div>
+                            <div class="col-lg-4">
+                                <div class="card text-center mb-lg-0">
+                                    <div class="card-body">
+                                        <h4 class="h2 mb-0">117 Instructors</h4>
+                                        <div>Total - 500 Instructors</div>
                                     </div>
-
-                                </div>
-                                <div class="col-md-6 card-group-row__col">
-
-                                    <div class="card card-group-row__card">
-                                        <div class="card-header p-0 nav border-0">
-                                            <div class="row no-gutters flex" role="tablist">
-                                                <div class="col-auto">
-                                                    <div class="p-card-header d-flex align-items-center">
-                                                        <div class="h2 mb-0 mr-3">20%</div>
-                                                        <div class="flex">
-                                                            <p class="card-title">Conversion rate</p>
-                                                            <div class="d-flex align-items-center">
-                                                                <p class="text-50 mb-0 d-flex align-items-center mr-16pt">
-                                                                    <i class="indicator-line rounded bg-gray mr-8pt"></i>
-                                                                    <small>Lead</small>
-                                                                </p>
-                                                                <p class="text-50 mb-0 d-flex align-items-center">
-                                                                    <i class="indicator-line rounded bg-primary mr-8pt"></i>
-                                                                    <small>Cust.</small>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-auto ml-sm-auto">
-                                                    <div class="p-card-header pl-0"><a href="#"><i
-                                                            class="material-icons text-50">more_horiz</i></a></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body position-relative o-hidden p-0">
-                                            <div class="chart z-0" style="height: 125px;">
-                                                <div class="chartjs-size-monitor">
-                                                    <div class="chartjs-size-monitor-expand">
-                                                        <div class=""></div>
-                                                    </div>
-                                                    <div class="chartjs-size-monitor-shrink">
-                                                        <div class=""></div>
-                                                    </div>
-                                                </div>
-                                                <canvas id="viewsChart"
-                                                        class="chart-canvas js-update-chart-line js-update-chart-line-2nd-accent chartjs-render-monitor"
-                                                        data-chart-line-border-color="primary,gray"
-                                                        data-chart-suffix=" views" data-chart-hide-axes="true"
-                                                        style="display: block; width: 286px; height: 125px;" width="286"
-                                                        height="125"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
-
+                            <div class="col-lg-4">
+                                <div class="card text-center mb-lg-0">
+                                    <div class="card-body">
+                                        <h4 class="h2 mb-0">50 Courses</h4>
+                                        <div>Total - 100 Courses</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-lg-4">
 
-                            <div class="page-separator">
-                                <div class="page-separator__text">Schedule</div>
-                            </div>
+                    </div>
+                </div>
 
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex">
-                                            <strong class="card-title">Today</strong>
-                                        </div>
-                                        <i class="material-icons text-50">more_horiz</i>
-                                    </div>
+                <div class="container-fluid page__container page-section">
+                    <div class="page-separator">
+                        <div class="page-separator__text">Overview</div>
+                    </div>
+
+                    <div class="row mb-8pt">
+                        <div class="col-lg-9">
+                            <div class="card mb-lg-32pt">
+                                <div class="card-header d-flex align-items-center">
+                                    <strong class="card-title">Revenue</strong>
                                 </div>
                                 <div class="card-body">
-                                    <div class="alert alert-soft-warning mb-0 p-8pt">
-                                        <div class="d-flex align-items-start">
-                                            <div class="mr-8pt">
-                                                <i class="material-icons">error_outline</i>
-                                            </div>
-                                            <div class="flex">
-                                                <small class="text-100">Nothing scheduled for today.</small>
-                                            </div>
-                                        </div>
+                                    <div class="chart-legend mt-0 mb-24pt justify-content-start"
+                                         id="ordersChartLegend"></div>
+                                    <div class="chart">
+                                        <canvas id="revenueChart" class="chart-canvas js-update-chart-bar"
+                                                data-chart-legend="#ordersChartLegend" data-chart-prefix=""
+                                                data-chart-suffix=" VNĐ"
+                                                data-chart-line-background-color="gradient:primary"></canvas>
                                     </div>
                                 </div>
                             </div>
-
-
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex">
-                                            <strong class="card-title">Upcoming</strong>
-                                            <span class="text-20">(2)</span>
-                                        </div>
-                                        <i class="material-icons text-50">more_horiz</i>
-                                    </div>
-
-                                </div>
-
-                                <div class="list-group list-group-flush">
-
-                                    <div class="list-group-item d-flex align-items-start p-16pt">
-                                        <div class="d-flex flex-column mr-16pt">
-                                            <small class="text-uppercase text-50">FEB</small>
-                                            <strong class="border-bottom-2 border-bottom-accent">18</strong>
-                                        </div>
-                                        <div class="flex">
-                                            <div><strong>Developers Meeting</strong></div>
-
-                                            <div class="lh-1 mb-16pt"><small class="text-50">Tuesday 17:30 -
-                                                18:30</small></div>
-
-
-                                            <div class="avatar-group mb-16pt">
-
-                                                <div class="avatar avatar-xs" data-toggle="tooltip" data-placement="top"
-                                                     title="Janell D.">
-                                                    <img src="<c:url value="/resources/assets/images/256_rsz_1andy-lee-642320-unsplash.jpg"/>"
-                                                         alt="Avatar" class="avatar-img rounded-circle">
-                                                </div>
-
-                                                <div class="avatar avatar-xs" data-toggle="tooltip" data-placement="top"
-                                                     title="Janell D.">
-                                                    <img src="<c:url value="/resources/assets/images/256_michael-dam-258165-unsplash.jpg"/>"
-                                                         alt="Avatar" class="avatar-img rounded-circle">
-                                                </div>
-
-                                                <div class="avatar avatar-xs" data-toggle="tooltip" data-placement="top"
-                                                     title="Janell D.">
-                                                    <img src="<c:url value="/resources/assets/images/256_luke-porter-261779-unsplash.jpg"/>"
-                                                         alt="Avatar" class="avatar-img rounded-circle">
-                                                </div>
-
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card p-2">
+                                <div class="flex" style="max-width: 100%">
+                                    <div class="form-group">
+                                        <input checked type="radio" class="mr-1" name="filter">
+                                        <label class="form-label" for="day">Day</label>
+                                        <div class="flatpickr-wrapper flatpickr-calendar-right d-flex ml-auto">
+                                            <div id="recent_orders_date" data-toggle="flatpickr" data-flatpickr-wrap="true"
+                                                 data-flatpickr-static="true" data-flatpickr-mode="range"
+                                                 data-flatpickr-alt-format="d/m/Y"
+                                                 data-flatpickr-date-format="d/m/Y">
+                                                <a href="javascript:void(0)" class="link-date" data-toggle>13/03/2018 to
+                                                    20/03/2018</a>
+                                                <input id="day" class="d-none" type="hidden" value="13/03/2018 to 20/03/2018"
+                                                       data-input>
                                             </div>
-
-
-                                            <p class="mb-0 text-50">Moreover the striking, brilliant and vivid colors
-                                                are the reason why we are attracted to the posters that we see.</p>
-
-
                                         </div>
                                     </div>
-
-                                    <div class="list-group-item d-flex align-items-start p-16pt">
-                                        <div class="d-flex flex-column mr-16pt">
-                                            <small class="text-uppercase text-50">FEB</small>
-                                            <strong class="border-bottom-2 border-bottom-accent">17</strong>
-                                        </div>
-                                        <div class="flex">
-                                            <div><strong>Meeting with Jane B.</strong></div>
-
-                                            <div class="lh-1"><small class="text-50">Tuesday 17:30 - 18:30</small></div>
-
-
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="radio" class="mr-1" name="filter">
+                                        <label class="form-label" for="month">Month</label>
+                                        <select name="month" id="month" data-toggle="select" class="form-control" >
+                                            <option  value="2022">2022</option>
+                                            <option  value="2021">2021</option>
+                                            <option  value="2020">2020</option>
+                                            <option  value="2019">2019</option>
+                                            <option  value="2018">2018</option>
+                                            <option  value="2017">2017</option>
+                                        </select>
                                     </div>
-
+                                    <div class="form-group">
+                                        <input type="radio" class="mr-1" name="filter">
+                                        <label class="form-label" for="quarter">Month</label>
+                                        <select name="quarter" id="quarter" data-toggle="select" class="form-control" >
+                                            <option  value="2022">2022</option>
+                                            <option  value="2021">2021</option>
+                                            <option  value="2020">2020</option>
+                                            <option  value="2019">2019</option>
+                                            <option  value="2018">2018</option>
+                                            <option  value="2017">2017</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="radio" class="mr-1" name="filter">
+                                        <label class="form-label" for="year">Year</label>
+                                        <select name="quarter" id="year" class="form-control custom-select" >
+                                            <option value="5">5 years ago</option>
+                                            <option value="10">10 years ago</option>
+                                            <option value="5">15 years ago</option>
+                                        </select>
+                                    </div>
                                 </div>
-
-
                             </div>
-
-
                         </div>
                     </div>
 
                     <div class="page-separator">
-                        <div class="page-separator__text">Recently added</div>
+                        <div class="page-separator__text">Transactions</div>
                     </div>
 
                     <div class="card mb-0">
-
-                        <div class="table-responsive" data-toggle="lists" data-lists-sort-by="js-lists-values-date"
-                             data-lists-sort-desc="true"
-                             data-lists-values='["js-lists-values-name", "js-lists-values-company", "js-lists-values-phone", "js-lists-values-date"]'>
-
-
-                            <table class="table mb-0 thead-border-top-0 table-nowrap">
+                        <div data-toggle="lists" data-lists-values='[
+      "js-lists-values-course", 
+      "js-lists-values-revenue",
+      "js-lists-values-fees"
+    ]' data-lists-sort-by="js-lists-values-revenue" data-lists-sort-desc="true" class="table-responsive">
+                            <table class="table table-nowrap table-flush">
                                 <thead>
-                                <tr>
-
-                                    <th style="width: 18px;" class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-toggle-check-all"
-                                                   data-target="#contacts" id="customCheckAll_contacts">
-                                            <label class="custom-control-label" for="customCheckAll_contacts"><span
-                                                    class="text-hide">Toggle all</span></label>
-                                        </div>
-                                    </th>
-
+                                <tr class="text-uppercase small">
                                     <th>
                                         <a href="javascript:void(0)" class="sort"
-                                           data-sort="js-lists-values-name">Name</a>
+                                           data-sort="js-lists-values-course">Course</a>
                                     </th>
-
-                                    <th style="width: 150px;">
-                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-company">Company</a>
-                                    </th>
-
-
-                                    <th style="width: 37px;">Tags</th>
-
-
-                                    <th style="width: 48px;">
-                                        <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-phone">Phone</a>
-                                    </th>
-
-                                    <th style="width: 120px;">
+                                    <th class="text-center" style="width:130px">
                                         <a href="javascript:void(0)" class="sort"
-                                           data-sort="js-lists-values-date">Added</a>
+                                           data-sort="js-lists-values-fees">Fees</a>
                                     </th>
-                                    <th style="width: 24px;"></th>
+                                    <th class="text-center" style="width:130px">
+                                        <a href="javascript:void(0)" class="sort"
+                                           data-sort="js-lists-values-revenue">Revenue</a>
+                                    </th>
                                 </tr>
                                 </thead>
-                                <tbody class="list" id="contacts">
+
+
+                                <tbody class="list">
 
                                 <tr>
-
-                                    <td class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                                   id="customCheck1_contacts_1">
-                                            <label class="custom-control-label" for="customCheck1_contacts_1"><span
-                                                    class="text-hide">Check</span></label>
-                                        </div>
-                                    </td>
-
                                     <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-
-                                                <span class="avatar-title rounded-circle">BN</span>
-
-                                            </div>
+                                        <div class="media flex-nowrap align-items-center">
+                                            <a href="boxed-instructor-edit-course.html"
+                                               class="avatar avatar-4by3 overlay overlay--primary mr-12pt">
+                                                <img src="<c:url value="/resources/assets/images/paths/angular_routing_200x168.png"/>"
+                                                     alt="course" class="avatar-img rounded">
+                                                <span class="overlay__content"></span>
+                                            </a>
                                             <div class="media-body">
-
-
-                                                <div class="d-flex flex-column">
-                                                    <p class="mb-0"><strong class="js-lists-values-name">Billy
-                                                        Nunez</strong></p>
-                                                    <small class="js-lists-values-email text-50">annabell.kris@yahoo.com</small>
-                                                </div>
-
-
+                                                <a class="text-body js-lists-values-course"
+                                                   href="boxed-instructor-edit-course.html"><strong>Angular Routing
+                                                    In-Depth</strong></a>
+                                                <div class="text-muted small">34 Sales</div>
                                             </div>
                                         </div>
+                                    </td>
+                                    <td class="text-center text-black-70">
+
+                                        &dollar;<span class="js-lists-values-fees">120</span> USD
 
                                     </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-                                                <span class="avatar-title rounded bg-warning">FM</span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="d-flex flex-column">
-                                                    <small class="js-lists-values-company"><strong>Frontend Matter
-                                                        Inc.</strong></small>
-                                                    <small class="js-lists-values-location text-50">Leuschkefurt</small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-
-                                    <td>
-
-
-                                        <a href="" class="chip chip-outline-secondary">User</a>
-
-
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-phone text-50">239-721-3649</small>
-                                    </td>
-
-                                    <td>
-                                        <small class="js-lists-values-date text-50">19 February 2019</small>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                    <td class="text-center text-black-70">
+                                        &dollar;<span class="js-lists-values-revenue">8,737</span> USD
                                     </td>
                                 </tr>
 
                                 <tr>
-
-                                    <td class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                                   id="customCheck1_contacts_2">
-                                            <label class="custom-control-label" for="customCheck1_contacts_2"><span
-                                                    class="text-hide">Check</span></label>
-                                        </div>
-                                    </td>
-
                                     <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-
-                                                <span class="avatar-title rounded-circle">TP</span>
-
-                                            </div>
+                                        <div class="media flex-nowrap align-items-center">
+                                            <a href="boxed-instructor-edit-course.html"
+                                               class="avatar avatar-4by3 overlay overlay--primary mr-12pt">
+                                                <img src="<c:url value="/resources/assets/images/paths/angular_testing_200x168.png"/>"
+                                                     alt="course" class="avatar-img rounded">
+                                                <span class="overlay__content"></span>
+                                            </a>
                                             <div class="media-body">
-
-
-                                                <div class="d-flex flex-column">
-                                                    <p class="mb-0"><strong class="js-lists-values-name">Tony
-                                                        Parks</strong></p>
-                                                    <small class="js-lists-values-email text-50">vida_glover@gmail.com</small>
-                                                </div>
-
-
+                                                <a class="text-body js-lists-values-course"
+                                                   href="boxed-instructor-edit-course.html"><strong>Angular Unit
+                                                    Testing</strong></a>
+                                                <div class="text-muted small">38 Sales</div>
                                             </div>
                                         </div>
+                                    </td>
+                                    <td class="text-center text-black-70">
+
+                                        <span class="js-lists-values-fees sr-only">0</span>
+                                        <i class="material-icons text-muted">remove</i>
 
                                     </td>
-
-                                    <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-                                                <span class="avatar-title rounded bg-accent">HH</span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="d-flex flex-column">
-                                                    <small class="js-lists-values-company"><strong>Huma Huma
-                                                        Inc.</strong></small>
-                                                    <small class="js-lists-values-location text-50">Mayerberg</small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </td>
-
-
-                                    <td>
-
-
-                                        <a href="" class="chip chip-outline-secondary">Admin</a>
-
-
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-phone text-50">169-769-4821</small>
-                                    </td>
-
-                                    <td>
-                                        <small class="js-lists-values-date text-50">18 February 2019</small>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                    <td class="text-center text-black-70">
+                                        &dollar;<span class="js-lists-values-revenue">2,521</span> USD
                                     </td>
                                 </tr>
 
-                                <tr class="selected">
-
-                                    <td class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                                   checked="" id="customCheck1_contacts_3">
-                                            <label class="custom-control-label" for="customCheck1_contacts_3"><span
-                                                    class="text-hide">Check</span></label>
-                                        </div>
-                                    </td>
-
+                                <tr>
                                     <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-                                                <img src="<c:url value="/resources/assets/images/people/110/guy-1.jpg"/>"
-                                                     alt="Avatar" class="avatar-img rounded-circle">
-
-
-                                            </div>
+                                        <div class="media flex-nowrap align-items-center">
+                                            <a href="boxed-instructor-edit-course.html"
+                                               class="avatar avatar-4by3 overlay overlay--primary mr-12pt">
+                                                <img src="<c:url value="/resources/assets/images/paths/typescript_200x168.png"/>"
+                                                     alt="course" class="avatar-img rounded">
+                                                <span class="overlay__content"></span>
+                                            </a>
                                             <div class="media-body">
-
-
-                                                <div class="d-flex flex-column">
-                                                    <p class="mb-0"><strong class="js-lists-values-name">Gilbert
-                                                        Barrett</strong></p>
-                                                    <small class="js-lists-values-email text-50">paolo.zieme@gmail.com</small>
-                                                </div>
-
-
+                                                <a class="text-body js-lists-values-course"
+                                                   href="boxed-instructor-edit-course.html"><strong>Introduction to
+                                                    TypeScript</strong></a>
+                                                <div class="text-muted small">8 Sales</div>
                                             </div>
                                         </div>
+                                    </td>
+                                    <td class="text-center text-black-70">
+
+                                        <span class="js-lists-values-fees sr-only">0</span>
+                                        <i class="material-icons text-muted">remove</i>
 
                                     </td>
-
-                                    <td>
-
-                                    </td>
-
-
-                                    <td>
-
-
-                                        <a href="" class="chip chip-outline-secondary">Admin</a>
-
-
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-phone text-50">462-060-7408</small>
-                                    </td>
-
-                                    <td>
-                                        <small class="js-lists-values-date text-50">17 February 2019</small>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                    <td class="text-center text-black-70">
+                                        &dollar;<span class="js-lists-values-revenue">1,413</span> USD
                                     </td>
                                 </tr>
 
-                                <tr class="selected">
-
-                                    <td class="pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input js-check-selected-row"
-                                                   checked="" id="customCheck1_contacts_4">
-                                            <label class="custom-control-label" for="customCheck1_contacts_4"><span
-                                                    class="text-hide">Check</span></label>
-                                        </div>
-                                    </td>
-
+                                <tr>
                                     <td>
-
-                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                            <div class="avatar avatar-sm mr-8pt">
-
-                                                <img src="<c:url value="/resources/assets/images/people/110/guy-2.jpg"/>"
-                                                     alt="Avatar" class="avatar-img rounded-circle">
-
-
-                                            </div>
+                                        <div class="media flex-nowrap align-items-center">
+                                            <a href="boxed-instructor-edit-course.html"
+                                               class="avatar avatar-4by3 overlay overlay--primary mr-12pt">
+                                                <img src="<c:url value="/resources/assets/images/paths/angular_200x168.png"/>"
+                                                     alt="course" class="avatar-img rounded">
+                                                <span class="overlay__content"></span>
+                                            </a>
                                             <div class="media-body">
-
-
-                                                <div class="d-flex flex-column">
-                                                    <p class="mb-0"><strong class="js-lists-values-name">Ollie
-                                                        Wallace</strong></p>
-                                                    <small class="js-lists-values-email text-50">lorna_kirlin@nora.biz</small>
-                                                </div>
-
-
+                                                <a class="text-body js-lists-values-course"
+                                                   href="boxed-instructor-edit-course.html"><strong>Learn Angular
+                                                    Fundamentals</strong></a>
+                                                <div class="text-muted small">31 Sales</div>
                                             </div>
                                         </div>
+                                    </td>
+                                    <td class="text-center text-black-70">
+
+                                        <span class="js-lists-values-fees sr-only">0</span>
+                                        <i class="material-icons text-muted">remove</i>
 
                                     </td>
-
-                                    <td>
-
-                                    </td>
-
-
-                                    <td>
-
-
-                                        <a href="" class="chip chip-outline-secondary">Manager</a>
-
-
-                                    </td>
-
-
-                                    <td>
-                                        <small class="js-lists-values-phone text-50">285-626-6050</small>
-                                    </td>
-
-                                    <td>
-                                        <small class="js-lists-values-date text-50">16 February 2019</small>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
+                                    <td class="text-center text-black-70">
+                                        &dollar;<span class="js-lists-values-revenue">1,234</span> USD
                                     </td>
                                 </tr>
 
                                 </tbody>
+                                <tfoot class="text-right">
+                                <tr>
+                                    <td>
+
+
+                                        <ul class="pagination justify-content-start pagination-xsm m-0">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" aria-label="Previous">
+                                                        <span aria-hidden="true"
+                                                              class="material-icons">chevron_left</span>
+                                                    <span>Prev</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Page 1">
+                                                    <span>1</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Page 2">
+                                                    <span>2</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Next">
+                                                    <span>Next</span>
+                                                    <span aria-hidden="true"
+                                                          class="material-icons">chevron_right</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td colspan="2">Total <i class="material-icons text-muted">remove</i> <strong>&dollar;6,129
+                                        USD</strong></td>
+                                </tr>
+                                </tfoot>
                             </table>
                         </div>
-
                     </div>
-
                 </div>
+
+                <%@include file="/WEB-INF/views/layouts/admin/footer.jsp" %>
             </div>
 
-            <%@include file="/WEB-INF/views/layouts/admin/footer.jsp" %>
+            <!-- drawer -->
+            <%@include file="/WEB-INF/views/layouts/admin/drawer.jsp" %>
+            <!-- // END drawer -->
         </div>
-        <!-- // END drawer-layout__content -->
-
-        <!-- drawer -->
-        <%@include file="/WEB-INF/views/layouts/admin/drawer.jsp" %>
-        <!-- // END drawer -->
     </div>
-</div>
-<!-- // END Header Layout -->
+    <!-- // END Header Layout -->
 
-<!-- jQuery -->
-<script src="<c:url value="/resources/assets/vendor/jquery.min.js"/>"></script>
+    <!-- jQuery -->
+    <script src="<c:url value="/resources/assets/vendor/jquery.min.js"/>"></script>
 
-<!-- Bootstrap -->
-<script src="<c:url value="/resources/assets/vendor/popper.min.js"/>"></script>
-<script src="<c:url value="/resources/assets/vendor/bootstrap.min.js"/>"></script>
+    <!-- Bootstrap -->
+    <script src="<c:url value="/resources/assets/vendor/popper.min.js"/>"></script>
+    <script src="<c:url value="/resources/assets/vendor/bootstrap.min.js"/>"></script>
 
-<!-- Perfect Scrollbar -->
-<script src="<c:url value="/resources/assets/vendor/perfect-scrollbar.min.js"/>"></script>
+    <!-- Perfect Scrollbar -->
+    <script src="<c:url value="/resources/assets/vendor/perfect-scrollbar.min.js"/>"></script>
 
-<!-- DOM Factory -->
-<script src="<c:url value="/resources/assets/vendor/dom-factory.js"/>"></script>
+    <!-- DOM Factory -->
+    <script src="<c:url value="/resources/assets/vendor/dom-factory.js"/>"></script>
 
-<!-- MDK -->
-<script src="<c:url value="/resources/assets/vendor/material-design-kit.js"/>"></script>
+    <!-- MDK -->
+    <script src="<c:url value="/resources/assets/vendor/material-design-kit.js"/>"></script>
 
-<!-- App JS -->
-<script src="<c:url value="/resources/assets/js/app.js"/>"></script>
+    <!-- Fix Footer -->
+    <script src="<c:url value="/resources/assets/vendor/fix-footer.js"/>"></script>
 
+    <!-- App JS -->
+    <script src="<c:url value="/resources/assets/js/app.js"/>"></script>
 
-<!-- Global Settings -->
-<script src="<c:url value="/resources/assets/js/settings.js"/>"></script>
+    <!-- Flatpickr -->
+    <script src="<c:url value="/resources/assets/vendor/flatpickr/flatpickr.min.js"/>"></script>
+    <script src="<c:url value="/resources/assets/js/flatpickr.js"/>"></script>
 
-<!-- Moment.js -->
-<script src="<c:url value="/resources/assets/vendor/moment.min.js"/>"></script>
-<script src="<c:url value="/resources/assets/vendor/moment-range.min.js"/>"></script>
+    <!-- Global Settings -->
+    <script src="<c:url value="/resources/assets/js/settings.js"/>"></script>
 
-<!-- Flatpickr -->
-<script src="<c:url value="/resources/assets/vendor/flatpickr/flatpickr.min.js"/>"></script>
-<script src="<c:url value="/resources/assets/js/flatpickr.js"/>"></script>
+    <!-- Chart.js -->
+    <script src="<c:url value="/resources/assets/vendor/Chart.min.js"/>"></script>
+    <script src="<c:url value="/resources/assets/js/chartjs-rounded-bar.js"/>"></script>
+    <script src="<c:url value="/resources/assets/js/chartjs.js"/>"></script>
 
-<!-- Chart.js -->
-<script src="<c:url value="/resources/assets/vendor/Chart.min.js"/>"></script>
-<script src="<c:url value="/resources/assets/js/chartjs.js"/>"></script>
+    <!-- Chart.js Samples -->
+    <script src="<c:url value="/resources/assets/js/script.js"/>"></script>
 
-<!-- Chart.js Samples -->
-<script src="<c:url value="/resources/assets/js/page.crm-dashboard.js"/>"></script>
+    <!-- List.js -->
+    <script src="<c:url value="/resources/assets/vendor/list.min.js"/>"></script>
+    <script src="<c:url value="/resources/assets/js/list.js"/>"></script>
 
-<!-- List.js -->
-<script src="<c:url value="/resources/assets/vendor/list.min.js"/>"></script>
-<script src="<c:url value="/resources/assets/js/list.js"/>"></script>
+    <!-- Select2 -->
+    <script src="<c:url value="/resources/assets/vendor/select2/select2.min.js"/>"></script>
+    <script src="<c:url value="/resources/assets/js/select2.js"/>"></script>
 
-<!-- Tables -->
-<script src="<c:url value="/resources/assets/js/toggle-check-all.js"/>"></script>
-<script src="<c:url value="/resources/assets/js/check-selected-row.js"/>"></script>
+    <script>
+        var drawer = document.querySelector(".mdk-drawer-layout");
 
-<script>
-    var drawer = document.querySelector(".mdk-drawer-layout");
-
-    drawer.style.overflow = "auto";
-</script>
+        drawer.style.overflow = "auto";
+    </script>
 </body>
 </html>

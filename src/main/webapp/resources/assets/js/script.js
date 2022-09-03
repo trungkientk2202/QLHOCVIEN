@@ -1,20 +1,22 @@
-!(function (e) {
+const revenue = function (e) {
     var t = {};
+
     function r(n) {
         if (t[n]) return t[n].exports;
-        var o = (t[n] = { i: n, l: !1, exports: {} });
+        var o = (t[n] = {i: n, l: !1, exports: {}});
         return e[n].call(o.exports, o, o.exports, r), (o.l = !0), o.exports;
     }
+
     (r.m = e),
         (r.c = t),
         (r.d = function (e, t, n) {
-            r.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: n });
+            r.o(e, t) || Object.defineProperty(e, t, {enumerable: !0, get: n});
         }),
         (r.r = function (e) {
             "undefined" != typeof Symbol &&
             Symbol.toStringTag &&
-            Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
-                Object.defineProperty(e, "__esModule", { value: !0 });
+            Object.defineProperty(e, Symbol.toStringTag, {value: "Module"}),
+                Object.defineProperty(e, "__esModule", {value: !0});
         }),
         (r.t = function (e, t) {
             if ((1 & t && (e = r(e)), 8 & t)) return e;
@@ -22,7 +24,7 @@
             var n = Object.create(null);
             if (
                 (r.r(n),
-                    Object.defineProperty(n, "default", { enumerable: !0, value: e }),
+                    Object.defineProperty(n, "default", {enumerable: !0, value: e}),
                 2 & t && "string" != typeof e)
             )
                 for (var o in e)
@@ -51,7 +53,9 @@
         }),
         (r.p = "/"),
         r((r.s = 389));
-})({
+}
+
+revenue({
     389: function (e, t, r) {
         e.exports = r(390);
     },
@@ -95,14 +99,26 @@
                     datasets: [
                         {
                             label: "Sales",
-                            data: [100, 200, 300, 202, 107, 100, 108, 206, 208, 26, 200, 302],
+                            data: [500, 2000, 3000, 2200, 1700, 1000, 1800, 2600, 2800, 2600, 2000, 3200],
                             barPercentage: 0.5,
-                            barThickness: 20,
+                            barThickness: 40,
                         },
                     ],
+                    options: {
+                        scales: {
+                            xAxes: {
+                                display: true,
+                            },
+                            yAxes: {
+                                display: true,
+                                type: 'logarithmic',
+                            }
+                        }
+                    }
                 };
                 Charts.create(e, t, r, n);
-            })("#ordersChart");
+            })("#revenueChart");
         })();
     },
 });
+

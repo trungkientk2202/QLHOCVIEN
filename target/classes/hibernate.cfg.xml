@@ -16,8 +16,8 @@
             sa
         </property>
         <property name="hibernate.connection.password">
-            123
-<!--            tuan@0512-->
+<!--            123-->
+            tuan@0512
         </property>
 
         <!-- JDBC connection pool (use the built-in) -->
