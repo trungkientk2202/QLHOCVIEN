@@ -152,7 +152,7 @@
 
                                                 <div class="d-flex flex-column">
                                                     <p class="mb-0"><strong class="js-lists-values-name">${monHoc.tenMH}</strong></p>
-                                                    <small class="js-lists-values-email text-50">Id: ${monHoc.maMH}</small>
+                                                    <small class="js-lists-values-email text-50">course#${monHoc.maMH}</small>
                                                 </div>
 
 

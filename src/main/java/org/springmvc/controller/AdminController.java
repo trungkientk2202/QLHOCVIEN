@@ -118,9 +118,8 @@ public class AdminController {
         return "admin/courses-register-add";
     }
     @RequestMapping(value = "/admin/course-register/edit/{id}", method = RequestMethod.POST)
-    public String insertCourseRegisterAdmin(ModelMap modelMap,@PathVariable("id") int id,@RequestParam("monHoc") int maMH,
-                                            @RequestParam("giangVien") int maGV,@RequestParam("phong") int maPhong,
-                                            @RequestParam("caHoc") int caHoc,@RequestParam("ngay") String ngay,@RequestParam("trangThai") Boolean trangThai) throws ParseException {
+    public String insertCourseRegisterAdmin(ModelMap modelMap,@PathVariable("id") int id, @RequestParam("monHoc") int maMH, @RequestParam("giangVien") int maGV,
+                @RequestParam("phong") int maPhong, @RequestParam("caHoc") int caHoc, @RequestParam("ngay") String ngay,@RequestParam("trangThai") Boolean trangThai) throws ParseException {
         HocPhan hocPhan=new HocPhan();;
         if(id==0){
             hocPhan.setSoTietDaHoc(0);

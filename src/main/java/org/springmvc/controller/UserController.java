@@ -43,7 +43,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam("user-type") String userType, @RequestParam("userName") String name, @RequestParam("password") String pass, ModelMap modelMap) {
+    public String login(@RequestParam("user-type") String userType, @RequestParam("userName") String name,
+                        @RequestParam("password") String pass, ModelMap modelMap) {
         TaiKhoan taiKhoan = taiKhoanDao.login(name, pass, userType);
 
         HttpSession httpSession = Session.getSession();

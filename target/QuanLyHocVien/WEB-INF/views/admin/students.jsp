@@ -168,7 +168,7 @@
 
                                                 <div class="d-flex flex-column">
                                                     <p class="mb-0"><strong class="js-lists-values-employee-name">${student.hoTen}</strong></p>
-                                                    <small class="js-lists-values-employee-email text-50"></small>
+                                                    <small class="js-lists-values-employee-email text-50">student#${student.maHV}</small>
                                                 </div>
 
 
