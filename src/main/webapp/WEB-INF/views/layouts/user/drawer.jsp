@@ -96,7 +96,7 @@
                     <div class="sidebar-heading">INSTRUCTOR</div>
                     <ul class="sidebar-menu">
                         <li class="sidebar-menu-item ${pagina.endsWith('/dashboard') ? 'active open' : ''}">
-                            <a class="sidebar-menu-button js-sidebar-collapse" data-toggle="collapse"
+                            <a class="sidebar-menu-button js-sidebar-collapse"
                                href="/instructor/dashboard">
                                 <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">format_shapes</span>
                                 Dashboard

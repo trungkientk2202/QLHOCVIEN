@@ -213,7 +213,7 @@
                                     </div>
                                     <div class="card-body">
                                         <label class="form-label">Filename</label>
-                                        <input name="photo" type="text" class="form-control" id="base64"
+                                        <input type="text" class="form-control" id="base64"
                                                value=""
                                                placeholder="Enter Video URL">
                                     </div>
