@@ -183,7 +183,7 @@
                                         <div class="d-inline-flex align-items-center">
                                             <a href="/admin/subject/edit/${monHoc.maMH}" class="btn btn-sm btn-outline-secondary mr-16pt">Edit
                                                 <i class="icon--right material-icons">edit</i></a>
-                                            <a href="billing-invoice.html" class="btn btn-sm btn-outline-secondary">Delete
+                                            <a href="/admin/subject/delete/${monHoc.maMH}" class="btn btn-sm btn-outline-secondary">Delete
                                                 <i class="icon--right material-icons">delete</i></a>
                                         </div>
                                     </td>

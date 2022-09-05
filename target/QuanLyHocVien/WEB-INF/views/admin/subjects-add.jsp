@@ -78,7 +78,8 @@
 
                 </div>
             </div>
-            <form action="/admin/subject/edit/${monHoc!=null?monHoc.maMH:0}" method="post">
+            <form action="/admin/subject/edit/${monHoc!=null?monHoc.maMH:0}"
+                  enctype="multipart/form-data" method="post">
                 <div class="page-section border-bottom-2">
                     <div class="container page__container">
 
@@ -187,8 +188,8 @@
                                             class="ql-stroke" x1="15" x2="11" y1="11" y2="15"></line> <rect
                                             class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2" y="14"></rect> </svg></button></span>
                                     </div>
-                                    <textarea class="form-control" rows="5" id="description"
-                                              placeholder="Subject description"></textarea>
+                                    <textarea class="form-control" rows="5" name="moTa"  id="description"
+                                              placeholder="Subject description">${monHoc!=null?monHoc.moTa:''}</textarea>
                                     <small class="form-text text-muted">Shortly describe this subject.</small>
                                 </div>
                             </div>
@@ -201,7 +202,7 @@
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <div class="d-flex align-items-center justify-content-center custom-file embed-responsive-item rounded-sm border-1 border-secondary">
                                             <div class="position-relative">
-                                                <input type="file" id="file" class="custom-file-input"  accept="image/*">
+                                                <input type="file" name="photo" id="file" class="custom-file-input"  accept="image/*">
                                                 <label for="file" class="custom-file-label bg-transparent text-secondary">Choose file</label>
                                             </div>
                                             <img id="photo"
@@ -215,13 +216,13 @@
                                         <label class="form-label">Filename</label>
                                         <input type="text" class="form-control" id="base64"
                                                value=""
-                                               placeholder="Enter Video URL">
+                                               placeholder="Image: data/base64">
                                     </div>
                                 </div>
 
                                 <div class="card">
                                     <div class="card-header text-center">
-                                        <a href="#" class="btn btn-primary">Save Subject</a>
+                                        <button type="submit" class="btn btn-primary">Save Subject</button>
                                     </div>
                                     <div class="list-group list-group-flush">
                                         <div class="list-group-item d-flex">

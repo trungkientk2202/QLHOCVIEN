@@ -91,12 +91,12 @@
                     <div class="col-md-8">
 
                         <div class="page-separator">
-                            <div class="page-separator__text">Edit Course's Content</div>
+                            <div class="page-separator__text">Add Course's Content</div>
                         </div>
 
                         <label class="form-label">Content Title</label>
                         <div class="form-group mb-24pt">
-                            <input type="text" class="form-control form-control-lg" placeholder="Course title" value="Angular Fundamentals">
+                            <input type="text" class="form-control form-control-lg" placeholder="Course title" name="title">
                             <small class="form-text text-muted">Please see our <a href="">course title guideline</a></small>
                         </div>
 

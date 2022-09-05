@@ -6,15 +6,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springmvc.dao.*;
 import org.springmvc.entity.*;
+import org.springmvc.utils.Globals;
 import org.springmvc.utils.Session;
 
 import javax.servlet.http.HttpSession;
+import java.io.*;
+import java.net.URLDecoder;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class AdminController {
@@ -67,9 +72,9 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/admin/subject/add", method = RequestMethod.GET)
-    public String addCourseAdmin(ModelMap modelMap){
-        MonHoc monHoc=null;
-        modelMap.addAttribute("monHoc",monHoc);
+    public String addCourseAdmin(ModelMap modelMap) {
+
+
         return "admin/subjects-add";
     }
 
@@ -80,16 +85,20 @@ public class AdminController {
         return "admin/subjects-add";
     }
     @RequestMapping(value = "/admin/subject/edit/{id}", method = RequestMethod.POST)
-    public String insertCourseAdmin(ModelMap modelMap, @PathVariable int id){
+    public String insertCourseAdmin(ModelMap modelMap,@RequestParam(value = "photo", required = false) MultipartFile photo, @PathVariable int id){
+        String name = saveFile(photo);
+
         return "admin/subjects-add";
     }
-    @RequestMapping(value = "/admin/subject/delete", method = RequestMethod.POST)
-    public String deleteCourseAdmin(ModelMap modelMap){
-        return "admin/subjects";
+    @RequestMapping(value = "/admin/subject/delete/{id}", method = RequestMethod.GET)
+    public String deleteCourseAdmin(ModelMap modelMap,@PathVariable("id")int id){
+        MonHoc monHoc=monHocDao.getMH(id);
+        monHocDao.deleteMH(monHoc);
+        return "redirect:/admin/subjects";
     }
     @RequestMapping(value = "/admin/course-register", method = RequestMethod.GET)
     public String courseRegisterAdmin(ModelMap modelMap){
-        List<HocPhan> list= (List<HocPhan>) hocPhanDao.getListHP();
+        List<HocPhan> list= (List<HocPhan>) hocPhanDao.getAllHP();
         modelMap.addAttribute("list",list);
         return "admin/courses-register";
     }
@@ -151,8 +160,11 @@ public class AdminController {
         return "redirect:/admin/course-register/edit/"+id;
     }
     @RequestMapping(value = "/admin/course-register/delete/{id}", method = RequestMethod.GET)
-    public String deleteCourseRegisterAdmin(ModelMap modelMap){
-        return "admin/courses-register-add";
+    public String deleteCourseRegisterAdmin(ModelMap modelMap,@PathVariable("id")int id){
+        HocPhan hocPhan=hocPhanDao.getHP(id);
+        hocPhan.setTrangThai(!hocPhan.isTrangThai());
+        hocPhanDao.updateHP(hocPhan);
+        return "redirect:/admin/course-register";
     }
     @RequestMapping(value = "/admin/instructors", method = RequestMethod.GET)
     public String instructorsAdmin(ModelMap modelMap){
@@ -206,8 +218,16 @@ public class AdminController {
         }
         return "redirect:/admin/instructors/edit/"+id;
     }
-    @RequestMapping(value = "/admin/instructors/delete", method = RequestMethod.POST)
-    public String deleteInstructorAdmin(ModelMap modelMap){
+    @RequestMapping(value = "/admin/instructors/delete/{id}", method = RequestMethod.GET)
+    public String deleteInstructorAdmin(ModelMap modelMap,@PathVariable("id") int id){
+        GiangVien giangVien=giangVienDao.getGV(id);
+        TaiKhoan taiKhoan=giangVien.getTaiKhoan();
+        taiKhoan.setTrangThai(!taiKhoan.isTrangThai());
+        if(taiKhoanDao.updateTK(taiKhoan)==1){
+
+        }else{
+
+        }
         return "redirect:/admin/instructors";
     }
     @RequestMapping(value = "/admin/students", method = RequestMethod.GET)
@@ -263,16 +283,69 @@ public class AdminController {
         modelMap.addAttribute("hocVien",hocVien);
         return "admin/students-add";
     }
-    @RequestMapping(value = "/admin/students/delete", method = RequestMethod.POST)
-    public String deleteStudentAdmin(ModelMap modelMap){
+    @RequestMapping(value = "/admin/students/delete/{id}", method = RequestMethod.GET)
+    public String deleteStudentAdmin(ModelMap modelMap,@PathVariable("id") int id){
+        HocVien hocVien=hocVienDao.getHV(id);
+        TaiKhoan taiKhoan=hocVien.getTaiKhoan();
+        taiKhoan.setTrangThai(!taiKhoan.isTrangThai());
+        if(taiKhoanDao.updateTK(taiKhoan)==1){
+
+        }else{
+
+        }
         return "redirect:/admin/students";
     }
+
     @RequestMapping(value = "/admin/schedule", method = RequestMethod.GET)
-    public String scheduleAdmin(ModelMap modelMap){
-        List<HocPhan>list= (List<HocPhan>) hocPhanDao.getAllHP();
-        modelMap.addAttribute("list",list);
-        List<Ca> listCa= (List<Ca>) caDao.getListCa();
-        modelMap.addAttribute("listCa",listCa);
+    public String scheduleAdmin(ModelMap modelMap) {
+        List<HocPhan> list = (List<HocPhan>) hocPhanDao.getAllHP();
+        modelMap.addAttribute("list", list);
+        List<Ca> listCa = (List<Ca>) caDao.getListCa();
+        modelMap.addAttribute("listCa", listCa);
         return "admin/schedule";
+    }
+
+    private String saveFile(MultipartFile file) {
+        if (null != file && !file.isEmpty()) {
+            try {
+                byte[] bytes = file.getBytes();
+
+                File dir = new File(getPath() + File.separator + "src/main/webapp/resources/assets/images/courses");
+                if (!dir.exists()) {
+                    dir.mkdir();
+                }
+
+                // Create File on Server
+                String name = String.valueOf(new Date().getTime() + ".png");
+                File serverFile = new File(dir.getAbsolutePath() + File.separator + name);
+                //
+                System.out.println("=================== Path of Image on Server: " + serverFile.getPath());
+                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+
+                return name;
+            } catch (IOException exception) {
+                System.out.println("=================== Error Upload File: " + exception.getMessage());
+            }
+        } else {
+            System.out.println("=================== File is not Exits");
+        }
+
+        return null;
+    }
+
+    private String getPath() throws UnsupportedEncodingException {
+        String path = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
+        String fullPath = URLDecoder.decode(path, "UTF-8");
+        String[] pathArr = fullPath.split("/target/");
+        System.out.println(fullPath);
+        System.out.println(pathArr[0]);
+        fullPath = pathArr[0];
+
+        String reponsePath = "";
+        // to read a file from webcontent
+        reponsePath = new File(fullPath).getPath() + File.separatorChar;
+        return reponsePath;
     }
 }

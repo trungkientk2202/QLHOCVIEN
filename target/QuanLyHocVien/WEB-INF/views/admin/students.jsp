@@ -217,7 +217,7 @@
                                             <a href="/admin/students/edit/${student.maHV}"
                                                class="btn btn-sm btn-outline-secondary mr-16pt">Edit
                                                 <i class="icon--right material-icons">edit</i></a>
-                                            <a href="#" class="btn btn-sm btn-outline-secondary">Delete
+                                            <a href="/admin/students/delete/${student.maHV}" class="btn btn-sm btn-outline-secondary">${student.taiKhoan.trangThai==true?"Inactive":"Active"}
                                                 <i class="icon--right material-icons">delete</i></a>
                                         </div>
                                     </td>

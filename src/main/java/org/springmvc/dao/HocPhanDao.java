@@ -37,9 +37,19 @@ public class HocPhanDao {
             return null;
         }
     }
-    public List<?> getListHPByGV(GiangVien giangVien) {
+    public List<?> getListDangDayHPByGV(GiangVien giangVien) {
+        Date date=new Date();
         try (Session session = factory.openSession()) {
-            return session.createQuery("FROM HocPhan hp where hp.giangVien= :giangVien").setParameter("giangVien",giangVien).list();
+            return session.createQuery("FROM HocPhan hp where hp.giangVien= :giangVien and hp.ngayKT > :date").setParameter("giangVien",giangVien).setParameter("date",date).list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public List<?> getListDaDayHPByGV(GiangVien giangVien) {
+        Date date=new Date();
+        try (Session session = factory.openSession()) {
+            return session.createQuery("FROM HocPhan hp where hp.giangVien= :giangVien and hp.ngayKT < :date").setParameter("giangVien",giangVien).setParameter("date",date).list();
         } catch (HibernateException e) {
             e.printStackTrace();
             return null;

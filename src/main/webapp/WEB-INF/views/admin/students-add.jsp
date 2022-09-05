@@ -94,10 +94,10 @@
                                     <div role="group" aria-labelledby="label-type">
                                         <div role="group" class="btn-group btn-group-toggle" data-toggle="buttons">
                                             <label class="btn btn-outline-secondary">
-                                                <input type="radio" id="male" name="sex" value="true" aria-checked="true"/>Male
+                                                <input type="radio" id="male" name="sex"  ${hocVien!=null?(hocVien.phai==true?"checked":''):'checked'} value="true" aria-checked="true"/>Male
                                             </label>
                                             <label class="btn btn-outline-secondary">
-                                                <input type="radio" id="female" name="sex" value="false" aria-checked="true"/>Female
+                                                <input type="radio" id="female" name="sex" ${hocVien!=null?(hocVien.phai==false?"checked":''):''} value="false" aria-checked="true"/>Female
                                             </label>
                                         </div>
                                     </div>
@@ -201,7 +201,7 @@
                             <div class="flex" style="max-width: 100%">
                                 <div class="form-group">
                                     <label class="form-label" for="account">Username</label>
-                                    <input type="text" name="account" class="form-control" id="account"
+                                    <input type="text" name="account" ${hocVien!=null?"readonly":''} value="${hocVien!=null?hocVien.taiKhoan.tenTK:''}" class="form-control" id="account"
                                            placeholder="Example: trungkienlk123">
                                 </div>
                             </div>
@@ -211,7 +211,7 @@
                         <div class=" col-lg-8 d-flex align-items-center">
                             <div class="flex" style="max-width: 100%">
                                 <div class="button-list text-right">
-                                    <button type="submit" name="btn" value="cancle" class="btn btn-outline-secondary">Cancel</button>
+                                    <a href="/admin/students" class="btn btn-outline-secondary">Cancel</a>
                                     <button type="submit" name="btn" value="save" class="btn btn-primary">Save</button>
                                 </div>
                             </div>
