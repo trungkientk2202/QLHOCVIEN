@@ -34,6 +34,16 @@ public class GiangVienDao {
             return null;
         }
     }
+    public Long sumInstructor(){
+        try{
+            Session session = factory.openSession();
+            String hql = "SELECT count(gv.maGV) FROM GiangVien gv";
+            return (Long) session.createQuery(hql).uniqueResult();
+        }catch (HibernateException e){
+            e.printStackTrace();
+            return 0L;
+        }
+    }
     public GiangVien getGV(int id) {
         try{
             Session session = factory.openSession();

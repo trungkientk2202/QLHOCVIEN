@@ -34,6 +34,17 @@ public class HocVienDao {
             return null;
         }
     }
+
+    public Long sumStudent(){
+        try{
+            Session session = factory.openSession();
+            String hql = "SELECT count(hv.maHV) FROM HocVien hv";
+            return (Long) session.createQuery(hql).uniqueResult();
+        }catch (HibernateException e){
+            e.printStackTrace();
+            return 0L;
+        }
+    }
     public HocVien getHVByUserName(TaiKhoan taiKhoan) {
         try{
             Session session = factory.openSession();

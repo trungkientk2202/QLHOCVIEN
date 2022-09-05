@@ -89,24 +89,24 @@
                             <div class="col-lg-4">
                                 <div class="card border-1 border-left-3 border-left-accent text-center mb-lg-0">
                                     <div class="card-body">
-                                        <h4 class="h2 mb-0">1,569 Students</h4>
-                                        <div>Total - 20,023 Students</div>
+                                        <h4 class="h2 mb-0">${sumHV} Students</h4>
+                                        <div>Total - ${sumHV} Students</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="card text-center mb-lg-0">
                                     <div class="card-body">
-                                        <h4 class="h2 mb-0">117 Instructors</h4>
-                                        <div>Total - 500 Instructors</div>
+                                        <h4 class="h2 mb-0">${sumGV} Instructors</h4>
+                                        <div>Total - ${sumGV} Instructors</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="card text-center mb-lg-0">
                                     <div class="card-body">
-                                        <h4 class="h2 mb-0">50 Courses</h4>
-                                        <div>Total - 100 Courses</div>
+                                        <h4 class="h2 mb-0">${sumHP} Courses</h4>
+                                        <div>Total - ${sumHP} Courses</div>
                                     </div>
                                 </div>
                             </div>
@@ -119,83 +119,86 @@
                     <div class="page-separator">
                         <div class="page-separator__text">Overview</div>
                     </div>
-
-                    <div class="row mb-8pt">
-                        <div class="col-lg-9">
-                            <div class="card mb-lg-32pt">
-                                <div class="card-header d-flex align-items-center">
-                                    <strong class="card-title">Revenue</strong>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-legend mt-0 mb-24pt justify-content-start"
-                                         id="ordersChartLegend"></div>
-                                    <div class="chart">
-                                        <canvas id="revenueChart" class="chart-canvas js-update-chart-bar"
-                                                data-chart-legend="#ordersChartLegend" data-chart-prefix=""
-                                                data-chart-suffix=" VNĐ"
-                                                data-chart-line-background-color="gradient:primary"></canvas>
+                    <form action="/admin/dashboard" method="post" id="myform">
+                        <div class="row mb-8pt">
+                            <div class="col-lg-9">
+                                <div class="card mb-lg-32pt">
+                                    <div class="card-header d-flex align-items-center">
+                                        <strong class="card-title">Revenue</strong>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card p-2">
-                                <div class="flex" style="max-width: 100%">
-                                    <div class="form-group">
-                                        <input checked type="radio" class="mr-1" name="filter">
-                                        <label class="form-label" for="day">Day</label>
-                                        <div class="flatpickr-wrapper flatpickr-calendar-right d-flex ml-auto">
-                                            <div id="recent_orders_date" data-toggle="flatpickr" data-flatpickr-wrap="true"
-                                                 data-flatpickr-static="true" data-flatpickr-mode="range"
-                                                 data-flatpickr-alt-format="d/m/Y"
-                                                 data-flatpickr-date-format="d/m/Y">
-                                                <a href="javascript:void(0)" class="link-date" data-toggle>13/03/2018 to
-                                                    20/03/2018</a>
-                                                <input id="day" class="d-none" type="hidden" value="13/03/2018 to 20/03/2018"
-                                                       data-input>
-                                            </div>
+                                    <div class="card-body">
+                                        <div class="chart-legend mt-0 mb-24pt justify-content-start"
+                                             id="ordersChartLegend"></div>
+                                        <div class="chart">
+                                            <canvas id="revenueChart" class="chart-canvas js-update-chart-bar"
+                                                    data-chart-legend="#ordersChartLegend" data-chart-prefix=""
+                                                    data-chart-suffix=" VNĐ"
+                                                    data-chart-line-background-color="gradient:primary"></canvas>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="radio" class="mr-1" name="filter">
-                                        <label class="form-label" for="month">Month</label>
-                                        <select name="month" id="month" data-toggle="select" class="form-control" >
-                                            <option  value="2022">2022</option>
-                                            <option  value="2021">2021</option>
-                                            <option  value="2020">2020</option>
-                                            <option  value="2019">2019</option>
-                                            <option  value="2018">2018</option>
-                                            <option  value="2017">2017</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="radio" class="mr-1" name="filter">
-                                        <label class="form-label" for="quarter">Month</label>
-                                        <select name="quarter" id="quarter" data-toggle="select" class="form-control" >
-                                            <option  value="2022">2022</option>
-                                            <option  value="2021">2021</option>
-                                            <option  value="2020">2020</option>
-                                            <option  value="2019">2019</option>
-                                            <option  value="2018">2018</option>
-                                            <option  value="2017">2017</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="radio" class="mr-1" name="filter">
-                                        <label class="form-label" for="year">Year</label>
-                                        <select name="quarter" id="year" class="form-control custom-select" >
-                                            <option value="5">5 years ago</option>
-                                            <option value="10">10 years ago</option>
-                                            <option value="5">15 years ago</option>
-                                        </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="card p-2">
+                                    <div class="flex" style="max-width: 100%">
+                                        <div class="form-group">
+                                            <input ${filter=='date'?'checked':''} type="radio" onchange="statistic()" class="mr-1" name="filter" value="date">
+                                            <label class="form-label" for="day">Day</label>
+                                            <div class="flatpickr-wrapper flatpickr-calendar-right d-flex ml-auto">
+                                                <div id="recent_orders_date" data-toggle="flatpickr" data-flatpickr-wrap="true"
+                                                     data-flatpickr-static="true" data-flatpickr-mode="range"
+                                                     data-flatpickr-alt-format="d/m/Y"
+                                                     data-flatpickr-date-format="d/m/Y">
+                                                    <a href="javascript:void(0)" class="link-date" data-toggle>${ngay}</a>
+                                                    <input id="day" class="d-none" name="ngay" type="text" value="${ngay}"
+                                                           data-input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="radio" ${filter=='month'?'checked':''} class="mr-1" onchange="statistic()" name="filter" value="month">
+                                            <label class="form-label"  for="month">Month</label>
+                                            <select name="monthOfYear" id="month" data-toggle="select" class="form-control" >
+                                                <option  value="2022" ${monthOfYear==2022?'selected':''}>2022</option>
+                                                <option  value="2021" ${monthOfYear==2021?'selected':''}>2021</option>
+                                                <option  value="2020" ${monthOfYear==2020?'selected':''}>2020</option>
+                                                <option  value="2019" ${monthOfYear==2019?'selected':''}>2019</option>
+                                                <option  value="2018" ${monthOfYear==2018?'selected':''}>2018</option>
+                                                <option  value="2017" ${monthOfYear==2017?'selected':''}>2017</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="radio" ${filter=='quaters'?'checked':''} class="mr-1" onchange="statistic()" name="filter" value="quaters">
+                                            <label class="form-label" for="quarterOfYear">Quarters</label>
+                                            </select>
+                                            <select name="quarterOfYear" id="quarterOfYear" data-toggle="select" class="form-control" >
+                                                <option  value="2022" ${quarterOfYear==2022?'selected':''}>2022</option>
+                                                <option  value="2021" ${quarterOfYear==2021?'selected':''}>2021</option>
+                                                <option  value="2020" ${quarterOfYear==2020?'selected':''}>2020</option>
+                                                <option  value="2019" ${quarterOfYear==2019?'selected':''}>2019</option>
+                                                <option  value="2018" ${quarterOfYear==2018?'selected':''}>2018</option>
+                                                <option  value="2017" ${quarterOfYear==2017?'selected':''}>2017</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="radio" ${filter=='year'?'checked':''} class="mr-1" onchange="statistic()" name="filter" value="year">
+                                            <label class="form-label" for="year">Year</label>
+                                            <select name="years" id="year" class="form-control custom-select" >
+                                                <option value="5" ${years==5?'selected':''}>5 years ago</option>
+                                                <option value="10" ${years==10?'selected':''}>10 years ago</option>
+                                                <option value="15" ${years==15?'selected':''}>15 years ago</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
 
                     <div class="page-separator">
-                        <div class="page-separator__text">Transactions</div>
+                        <div class="page-separator__text">Transactions
+                        ${data[0]}
+                        ${labels[0]}</div>
                     </div>
 
                     <div class="card mb-0">
@@ -423,7 +426,8 @@
     <script src="<c:url value="/resources/assets/js/chartjs.js"/>"></script>
 
     <!-- Chart.js Samples -->
-    <script src="<c:url value="/resources/assets/js/script.js"/>"></script>
+
+<%--    <script src="<c:url value="/resources/assets/js/script.js"/>"></script>--%>
 
     <!-- List.js -->
     <script src="<c:url value="/resources/assets/vendor/list.min.js"/>"></script>
@@ -435,8 +439,127 @@
 
     <script>
         var drawer = document.querySelector(".mdk-drawer-layout");
-
         drawer.style.overflow = "auto";
+        function statistic() {
+            document.getElementById('myform').submit();
+        }
+        const revenue = function (e) {
+            var t = {};
+            function r(n) {
+                if (t[n]) return t[n].exports;
+                var o = (t[n] = {i: n, l: !1, exports: {}});
+                return e[n].call(o.exports, o, o.exports, r), (o.l = !0), o.exports;
+            }
+
+            (r.m = e),
+                (r.c = t),
+                (r.d = function (e, t, n) {
+                    r.o(e, t) || Object.defineProperty(e, t, {enumerable: !0, get: n});
+                }),
+                (r.r = function (e) {
+                    "undefined" != typeof Symbol &&
+                    Symbol.toStringTag &&
+                    Object.defineProperty(e, Symbol.toStringTag, {value: "Module"}),
+                        Object.defineProperty(e, "__esModule", {value: !0});
+                }),
+                (r.t = function (e, t) {
+                    if ((1 & t && (e = r(e)), 8 & t)) return e;
+                    if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+                    var n = Object.create(null);
+                    if (
+                        (r.r(n),
+                            Object.defineProperty(n, "default", {enumerable: !0, value: e}),
+                        2 & t && "string" != typeof e)
+                    )
+                        for (var o in e)
+                            r.d(
+                                n,
+                                o,
+                                function (t) {
+                                    return e[t];
+                                }.bind(null, o)
+                            );
+                    return n;
+                }),
+                (r.n = function (e) {
+                    var t =
+                        e && e.__esModule
+                            ? function () {
+                                return e.default;
+                            }
+                            : function () {
+                                return e;
+                            };
+                    return r.d(t, "a", t), t;
+                }),
+                (r.o = function (e, t) {
+                    return Object.prototype.hasOwnProperty.call(e, t);
+                }),
+                (r.p = "/"),
+                r((r.s = 389));
+        }
+
+        revenue({
+            389: function (e, t, r) {
+                e.exports = r(390);
+            },
+            390: function (e, t) {
+                !(function () {
+                    "use strict";
+                    !(function (e) {
+                        var t =
+                                arguments.length > 1 && void 0 !== arguments[1]
+                                    ? arguments[1]
+                                    : "roundedBar",
+                            r =
+                                arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};
+                        r = Chart.helpers.merge(
+                            {
+                                title: {
+                                    display: !0,
+                                    fontSize: 12,
+                                    fontColor: "rgba(54, 76, 102, 0.54)",
+                                    position: "top",
+                                    text: "EARNINGS",
+                                },
+                            },
+                            r
+                        );
+                        var labels = [];
+                        <c:forEach var="array" items="${labels}">
+                            labels.push("<c:out value="${array}"></c:out>");
+                        </c:forEach>
+                        var data = [];
+                        <c:forEach var="array" items="${data}">
+                            data.push("<c:out value="${array}"></c:out>");
+                        </c:forEach>
+                        var n = {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    label: "Tuition",
+                                    data: data,
+                                    barPercentage: 0.5,
+                                    barThickness: 40,
+                                },
+                            ],
+                            options: {
+                                scales: {
+                                    xAxes: {
+                                        display: true,
+                                    },
+                                    yAxes: {
+                                        display: true,
+                                        type: 'logarithmic',
+                                    }
+                                }
+                            }
+                        };
+                        Charts.create(e, t, r, n);
+                    })("#revenueChart");
+                })();
+            },
+        });
     </script>
 </body>
 </html>

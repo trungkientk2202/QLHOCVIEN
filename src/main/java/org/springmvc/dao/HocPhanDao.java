@@ -29,6 +29,16 @@ public class HocPhanDao {
             return null;
         }
     }
+    public Long sumHocPhan(){
+        try{
+            Session session = factory.openSession();
+            String hql = "SELECT count(hp.maHP) FROM HocPhan hp";
+            return (Long) session.createQuery(hql).uniqueResult();
+        }catch (HibernateException e){
+            e.printStackTrace();
+            return 0L;
+        }
+    }
     public List<?> getListHP() {
         try (Session session = factory.openSession()) {
             return session.createQuery("FROM HocPhan hp where hp.trangThai=true").list();

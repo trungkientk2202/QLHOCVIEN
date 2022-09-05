@@ -84,14 +84,15 @@
                 </a>
             </div>
         </div>
-        <form action="/profile/basic" method="post">
+
         <div class="container page__container page-section">
             <div class="page-separator">
                 <div class="page-separator__text">Basic Information</div>
             </div>
-            <div class="row">
 
-                <div class="col-md-8">
+            <form action="/profile/basic" method="post">
+            <div class="row">
+                    <div class="col-md-8">
 
                         <div class="form-group">
                             <label class="form-label">Full Name</label>
@@ -154,6 +155,8 @@
                 </div>
 
             </div>
+
+            </form>
         </div>
 
         <div class="page-section">
@@ -179,7 +182,6 @@
                 </form>
             </div>
         </div>
-        </form>
         <!--    footer -->
         <%@include file="/WEB-INF/views/layouts/user/footer.jsp" %>
         <!--  end footer -->

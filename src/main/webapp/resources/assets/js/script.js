@@ -1,6 +1,5 @@
 const revenue = function (e) {
     var t = {};
-
     function r(n) {
         if (t[n]) return t[n].exports;
         var o = (t[n] = {i: n, l: !1, exports: {}});
@@ -82,24 +81,11 @@ revenue({
                     r
                 );
                 var n = {
-                    labels: [
-                        "Jan",
-                        "Feb",
-                        "Mar",
-                        "Apr",
-                        "May",
-                        "Jun",
-                        "Jul",
-                        "Aug",
-                        "Sep",
-                        "Oct",
-                        "Nov",
-                        "Dec",
-                    ],
+                    labels: labels,
                     datasets: [
                         {
                             label: "Sales",
-                            data: [500, 2000, 3000, 2200, 1700, 1000, 1800, 2600, 2800, 2600, 2000, 3200],
+                            data: data,
                             barPercentage: 0.5,
                             barThickness: 40,
                         },

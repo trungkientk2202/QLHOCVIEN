@@ -11,10 +11,10 @@ import org.springmvc.entity.*;
 import org.springmvc.utils.Session;
 
 import javax.servlet.http.HttpSession;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class AdminController {
@@ -26,6 +26,7 @@ public class AdminController {
     private final MonHocDao monHocDao= new MonHocDao();
     private final PhongDao phongDao= new PhongDao();
     private final CaDao caDao= new CaDao();
+    private final DongHocPhiDao dongHocPhiDao= new DongHocPhiDao();
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(ModelMap modelMap){
@@ -55,7 +56,100 @@ public class AdminController {
         return "admin/login";
     }
     @RequestMapping(value = "/admin/dashboard", method = RequestMethod.GET)
-    public String dashboardAdmin(ModelMap modelMap){
+    public String dashboard(ModelMap modelMap)throws ParseException{
+        modelMap.addAttribute("sumHV",hocVienDao.sumStudent());
+        modelMap.addAttribute("sumGV",giangVienDao.sumInstructor());
+        modelMap.addAttribute("sumHP",hocPhanDao.sumHocPhan());
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        List<Date> dates = new ArrayList<>();
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(new SimpleDateFormat("dd/MM/yyyy").parse("01/07/2022"));
+
+        while (calendar.getTime().before(new SimpleDateFormat("dd/MM/yyyy").parse("07/07/2022")))
+        {
+            Date result = calendar.getTime();
+            dates.add(result);
+            calendar.add(Calendar.DATE, 1);
+        }
+        long a[];
+        a=dongHocPhiDao.getTongDHPTheoNgay(dates);
+        String labels[]=new String[dates.size()];
+        for(int i=0;i<dates.size();i++){
+            labels[i]=formatter.format(dates.get(i));
+        }
+        modelMap.addAttribute("data",a);
+        modelMap.addAttribute("labels",labels);
+        modelMap.addAttribute("filter","date");
+        modelMap.addAttribute("ngay","01/07/2022 to 07/07/2022");
+        modelMap.addAttribute("monthOfYear",2022);
+        modelMap.addAttribute("quarterOfYear",2022);
+        modelMap.addAttribute("years",5);
+        return "admin/dashboard";
+    }
+    @RequestMapping(value = "/admin/dashboard", method = RequestMethod.POST)
+    public String dashboardAdmin(ModelMap modelMap,@RequestParam("ngay") String ngay,@RequestParam("filter") String filter,
+                                 @RequestParam("monthOfYear") int monthOfYear,@RequestParam("quarterOfYear") int quarterOfYear,
+                                 @RequestParam("years") int years) throws ParseException{
+        modelMap.addAttribute("sumHV",hocVienDao.sumStudent());
+        modelMap.addAttribute("sumGV",giangVienDao.sumInstructor());
+        modelMap.addAttribute("sumHP",hocPhanDao.sumHocPhan());
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date ngayBD=null;
+        Date ngayKT=null;
+        String array[]=ngay.split(" to ");
+        ngayBD= new SimpleDateFormat("dd/MM/yyyy").parse(array[0]);
+        ngayKT= new SimpleDateFormat("dd/MM/yyyy").parse(array[1]);
+        String date=formatter.format(ngayBD) + " to " + formatter.format(ngayKT);
+        long a[] = new long[100];
+        String labels[]= new String[100];
+        switch (filter){
+            case "date":
+
+                List<Date> dates = new ArrayList<>();
+                Calendar calendar = new GregorianCalendar();
+                calendar.setTime(ngayBD);
+                while (calendar.getTime().before(ngayKT))
+                {
+                    Date result = calendar.getTime();
+                    dates.add(result);
+                    calendar.add(Calendar.DATE, 1);
+                }
+                a=new long[dates.size()];
+                a=dongHocPhiDao.getTongDHPTheoNgay(dates);
+                labels=new String[dates.size()];
+                for(int i=0;i<dates.size();i++){
+                    labels[i]=formatter.format(dates.get(i));
+                }
+
+                break;
+            case "month":
+                a=new long[12];
+                a=dongHocPhiDao.getTongDHPTheoThang(monthOfYear);
+                labels= new String[]{"January", "February","March","April","May","June","July","August","September","October","November","December"};
+                break;
+            case "quaters":
+                a=new long[4];
+                a=dongHocPhiDao.getTongDHPTheoQuy(quarterOfYear);
+                labels= new String[]{"Quarter 1", "Quarter 2","Quarter 3","Quarter 4"};
+                break;
+            case "year":
+                a=new long[years];
+                a=dongHocPhiDao.getTongDHPTheoNam(years);
+                labels=new String[years];
+                for(int i=0;i<years;i++){
+                    labels[i]=2022-years+i+1+"";
+                }
+                break;
+            default:
+        }
+        modelMap.addAttribute("data",a);
+        modelMap.addAttribute("labels",labels);
+        modelMap.addAttribute("filter",filter);
+        System.out.println("\n\n\n"+date);
+        modelMap.addAttribute("ngay",date);
+        modelMap.addAttribute("monthOfYear",monthOfYear);
+        modelMap.addAttribute("quarterOfYear",quarterOfYear);
+        modelMap.addAttribute("years",years);
         return "admin/dashboard";
     }
 
@@ -135,9 +229,9 @@ public class AdminController {
         Phong phong=phongDao.getPhong(maPhong);
         hocPhan.setPhong(phong);
         String array[]=ngay.split(" to ");
-        Date ngayBD= new SimpleDateFormat("yyyy/mm/dd").parse(array[0]);
+        Date ngayBD= new SimpleDateFormat("yyyy/MM/dd").parse(array[0]);
         hocPhan.setNgayBD(ngayBD);
-        Date ngayKT= new SimpleDateFormat("yyyy/mm/dd").parse(array[1]);
+        Date ngayKT= new SimpleDateFormat("yyyy/MM/dd").parse(array[1]);
         hocPhan.setNgayKT(ngayKT);
         hocPhan.setCaHoc(caHoc);
         hocPhan.setTrangThai(trangThai);

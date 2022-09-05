@@ -180,6 +180,20 @@ public class UserController {
     public String payment(ModelMap modelMap){
         HttpSession httpSession = Session.getSession();
         HocVien hocVien1=hocVienDao.getHVByUserName((TaiKhoan) httpSession.getAttribute("account"));
+        if(Globals.paymentStatus == 1){
+            modelMap.addAttribute("cancelMessage","Canceled Order!");
+            Globals.paymentStatus = -1;
+        }
+        else if(Globals.paymentStatus == 2){
+            Globals.paymentStatus = -1;
+            DongHocPhi dongHocPhi=new DongHocPhi();
+            dongHocPhi.setTrangThai(false);
+            dongHocPhi.setSoTienDong(Globals.paymentValue);
+            dongHocPhi.setHocVien(hocVien1);
+            dongHocPhi.setNgayDong(new Date());
+            dongHocPhiDao.insertHP(dongHocPhi);
+            modelMap.addAttribute("successMessage","Payment Successful!");
+        }
         List<DangKyHP>list= (List<DangKyHP>) dangKyHPDao.getListDKHPByHV(hocVien1);
         modelMap.addAttribute("list",list);
         List<DongHocPhi>list2 = (List<DongHocPhi>) dongHocPhiDao.getListDHPByHV(hocVien1);
@@ -189,14 +203,7 @@ public class UserController {
         long tongDongHocPhi=dongHocPhiDao.getTongDHPByHV(hocVien1);
         modelMap.addAttribute("tongDHP",tongDongHocPhi);
 
-        if(Globals.paymentStatus == 1){
-            modelMap.addAttribute("cancelMessage","Canceled Order!");
-            Globals.paymentStatus = -1;
-        }
-        else if(Globals.paymentStatus == 2){
-            modelMap.addAttribute("successMessage","Payment Successful!");
-            Globals.paymentStatus = -1;
-        }
+
         return "user/student/payment";
     }
 
@@ -230,7 +237,6 @@ public class UserController {
                                 @RequestParam("date") Date date,
                                 @RequestParam("phone") String phone,
                                 @RequestParam("address") String address,
-                                @RequestParam("password")String password,
                                 RedirectAttributes ra,
                                 ModelMap modelMap) {
         HttpSession session = Session.getSession();
@@ -248,9 +254,6 @@ public class UserController {
         } else {
             ra.addFlashAttribute("errorMessage", "Update Information Failed!");
         }
-//        if(!password.equals("")&&password!=null){
-//
-//        }
         return "redirect:/profile";
     }
     @RequestMapping(value = "/profile/instructor/basic", method = RequestMethod.POST)

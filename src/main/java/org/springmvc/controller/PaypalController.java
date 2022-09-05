@@ -31,6 +31,7 @@ public class PaypalController {
     private static final HocVienDao hocVienDao = new HocVienDao();
     private final DangKyHPDao dangKyHPDao= new DangKyHPDao();
     private final DongHocPhiDao dongHocPhiDao= new DongHocPhiDao();
+    public static long hp=0;
 
     @PostMapping("payment/pay/paypal")
     public String payment(ModelMap model) {
@@ -39,6 +40,7 @@ public class PaypalController {
 
         long tongHocPhi=dangKyHPDao.getTongHocPhi(hocVien);
         long tongDongHocPhi=dongHocPhiDao.getTongDHPByHV(hocVien);
+        hp=tongHocPhi - tongDongHocPhi;
         double total = tongHocPhi - tongDongHocPhi;
         // Convert currency: USD -> VND
         total = total / 23417.0;
@@ -78,6 +80,8 @@ public class PaypalController {
             System.out.println(payment.toJSON());
             if (payment.getState().equals("approved")) {
                 Globals.paymentStatus = 2; // Successful
+                Globals.paymentValue = hp;
+                hp=0;
                 return "redirect:/payment";
             }
         } catch (PayPalRESTException e) {

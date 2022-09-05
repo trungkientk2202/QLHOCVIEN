@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en" dir="ltr">
 
 <head>
@@ -154,7 +155,9 @@
                                 <th style="width: 48px;">
                                     <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-status">Status</a>
                                 </th>
-
+                                <th style="width: 48px;">
+                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-status">Progress</a>
+                                </th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -217,7 +220,10 @@
                                             <span class="indicator-line rounded bg-primary"></span>
                                         </div>
                                     </td>
+                                    <td>
 
+                                        <small class="js-lists-values-to text-50">${hp.soTietDaHoc}/${hp.monHoc.soTiet} Lesson</small>
+                                    </td>
                                     <td class="text-right">
                                         <div class="d-inline-flex align-items-center">
                                             <a href="/admin/course-register/edit/${hp.maHP}" class="btn btn-sm btn-outline-secondary mr-16pt">Edit
