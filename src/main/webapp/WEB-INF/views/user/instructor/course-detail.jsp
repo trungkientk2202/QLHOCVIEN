@@ -158,7 +158,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-success">Finish Lesson</button>
+                            <div class="accordion__item open">
+                                <a href="#" class="accordion__toggle" data-toggle="collapse" data-parent="#parent">
+                                    <span class="flex">Progress Studying</span>
+                                    <span class="text-accent">25%</span>
+                                </a>
+                                <div class="progress rounded-0" style="height: 4px;">
+                                    <div class="progress-bar bg-accent" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+
+                                <button class="btn btn-success">Finish Lesson</button>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -168,22 +178,18 @@
                         </div>
 
                         <div class="card">
-                            <div class="js-player embed-responsive embed-responsive-16by9 mb-32pt">
-                                <div class="player embed-responsive-item">
-                                    <div class="player__content">
-                                        <div class="player__image" style="--player-image: url(<c:url value="/resources/assets/images/illustration/player.svg"/>)"></div>
-                                        <a href="" class="player__play bg-primary">
-                                            <span class="material-icons">play_arrow</span>
-                                        </a>
-                                    </div>
-                                    <div class="player__embed d-none">
-                                        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" allowfullscreen=""></iframe>
-                                    </div>
-                                </div>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe id="video" class="embed-responsive-item" src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" allowfullscreen=""></iframe>
+                            </div>
+                            <div class="card-body">
+                                <label class="form-label" for="video-url">URL</label>
+                                <input id="video-url" type="text" class="form-control" value="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" placeholder="Enter Video URL">
+                                <small class="form-text text-muted">Enter an <strong>ID</strong> of video URL.</small>
+                                <small class="form-text text-muted">Videos must take from <a class="text-accent" href="https://vimeo.com/" target="_blank" rel="noopener noreferrer">vimeo.com</a>.</small>
                             </div>
                         </div>
 
-                        <div class="page-separator" style="margin-top: 8.1rem;"></div>
+                        <div class="page-separator" style="margin-top: 6.7rem;"></div>
 
                         <div class="card">
                             <div class="card-header text-center">
@@ -191,7 +197,7 @@
                             </div>
                             <div class="list-group list-group-flush">
                                 <div class="list-group-item d-flex">
-                                    <a class="flex" href="#"><strong>Save Draft</strong></a>
+                                    <a class="flex" href="#"><strong>Progress Studying</strong></a>
                                     <i class="material-icons text-muted">check</i>
                                 </div>
                                 <div class="list-group-item">
@@ -242,8 +248,14 @@
 
 <script>
     var drawer = document.querySelector(".mdk-drawer-layout");
-
     drawer.style.overflow = "auto";
+
+    var videoURL = document.getElementById("video-url");
+    videoURL.addEventListener('change', (event) => {
+        const url = 'https://player.vimeo.com/video/' + event.target.value + '?title=0&amp;byline=0&amp;portrait=0'
+        document.getElementById("video").src = url;
+        videoURL.value = url;
+    });
 </script>
 
 <!-- Quill -->
